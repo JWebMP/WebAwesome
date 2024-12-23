@@ -9,6 +9,7 @@ import lombok.Setter;
 @Setter
 public class WaAnimation extends DivSimple<WaAnimation>
 {
+    private Animation animation;
     private JQEasingEffects easingEffect;
     private boolean play;
     private int delay;
@@ -33,6 +34,10 @@ public class WaAnimation extends DivSimple<WaAnimation>
         {
             if (play)
                 addAttribute("play", "");
+            if (animation != null)
+            {
+                addAttribute("animation", animation.toString());
+            }
             if (easingEffect != null)
                 addAttribute("easing", easingEffect.toString());
             if (delay > 0)

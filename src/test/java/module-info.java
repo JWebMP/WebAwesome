@@ -6,4 +6,5 @@ module web.awesome.test {
 
 
     opens com.jwebmp.webawesome.test to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.avatar to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
 }
