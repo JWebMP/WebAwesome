@@ -26,6 +26,22 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.imagecompare;
     exports com.jwebmp.webawesome.components.include;
     exports com.jwebmp.webawesome.components.menu;
+    exports com.jwebmp.webawesome.components.progressbar;
+    exports com.jwebmp.webawesome.components.qrcode;
+    exports com.jwebmp.webawesome.components.radio;
+    exports com.jwebmp.webawesome.components.range;
+    exports com.jwebmp.webawesome.components.rating;
+    exports com.jwebmp.webawesome.components.relativetime;
+    exports com.jwebmp.webawesome.components.select;
+    exports com.jwebmp.webawesome.components.skeleton;
+    exports com.jwebmp.webawesome.components.spinner;
+    exports com.jwebmp.webawesome.components.splitpanel;
+    exports com.jwebmp.webawesome.components.waswitch;
+    exports com.jwebmp.webawesome.components.tabgroup;
+    exports com.jwebmp.webawesome.components.tag;
+    exports com.jwebmp.webawesome.components.textarea;
+    exports com.jwebmp.webawesome.components.tooltip;
+    exports com.jwebmp.webawesome.components.tree;
 
 
     exports com.jwebmp.webawesome.components.text;
@@ -61,6 +77,22 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.imagecompare to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.include to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.progressbar to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.qrcode to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.radio to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.range to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.rating to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.relativetime to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.select to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.skeleton to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.spinner to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.splitpanel to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.waswitch to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.tabgroup to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.tag to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.textarea to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.tooltip to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.tree to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
 
 
     opens com.jwebmp.webawesome.components.text to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
