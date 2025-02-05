@@ -1,5 +1,6 @@
 package com.jwebmp.webawesome;
 
+import com.jwebmp.core.base.html.Script;
 import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
 import com.jwebmp.core.base.servlets.enumarations.RequirementsPriority;
@@ -27,21 +28,34 @@ import com.jwebmp.core.services.IPageConfigurator;
         pluginStatus = PluginStatus.DevelopmentStarted
 )
 public class WebAwesomePageConfigurator
-        implements IPageConfigurator<WebAwesomePageConfigurator> {
+        implements IPageConfigurator<WebAwesomePageConfigurator>
+{
 
     @Override
-    public IPage<?> configure(IPage<?> page) {
-        page.addCssReference(new CSSReference("WebAwesome", 0.1, "https://early.webawesome.com/webawesome@3.0.0-alpha.5/dist/themes/default.css")
+    public IPage<?> configure(IPage<?> page)
+    {
+        page.addCssReference(new CSSReference("WebAwesome", 0.1, "https://backers.webawesome.com/dist/styles/webawesome.css")
                 .setPriority(RequirementsPriority.First));
-        page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, "https://early.webawesome.com/webawesome@3.0.0-alpha.5/dist/webawesome.loader.js")
+        page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, "https://backers.webawesome.com/dist/styles/themes/default.css")
+                .setPriority(RequirementsPriority.First).addAttribute("id", "webawesome-theme"));
+        page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, "https://backers.webawesome.com/dist/webawesome.loader.js")
                 .setPriority(RequirementsPriority.Top_Shelf)
                 .setScriptType("module"));
-        
+
+
+        page.getHead().add(new Script<>()
+                .addAttribute("type", "module")
+                .setText("""
+                        import { setBasePath } from 'https://backers.webawesome.com/dist/webawesome.js';
+                                    setBasePath('https://backers.webawesome.com/dist/');"""));
+
+
         return page;
     }
 
     @Override
-    public boolean enabled() {
+    public boolean enabled()
+    {
         return true;
     }
 
