@@ -2,6 +2,7 @@ package com.jwebmp.webawesome.components.badge;
 
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Variant;
+import com.jwebmp.webawesome.components.button.Appearance;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,6 +11,7 @@ import lombok.Setter;
 public class WaBadge extends DivSimple<WaBadge>
 {
     private Variant variant;
+    private Appearance appearance;
 
     private Boolean asPill;
     private Boolean pulsating;
@@ -35,6 +37,10 @@ public class WaBadge extends DivSimple<WaBadge>
             if (pulsating != null && pulsating)
             {
                 addAttribute("pulse", "");
+            }
+            if (appearance != null)
+            {
+                addAttribute("appearance", appearance.toString().toLowerCase());
             }
         }
         super.init();

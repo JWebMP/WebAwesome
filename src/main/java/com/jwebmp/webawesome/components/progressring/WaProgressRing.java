@@ -2,18 +2,19 @@ package com.jwebmp.webawesome.components.progressring;
 
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.webawesome.components.progressbar.WaProgressBar;
 
 /**
  * Represents a Web Awesome progress ring component.
  * This class provides methods to configure the progress ring's attributes.
  */
-public class WaProgressRing extends DivSimple<WaProgressRing>
+public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
 {
     /**
      * The current value of the progress ring.
      * This can be null if not set.
      */
-    private Integer value;
+    private Number value;
 
     /**
      * The track width of the progress ring.
@@ -66,11 +67,11 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param value The value to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setValue(int value)
+    public J setValue(int value)
     {
         this.value = value;
         addAttribute("value", String.valueOf(value));
-        return this;
+        return (J) this;
     }
 
     /**
@@ -79,11 +80,11 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param trackWidth The track width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setTrackWidth(int trackWidth)
+    public J setTrackWidth(int trackWidth)
     {
         this.trackWidth = trackWidth;
         addStyle("--track-width", String.valueOf(trackWidth));
-        return this;
+        return (J) this;
     }
 
     /**
@@ -92,11 +93,11 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param indicatorWidth The indicator width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setIndicatorWidth(int indicatorWidth)
+    public J setIndicatorWidth(int indicatorWidth)
     {
         this.indicatorWidth = indicatorWidth;
         addStyle("--indicator-width", String.valueOf(indicatorWidth));
-        return this;
+        return (J) this;
     }
 
     /**
@@ -105,14 +106,14 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param trackColour The track colour to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setTrackColour(String trackColour)
+    public J setTrackColour(String trackColour)
     {
         if (!Strings.isNullOrEmpty(trackColour))
         {
             this.trackColour = trackColour;
             addStyle("--track-colour", trackColour);
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -121,14 +122,14 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param indicatorColour The indicator colour to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setIndicatorColour(String indicatorColour)
+    public J setIndicatorColour(String indicatorColour)
     {
         if (!Strings.isNullOrEmpty(indicatorColour))
         {
             this.indicatorColour = indicatorColour;
             addStyle("--indicator-colour", indicatorColour);
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -137,14 +138,14 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param label The label to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setLabel(String label)
+    public J setLabel(String label)
     {
         if (!Strings.isNullOrEmpty(label))
         {
             this.label = label;
-            addAttribute("label", label);
+            addClass("progress-ring-values");
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -153,14 +154,14 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
      * @param size The size to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public WaProgressRing setSize(String size)
+    public J setSize(String size)
     {
         if (!Strings.isNullOrEmpty(size))
         {
             this.size = size;
             addStyle("--size", size);
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -198,7 +199,7 @@ public class WaProgressRing extends DivSimple<WaProgressRing>
             }
             if (!Strings.isNullOrEmpty(label))
             {
-                addAttribute("label", label);
+                setText(label);
             }
         }
         super.init();

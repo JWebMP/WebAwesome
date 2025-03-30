@@ -27,6 +27,7 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.include;
     exports com.jwebmp.webawesome.components.menu;
     exports com.jwebmp.webawesome.components.progressbar;
+    exports com.jwebmp.webawesome.components.progressring;
     exports com.jwebmp.webawesome.components.qrcode;
     exports com.jwebmp.webawesome.components.radio;
     exports com.jwebmp.webawesome.components.range;
@@ -78,6 +79,7 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.include to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.progressbar to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.progressring to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.qrcode to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.radio to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.range to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;

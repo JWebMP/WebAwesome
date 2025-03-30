@@ -7,7 +7,7 @@ import com.jwebmp.core.base.html.DivSimple;
  * Represents a Web Awesome progress bar component.
  * This class provides methods to configure the progress bar's attributes.
  */
-public class WaProgressBar extends DivSimple<WaProgressBar>
+public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
 {
     /**
      * The current value of the progress bar.
@@ -48,11 +48,11 @@ public class WaProgressBar extends DivSimple<WaProgressBar>
      * @param value The value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public WaProgressBar setValue(int value)
+    public J setValue(int value)
     {
         this.value = value;
         addAttribute("value", String.valueOf(value));
-        return this;
+        return (J) this;
     }
 
     /**
@@ -61,11 +61,11 @@ public class WaProgressBar extends DivSimple<WaProgressBar>
      * @param max The maximum value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public WaProgressBar setMax(int max)
+    public J setMax(int max)
     {
         this.max = max;
         addAttribute("max", String.valueOf(max));
-        return this;
+        return (J) this;
     }
 
     /**
@@ -74,14 +74,15 @@ public class WaProgressBar extends DivSimple<WaProgressBar>
      * @param label The label to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public WaProgressBar setLabel(String label)
+    public J setLabel(String label)
     {
         if (!Strings.isNullOrEmpty(label))
         {
             this.label = label;
             addAttribute("label", label);
+            setText(label);
         }
-        return this;
+        return (J) this;
     }
 
     /**
@@ -90,17 +91,18 @@ public class WaProgressBar extends DivSimple<WaProgressBar>
      * @param indeterminate The indeterminate state to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public WaProgressBar setIndeterminate(boolean indeterminate)
+    public J setIndeterminate(boolean indeterminate)
     {
         this.indeterminate = indeterminate;
         if (indeterminate)
         {
             addAttribute("indeterminate", "");
-        } else
+        }
+        else
         {
             removeAttribute("indeterminate");
         }
-        return this;
+        return (J) this;
     }
 
     /**

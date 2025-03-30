@@ -4,6 +4,7 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.html.inputs.InputButtonType;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.TooltipCapable;
@@ -50,8 +51,8 @@ public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaBu
     private Boolean caret;
     private Boolean disabled;
     private Boolean loading;
-    private IComponentHierarchyBase<?, ?> prefix;
-    private IComponentHierarchyBase<?, ?> suffix;
+    private IComponentHierarchyBase<GlobalChildren, ?> prefix;
+    private IComponentHierarchyBase<GlobalChildren, ?> suffix;
 
     private String text;
     private InputButtonType<?> type;
