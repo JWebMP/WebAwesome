@@ -1,13 +1,21 @@
 package com.jwebmp.webawesome.components.progressring;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.webawesome.components.progressbar.WaProgressBar;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Represents a Web Awesome progress ring component.
  * This class provides methods to configure the progress ring's attributes.
  */
+@Getter
+@Setter
+@NgImportReference(value = "WaProgressRingDirective", reference = "angular-awesome")
+@NgImportModule("WaProgressRingDirective")
 public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
 {
     /**
@@ -20,25 +28,25 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * The track width of the progress ring.
      * This can be null if not set.
      */
-    private Integer trackWidth;
+    private String trackWidth;
 
     /**
      * The indicator width of the progress ring.
      * This can be null if not set.
      */
-    private Integer indicatorWidth;
+    private String indicatorWidth;
 
     /**
-     * The track colour of the progress ring.
+     * The track color of the progress ring.
      * This can be null if not set.
      */
-    private String trackColour;
+    private String trackColor;
 
     /**
-     * The indicator colour of the progress ring.
+     * The indicator color of the progress ring.
      * This can be null if not set.
      */
-    private String indicatorColour;
+    private String indicatorColor;
 
     /**
      * The label to display on the progress ring.
@@ -53,12 +61,33 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
     private String size;
 
     /**
+     * The transition duration for the indicator.
+     * This can be null if not set.
+     */
+    private String indicatorTransitionDuration;
+
+    /**
+     * Event handler for when the progress ring gains focus.
+     */
+    private String focusEvent;
+
+    /**
+     * Event handler for when the progress ring loses focus.
+     */
+    private String blurEvent;
+
+    /**
+     * Optional component to display before the content.
+     */
+    private IComponentHierarchyBase<?, ?> prefix;
+
+    /**
      * Default constructor for the WaProgressRing class.
-     * Initializes the component with a default class of `wa-progress-ring`.
+     * Initializes the component with a default tag of `wa-progress-ring`.
      */
     public WaProgressRing()
     {
-        addClass("wa-progress-ring");
+        setTag("wa-progress-ring");
     }
 
     /**
@@ -70,7 +99,6 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
     public J setValue(int value)
     {
         this.value = value;
-        addAttribute("value", String.valueOf(value));
         return (J) this;
     }
 
@@ -80,10 +108,12 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param trackWidth The track width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setTrackWidth(int trackWidth)
+    public J setTrackWidth(String trackWidth)
     {
-        this.trackWidth = trackWidth;
-        addStyle("--track-width", String.valueOf(trackWidth));
+        if (!Strings.isNullOrEmpty(trackWidth))
+        {
+            this.trackWidth = trackWidth;
+        }
         return (J) this;
     }
 
@@ -93,41 +123,41 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param indicatorWidth The indicator width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setIndicatorWidth(int indicatorWidth)
+    public J setIndicatorWidth(String indicatorWidth)
     {
-        this.indicatorWidth = indicatorWidth;
-        addStyle("--indicator-width", String.valueOf(indicatorWidth));
-        return (J) this;
-    }
-
-    /**
-     * Sets the track colour of the progress ring.
-     *
-     * @param trackColour The track colour to set.
-     * @return The current instance of WaProgressRing for method chaining.
-     */
-    public J setTrackColour(String trackColour)
-    {
-        if (!Strings.isNullOrEmpty(trackColour))
+        if (!Strings.isNullOrEmpty(indicatorWidth))
         {
-            this.trackColour = trackColour;
-            addStyle("--track-colour", trackColour);
+            this.indicatorWidth = indicatorWidth;
         }
         return (J) this;
     }
 
     /**
-     * Sets the indicator colour of the progress ring.
+     * Sets the track color of the progress ring.
      *
-     * @param indicatorColour The indicator colour to set.
+     * @param trackColor The track color to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setIndicatorColour(String indicatorColour)
+    public J setTrackColor(String trackColor)
     {
-        if (!Strings.isNullOrEmpty(indicatorColour))
+        if (!Strings.isNullOrEmpty(trackColor))
         {
-            this.indicatorColour = indicatorColour;
-            addStyle("--indicator-colour", indicatorColour);
+            this.trackColor = trackColor;
+        }
+        return (J) this;
+    }
+
+    /**
+     * Sets the indicator color of the progress ring.
+     *
+     * @param indicatorColor The indicator color to set.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    public J setIndicatorColor(String indicatorColor)
+    {
+        if (!Strings.isNullOrEmpty(indicatorColor))
+        {
+            this.indicatorColor = indicatorColor;
         }
         return (J) this;
     }
@@ -143,7 +173,6 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
         if (!Strings.isNullOrEmpty(label))
         {
             this.label = label;
-            addClass("progress-ring-values");
         }
         return (J) this;
     }
@@ -159,8 +188,58 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
         if (!Strings.isNullOrEmpty(size))
         {
             this.size = size;
-            addStyle("--size", size);
         }
+        return (J) this;
+    }
+
+    /**
+     * Sets the transition duration for the indicator.
+     *
+     * @param indicatorTransitionDuration The transition duration to set.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    public J setIndicatorTransitionDuration(String indicatorTransitionDuration)
+    {
+        if (!Strings.isNullOrEmpty(indicatorTransitionDuration))
+        {
+            this.indicatorTransitionDuration = indicatorTransitionDuration;
+        }
+        return (J) this;
+    }
+
+    /**
+     * Sets the event handler for when the progress ring gains focus.
+     *
+     * @param focusEvent The focus event handler to set.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    public J setFocusEvent(String focusEvent)
+    {
+        this.focusEvent = focusEvent;
+        return (J) this;
+    }
+
+    /**
+     * Sets the event handler for when the progress ring loses focus.
+     *
+     * @param blurEvent The blur event handler to set.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    public J setBlurEvent(String blurEvent)
+    {
+        this.blurEvent = blurEvent;
+        return (J) this;
+    }
+
+    /**
+     * Sets the prefix component to display before the content.
+     *
+     * @param prefix The component to set as prefix.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    {
+        this.prefix = prefix;
         return (J) this;
     }
 
@@ -177,21 +256,21 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
             {
                 addAttribute("value", value.toString());
             }
-            if (trackWidth != null)
+            if (!Strings.isNullOrEmpty(trackWidth))
             {
-                addStyle("--track-width", trackWidth.toString());
+                addStyle("--track-width", trackWidth);
             }
-            if (indicatorWidth != null)
+            if (!Strings.isNullOrEmpty(indicatorWidth))
             {
-                addStyle("--indicator-width", indicatorWidth.toString());
+                addStyle("--indicator-width", indicatorWidth);
             }
-            if (trackColour != null)
+            if (trackColor != null)
             {
-                addStyle("--track-colour", trackColour);
+                addStyle("--track-color", trackColor);
             }
-            if (indicatorColour != null)
+            if (indicatorColor != null)
             {
-                addStyle("--indicator-colour", indicatorColour);
+                addStyle("--indicator-color", indicatorColor);
             }
             if (!Strings.isNullOrEmpty(size))
             {
@@ -199,9 +278,42 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
             }
             if (!Strings.isNullOrEmpty(label))
             {
-                setText(label);
+                addAttribute("label", label);
+            }
+            if (!Strings.isNullOrEmpty(indicatorTransitionDuration))
+            {
+                addStyle("--indicator-transition-duration", indicatorTransitionDuration);
+            }
+            if (!Strings.isNullOrEmpty(focusEvent))
+            {
+                addAttribute("focus", focusEvent);
+            }
+            if (!Strings.isNullOrEmpty(blurEvent))
+            {
+                addAttribute("blur", blurEvent);
+            }
+            if (prefix != null)
+            {
+                prefix.asAttributeBase()
+                      .addAttribute("slot", "prefix");
+                add(prefix);
             }
         }
         super.init();
+    }
+
+    /**
+     * Overrides the bind method to support two-way binding with ngModel.
+     * This allows the progress ring to be used with [(ngModel)] in Angular templates.
+     *
+     * @param variableName The name of the variable to bind to.
+     * @return The current instance of WaProgressRing for method chaining.
+     */
+    @Override
+    public J bind(String variableName)
+    {
+        addAttribute("[value]", variableName);
+        addAttribute("(valueChange)", variableName + " = $event");
+        return (J) this;
     }
 }

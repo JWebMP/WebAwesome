@@ -1,6 +1,8 @@
 package com.jwebmp.webawesome.components.radio;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
@@ -12,7 +14,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaRadio extends DivSimple<WaRadio>
+@NgImportReference(value = "WaRadioDirective", reference = "angular-awesome")
+@NgImportModule("WaRadioDirective")
+public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
 {
     /**
      * The value of the radio component.
@@ -37,6 +41,66 @@ public class WaRadio extends DivSimple<WaRadio>
      * This can be null if not set.
      */
     private String formId;
+
+    /**
+     * Custom background color for the radio component.
+     * This can be null if not set.
+     */
+    private String styleBackgroundColor;
+
+    /**
+     * Custom background color for the radio component when checked.
+     * This can be null if not set.
+     */
+    private String styleBackgroundColorChecked;
+
+    /**
+     * Custom border color for the radio component.
+     * This can be null if not set.
+     */
+    private String styleBorderColor;
+
+    /**
+     * Custom border color for the radio component when checked.
+     * This can be null if not set.
+     */
+    private String styleBorderColorChecked;
+
+    /**
+     * Custom border style for the radio component.
+     * This can be null if not set.
+     */
+    private String styleBorderStyle;
+
+    /**
+     * Custom border width for the radio component.
+     * This can be null if not set.
+     */
+    private String styleBorderWidth;
+
+    /**
+     * Custom box shadow for the radio component.
+     * This can be null if not set.
+     */
+    private String styleBoxShadow;
+
+    /**
+     * Custom color for the checked icon.
+     * This can be null if not set.
+     */
+    private String styleCheckedIconColor;
+
+    /**
+     * Custom scale for the checked icon.
+     * This can be null if not set.
+     */
+    private String styleCheckedIconScale;
+
+    /**
+     * Custom size for the toggle.
+     * This can be null if not set.
+     */
+    private String styleToggleSize;
 
     /**
      * Default constructor for the WaRadio class.
@@ -66,11 +130,54 @@ public class WaRadio extends DivSimple<WaRadio>
             }
             if (size != null)
             {
-                addAttribute("size", size.name().toLowerCase());
+                addAttribute("size", size.name()
+                                         .toLowerCase());
             }
             if (!Strings.isNullOrEmpty(formId))
             {
                 addAttribute("form", formId);
+            }
+
+            // Add CSS custom properties if specified
+            if (!Strings.isNullOrEmpty(styleBackgroundColor))
+            {
+                addStyle("--background-color", styleBackgroundColor);
+            }
+            if (!Strings.isNullOrEmpty(styleBackgroundColorChecked))
+            {
+                addStyle("--background-color-checked", styleBackgroundColorChecked);
+            }
+            if (!Strings.isNullOrEmpty(styleBorderColor))
+            {
+                addStyle("--border-color", styleBorderColor);
+            }
+            if (!Strings.isNullOrEmpty(styleBorderColorChecked))
+            {
+                addStyle("--border-color-checked", styleBorderColorChecked);
+            }
+            if (!Strings.isNullOrEmpty(styleBorderStyle))
+            {
+                addStyle("--border-style", styleBorderStyle);
+            }
+            if (!Strings.isNullOrEmpty(styleBorderWidth))
+            {
+                addStyle("--border-width", styleBorderWidth);
+            }
+            if (!Strings.isNullOrEmpty(styleBoxShadow))
+            {
+                addStyle("--box-shadow", styleBoxShadow);
+            }
+            if (!Strings.isNullOrEmpty(styleCheckedIconColor))
+            {
+                addStyle("--checked-icon-color", styleCheckedIconColor);
+            }
+            if (!Strings.isNullOrEmpty(styleCheckedIconScale))
+            {
+                addStyle("--checked-icon-scale", styleCheckedIconScale);
+            }
+            if (!Strings.isNullOrEmpty(styleToggleSize))
+            {
+                addStyle("--toggle-size", styleToggleSize);
             }
         }
         super.init();

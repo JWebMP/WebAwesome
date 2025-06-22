@@ -6,13 +6,25 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class WaAvatarGroupTest
+public class WaAvatarGroupTest
 {
 
     @Test
-    void renderAfterTag()
+    public void testRenderAvatarGroupHtml()
     {
-        var s = new WaAvatarGroup().add(new WaAvatar().setLabel("Avatar 1")).toString(true);
+        var s = new WaAvatarGroup<>().add(new WaAvatar<>().setLabel("Avatar 1"))
+                                   .toString(true);
         System.out.println(s);
+
+        assertEquals("""
+                <div class="wa-avatar-group">
+                	<wa-avatar label="Avatar 1"></wa-avatar>
+                </div><style type="text/css">.wa-avatar-group wa-avatar:not(:first-of-type) {
+                    margin-left: calc(-1 * var(--wa-space-m));
+                  }
+
+                  .wa-avatar-group wa-avatar::part(base) {
+                    border: solid 2px var(--wa-color-surface-default);
+                  }</style>""", s);
     }
 }

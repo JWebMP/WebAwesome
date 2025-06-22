@@ -8,6 +8,8 @@ package com.jwebmp.webawesome.components.copybutton;
  */
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
@@ -15,7 +17,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WaCopyButton extends DivSimple<WaCopyButton>
+@NgImportReference(value = "WaCopyButtonDirective", reference = "angular-awesome")
+@NgImportModule("WaCopyButtonDirective")
+public class WaCopyButton<J extends WaCopyButton<J>> extends DivSimple<J>
 {
     /**
      * The value (text) to be copied by the button. If set, this value will be copied directly.
@@ -24,8 +28,9 @@ public class WaCopyButton extends DivSimple<WaCopyButton>
     /**
      * The ID of the HTML element from which the value will be copied.
      * If set, the button will copy the text content of the specified element.
+     * Supports [attr] and .prop syntax.
      */
-    private String fromId;
+    private String from;
 
 
     /**
@@ -69,6 +74,12 @@ public class WaCopyButton extends DivSimple<WaCopyButton>
     private Integer feedbackDuration;
 
     /**
+     * The placement of the tooltip relative to the button.
+     * Possible values: 'top', 'right', 'bottom', 'left'
+     */
+    private String tooltipPlacement;
+
+    /**
      * Default constructor for the WaCopyButton component.
      * Initializes the button element with the required tag name.
      */
@@ -91,9 +102,9 @@ public class WaCopyButton extends DivSimple<WaCopyButton>
             {
                 addAttribute("value", value);
             }
-            if (!Strings.isNullOrEmpty(fromId))
+            if (!Strings.isNullOrEmpty(from))
             {
-                addAttribute("from", fromId);
+                addAttribute("from", from);
             }
             if (!Strings.isNullOrEmpty(copyLabel))
             {
@@ -130,6 +141,10 @@ public class WaCopyButton extends DivSimple<WaCopyButton>
             if (feedbackDuration != null)
             {
                 addAttribute("feedback-duration", feedbackDuration + "");
+            }
+            if (!Strings.isNullOrEmpty(tooltipPlacement))
+            {
+                addAttribute("tooltip-placement", tooltipPlacement);
             }
 
         }

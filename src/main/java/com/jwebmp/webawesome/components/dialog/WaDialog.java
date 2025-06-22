@@ -1,6 +1,8 @@
 package com.jwebmp.webawesome.components.dialog;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.button.WaButton;
@@ -10,19 +12,108 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * The WaDialog component provides a modal dialog box.
+ * It supports features like light dismissal, accessibility labels, autofocus management, and lifecycle events.
+ */
 @Getter
 @Setter
-public class WaDialog extends DivSimple<WaDialog>
+@NgImportReference(value = "WaDialogDirective", reference = "angular-awesome")
+@NgImportModule("WaDialogDirective")
+public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
 {
+    /**
+     * ARIA-accessible label. Required for accessibility.
+     */
     private String label;
-    private Boolean dialogDismiss;
-    private Boolean overlayDismiss;
+
+    /**
+     * Controls the visibility of the dialog.
+     */
+    private Boolean open;
+
+    /**
+     * If true, clicking the overlay closes the dialog.
+     */
+    private Boolean lightDismiss;
+
+    /**
+     * If true, hides the header section.
+     */
+    private Boolean withoutHeader;
+
+    /**
+     * If true, enables scrolling for the dialog content.
+     */
     private Boolean scrolling;
+
+    /**
+     * If true, prevents the dialog from being closed by the header close button.
+     */
     private Boolean dialogHeaderDenyClose;
+
+    /**
+     * Background color of the dialog.
+     */
+    private String backgroundColor;
+
+    /**
+     * Border radius of the dialog.
+     */
+    private String borderRadius;
+
+    /**
+     * Box shadow of the dialog.
+     */
+    private String boxShadow;
+
+    /**
+     * Spacing inside the dialog.
+     */
+    private String spacing;
+
+    /**
+     * Width of the dialog.
+     */
+    private String width;
+
+    /**
+     * Duration of the show animation.
+     */
+    private String showDuration;
+
+    /**
+     * Duration of the hide animation.
+     */
+    private String hideDuration;
 
     public WaDialog()
     {
         setTag("wa-dialog");
+    }
+
+    /**
+     * Opens the dialog programmatically.
+     *
+     * @return This object for method chaining
+     */
+    public J show()
+    {
+        // This would be implemented in JavaScript in the actual component
+        // Here we just provide the method signature for documentation
+        return (J) this;
+    }
+
+    /**
+     * Closes the dialog programmatically.
+     *
+     * @return This object for method chaining
+     */
+    public J hide()
+    {
+        // This would be implemented in JavaScript in the actual component
+        // Here we just provide the method signature for documentation
+        return (J) this;
     }
 
     @Override
@@ -34,38 +125,84 @@ public class WaDialog extends DivSimple<WaDialog>
             {
                 addAttribute("label", label);
             }
-            if (dialogDismiss != null && dialogDismiss)
+            if (open != null && open)
             {
-                addAttribute("dialog-dismiss", "");
-                addClass("dialog-dismiss");
+                addAttribute("open", "");
+            }
+            if (lightDismiss != null && lightDismiss)
+            {
+                addAttribute("light-dismiss", "");
+            }
+            if (withoutHeader != null && withoutHeader)
+            {
+                addAttribute("without-header", "");
             }
             if (scrolling != null && scrolling)
             {
                 addAttribute("scrolling", "");
                 addClass("dialog-scrolling");
             }
-            if (overlayDismiss != null && overlayDismiss)
-            {
-                addAttribute("light-dismiss", "");
-            }
             if (dialogHeaderDenyClose != null && dialogHeaderDenyClose)
             {
                 addAttribute("dialog-deny-close", "");
+            }
+
+            // Apply CSS custom properties
+            if (!Strings.isNullOrEmpty(backgroundColor))
+            {
+                addStyle("--background-color", backgroundColor);
+            }
+            if (!Strings.isNullOrEmpty(borderRadius))
+            {
+                addStyle("--border-radius", borderRadius);
+            }
+            if (!Strings.isNullOrEmpty(boxShadow))
+            {
+                addStyle("--box-shadow", boxShadow);
+            }
+            if (!Strings.isNullOrEmpty(spacing))
+            {
+                addStyle("--spacing", spacing);
+            }
+            if (!Strings.isNullOrEmpty(width))
+            {
+                addStyle("--width", width);
+            }
+            if (!Strings.isNullOrEmpty(showDuration))
+            {
+                addStyle("--show-duration", showDuration);
+            }
+            if (!Strings.isNullOrEmpty(hideDuration))
+            {
+                addStyle("--hide-duration", hideDuration);
             }
         }
         super.init();
     }
 
-    public WaDialog withHeader(DivSimple<?> header)
+    /**
+     * Adds a header to the dialog.
+     *
+     * @param header The header content
+     * @return This object for method chaining
+     */
+    public J withHeader(DivSimple<?> header)
     {
         header.addAttribute("slot", "header");
         addAttribute("with-header", "");
         addClass("dialog-header");
         add(header);
-        return this;
+        return (J) this;
     }
 
-    public WaDialog withHeaderActions(List<WaIconButton> iconButtons)
+    /**
+     * Adds header action buttons to the dialog.
+     * These buttons appear beside the close button in the header.
+     *
+     * @param iconButtons The list of icon buttons to add
+     * @return This object for method chaining
+     */
+    public J withHeaderActions(List<WaIconButton> iconButtons)
     {
         for (WaIconButton iconButton : iconButtons)
         {
@@ -75,30 +212,52 @@ public class WaDialog extends DivSimple<WaDialog>
             add(iconButton);
         }
 
-        return this;
+        return (J) this;
     }
 
-    public WaDialog withFooter(DivSimple<?> footer)
+    /**
+     * Adds a footer to the dialog.
+     * The footer typically contains action buttons.
+     *
+     * @param footer The footer content
+     * @return This object for method chaining
+     */
+    public J withFooter(DivSimple<?> footer)
     {
         footer.addAttribute("slot", "footer");
         addAttribute("with-footer", "");
         addClass("dialog-footer");
         add(footer);
-        return this;
+        return (J) this;
     }
 
+    /**
+     * Creates a close button and adds it to the specified container.
+     * The button will have the data-dialog="close" attribute to close the dialog when clicked.
+     *
+     * @param addTo The container to add the button to
+     * @return The created button
+     */
     public WaButton withCloseButton(DivSimple<?> addTo)
     {
         WaButton closeButton = new WaButton("Close");
-        addAttribute("data-dialog", "close");
+        closeButton.addAttribute("data-dialog", "close");
         addTo.add(closeButton);
         return closeButton;
     }
 
-    public WaDialog withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
+    /**
+     * Sets the specified component to receive focus when the dialog opens.
+     * Adds the autofocus attribute to the component.
+     *
+     * @param component The component to receive focus
+     * @return This object for method chaining
+     */
+    public J withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
     {
-        component.asAttributeBase().addAttribute("autofocus", "");
-        return this;
+        component.asAttributeBase()
+                 .addAttribute("autofocus", "");
+        return (J) this;
     }
-    
+
 }

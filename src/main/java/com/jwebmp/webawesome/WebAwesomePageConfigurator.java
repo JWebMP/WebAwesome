@@ -1,5 +1,6 @@
 package com.jwebmp.webawesome;
 
+import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import com.jwebmp.core.base.html.Script;
 import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
@@ -27,6 +28,7 @@ import com.jwebmp.core.services.IPageConfigurator;
         pluginModuleName = "com.jwebmp.webawesome",
         pluginStatus = PluginStatus.DevelopmentStarted
 )
+@TsDependency(value = "angular-awesome",version = "*")
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>
 {

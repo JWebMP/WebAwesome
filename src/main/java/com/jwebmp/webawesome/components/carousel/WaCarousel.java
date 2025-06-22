@@ -1,6 +1,9 @@
 package com.jwebmp.webawesome.components.carousel;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +24,11 @@ import lombok.Setter;
  *   <li>Navigation - Provides navigation arrows to traverse slides/entries.</li>
  *   <li>Mouse Dragging - Enables navigation using mouse dragging on desktop devices.</li>
  *   <li>Loop - Ensures infinite scrolling by looping carousel items continuously.</li>
+ *   <li>Autoplay - Enables automatic sliding with configurable interval.</li>
+ *   <li>Slides Per Page - Controls how many slides to show at once.</li>
+ *   <li>Slides Per Move - Controls how many slides to move on next/prev.</li>
+ *   <li>Orientation - Supports horizontal or vertical layout.</li>
+ *   <li>Custom Navigation Icons - Allows customization of navigation icons via slots.</li>
  * </ul>
  *
  * <p><b>Usage Example:</b></p>
@@ -30,6 +38,11 @@ import lombok.Setter;
  * carousel.setNavigation(true); // Enable navigation arrows
  * carousel.setMouseDragging(true); // Enable mouse slide dragging
  * carousel.setLoop(true); // Make the carousel loop infinitely
+ * carousel.setAutoplay(true); // Enable autoplay
+ * carousel.setAutoplayInterval(5000); // Set autoplay interval to 5 seconds
+ * carousel.setSlidesPerPage(3); // Show 3 slides at once
+ * carousel.setSlidesPerMove(1); // Move 1 slide at a time
+ * carousel.setOrientation("vertical"); // Set vertical orientation
  * }</pre>
  * <p>
  * The resulting carousel will display enabled navigation mechanisms and loop through
@@ -41,16 +54,108 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WaCarousel extends DivSimple<WaCarousel>
+@NgImportReference(value = "WaCarouselDirective", reference = "angular-awesome")
+@NgImportModule("WaCarouselDirective")
+public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J>
 {
+    /**
+     * Displays slide indicator dots
+     */
     private Boolean pagination;
+
+    /**
+     * Displays prev/next buttons
+     */
     private Boolean navigation;
+
+    /**
+     * Enables click-and-drag mouse scrolling
+     */
     private Boolean mouseDragging;
+
+    /**
+     * Enables infinite looping
+     */
     private Boolean loop;
 
+    /**
+     * Enables automatic sliding
+     */
+    private Boolean autoplay;
+
+    /**
+     * Time in ms between auto slides (default 3000)
+     */
+    private Integer autoplayInterval;
+
+    /**
+     * How many slides to show at once
+     */
+    private Integer slidesPerPage;
+
+    /**
+     * How many slides to move on next/prev (default 1)
+     */
+    private Integer slidesPerMove;
+
+    /**
+     * Layout orientation (horizontal or vertical)
+     */
+    private String orientation;
+
+    /**
+     * Optional replacement icon for "next" arrow
+     */
+    private IComponentHierarchyBase<?, ?> nextIcon;
+
+    /**
+     * Optional replacement icon for "prev" arrow
+     */
+    private IComponentHierarchyBase<?, ?> previousIcon;
+
+    /**
+     * Creates a new WaCarousel component
+     */
     public WaCarousel()
     {
         setTag("wa-carousel");
+    }
+
+    /**
+     * Scrolls forward by slidesPerMove
+     *
+     * @return This object for method chaining
+     */
+    public WaCarousel next()
+    {
+        // This would be implemented in JavaScript in the actual component
+        // Here we just provide the method signature for documentation
+        return this;
+    }
+
+    /**
+     * Scrolls backward by slidesPerMove
+     *
+     * @return This object for method chaining
+     */
+    public WaCarousel previous()
+    {
+        // This would be implemented in JavaScript in the actual component
+        // Here we just provide the method signature for documentation
+        return this;
+    }
+
+    /**
+     * Jumps to slide at index i
+     *
+     * @param index The index of the slide to jump to
+     * @return This object for method chaining
+     */
+    public WaCarousel goToSlide(int index)
+    {
+        // This would be implemented in JavaScript in the actual component
+        // Here we just provide the method signature for documentation
+        return this;
     }
 
     /**
@@ -79,6 +184,38 @@ public class WaCarousel extends DivSimple<WaCarousel>
             if (loop != null && loop)
             {
                 addAttribute("loop", "");
+            }
+            if (autoplay != null && autoplay)
+            {
+                addAttribute("autoplay", "");
+            }
+            if (autoplayInterval != null)
+            {
+                addAttribute("autoplay-interval", autoplayInterval.toString());
+            }
+            if (slidesPerPage != null)
+            {
+                addAttribute("slides-per-page", slidesPerPage.toString());
+            }
+            if (slidesPerMove != null)
+            {
+                addAttribute("slides-per-move", slidesPerMove.toString());
+            }
+            if (orientation != null)
+            {
+                addAttribute("orientation", orientation);
+            }
+            if (nextIcon != null)
+            {
+                nextIcon.asAttributeBase()
+                        .addAttribute("slot", "next-icon");
+                add(nextIcon);
+            }
+            if (previousIcon != null)
+            {
+                previousIcon.asAttributeBase()
+                            .addAttribute("slot", "previous-icon");
+                add(previousIcon);
             }
         }
         super.init();

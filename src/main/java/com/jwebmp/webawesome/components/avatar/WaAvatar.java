@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.avatar;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Shapes;
 import com.jwebmp.webawesome.components.icon.WaIcon;
@@ -8,7 +10,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WaAvatar extends DivSimple<WaAvatar>
+@NgImportReference(value = "WaAvatarDirective", reference = "angular-awesome")
+@NgImportModule("WaAvatarDirective")
+public class WaAvatar<J extends WaAvatar<J>> extends DivSimple<J>
 {
     /**
      * The label to show
@@ -46,9 +50,13 @@ public class WaAvatar extends DivSimple<WaAvatar>
         if (!isInitialized())
         {
             if (label != null)
+            {
                 addAttribute("label", label);
+            }
             if (image != null)
+            {
                 addAttribute("image", image);
+            }
             if (lazy != null && lazy)
             {
                 addAttribute("loading", "lazy");
@@ -63,7 +71,7 @@ public class WaAvatar extends DivSimple<WaAvatar>
             }
             if (shape != null)
             {
-                addAttribute("shape", shape.toString().toLowerCase());
+                addAttribute("shape", shape.toString());
             }
         }
         super.init();

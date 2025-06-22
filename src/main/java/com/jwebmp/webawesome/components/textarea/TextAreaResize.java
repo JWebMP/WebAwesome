@@ -1,9 +1,20 @@
 package com.jwebmp.webawesome.components.textarea;
 
+/**
+ * Represents the resize behavior options for the WaTextArea component.
+ * Possible values are: 'none', 'vertical', 'horizontal', 'both', 'auto'.
+ */
 public enum TextAreaResize
 {
     None,
-    Auto,
+    Vertical,
     Horizontal,
-    Both
+    Both,
+    Auto;
+
+    @Override
+    public String toString()
+    {
+        return name().toLowerCase();
+    }
 }

@@ -17,17 +17,23 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.carousel;
     exports com.jwebmp.webawesome.components.checkbox;
     exports com.jwebmp.webawesome.components.colorpicker;
+    exports com.jwebmp.webawesome.components.comparison;
     exports com.jwebmp.webawesome.components.copybutton;
     exports com.jwebmp.webawesome.components.details;
     exports com.jwebmp.webawesome.components.dialog;
     exports com.jwebmp.webawesome.components.divider;
     exports com.jwebmp.webawesome.components.drawer;
+    exports com.jwebmp.webawesome.components.formatbytes;
+    exports com.jwebmp.webawesome.components.formatdate;
+    exports com.jwebmp.webawesome.components.formatnumber;
     exports com.jwebmp.webawesome.components.icon;
-    exports com.jwebmp.webawesome.components.imagecompare;
+    //exports com.jwebmp.webawesome.components.imagecompare;
     exports com.jwebmp.webawesome.components.include;
+    exports com.jwebmp.webawesome.components.input;
     exports com.jwebmp.webawesome.components.menu;
     exports com.jwebmp.webawesome.components.progressbar;
     exports com.jwebmp.webawesome.components.progressring;
+    exports com.jwebmp.webawesome.components.popup;
     exports com.jwebmp.webawesome.components.qrcode;
     exports com.jwebmp.webawesome.components.radio;
     exports com.jwebmp.webawesome.components.range;
@@ -48,9 +54,10 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.text;
 
     requires transitive com.jwebmp.core;
-    requires static lombok;
 
     requires com.jwebmp.plugins.easingeffects;
+    requires com.jwebmp.core.base.angular.client;
+    requires static lombok;
 
     provides IGuiceScanModuleInclusions with WebAwesomeInclusionModule;
     provides IPageConfigurator with WebAwesomePageConfigurator;
@@ -69,15 +76,21 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.carousel to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.checkbox to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.colorpicker to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.comparison to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.copybutton to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.details to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.dialog to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.divider to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.drawer to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.formatbytes to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.formatdate to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.formatnumber to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.icon to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
-    opens com.jwebmp.webawesome.components.imagecompare to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    //opens com.jwebmp.webawesome.components.imagecompare to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.include to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.input to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.popup to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.progressbar to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.progressring to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.qrcode to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;

@@ -1,11 +1,15 @@
 package com.jwebmp.webawesome.components.text;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NgImportReference(value = "WaFormatDate", reference = "angular-awesome")
+@NgImportModule("WaFormatDate")
 public class FormatDate extends DivSimple<FormatDate>
 {
     /**
@@ -89,11 +93,13 @@ public class FormatDate extends DivSimple<FormatDate>
         {
             if (weekdayFormat != null)
             {
-                addAttribute("weekday-format", weekdayFormat.toString().toLowerCase());
+                addAttribute("weekday-format", weekdayFormat.toString()
+                                                            .toLowerCase());
             }
             if (eraFormat != null)
             {
-                addAttribute("era-format", eraFormat.toString().toLowerCase());
+                addAttribute("era-format", eraFormat.toString()
+                                                    .toLowerCase());
             }
             if (year != null)
             {
@@ -148,11 +154,13 @@ public class FormatDate extends DivSimple<FormatDate>
             }
             if (timezoneNameFormat != null)
             {
-                addAttribute("timezone-name", timezoneNameFormat.toString().toLowerCase());
+                addAttribute("timezone-name", timezoneNameFormat.toString()
+                                                                .toLowerCase());
             }
             if (hourFormat != null)
             {
-                addAttribute("hour-format", hourFormat.toString().toLowerCase());
+                addAttribute("hour-format", hourFormat.toString()
+                                                      .toLowerCase());
             }
         }
         super.init();

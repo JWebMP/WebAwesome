@@ -1,6 +1,8 @@
 package com.jwebmp.webawesome.components.icon;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -8,27 +10,106 @@ import com.jwebmp.core.base.interfaces.IIcon;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The WaIcon component renders visual symbols from various libraries.
+ * It supports different families, variants, custom sources, styling, and accessibility.
+ */
 @Getter
 @Setter
+@NgImportReference(value = "WaIconDirective", reference = "angular-awesome")
+@NgImportModule("WaIconDirective")
 public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<GlobalChildren, J>
 {
+    /**
+     * Font Awesome family (e.g., classic, brands).
+     */
     private String family;
 
-    private String iconName;
-    private String primaryColour;
+    /**
+     * Name of a registered icon library.
+     */
+    private String library;
+
+    /**
+     * URL to an SVG resource for custom icons.
+     */
+    private String src;
+
+    /**
+     * Sets the icon's text color directly.
+     */
+    private String color;
+
+    /**
+     * Sets the icon's background color.
+     */
+    private String backgroundColor;
+
+    /**
+     * Sets a duotone icon's primary color.
+     */
+    private String primaryColor;
+
+    /**
+     * Sets a duotone icon's primary opacity.
+     */
     private Double primaryOpacity;
-    private String secondaryColour;
+
+    /**
+     * Sets a duotone icon's secondary color.
+     */
+    private String secondaryColor;
+
+    /**
+     * Sets a duotone icon's secondary opacity.
+     */
     private Double secondaryOpacity;
+
+    /**
+     * Adjusts the icon's font size.
+     */
     private String fontSize;
+
+    /**
+     * If true, forces a fixed 1em width.
+     */
     private Boolean fixedWidth;
 
+    /**
+     * Accessible label for assistive technologies.
+     */
     private String label;
-    private IconVariant iconVariant;
+
+    /**
+     * Variant within a family (e.g., regular, solid).
+     */
+    private IconVariant variant;
 
 
     public WaIcon()
     {
         setTag("wa-icon");
+    }
+
+    public WaIcon(String iconName)
+    {
+        this();
+        setName(iconName);
+    }
+
+    public WaIcon(String iconName, String family)
+    {
+        this();
+        setName(iconName);
+        setFamily(family);
+    }
+
+    public WaIcon(String iconName, String family, IconVariant variant)
+    {
+        this();
+        setName(iconName);
+        setFamily(family);
+        setVariant(variant);
     }
 
     @Override
@@ -52,21 +133,37 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             {
                 addAttribute("family", family);
             }
-            if (!Strings.isNullOrEmpty(iconName))
+            if (!Strings.isNullOrEmpty(getName()) && Strings.isNullOrEmpty(src))
             {
-                addAttribute("name", iconName);
+                addAttribute("name", getName());
             }
-            if (!Strings.isNullOrEmpty(primaryColour))
+            if (!Strings.isNullOrEmpty(library))
             {
-                addStyle("--primary-colour", primaryColour);
+                addAttribute("library", library);
+            }
+            if (!Strings.isNullOrEmpty(src))
+            {
+                addAttribute("src", src);
+            }
+            if (!Strings.isNullOrEmpty(color))
+            {
+                addStyle("color", color);
+            }
+            if (!Strings.isNullOrEmpty(backgroundColor))
+            {
+                addStyle("background-color", backgroundColor);
+            }
+            if (!Strings.isNullOrEmpty(primaryColor))
+            {
+                addStyle("--primary-color", primaryColor);
             }
             if (primaryOpacity != null)
             {
                 addStyle("--primary-opacity", primaryOpacity + "");
             }
-            if (!Strings.isNullOrEmpty(secondaryColour))
+            if (!Strings.isNullOrEmpty(secondaryColor))
             {
-                addStyle("--secondary-colour", secondaryColour);
+                addStyle("--secondary-color", secondaryColor);
             }
             if (secondaryOpacity != null)
             {
@@ -74,9 +171,9 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             }
             if (!Strings.isNullOrEmpty(fontSize))
             {
-                addStyle("--font-size", fontSize);
+                addStyle("font-size", fontSize);
             }
-            if (fixedWidth != null)
+            if (fixedWidth != null && fixedWidth)
             {
                 addAttribute("fixed-width", "");
             }
@@ -84,9 +181,9 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             {
                 addAttribute("label", label);
             }
-            if (iconVariant != null)
+            if (variant != null)
             {
-                addAttribute("variant", iconVariant.toString().toLowerCase());
+                addAttribute("variant", variant.toString());
             }
         }
         super.init();

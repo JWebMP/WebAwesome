@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.badge;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Variant;
 import com.jwebmp.webawesome.components.button.Appearance;
@@ -8,7 +10,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class WaBadge extends DivSimple<WaBadge>
+@NgImportReference(value = "WaBadgeDirective", reference = "angular-awesome")
+@NgImportModule("WaBadgeDirective")
+public class WaBadge<J extends WaBadge<J>> extends DivSimple<J>
 {
     private Variant variant;
     private Appearance appearance;
@@ -28,7 +32,8 @@ public class WaBadge extends DivSimple<WaBadge>
         {
             if (variant != null)
             {
-                addAttribute("variant", variant.toString().toLowerCase());
+                addAttribute("variant", variant.toString()
+                                               .toLowerCase());
             }
             if (asPill != null && asPill)
             {
@@ -40,7 +45,8 @@ public class WaBadge extends DivSimple<WaBadge>
             }
             if (appearance != null)
             {
-                addAttribute("appearance", appearance.toString().toLowerCase());
+                addAttribute("appearance", appearance.toString()
+                                                     .toLowerCase());
             }
         }
         super.init();

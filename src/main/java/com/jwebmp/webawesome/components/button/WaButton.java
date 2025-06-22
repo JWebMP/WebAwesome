@@ -1,6 +1,8 @@
 package com.jwebmp.webawesome.components.button;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.html.inputs.InputButtonType;
@@ -42,7 +44,9 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaButton>
+@NgImportReference(value = "WaButtonDirective", reference = "angular-awesome")
+@NgImportModule("WaButtonDirective")
+public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements TooltipCapable<J>
 {
     private Variant variant;
     private Appearance appearance;
@@ -54,7 +58,6 @@ public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaBu
     private IComponentHierarchyBase<GlobalChildren, ?> prefix;
     private IComponentHierarchyBase<GlobalChildren, ?> suffix;
 
-    private String text;
     private InputButtonType<?> type;
 
     private String formId;
@@ -109,15 +112,18 @@ public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaBu
         {
             if (variant != null)
             {
-                addAttribute("variant", variant.toString().toLowerCase());
+                addAttribute("variant", variant.toString()
+                                               .toLowerCase());
             }
             if (appearance != null)
             {
-                addAttribute("appearance", appearance.toString().toLowerCase());
+                addAttribute("appearance", appearance.toString()
+                                                     .toLowerCase());
             }
             if (size != null)
             {
-                addAttribute("size", size.toString().toLowerCase());
+                addAttribute("size", size.toString()
+                                         .toLowerCase());
             }
             if (asPill != null && asPill)
             {
@@ -125,16 +131,14 @@ public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaBu
             }
             if (prefix != null)
             {
-                prefix.asAttributeBase().addAttribute("slot", "prefix");
+                prefix.asAttributeBase()
+                      .addAttribute("slot", "prefix");
                 add(prefix);
-            }
-            if (!Strings.isNullOrEmpty(text))
-            {
-                add(new Paragraph<>(text).setTextOnly(true));
             }
             if (suffix != null)
             {
-                suffix.asAttributeBase().addAttribute("slot", "suffix");
+                suffix.asAttributeBase()
+                      .addAttribute("slot", "suffix");
                 add(suffix);
             }
             if (caret != null && caret)
@@ -151,7 +155,8 @@ public class WaButton extends DivSimple<WaButton> implements TooltipCapable<WaBu
             }
             if (type != null)
             {
-                addAttribute("type", type.toString().toLowerCase());
+                addAttribute("type", type.toString()
+                                         .toLowerCase());
             }
             if (formId != null)
             {

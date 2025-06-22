@@ -1,14 +1,14 @@
 package com.jwebmp.webawesome.components.text;
 
 import com.google.common.base.Strings;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
+import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 /**
  * A component for formatting and displaying numeric values in a web application.
  * The component supports various options for grouping, currency, language, and digit constraints.
@@ -23,8 +23,41 @@ import lombok.Setter;
  * }</pre>
  * </p>
  */
+@Getter
+@Setter
+@NgImportReference(value = "WaFormatNumber", reference = "angular-awesome")
+@NgImportModule("WaFormatNumber")
 public class FormatNumber extends DivSimple<FormatNumber>
 {
+    /**
+     * Enum for number formatting types.
+     */
+    public enum NumberType {
+        DECIMAL,
+        CURRENCY,
+        PERCENT;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase();
+        }
+    }
+
+    /**
+     * Enum for currency display options.
+     */
+    public enum CurrencyDisplay {
+        SYMBOL,
+        NARROW_SYMBOL,
+        CODE,
+        NAME;
+
+        @Override
+        public String toString() {
+            return name().toLowerCase().replace('_', '-');
+        }
+    }
+
     /**
      * The numeric value to be formatted.
      * Example: {@code 12345.67}
@@ -94,11 +127,52 @@ public class FormatNumber extends DivSimple<FormatNumber>
     private Integer maxIntegerDigits;
 
     /**
+     * Text color of the formatted number.
+     */
+    private String color;
+
+    /**
+     * Font size of the formatted number.
+     */
+    private String fontSize;
+
+    /**
+     * Font weight of the formatted number.
+     */
+    private String fontWeight;
+
+    /**
+     * Display property of the formatted number.
+     */
+    private String display;
+
+    /**
+     * Text alignment of the formatted number.
+     */
+    private String textAlign;
+
+    /**
+     * Padding around the formatted number.
+     */
+    private String padding;
+
+    /**
      * Constructs a new {@link FormatNumber} instance and sets the HTML tag to "wa-format-number".
      */
     public FormatNumber()
     {
         setTag("wa-format-number");
+    }
+
+    /**
+     * Creates a new FormatNumber component with the specified value.
+     *
+     * @param value The number to format
+     */
+    public FormatNumber(Number value)
+    {
+        this();
+        this.value = value;
     }
 
     /**
@@ -113,15 +187,15 @@ public class FormatNumber extends DivSimple<FormatNumber>
         {
             if (value != null)
             {
-                addAttribute("value", value + "");
+                addAttribute("value", value.toString());
             }
             if (type != null)
             {
-                addAttribute("type", type.toString().toLowerCase());
+                addAttribute("type", type.toString());
             }
             if (noGrouping != null && noGrouping)
             {
-                addAttribute("noGrouping", "true");
+                addAttribute("no-grouping", "");
             }
             if (!Strings.isNullOrEmpty(currency))
             {
@@ -129,7 +203,7 @@ public class FormatNumber extends DivSimple<FormatNumber>
             }
             if (currencyDisplay != null)
             {
-                addAttribute("currencyDisplay", currencyDisplay.toString().toLowerCase());
+                addAttribute("currency-display", currencyDisplay.toString());
             }
             if (!Strings.isNullOrEmpty(language))
             {
@@ -137,19 +211,45 @@ public class FormatNumber extends DivSimple<FormatNumber>
             }
             if (minFractionDigits != null)
             {
-                addAttribute("minimum-fraction-digits", minFractionDigits + "");
+                addAttribute("minimum-fraction-digits", minFractionDigits.toString());
             }
             if (maxFractionDigits != null)
             {
-                addAttribute("maximum-fraction-digits", maxFractionDigits + "");
+                addAttribute("maximum-fraction-digits", maxFractionDigits.toString());
             }
             if (minIntegerDigits != null)
             {
-                addAttribute("minimum-significant-digits", minIntegerDigits + "");
+                addAttribute("minimum-integer-digits", minIntegerDigits.toString());
             }
             if (maxIntegerDigits != null)
             {
-                addAttribute("maximum-significant-digits", maxIntegerDigits + "");
+                addAttribute("maximum-integer-digits", maxIntegerDigits.toString());
+            }
+
+            // Apply styling
+            if (!Strings.isNullOrEmpty(color))
+            {
+                addStyle("color", color);
+            }
+            if (!Strings.isNullOrEmpty(fontSize))
+            {
+                addStyle("font-size", fontSize);
+            }
+            if (!Strings.isNullOrEmpty(fontWeight))
+            {
+                addStyle("font-weight", fontWeight);
+            }
+            if (!Strings.isNullOrEmpty(display))
+            {
+                addStyle("display", display);
+            }
+            if (!Strings.isNullOrEmpty(textAlign))
+            {
+                addStyle("text-align", textAlign);
+            }
+            if (!Strings.isNullOrEmpty(padding))
+            {
+                addStyle("padding", padding);
             }
         }
         super.init();
