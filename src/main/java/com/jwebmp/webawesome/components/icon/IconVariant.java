@@ -33,11 +33,16 @@ public enum IconVariant
     /**
      * DuoTone variant
      */
-    DuoTone;
+    DuoTone,
+    /**
+     * Sharp DuoTone variant
+     */
+    Sharp_DuoTone;
 
     @Override
     public String toString()
     {
-        return name().toLowerCase();
+        return name().replace('_', '-')
+                     .toLowerCase();
     }
 }

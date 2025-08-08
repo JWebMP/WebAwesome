@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.tree;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 import lombok.Setter;
@@ -186,4 +187,21 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
         addAttribute("(selectionChange)", handlerScript);
         return (J) this;
     }
+
+    /**
+     * Overrides the bind method to support two-way binding with ngModel.
+     * This allows the radio group to be used with [(ngModel)] in Angular templates.
+     *
+     * @param variableName The name of the variable to bind to.
+     * @return The current instance of WaRadioGroup for method chaining.
+     */
+    @Override
+    public J bind(String variableName)
+    {
+        addAttribute("[(ngModel)]", variableName);
+        addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
+        addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
+        return (J) this;
+    }
+
 }

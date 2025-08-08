@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.radio;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
@@ -205,8 +206,9 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[value]", variableName);
-        addAttribute("(valueChange)", variableName + " = $event");
+        addAttribute("[(ngModel)]", variableName);
+        addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
+        addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
         return (J) this;
     }
 }

@@ -81,7 +81,7 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
     private String label;
 
     /**
-     * Variant within a family (e.g., regular, solid).
+     * Variant within a variant (e.g., regular, solid,duotone,light,sharp duotone).
      */
     private IconVariant variant;
 

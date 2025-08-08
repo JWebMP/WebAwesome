@@ -1,4 +1,4 @@
-package com.jwebmp.webawesome;
+package com.jwebmp.webawesome.components;
 
 import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
 import com.jwebmp.core.base.html.Script;
@@ -9,6 +9,7 @@ import com.jwebmp.core.plugins.PluginInformation;
 import com.jwebmp.core.plugins.PluginStatus;
 import com.jwebmp.core.services.IPage;
 import com.jwebmp.core.services.IPageConfigurator;
+import lombok.Setter;
 
 @PluginInformation(pluginName = "Web Awesome",
         pluginDescription = "Make something awesome with open-source web components",
@@ -28,28 +29,32 @@ import com.jwebmp.core.services.IPageConfigurator;
         pluginModuleName = "com.jwebmp.webawesome",
         pluginStatus = PluginStatus.DevelopmentStarted
 )
-@TsDependency(value = "angular-awesome",version = "*")
+@TsDependency(value = "angular-awesome", version = "*")
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>
 {
+    @Setter
+    private static String basePath = "https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/";
 
     @Override
     public IPage<?> configure(IPage<?> page)
     {
-        page.addCssReference(new CSSReference("WebAwesome", 0.1, "https://backers.webawesome.com/dist/styles/webawesome.css")
+        page.addCssReference(new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css")
                 .setPriority(RequirementsPriority.First));
-        page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, "https://backers.webawesome.com/dist/styles/themes/default.css")
-                .setPriority(RequirementsPriority.First).addAttribute("id", "webawesome-theme"));
-        page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, "https://backers.webawesome.com/dist/webawesome.loader.js")
+        page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, basePath + "styles/themes/default.css")
+                .setPriority(RequirementsPriority.First)
+                .addAttribute("id", "webawesome-theme"));
+        page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, basePath + "webawesome.loader.js")
                 .setPriority(RequirementsPriority.Top_Shelf)
                 .setScriptType("module"));
 
 
-        page.getHead().add(new Script<>()
-                .addAttribute("type", "module")
-                .setText("""
-                        import { setBasePath } from 'https://backers.webawesome.com/dist/webawesome.js';
-                                    setBasePath('https://backers.webawesome.com/dist/');"""));
+        page.getHead()
+            .add(new Script<>()
+                    .addAttribute("type", "module")
+                    .setText("""
+                            import { setBasePath } from '%swebawesome.js';
+                                        setBasePath('%s');""".formatted(basePath, basePath)));
 
 
         return page;
