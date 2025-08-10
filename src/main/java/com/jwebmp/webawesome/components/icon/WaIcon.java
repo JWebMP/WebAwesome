@@ -13,6 +13,40 @@ import lombok.Setter;
 /**
  * The WaIcon component renders visual symbols from various libraries.
  * It supports different families, variants, custom sources, styling, and accessibility.
+ * <p>
+ * Attributes:
+ * - `name`: The name of the icon.
+ * - `family`: Font Awesome family (e.g., classic, brands).
+ * - `variant`: Variant within a family (e.g., regular, solid).
+ * - `library`: Name of a registered icon library.
+ * - `src`: URL to an SVG resource for custom icons.
+ * - `label`: Accessible label for assistive technologies.
+ * - `withFixedWidth`: If true, forces a fixed 1em width.
+ * <p>
+ * Styling Properties:
+ * - `color`: Sets the icon's text color directly.
+ * - `backgroundColor`: Sets the icon's background color.
+ * - `fontSize`: Adjusts the icon's font size.
+ * - `primaryColor`: Sets a duotone icon's primary color.
+ * - `primaryOpacity`: Sets a duotone icon's primary opacity.
+ * - `secondaryColor`: Sets a duotone icon's secondary color.
+ * - `secondaryOpacity`: Sets a duotone icon's secondary opacity.
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic icon
+ * WaIcon icon = new WaIcon("star");
+ *
+ * // Icon with family and variant
+ * WaIcon brandIcon = new WaIcon("github", "brands");
+ * WaIcon solidIcon = new WaIcon("star", "classic", IconVariant.Solid);
+ *
+ * // Icon with custom styling
+ * WaIcon customIcon = new WaIcon("heart");
+ * customIcon.setColor("#ff0000");
+ * customIcon.setFontSize("24px");
+ * customIcon.setWithFixedWidth(true);
+ * </pre>
  */
 @Getter
 @Setter
@@ -175,7 +209,7 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             }
             if (fixedWidth != null && fixedWidth)
             {
-                addAttribute("fixed-width", "");
+                addAttribute("withFixedWidth", "");
             }
             if (!Strings.isNullOrEmpty(label))
             {

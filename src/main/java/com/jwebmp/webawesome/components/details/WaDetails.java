@@ -13,6 +13,33 @@ import lombok.Setter;
  * A Web Awesome-specific extension of {@link DivSimple}, representing a Web Awesome details container.
  * This class is used to manage collapsible/expandable details sections, including optional icons
  * for expand/collapse functionality, and supports customizable summaries.
+ * <p>
+ * Attributes:
+ * - `summary`: Text to display in the summary. Use the summary slot for HTML content.
+ * - `disabled`: Prevents the details from expanding when true.
+ * - `appearance`: The visual appearance of the details element (filled, outlined, plain).
+ * - `open`: Whether the details is expanded.
+ * - `iconPosition`: Position of the expand/collapse icon (start, end). Default is 'end'.
+ * - `name`: Groups related details elements. When one opens, others with the same name close.
+ * <p>
+ * Events:
+ * - `waShow`: Emits when the details starts to open.
+ * - `waAfterShow`: Emits after the details has opened.
+ * - `waHide`: Emits when the details starts to close.
+ * - `waAfterHide`: Emits after the details has closed.
+ * <p>
+ * Slots:
+ * - default: The content to show when expanded.
+ * - summary: For HTML content in the summary.
+ * - expand-icon: Optional expand icon to use instead of the default.
+ * - collapse-icon: Optional collapse icon to use instead of the default.
+ * <p>
+ * CSS Custom Properties:
+ * - `iconColor`: Sets the --icon-color CSS property.
+ * - `spacing`: Sets the --spacing CSS property.
+ * - `showDuration`: Sets the --show-duration CSS property.
+ * - `hideDuration`: Sets the --hide-duration CSS property.
+ * - `display`: Sets the --display CSS property.
  */
 @Getter
 @Setter
@@ -84,6 +111,31 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      * Sets the display behavior.
      */
     private String display;
+
+    /**
+     * Position of the expand/collapse icon.
+     * Options: 'start' or 'end'. Default is 'end'.
+     */
+    private String iconPosition;
+    /**
+     * Event handler for when the details starts to open.
+     */
+    private String showEvent;
+
+    /**
+     * Event handler for after the details has opened.
+     */
+    private String afterShowEvent;
+
+    /**
+     * Event handler for when the details starts to close.
+     */
+    private String hideEvent;
+
+    /**
+     * Event handler for after the details has closed.
+     */
+    private String afterHideEvent;
 
     /**
      * Default constructor for the WaDetails component.
@@ -194,6 +246,34 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(display))
             {
                 addStyle("--display", display);
+            }
+
+            // Apply new attributes
+            if (!Strings.isNullOrEmpty(iconPosition))
+            {
+                addAttribute("icon-position", iconPosition);
+            }
+/*            if (!Strings.isNullOrEmpty(name))
+            {
+                addAttribute("name", name);
+            }
+            */
+            // Add event handlers
+            if (!Strings.isNullOrEmpty(showEvent))
+            {
+                addAttribute("wa-show", showEvent);
+            }
+            if (!Strings.isNullOrEmpty(afterShowEvent))
+            {
+                addAttribute("wa-after-show", afterShowEvent);
+            }
+            if (!Strings.isNullOrEmpty(hideEvent))
+            {
+                addAttribute("wa-hide", hideEvent);
+            }
+            if (!Strings.isNullOrEmpty(afterHideEvent))
+            {
+                addAttribute("wa-after-hide", afterHideEvent);
             }
         }
         super.init();

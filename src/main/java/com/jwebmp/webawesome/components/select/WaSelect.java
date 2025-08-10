@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.select;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
@@ -14,8 +15,68 @@ import lombok.Setter;
  * The WaSelect component is a dropdown select control that allows users to choose from a list of options.
  * It supports features like labeling, hints, placeholder, multiple selection, and custom styling.
  * <p>
- * This component renders as a wa-select-wrapper HTML element and supports various customization options
- * through properties and CSS custom properties.
+ * Attributes:
+ * - `value`: Bound via ngModel, corresponds to the value attribute
+ * - `label`: Sets the label of the select
+ * - `hint`: Provides additional guidance to the user
+ * - `placeholder`: Placeholder when no option is selected
+ * - `appearance`: Changes visual style (outlined, filled)
+ * - `pill`: Applies pill-style rounded borders
+ * - `withClear`: Shows a clear button when an option is selected
+ * - `disabled`: Disables the select control
+ * - `multiple`: Enables multiple selection
+ * - `size`: Sets size variant (small, medium, large)
+ * - `placement`: Preferred dropdown position (top, bottom)
+ * - `required`: Enables HTML form validation
+ * - `maxOptionsVisible`: Controls how many selected tags are visible when multiple is true
+ * - `form`: Form association when outside a form
+ * <p>
+ * Events:
+ * - `inputEvent`: Fires when the user selects an option
+ * - `changeEvent`: Fires when the value changes
+ * - `focusEvent`: Fires on focus
+ * - `blurEvent`: Fires on blur
+ * - `clearEvent`: Emitted when the clear button is clicked
+ * - `showEvent`: Emitted when the dropdown opens
+ * - `afterShowEvent`: After the dropdown is fully opened
+ * - `hideEvent`: Emitted when the dropdown closes
+ * - `afterHideEvent`: After the dropdown is fully closed
+ * - `invalidEvent`: When constraint validation fails
+ * <p>
+ * Styling Properties:
+ * - `backgroundColor`: Sets the --background-color CSS property
+ * - `borderColor`: Sets the --border-color CSS property
+ * - `borderWidth`: Sets the --border-width CSS property
+ * - `boxShadow`: Sets the --box-shadow CSS property
+ * - `backgroundColorCurrent`: Sets the --background-color-current CSS property
+ * - `backgroundColorHover`: Sets the --background-color-hover CSS property
+ * - `textColorCurrent`: Sets the --text-color-current CSS property
+ * - `textColorHover`: Sets the --text-color-hover CSS property
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic select
+ * WaSelect select = new WaSelect();
+ * select.setLabel("Choose an option");
+ * select.add(new WaSelectOption().setValue("option1").setText("Option 1"));
+ * select.add(new WaSelectOption().setValue("option2").setText("Option 2"));
+ * 
+ * // Select with multiple selection
+ * WaSelect multiSelect = new WaSelect();
+ * multiSelect.setLabel("Choose multiple options");
+ * multiSelect.setMultiple(true);
+ * multiSelect.setMaxOptionsVisible(3);
+ * multiSelect.add(new WaSelectOption().setValue("option1").setText("Option 1"));
+ * multiSelect.add(new WaSelectOption().setValue("option2").setText("Option 2"));
+ * 
+ * // Select with custom styling
+ * WaSelect styledSelect = new WaSelect();
+ * styledSelect.setLabel("Custom styled select");
+ * styledSelect.setAppearance(SelectAppearance.Filled);
+ * styledSelect.setPill(true);
+ * styledSelect.setBackgroundColor("#f8f9fa");
+ * styledSelect.setBorderColor("#6c757d");
+ * </pre>
  */
 @Getter
 @Setter
@@ -41,7 +102,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     /**
      * Whether to show a clear button when an option is selected
      */
-    private Boolean clearable;
+    private Boolean withClear;
 
     /**
      * Visual appearance style (outlined or filled)
@@ -91,12 +152,62 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     /**
      * Component to display before the select text
      */
-    private IComponentHierarchyBase<?, ?> prefix;
+    private IComponentHierarchyBase<?, ?> start;
 
     /**
      * Component to display after the select text
      */
-    private IComponentHierarchyBase<?, ?> suffix;
+    private IComponentHierarchyBase<?, ?> end;
+    
+    /**
+     * Event handler for when the user selects an option
+     */
+    private String inputEvent;
+    
+    /**
+     * Event handler for when the value changes
+     */
+    private String changeEvent;
+    
+    /**
+     * Event handler for when the select gains focus
+     */
+    private String focusEvent;
+    
+    /**
+     * Event handler for when the select loses focus
+     */
+    private String blurEvent;
+    
+    /**
+     * Event handler for when the clear button is clicked
+     */
+    private String clearEvent;
+    
+    /**
+     * Event handler for when the dropdown opens
+     */
+    private String showEvent;
+    
+    /**
+     * Event handler for after the dropdown is fully opened
+     */
+    private String afterShowEvent;
+    
+    /**
+     * Event handler for when the dropdown closes
+     */
+    private String hideEvent;
+    
+    /**
+     * Event handler for after the dropdown is fully closed
+     */
+    private String afterHideEvent;
+    
+    /**
+     * Event handler for when constraint validation fails
+     */
+    private String invalidEvent;
 
     /**
      * Background color of the select
@@ -168,9 +279,9 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
             {
                 addAttribute("placeholder", placeholder);
             }
-            if (clearable != null && clearable)
+            if (withClear != null && withClear)
             {
-                addAttribute("clearable", "");
+                addAttribute("with-clear", "");
             }
             if (appearance != null)
             {
@@ -202,7 +313,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
             }
             if (size != null)
             {
-                addAttribute("size", size.toString());
+                addAttribute("size", size.toString().toLowerCase());
             }
             if (placement != null)
             {
@@ -213,17 +324,59 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
                 addAttribute("value", value);
             }
 
-            if (prefix != null)
+            if (start != null)
             {
-                prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
-                add(0, prefix);
+                start.asAttributeBase()
+                     .addAttribute("slot", "start");
+                add(0, start);
             }
-            if (suffix != null)
+            if (end != null)
             {
-                suffix.asAttributeBase()
-                      .addAttribute("slot", "suffix");
-                add(suffix);
+                end.asAttributeBase()
+                   .addAttribute("slot", "end");
+                add(end);
+            }
+            
+            // Add event handlers
+            if (!Strings.isNullOrEmpty(inputEvent))
+            {
+                addAttribute("input", inputEvent);
+            }
+            if (!Strings.isNullOrEmpty(changeEvent))
+            {
+                addAttribute("change", changeEvent);
+            }
+            if (!Strings.isNullOrEmpty(focusEvent))
+            {
+                addAttribute("focus", focusEvent);
+            }
+            if (!Strings.isNullOrEmpty(blurEvent))
+            {
+                addAttribute("blur", blurEvent);
+            }
+            if (!Strings.isNullOrEmpty(clearEvent))
+            {
+                addAttribute("wa-clear", clearEvent);
+            }
+            if (!Strings.isNullOrEmpty(showEvent))
+            {
+                addAttribute("wa-show", showEvent);
+            }
+            if (!Strings.isNullOrEmpty(afterShowEvent))
+            {
+                addAttribute("wa-after-show", afterShowEvent);
+            }
+            if (!Strings.isNullOrEmpty(hideEvent))
+            {
+                addAttribute("wa-hide", hideEvent);
+            }
+            if (!Strings.isNullOrEmpty(afterHideEvent))
+            {
+                addAttribute("wa-after-hide", afterHideEvent);
+            }
+            if (!Strings.isNullOrEmpty(invalidEvent))
+            {
+                addAttribute("wa-invalid", invalidEvent);
             }
 
             // Add CSS custom properties
@@ -266,7 +419,9 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[attrs.value]", variableName);
+        addAttribute("[(ngModel)]", variableName);
+        addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
+        addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
         return (J) this;
     }
 }

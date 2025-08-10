@@ -3,7 +3,6 @@ package com.jwebmp.webawesome.test.radio;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import com.jwebmp.webawesome.components.radio.WaRadio;
-import com.jwebmp.webawesome.components.radio.WaRadioButton;
 import com.jwebmp.webawesome.components.radio.WaRadioGroup;
 import org.junit.jupiter.api.Test;
 
@@ -72,31 +71,35 @@ public class WaRadioTest
     @Test
     public void testRenderBasicRadioButtonHtml()
     {
-        var radioButton = new WaRadioButton<>()
-                .setValue("option1");
+        var radioButton = new WaRadio<>()
+                .setValue("option1")
+                .setAppearance("button");
         radioButton.setText("Option 1");
 
         var html = radioButton.toString(true);
         System.out.println(html);
 
-        assertTrue(html.contains("<wa-radio-button"));
+        assertTrue(html.contains("<wa-radio"));
         assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
         assertTrue(html.contains("Option 1"));
     }
 
     @Test
     public void testRenderRadioButtonWithPillHtml()
     {
-        var radioButton = new WaRadioButton<>()
+        var radioButton = new WaRadio<>()
                 .setValue("option1")
                 .setText("Option 1")
+                .setAppearance("button")
                 .setAsPill(true);
 
         var html = radioButton.toString(true);
         System.out.println(html);
 
-        assertTrue(html.contains("<wa-radio-button"));
+        assertTrue(html.contains("<wa-radio"));
         assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
         assertTrue(html.contains("as-pill"));
         assertTrue(html.contains("Option 1"));
     }
@@ -104,22 +107,24 @@ public class WaRadioTest
     @Test
     public void testRenderRadioButtonWithPrefixAndSuffixHtml()
     {
-        var prefix = new WaIcon<>().setName("check");
-        var suffix = new WaIcon<>().setName("arrow-right");
+        var start = new WaIcon<>().setName("check");
+        var end = new WaIcon<>().setName("arrow-right");
 
-        var radioButton = new WaRadioButton<>()
+        var radioButton = new WaRadio<>()
                 .setValue("option1")
                 .setText("Option 1")
-                .setPrefix(prefix)
-                .setSuffix(suffix);
+                .setAppearance("button")
+                .setStart(start)
+                .setEnd(end);
 
         var html = radioButton.toString(true);
         System.out.println(html);
 
-        assertTrue(html.contains("<wa-radio-button"));
+        assertTrue(html.contains("<wa-radio"));
         assertTrue(html.contains("value=\"option1\""));
-        assertTrue(html.contains("<wa-icon name=\"check\""));
-        assertTrue(html.contains("<wa-icon name=\"arrow-right\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-icon name=\"check\" slot=\"start\""));
+        assertTrue(html.contains("<wa-icon name=\"arrow-right\" slot=\"end\""));
         assertTrue(html.contains("Option 1"));
     }
 
@@ -173,12 +178,15 @@ public class WaRadioTest
         var radioGroup = new WaRadioGroup<>()
                 .setInitialValue("option1")
                 .setName("options")
-                .add(new WaRadioButton<>().setValue("option1")
-                                          .setText("Option 1"))
-                .add(new WaRadioButton<>().setValue("option2")
-                                          .setText("Option 2"))
-                .add(new WaRadioButton<>().setValue("option3")
-                                          .setText("Option 3"));
+                .add(new WaRadio<>().setValue("option1")
+                                    .setText("Option 1")
+                                    .setAppearance("button"))
+                .add(new WaRadio<>().setValue("option2")
+                                    .setText("Option 2")
+                                    .setAppearance("button"))
+                .add(new WaRadio<>().setValue("option3")
+                                    .setText("Option 3")
+                                    .setAppearance("button"));
 
         var html = radioGroup.toString(true);
         System.out.println(html);
@@ -186,9 +194,9 @@ public class WaRadioTest
         assertTrue(html.contains("<wa-radio-group"));
         assertTrue(html.contains("value=\"option1\""));
         assertTrue(html.contains("name=\"options\""));
-        assertTrue(html.contains("<wa-radio-button value=\"option1\">"));
-        assertTrue(html.contains("<wa-radio-button value=\"option2\">"));
-        assertTrue(html.contains("<wa-radio-button value=\"option3\">"));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option1\"") && html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option2\"") && html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option3\"") && html.contains("appearance=\"button\""));
         assertTrue(html.contains("Option 1"));
         assertTrue(html.contains("Option 2"));
         assertTrue(html.contains("Option 3"));
@@ -230,35 +238,38 @@ public class WaRadioTest
     @Test
     public void testRenderRadioButtonWithSSRFlagsHtml()
     {
-        var prefix = new WaIcon<>().setName("check");
-        var suffix = new WaIcon<>().setName("arrow-right");
+        var start = new WaIcon<>().setName("check");
+        var end = new WaIcon<>().setName("arrow-right");
 
-        var radioButton = new WaRadioButton<>()
+        var radioButton = new WaRadio<>()
                 .setValue("option1")
                 .setText("Option 1")
-                .setPrefix(prefix)
-                .setSuffix(suffix)
-                .setWithPrefix(true)
-                .setWithSuffix(true);
+                .setAppearance("button")
+                .setStart(start)
+                .setEnd(end)
+                .setWithStart(true)
+                .setWithEnd(true);
 
         var html = radioButton.toString(true);
         System.out.println(html);
 
-        assertTrue(html.contains("<wa-radio-button"));
+        assertTrue(html.contains("<wa-radio"));
         assertTrue(html.contains("value=\"option1\""));
-        assertTrue(html.contains("with-prefix"));
-        assertTrue(html.contains("with-suffix"));
-        assertTrue(html.contains("<wa-icon name=\"check\" slot=\"prefix\"></wa-icon>"));
-        assertTrue(html.contains("<wa-icon name=\"arrow-right\" slot=\"suffix\"></wa-icon>"));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("with-start"));
+        assertTrue(html.contains("with-end"));
+        assertTrue(html.contains("<wa-icon name=\"check\" slot=\"start\"></wa-icon>"));
+        assertTrue(html.contains("<wa-icon name=\"arrow-right\" slot=\"end\"></wa-icon>"));
         assertTrue(html.contains("Option 1"));
     }
 
     @Test
     public void testRenderRadioButtonWithStylingPropertiesHtml()
     {
-        var radioButton = new WaRadioButton<>()
+        var radioButton = new WaRadio<>()
                 .setValue("option1")
                 .setText("Option 1")
+                .setAppearance("button")
                 .setStyleIndicatorColor("#4caf50")
                 .setStyleIndicatorWidth("3px")
                 .setStyleDisplay("inline-block");
@@ -266,8 +277,9 @@ public class WaRadioTest
         var html = radioButton.toString(true);
         System.out.println(html);
 
-        assertTrue(html.contains("<wa-radio-button"));
+        assertTrue(html.contains("<wa-radio"));
         assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
         assertTrue(html.contains("--indicator-color:#4caf50"));
         assertTrue(html.contains("--indicator-width:3px"));
         assertTrue(html.contains("--display:inline-block"));
@@ -353,7 +365,148 @@ public class WaRadioTest
         System.out.println(html);
 
         assertTrue(html.contains("<wa-radio-group"));
-        assertTrue(html.contains("[value]=\"selectedValue\""));
-        assertTrue(html.contains("(valueChange)=\"selectedValue = $event\""));
+        // Check for Angular ngModel binding syntax
+        assertTrue(html.contains("[(ngModel)]=\"selectedValue\""));
+    }
+    
+    @Test
+    public void testRenderRadioWithAppearanceButtonHtml()
+    {
+        var radio = new WaRadio<>()
+                .setValue("option1")
+                .setText("Option 1")
+                .setAppearance("button");
+
+        var html = radio.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("Option 1"));
+    }
+    
+    @Test
+    public void testRenderRadioWithAppearanceButtonAndPillHtml()
+    {
+        var radio = new WaRadio<>()
+                .setValue("option1")
+                .setText("Option 1")
+                .setAppearance("button")
+                .setAsPill(true);
+
+        var html = radio.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("as-pill"));
+        assertTrue(html.contains("Option 1"));
+    }
+    
+    @Test
+    public void testRenderRadioWithStartAndEndIconsHtml()
+    {
+        var start = new WaIcon<>().setName("check");
+        var end = new WaIcon<>().setName("arrow-right");
+
+        var radio = new WaRadio<>()
+                .setValue("option1")
+                .setText("Option 1")
+                .setAppearance("button")
+                .setStart(start)
+                .setEnd(end);
+
+        var html = radio.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-icon name=\"check\" slot=\"start\"></wa-icon>"));
+        assertTrue(html.contains("<wa-icon name=\"arrow-right\" slot=\"end\"></wa-icon>"));
+        assertTrue(html.contains("Option 1"));
+    }
+    
+    @Test
+    public void testRenderRadioWithSSRFlagsHtml()
+    {
+        var start = new WaIcon<>().setName("check");
+        var end = new WaIcon<>().setName("arrow-right");
+
+        var radio = new WaRadio<>()
+                .setValue("option1")
+                .setText("Option 1")
+                .setAppearance("button")
+                .setStart(start)
+                .setEnd(end)
+                .setWithStart(true)
+                .setWithEnd(true);
+
+        var html = radio.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("with-start"));
+        assertTrue(html.contains("with-end"));
+        assertTrue(html.contains("<wa-icon name=\"check\" slot=\"start\"></wa-icon>"));
+        assertTrue(html.contains("<wa-icon name=\"arrow-right\" slot=\"end\"></wa-icon>"));
+        assertTrue(html.contains("Option 1"));
+    }
+    
+    @Test
+    public void testRenderRadioWithButtonStylingPropertiesHtml()
+    {
+        var radio = new WaRadio<>()
+                .setValue("option1")
+                .setText("Option 1")
+                .setAppearance("button")
+                .setStyleIndicatorColor("#4caf50")
+                .setStyleIndicatorWidth("3px")
+                .setStyleDisplay("inline-block");
+
+        var html = radio.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("appearance=\"button\""));
+        assertTrue(html.contains("--indicator-color:#4caf50"));
+        assertTrue(html.contains("--indicator-width:3px"));
+        assertTrue(html.contains("--display:inline-block"));
+        assertTrue(html.contains("Option 1"));
+    }
+    
+    @Test
+    public void testRenderRadioGroupWithRadioButtonAppearanceHtml()
+    {
+        var radioGroup = new WaRadioGroup<>()
+                .setInitialValue("option1")
+                .setName("options")
+                .add(new WaRadio<>().setValue("option1")
+                                    .setText("Option 1")
+                                    .setAppearance("button"))
+                .add(new WaRadio<>().setValue("option2")
+                                    .setText("Option 2")
+                                    .setAppearance("button"))
+                .add(new WaRadio<>().setValue("option3")
+                                    .setText("Option 3")
+                                    .setAppearance("button"));
+
+        var html = radioGroup.toString(true);
+        System.out.println(html);
+
+        assertTrue(html.contains("<wa-radio-group"));
+        assertTrue(html.contains("value=\"option1\""));
+        assertTrue(html.contains("name=\"options\""));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option1\"") && html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option2\"") && html.contains("appearance=\"button\""));
+        assertTrue(html.contains("<wa-radio") && html.contains("value=\"option3\"") && html.contains("appearance=\"button\""));
+        assertTrue(html.contains("Option 1"));
+        assertTrue(html.contains("Option 2"));
+        assertTrue(html.contains("Option 3"));
     }
 }

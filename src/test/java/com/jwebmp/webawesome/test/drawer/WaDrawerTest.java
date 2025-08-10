@@ -4,7 +4,7 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Placement;
 import com.jwebmp.webawesome.components.button.WaButton;
 import com.jwebmp.webawesome.components.drawer.WaDrawer;
-import com.jwebmp.webawesome.components.icon.WaIconButton;
+import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -110,22 +110,24 @@ public class WaDrawerTest
     @Test
     public void testRenderDrawerWithHeaderActionsHtml()
     {
-        var iconButton = new WaIconButton();
-        iconButton.setName("settings");
+        var button = new WaButton<>();
+        var icon = new WaIcon<>("settings");
+        button.setPrefix(icon);
 
-        List<WaIconButton> iconButtons = new ArrayList<>();
-        iconButtons.add(iconButton);
+        List<WaButton<?>> buttons = new ArrayList<>();
+        buttons.add(button);
 
         var s = new WaDrawer<>()
                 .setLabel("With Header Actions Drawer")
-                .withHeaderActions(iconButtons)
+                .withHeaderActions(buttons)
                 .setText("This drawer has header actions.")
                 .toString(true);
 
         System.out.println(s);
 
-        assertTrue(s.contains("<wa-drawer class=\"dialog-header-actions\" label=\"With Header Actions Drawer\" with-header>"));
-        assertTrue(s.contains("<wa-icon-button name=\"settings\" slot=\"header-actions\"></wa-icon-button>"));
+        assertTrue(s.contains("<wa-drawer class=\"drawer-header-actions\" label=\"With Header Actions Drawer\" with-header>"));
+        assertTrue(s.contains("<wa-button slot=\"header-actions\">"));
+        assertTrue(s.contains("<wa-icon name=\"settings\" slot=\"prefix\"></wa-icon>"));
         assertTrue(s.contains("This drawer has header actions."));
     }
 

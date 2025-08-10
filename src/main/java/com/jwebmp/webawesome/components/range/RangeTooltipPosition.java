@@ -11,9 +11,19 @@ public enum RangeTooltipPosition
     Top,
 
     /**
+     * Display the tooltip to the right of the slider thumb
+     */
+    Right,
+
+    /**
      * Display the tooltip below the slider thumb
      */
     Bottom,
+
+    /**
+     * Display the tooltip to the left of the slider thumb
+     */
+    Left,
 
     /**
      * Do not display a tooltip

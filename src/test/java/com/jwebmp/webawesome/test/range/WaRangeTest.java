@@ -54,6 +54,25 @@ public class WaRangeTest
     }
 
     @Test
+    public void testRenderRangeWithNewTooltipHtml()
+    {
+        var s = new WaRange<>()
+                .setLabel("Tooltip on Right")
+                .setWithTooltip(true)
+                .setTooltipPlacement(RangeTooltipPosition.Right)
+                .setTooltipDistance(10)
+                .toString(true);
+        System.out.println(s);
+
+        assertTrue(s.contains("<wa-slider"));
+        assertTrue(s.contains("label=\"Tooltip on Right\""));
+        assertTrue(s.contains("with-tooltip"));
+        assertTrue(s.contains("tooltip-placement=\"right\""));
+        assertTrue(s.contains("tooltip-distance=\"10\""));
+        assertTrue(s.contains("</wa-slider>"));
+    }
+
+    @Test
     public void testRenderRangeWithHintHtml()
     {
         var s = new WaRange<>()
@@ -118,6 +137,28 @@ public class WaRangeTest
     }
 
     @Test
+    public void testRenderRangeWithNewCustomStylingHtml()
+    {
+        var s = new WaRange<>()
+                .setLabel("New Custom Styling")
+                .setTrackSize("0.75em")
+                .setMarkerWidth("0.1875em")
+                .setMarkerHeight("0.1875em")
+                .setThumbWidth("1.25em")
+                .setThumbHeight("1.25em")
+                .toString(true);
+        System.out.println(s);
+
+        assertTrue(s.contains("label=\"New Custom Styling\""));
+        assertTrue(s.contains("style="));
+        assertTrue(s.contains("--track-size:0.75em"));
+        assertTrue(s.contains("--marker-width:0.1875em"));
+        assertTrue(s.contains("--marker-height:0.1875em"));
+        assertTrue(s.contains("--thumb-width:1.25em"));
+        assertTrue(s.contains("--thumb-height:1.25em"));
+    }
+
+    @Test
     public void testRenderRangeWithTooltipFormatterHtml()
     {
         var s = new WaRange<>()
@@ -131,5 +172,51 @@ public class WaRangeTest
         assertTrue(s.contains("id=\"rangeWithFormatter\""));
         assertTrue(s.contains("const range = document.querySelector('#rangeWithFormatter');"));
         assertTrue(s.contains("range.tooltipFormatter = value => `$${value}`;"));
+    }
+
+    @Test
+    public void testRenderRangeSliderHtml()
+    {
+        var s = new WaRange<>()
+                .setLabel("Price Range")
+                .setRange(true)
+                .setMin(0)
+                .setMax(1000)
+                .setMinValue(200)
+                .setMaxValue(800)
+                .setWithTooltip(true)
+                .setWithMarkers(true)
+                .toString(true);
+        System.out.println(s);
+
+        assertTrue(s.contains("label=\"Price Range\""));
+        assertTrue(s.contains("range"));
+        assertTrue(s.contains("min=\"0\""));
+        assertTrue(s.contains("max=\"1000\""));
+        assertTrue(s.contains("min-value=\"200\""));
+        assertTrue(s.contains("max-value=\"800\""));
+        assertTrue(s.contains("with-tooltip"));
+        assertTrue(s.contains("with-markers"));
+    }
+
+    @Test
+    public void testRenderVerticalSliderHtml()
+    {
+        var s = new WaRange<>()
+                .setLabel("Brightness")
+                .setOrientation("vertical")
+                .setMin(0)
+                .setMax(100)
+                .setWithTooltip(true)
+                .setTooltipPlacement(RangeTooltipPosition.Right)
+                .toString(true);
+        System.out.println(s);
+
+        assertTrue(s.contains("label=\"Brightness\""));
+        assertTrue(s.contains("orientation=\"vertical\""));
+        assertTrue(s.contains("min=\"0\""));
+        assertTrue(s.contains("max=\"100\""));
+        assertTrue(s.contains("with-tooltip"));
+        assertTrue(s.contains("tooltip-placement=\"right\""));
     }
 }

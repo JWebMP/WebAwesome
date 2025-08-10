@@ -9,8 +9,48 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Represents a Web Awesome progress ring component.
- * This class provides methods to configure the progress ring's attributes.
+ * Represents a Web Awesome progress ring component used to visualize the progression of a task in a circular format.
+ * <p>
+ * Attributes:
+ * - `value`: Current progress percentage, 0-100
+ * - `label`: Label for screen readers
+ * <p>
+ * Events:
+ * - `focusEvent`: Emits when the component gains focus
+ * - `blurEvent`: Emits when the component loses focus
+ * <p>
+ * Styling Properties:
+ * - `trackWidth`: Sets the --track-width CSS property (width of the track)
+ * - `indicatorWidth`: Sets the --indicator-width CSS property (width of the progress indicator)
+ * - `trackColor`: Sets the --track-color CSS property (color of the track)
+ * - `indicatorColor`: Sets the --indicator-color CSS property (color of the progress indicator)
+ * - `size`: Sets the --size CSS property (overall size of the ring)
+ * - `indicatorTransitionDuration`: Sets the --indicator-transition-duration CSS property (animation speed)
+ * <p>
+ * Slots:
+ * - default: The default slot can be used to show content inside the ring
+ * - prefix: For an optional icon or element before the ring
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic progress ring
+ * WaProgressRing progressRing = new WaProgressRing();
+ * progressRing.setValue(50);
+ * progressRing.setLabel("Loading Progress");
+ *
+ * // Styled progress ring
+ * WaProgressRing customRing = new WaProgressRing();
+ * customRing.setValue(75);
+ * customRing.setSize("100px");
+ * customRing.setTrackWidth("4px");
+ * customRing.setIndicatorWidth("4px");
+ * customRing.setTrackColor("#f0f0f0");
+ * customRing.setIndicatorColor("#0078d4");
+ * customRing.setIndicatorTransitionDuration("0.3s");
+ * customRing.add(new Text("75%"));
+ * </pre>
+ * <p>
+ * Note: This component supports two-way binding for the value property.
  */
 @Getter
 @Setter
@@ -295,7 +335,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
+                      .addAttribute("slot", "start");
                 add(prefix);
             }
         }

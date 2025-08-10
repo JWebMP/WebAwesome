@@ -19,13 +19,13 @@ import lombok.Setter;
  * Provides various properties and methods to configure appearance, behavior, and interactivity.
  * <p>
  * Attributes:
- * - `variant`: Specifies the visual style variant of the button.
- * - `appearance`: Option to set the overall appearance (e.g., primary, secondary).
- * - `size`: Determines the size of the button (e.g., small, large).
- * - `asPill`: If true, gives the button a pill-shaped design.
+ * - `variant`: Specifies the visual style variant of the button (neutral, brand, success, warning, danger).
+ * - `appearance`: Option to set the overall appearance (accent, outlined, filled, plain).
+ * - `size`: Determines the size of the button (small, medium, large).
+ * - `pill`: If true, gives the button a pill-shaped design with rounded edges.
  * - `caret`: Adds a caret indicator on the button for dropdowns.
  * - `disabled`: Marks the button as disabled, preventing user interaction.
- * - `loading`: Indicates a loading state on the button.
+ * - `loading`: Indicates a loading state on the button with a spinner.
  * - `prefix` & `suffix`: Components attached to the button as prefix or suffix, typically icons.
  * - `text`: Text content displayed on the button.
  * - `type`: HTML button type such as submit, reset, or button.
@@ -36,10 +36,28 @@ import lombok.Setter;
  * - `formNoValidate`: If true, skips validation when submitting the form.
  * - `formTarget`: Designates the target for form submission (e.g., `_blank` to open in a new tab).
  * <p>
+ * Events:
+ * - `waBlur`: Fires when the button loses focus.
+ * - `waFocus`: Fires when the button receives focus.
+ * - `waInvalid`: Emitted when form validation fails.
+ * <p>
+ * Slots:
+ * - default: The button label.
+ * - prefix: Left-aligned icon/element.
+ * - suffix: Right-aligned icon/element.
+ * <p>
  * Usage examples:
  * <pre>
- * WaButton button = new WaButton("Click Me", Variant.Primary);
+ * WaButton button = new WaButton("Click Me", Variant.Brand);
  * button.setSize(Size.Large).setDisabled(false).setLoading(true);
+ *
+ * // With event handlers
+ * button.setBlurEvent("handleBlur()");
+ * button.setFocusEvent("handleFocus()");
+ *
+ * // With icons
+ * WaIcon icon = new WaIcon("gear");
+ * button.setPrefix(icon);
  * </pre>
  */
 @Getter
@@ -51,12 +69,17 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
     private Variant variant;
     private Appearance appearance;
     private Size size;
-    private Boolean asPill;
+    private Boolean pill;
     private Boolean caret;
     private Boolean disabled;
     private Boolean loading;
     private IComponentHierarchyBase<GlobalChildren, ?> prefix;
     private IComponentHierarchyBase<GlobalChildren, ?> suffix;
+
+    // Event handlers
+    private String blurEvent;
+    private String focusEvent;
+    private String invalidEvent;
 
     private InputButtonType<?> type;
 
@@ -125,25 +148,25 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
                 addAttribute("size", size.toString()
                                          .toLowerCase());
             }
-            if (asPill != null && asPill)
+            if (pill != null && pill)
             {
                 addAttribute("pill", "");
             }
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
+                      .addAttribute("slot", "start");
                 add(prefix);
             }
             if (suffix != null)
             {
                 suffix.asAttributeBase()
-                      .addAttribute("slot", "suffix");
+                      .addAttribute("slot", "end");
                 add(suffix);
             }
             if (caret != null && caret)
             {
-                addAttribute("caret", "");
+                addAttribute("withCaret", "");
             }
             if (loading != null && loading)
             {
@@ -183,6 +206,19 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
                 addAttribute("formTarget", formTarget);
             }
 
+            // Add event handlers if specified
+            if (!Strings.isNullOrEmpty(blurEvent))
+            {
+                addAttribute("wa-blur", blurEvent);
+            }
+            if (!Strings.isNullOrEmpty(focusEvent))
+            {
+                addAttribute("wa-focus", focusEvent);
+            }
+            if (!Strings.isNullOrEmpty(invalidEvent))
+            {
+                addAttribute("wa-invalid", invalidEvent);
+            }
         }
         super.init();
     }

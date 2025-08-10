@@ -5,6 +5,7 @@ import com.jwebmp.webawesome.components.select.SelectPlacement;
 import com.jwebmp.webawesome.components.select.WaSelect;
 import com.jwebmp.webawesome.components.select.WaSelectOption;
 import com.jwebmp.webawesome.components.Size;
+import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -117,13 +118,13 @@ public class WaSelectTest
     {
         var s = new WaSelect<>()
                 .setLabel("Clearable Select")
-                .setClearable(true)
+                .setWithClear(true)
                 .setPlaceholder("Select an option")
                 .add(new WaSelectOption<>().setValue("option1").setText("Option 1"))
                 .toString(true);
         System.out.println(s);
 
-        assertTrue(s.contains("clearable"));
+        assertTrue(s.contains("with-clear"));
     }
 
     @Test
@@ -246,13 +247,13 @@ public class WaSelectTest
                 .add(new WaSelectOption<>()
                         .setValue("option1")
                         .setText("Option with Custom Hover")
-                        .setBackgroundColourHover("#e9ecef")
-                        .setTextColourHover("#007bff"))
+                        .setBackgroundColorHover("#e9ecef")
+                        .setTextColorHover("#007bff"))
                 .add(new WaSelectOption<>()
                         .setValue("option2")
                         .setText("Option with Custom Selection")
-                        .setBackgroundColourCurrent("#cfe2ff")
-                        .setTextColourCurrent("#0d6efd"))
+                        .setBackgroundColorCurrent("#cfe2ff")
+                        .setTextColorCurrent("#0d6efd"))
                 .toString(true);
         System.out.println(s2);
 
@@ -260,5 +261,85 @@ public class WaSelectTest
         assertTrue(s2.contains("--text-color-hover:#007bff"));
         assertTrue(s2.contains("--background-color-current:#cfe2ff"));
         assertTrue(s2.contains("--text-color-current:#0d6efd"));
+    }
+    
+    @Test
+    public void testRenderSelectWithStartAndEndSlotsHtml()
+    {
+        var startIcon = new WaIcon<>().setName("search");
+        var endIcon = new WaIcon<>().setName("chevron-down");
+        
+        var s = new WaSelect<>()
+                .setLabel("Select with Icons")
+                .setStart(startIcon)
+                .setEnd(endIcon)
+                .add(new WaSelectOption<>().setValue("option1").setText("Option 1"))
+                .toString(true);
+        System.out.println(s);
+        
+        assertTrue(s.contains("<wa-icon name=\"search\" slot=\"start\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"chevron-down\" slot=\"end\"></wa-icon>"));
+    }
+    
+    @Test
+    public void testRenderSelectWithEventHandlersHtml()
+    {
+        var s = new WaSelect<>()
+                .setLabel("Select with Event Handlers")
+                .setInputEvent("onInput($event)")
+                .setChangeEvent("onChange($event)")
+                .setFocusEvent("onFocus()")
+                .setBlurEvent("onBlur()")
+                .setClearEvent("onClear()")
+                .setShowEvent("onShow()")
+                .setAfterShowEvent("onAfterShow()")
+                .setHideEvent("onHide()")
+                .setAfterHideEvent("onAfterHide()")
+                .setInvalidEvent("onInvalid($event)")
+                .add(new WaSelectOption<>().setValue("option1").setText("Option 1"))
+                .toString(true);
+        System.out.println(s);
+        
+        assertTrue(s.contains("input=\"onInput($event)\""));
+        assertTrue(s.contains("change=\"onChange($event)\""));
+        assertTrue(s.contains("focus=\"onFocus()\""));
+        assertTrue(s.contains("blur=\"onBlur()\""));
+        assertTrue(s.contains("wa-clear=\"onClear()\""));
+        assertTrue(s.contains("wa-show=\"onShow()\""));
+        assertTrue(s.contains("wa-after-show=\"onAfterShow()\""));
+        assertTrue(s.contains("wa-hide=\"onHide()\""));
+        assertTrue(s.contains("wa-after-hide=\"onAfterHide()\""));
+        assertTrue(s.contains("wa-invalid=\"onInvalid($event)\""));
+    }
+    
+    @Test
+    public void testRenderSelectWithNgModelBindingHtml()
+    {
+        var s = new WaSelect<>()
+                .setLabel("Select with NgModel Binding")
+                .bind("selectedValue")
+                .add(new WaSelectOption<>().setValue("option1").setText("Option 1"))
+                .toString(true);
+        System.out.println(s);
+        
+        assertTrue(s.contains("[(ngModel)]=\"selectedValue\""));
+    }
+    
+    @Test
+    public void testRenderSelectOptionWithStartAndEndSlotsHtml()
+    {
+        var startIcon = new WaIcon<>().setName("check");
+        var endIcon = new WaIcon<>().setName("info-circle");
+        
+        var s = new WaSelectOption<>()
+                .setValue("option1")
+                .setText("Option with Icons")
+                .setStart(startIcon)
+                .setEnd(endIcon)
+                .toString(true);
+        System.out.println(s);
+        
+        assertTrue(s.contains("<wa-icon name=\"check\" slot=\"start\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"info-circle\" slot=\"end\"></wa-icon>"));
     }
 }

@@ -1,87 +1,34 @@
-# WaBadgeComponent
+# Popup Directive
 
-An Angular wrapper for the Web Awesome `<wa-badge>` web component that provides declarative usage, input binding, and integration with Angular templates.
+An Angular directive wrapper for the `<wa-popup>` Web Component that provides a utility for anchoring popup containers to other elements.
 
-## Features
+## Overview
 
-- Binds attributes: `variant`, `appearance`, `pill`, `pulse`
-- Enables Angular-style class and style bindings
-- Allows slot projection for content
-- Enables font sizing via `[style.fontSize]`
-- Supports custom styling via CSS variables
+The popup directive is a low-level utility built specifically for positioning elements. It uses Floating UI under the hood to provide a well-tested, lightweight, and fully declarative positioning utility for tooltips, dropdowns, and more.
 
-## Installation
-
-The component is part of the Angular Awesome library. No additional installation steps are required if you're already using the library.
+Popup doesn't provide any styles — just positioning! The popup's preferred placement, distance, and skidding (offset) can be configured using attributes. An arrow that points to the anchor can be shown and customized to your liking.
 
 ## Usage
 
-Import the component in your module or standalone component:
-
-```typescript
-import { WaBadgeComponent } from 'angular-awesome';
-
-@Component({
-  // ...
-  standalone: true,
-  imports: [WaBadgeComponent]
-})
-export class YourComponent { }
-```
-
-Use it in your templates:
-
 ```html
-<wa-badge variant="brand">Brand</wa-badge>
+<button id="popup-trigger">Open Popup</button>
+<wa-popup anchor="popup-trigger" active>
+  <div class="popup-content">
+    This is a popup anchored to the button.
+  </div>
+</wa-popup>
 ```
 
-## API Reference
+## Documentation
 
-### Inputs
-
-| Input           | Type                                                        | Default    | Description                                |
-|-----------------|-------------------------------------------------------------|------------|--------------------------------------------|
-| variant         | 'brand' \| 'neutral' \| 'success' \| 'warning' \| 'danger' \| 'inherit' | 'inherit'  | The color variant of the badge             |
-| appearance      | 'accent' \| 'filled' \| 'outlined'                          | 'accent'   | The appearance style of the badge          |
-| pill            | boolean \| null                                             | undefined  | Whether the badge has rounded corners      |
-| pulse           | boolean \| null                                             | undefined  | Whether the badge has a pulsing animation  |
-| fontSize        | string                                                      | undefined  | Optional font-size override                |
-| backgroundColor | string                                                      | undefined  | Custom background color (--background-color) |
-| borderColor     | string                                                      | undefined  | Custom border color (--border-color)       |
-| textColor       | string                                                      | undefined  | Custom text color (--text-color)           |
-
-### Content Projection
-
-The component supports content projection through the default slot:
-
-```html
-<wa-badge variant="success">
-  <!-- Content goes here -->
-  Success
-</wa-badge>
-```
+For detailed documentation on inputs, outputs, CSS custom properties, and more, please refer to the [Popup Component Rules](./popup.rules.md).
 
 ## Examples
 
-See [badge.example.md](./badge.example.md) for detailed usage examples.
+For usage examples, including placement, distance, skidding, arrows, and more, please refer to the [Popup Examples](./popup.example.md).
 
-## Implementation Details
+## Important Notes
 
-The component wraps the Web Awesome `<wa-badge>` web component and provides Angular-specific features:
-
-- Uses `customElements.whenDefined()` to ensure the web component is defined before interacting with it
-- Maps attributes to the underlying web component
-- Provides type safety for inputs
-- Enables Angular-style binding for attributes and styles
-- Uses ViewEncapsulation.None to ensure proper styling
-
-## Requirements Fulfilled
-
-This implementation satisfies all requirements specified in the [badge.rules.md](./badge.rules.md) file:
-
-- ✅ Represents `<wa-badge>` as an Angular declarative component
-- ✅ Binds attributes: `variant`, `appearance`, `pill`, `pulse`
-- ✅ Enables Angular-style class and style bindings
-- ✅ Allows slot projection for content
-- ✅ Enables font sizing via `[style.fontSize]`
-- ✅ Supports custom styling via CSS variables
+- Popup is a low-level utility that should typically be used to build other components rather than being used directly in your HTML.
+- When using the `flip` attribute, you can observe the popup's current placement when it's active by looking at the `data-current-placement` attribute.
+- A popup's anchor should not be styled with `display: contents` since the coordinates will not be eligible for calculation.

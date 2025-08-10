@@ -254,7 +254,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
+                      .addAttribute("slot", "start");
                 add(prefix);
             }
         }

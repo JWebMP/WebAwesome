@@ -34,6 +34,22 @@ public class WaSplitPanelTest
         System.out.println(s);
 
         assertTrue(s.contains("vertical"));
+        assertTrue(s.contains("orientation=\"vertical\""));
+        assertTrue(s.contains("<div slot=\"start\">Top Panel Content</div>"));
+        assertTrue(s.contains("<div slot=\"end\">Bottom Panel Content</div>"));
+    }
+    
+    @Test
+    public void testRenderOrientationSplitPanelHtml()
+    {
+        var s = new WaSplitPanel<>()
+                .setOrientation("vertical")
+                .setStart(new DivSimple<>().setText("Top Panel Content"))
+                .setEnd(new DivSimple<>().setText("Bottom Panel Content"))
+                .toString(true);
+        System.out.println(s);
+
+        assertTrue(s.contains("orientation=\"vertical\""));
         assertTrue(s.contains("<div slot=\"start\">Top Panel Content</div>"));
         assertTrue(s.contains("<div slot=\"end\">Bottom Panel Content</div>"));
     }
@@ -156,6 +172,7 @@ public class WaSplitPanelTest
     {
         var s = new WaSplitPanel<>()
                 .bindPosition("panelPosition")
+                .bindOrientation("panelOrientation")
                 .bindVertical("isVertical")
                 .bindPrimary("primaryPanel")
                 .bindSnap("snapPositions")
@@ -169,6 +186,7 @@ public class WaSplitPanelTest
         System.out.println(s);
 
         assertTrue(s.contains("[position]=\"panelPosition\""));
+        assertTrue(s.contains("[orientation]=\"panelOrientation\""));
         assertTrue(s.contains("[vertical]=\"isVertical\""));
         assertTrue(s.contains("[primary]=\"primaryPanel\""));
         assertTrue(s.contains("[snap]=\"snapPositions\""));

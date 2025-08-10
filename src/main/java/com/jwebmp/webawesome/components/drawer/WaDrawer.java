@@ -7,7 +7,7 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Placement;
 import com.jwebmp.webawesome.components.button.WaButton;
-import com.jwebmp.webawesome.components.icon.WaIconButton;
+import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -163,17 +163,43 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
         return (J) this;
     }
 
-    public J withHeaderActions(List<WaIconButton> iconButtons)
+    /**
+     * Adds header action buttons to the drawer.
+     * These buttons appear beside the close button in the header.
+     *
+     * @param buttons The list of buttons to add
+     * @return This object for method chaining
+     */
+    public J withHeaderActions(List<WaButton<?>> buttons)
     {
-        for (WaIconButton iconButton : iconButtons)
+        for (WaButton<?> button : buttons)
         {
-            iconButton.addAttribute("slot", "header-actions");
+            button.addAttribute("slot", "header-actions");
             addAttribute("with-header", "");
-            addClass("dialog-header-actions");
-            add(iconButton);
+            addClass("drawer-header-actions");
+            add(button);
         }
 
         return (J) this;
+    }
+    
+    /**
+     * Creates a button with an icon and adds it to the header actions.
+     * This is a replacement for the deprecated WaIconButton.
+     *
+     * @param iconName The name of the icon
+     * @return The created button
+     */
+    public WaButton<?> withHeaderActionIcon(String iconName)
+    {
+        WaButton<?> button = new WaButton();
+        WaIcon<?> icon = new WaIcon<>(iconName);
+        button.setPrefix(icon);
+        button.addAttribute("slot", "header-actions");
+        addAttribute("with-header", "");
+        addClass("drawer-header-actions");
+        add(button);
+        return button;
     }
 
     public J withFooter(DivSimple<?> footer)

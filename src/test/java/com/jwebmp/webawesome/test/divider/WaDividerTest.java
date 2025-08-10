@@ -73,4 +73,53 @@ public class WaDividerTest
 
         assertEquals("<wa-divider style=\"--color:#e91e63;--spacing:1.5rem;--width:3px;\" vertical></wa-divider>", s);
     }
+    
+    @Test
+    public void testRenderDividerWithOrientationVerticalHtml()
+    {
+        var s = new WaDivider()
+                .setOrientation("vertical")
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-divider orientation=\"vertical\"></wa-divider>", s);
+    }
+    
+    @Test
+    public void testRenderDividerWithOrientationHorizontalHtml()
+    {
+        var s = new WaDivider()
+                .setOrientation("horizontal")
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-divider orientation=\"horizontal\"></wa-divider>", s);
+    }
+    
+    @Test
+    public void testRenderDividerWithOrientationAndCustomPropertiesHtml()
+    {
+        var s = new WaDivider()
+                .setOrientation("vertical")
+                .setColor("#2196f3")
+                .setWidth("2px")
+                .setSpacing("1rem")
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-divider orientation=\"vertical\" style=\"--color:#2196f3;--spacing:1rem;--width:2px;\"></wa-divider>", s);
+    }
+    
+    @Test
+    public void testOrientationPrecedenceOverVerticalHtml()
+    {
+        var s = new WaDivider()
+                .setOrientation("horizontal")
+                .setVertical(true) // This should be ignored since orientation is specified
+                .toString(true);
+        System.out.println(s);
+
+        // Orientation should take precedence over vertical
+        assertEquals("<wa-divider orientation=\"horizontal\"></wa-divider>", s);
+    }
 }

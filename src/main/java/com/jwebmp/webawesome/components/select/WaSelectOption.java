@@ -12,6 +12,42 @@ import lombok.Setter;
 /**
  * The WaSelectOption component represents an option within a WaSelect dropdown.
  * It allows for setting a value, disabled state, and custom styling.
+ * <p>
+ * Attributes:
+ * - `value`: The value of the option, used when the option is selected
+ * - `disabled`: Whether the option is disabled and cannot be selected
+ * <p>
+ * Slots:
+ * - default: The text content of the option
+ * - start: Icon or element before the option text
+ * - end: Icon or element after the option text
+ * <p>
+ * Styling Properties:
+ * - `backgroundColorCurrent`: Sets the --background-color-current CSS property
+ * - `backgroundColorHover`: Sets the --background-color-hover CSS property
+ * - `textColorCurrent`: Sets the --text-color-current CSS property
+ * - `textColorHover`: Sets the --text-color-hover CSS property
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic option
+ * WaSelectOption option = new WaSelectOption();
+ * option.setValue("option1");
+ * option.setText("Option 1");
+ * 
+ * // Disabled option
+ * WaSelectOption disabledOption = new WaSelectOption();
+ * disabledOption.setValue("option2");
+ * disabledOption.setText("Option 2");
+ * disabledOption.setDisabled(true);
+ * 
+ * // Option with custom styling
+ * WaSelectOption styledOption = new WaSelectOption();
+ * styledOption.setValue("option3");
+ * styledOption.setText("Option 3");
+ * styledOption.setBackgroundColorHover("#e9ecef");
+ * styledOption.setTextColorHover("#007bff");
+ * </pre>
  */
 @Getter
 @Setter
@@ -32,32 +68,32 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
     /**
      * Component to display before the option text
      */
-    private IComponentHierarchyBase<?, ?> prefix;
+    private IComponentHierarchyBase<?, ?> start;
 
     /**
      * Component to display after the option text
      */
-    private IComponentHierarchyBase<?, ?> suffix;
+    private IComponentHierarchyBase<?, ?> end;
 
     /**
      * Background color when the option is selected
      */
-    private String backgroundColourCurrent;
+    private String backgroundColorCurrent;
 
     /**
      * Background color when hovering over the option
      */
-    private String backgroundColourHover;
+    private String backgroundColorHover;
 
     /**
      * Text color when the option is selected
      */
-    private String textColourCurrent;
+    private String textColorCurrent;
 
     /**
      * Text color when hovering over the option
      */
-    private String textColourHover;
+    private String textColorHover;
 
     /**
      * Creates a new WaSelectOption with the tag "wa-option"
@@ -80,34 +116,34 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
             {
                 addAttribute("disabled", "");
             }
-            if (prefix != null)
+            if (start != null)
             {
-                prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
-                add(0, prefix);
+                start.asAttributeBase()
+                     .addAttribute("slot", "start");
+                add(0, start);
             }
-            if (suffix != null)
+            if (end != null)
             {
-                suffix.asAttributeBase()
-                      .addAttribute("slot", "suffix");
-                add(suffix);
+                end.asAttributeBase()
+                   .addAttribute("slot", "end");
+                add(end);
             }
 
-            if (!Strings.isNullOrEmpty(backgroundColourCurrent))
+            if (!Strings.isNullOrEmpty(backgroundColorCurrent))
             {
-                addStyle("--background-color-current", backgroundColourCurrent);
+                addStyle("--background-color-current", backgroundColorCurrent);
             }
-            if (!Strings.isNullOrEmpty(backgroundColourHover))
+            if (!Strings.isNullOrEmpty(backgroundColorHover))
             {
-                addStyle("--background-color-hover", backgroundColourHover);
+                addStyle("--background-color-hover", backgroundColorHover);
             }
-            if (!Strings.isNullOrEmpty(textColourCurrent))
+            if (!Strings.isNullOrEmpty(textColorCurrent))
             {
-                addStyle("--text-color-current", textColourCurrent);
+                addStyle("--text-color-current", textColorCurrent);
             }
-            if (!Strings.isNullOrEmpty(textColourHover))
+            if (!Strings.isNullOrEmpty(textColorHover))
             {
-                addStyle("--text-color-hover", textColourHover);
+                addStyle("--text-color-hover", textColorHover);
             }
         }
         super.init();

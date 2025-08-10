@@ -12,8 +12,8 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
  * <p>
  * This component is a container for WaAvatar components and renders as a div with the "wa-avatar-group" class.
  */
-@NgImportReference(value = "WaAvatarGroupDirective", reference = "angular-awesome")
-@NgImportModule("WaAvatarGroupDirective")
+//@NgImportReference(value = "WaAvatarGroupDirective", reference = "angular-awesome")
+//@NgImportModule("WaAvatarGroupDirective")
 public class WaAvatarGroup<J extends WaAvatarGroup<J>> extends DivSimple<J>
 {
     /**

@@ -9,6 +9,29 @@ import lombok.Setter;
 
 /**
  * The WaBreadcrumbItem component represents a link or step in the navigation path.
+ * <p>
+ * Attributes:
+ * - `href`: Link to navigate to when clicked
+ * - `target`: Link target behavior (e.g., '_blank', '_parent')
+ * - `rel`: Relationship for link behavior, default: 'noreferrer noopener'
+ * <p>
+ * Slots:
+ * - default: The label text or projected content
+ * - start: Icon or element before the label
+ * - end: Icon or element after the label
+ * - separator: Optional per-item separator override
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic breadcrumb item
+ * WaBreadcrumbItem item = new WaBreadcrumbItem("Home");
+ * item.setHref("/home");
+ * 
+ * // With icon
+ * WaBreadcrumbItem item = new WaBreadcrumbItem("Products");
+ * item.setHref("/products");
+ * item.setStart(new WaIcon("folder"));
+ * </pre>
  */
 @Getter
 @Setter
@@ -17,12 +40,12 @@ public class WaBreadcrumbItem<J extends WaBreadcrumb<J>> extends DivSimple<J>
     /**
      * Icon or element before the label
      */
-    private IComponentHierarchyBase<?, ?> prefix;
+    private IComponentHierarchyBase<?, ?> start;
 
     /**
      * Icon or element after the label
      */
-    private IComponentHierarchyBase<?, ?> suffix;
+    private IComponentHierarchyBase<?, ?> end;
 
     /**
      * Link to navigate to when clicked
@@ -80,17 +103,17 @@ public class WaBreadcrumbItem<J extends WaBreadcrumb<J>> extends DivSimple<J>
     {
         if (!isInitialized())
         {
-            if (prefix != null)
+            if (start != null)
             {
-                prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
-                add(prefix);
+                start.asAttributeBase()
+                     .addAttribute("slot", "start");
+                add(start);
             }
-            if (suffix != null)
+            if (end != null)
             {
-                suffix.asAttributeBase()
-                      .addAttribute("slot", "suffix");
-                add(suffix);
+                end.asAttributeBase()
+                   .addAttribute("slot", "end");
+                add(end);
             }
             if (separator != null)
             {

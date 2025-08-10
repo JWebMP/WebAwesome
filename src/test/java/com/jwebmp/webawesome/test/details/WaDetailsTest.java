@@ -173,4 +173,108 @@ public class WaDetailsTest
         assertTrue(s.contains("<wa-icon name=\"chevron-down\" slot=\"collapse-icon\"></wa-icon>"));
         assertTrue(s.contains("This is the content of the details element."));
     }
+    
+    @Test
+    public void testRenderDetailsWithIconPositionHtml()
+    {
+        var s = new WaDetails<>("Summary Text")
+                .setIconPosition("start")
+                .setText("This is the content of the details element.")
+                .toString(true);
+
+        System.out.println(s);
+
+        assertTrue(s.contains("<wa-details icon-position=\"start\" summary=\"Summary Text\">"));
+        assertTrue(s.contains("This is the content of the details element."));
+    }
+    
+    @Test
+    public void testRenderDetailsWithNameHtml()
+    {
+        var s = new WaDetails<>("Summary Text")
+                .setName("group-1")
+                .setText("This is the content of the details element.")
+                .toString(true);
+
+        System.out.println(s);
+
+        assertTrue(s.contains("<wa-details name=\"group-1\" summary=\"Summary Text\">"));
+        assertTrue(s.contains("This is the content of the details element."));
+    }
+    
+    @Test
+    public void testRenderDetailsWithEventHandlersHtml()
+    {
+        var s = new WaDetails<>("Summary Text")
+                .setShowEvent("onShow()")
+                .setAfterShowEvent("onAfterShow()")
+                .setHideEvent("onHide()")
+                .setAfterHideEvent("onAfterHide()")
+                .setText("This is the content of the details element.")
+                .toString(true);
+
+        System.out.println(s);
+
+        assertTrue(s.contains("<wa-details"));
+        assertTrue(s.contains("summary=\"Summary Text\""));
+        assertTrue(s.contains("wa-show=\"onShow()\""));
+        assertTrue(s.contains("wa-after-show=\"onAfterShow()\""));
+        assertTrue(s.contains("wa-hide=\"onHide()\""));
+        assertTrue(s.contains("wa-after-hide=\"onAfterHide()\""));
+        assertTrue(s.contains("This is the content of the details element."));
+    }
+    
+    @Test
+    public void testRenderDetailsWithCompleteConfigurationHtml()
+    {
+        var summaryDiv = new DivSimple<>();
+        summaryDiv.setText("Custom Summary with HTML");
+
+        var expandIcon = new WaIcon<>().setName("chevron-right");
+        var collapseIcon = new WaIcon<>().setName("chevron-down");
+
+        var s = new WaDetails<>()
+                .setSummarySlot(summaryDiv)
+                .setOpen(true)
+                .setDisabled(false)
+                .setAppearance("filled")
+                .setIconPosition("start")
+                .setName("group-1")
+                .setExpandIcon(expandIcon)
+                .setCollapseIcon(collapseIcon)
+                .setIconColor("#0000ff")
+                .setSpacing("12px")
+                .setShowDuration("300ms")
+                .setHideDuration("200ms")
+                .setDisplay("block")
+                .setShowEvent("onShow()")
+                .setAfterShowEvent("onAfterShow()")
+                .setHideEvent("onHide()")
+                .setAfterHideEvent("onAfterHide()")
+                .setText("This is the content of the details element.")
+                .toString(true);
+
+        System.out.println(s);
+
+        // Check for each attribute and style property individually
+        assertTrue(s.contains("<wa-details"));
+        assertTrue(s.contains("appearance=\"filled\""));
+        assertTrue(s.contains("open"));
+        assertTrue(s.contains("icon-position=\"start\""));
+        assertTrue(s.contains("name=\"group-1\""));
+        assertTrue(s.contains("wa-show=\"onShow()\""));
+        assertTrue(s.contains("wa-after-show=\"onAfterShow()\""));
+        assertTrue(s.contains("wa-hide=\"onHide()\""));
+        assertTrue(s.contains("wa-after-hide=\"onAfterHide()\""));
+        assertTrue(s.contains("style="));
+        assertTrue(s.contains("--display:block"));
+        assertTrue(s.contains("--hide-duration:200ms"));
+        assertTrue(s.contains("--icon-color:#0000ff"));
+        assertTrue(s.contains("--show-duration:300ms"));
+        assertTrue(s.contains("--spacing:12px"));
+        assertTrue(s.contains("<div slot=\"summary\">Custom Summary with HTML</div>"));
+        assertTrue(s.contains("<wa-icon name=\"chevron-right\" slot=\"expand-icon\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"chevron-down\" slot=\"collapse-icon\"></wa-icon>"));
+        assertTrue(s.contains("This is the content of the details element."));
+    }
 }

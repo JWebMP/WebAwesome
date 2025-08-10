@@ -10,8 +10,47 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * Represents a Web Awesome progress bar component.
- * This class provides methods to configure the progress bar's attributes.
+ * Represents a Web Awesome progress bar component used to visualize the progression of a task.
+ * <p>
+ * Attributes:
+ * - `value`: Current progress percentage, 0-100
+ * - `indeterminate`: If true, shows indeterminate loading animation (value and content are ignored)
+ * - `label`: Label for screen readers
+ * <p>
+ * Events:
+ * - `focusEvent`: Emits when the component gains focus
+ * - `blurEvent`: Emits when the component loses focus
+ * <p>
+ * Styling Properties:
+ * - `indicatorColor`: Sets the --indicator-color CSS property
+ * - `display`: Sets the --display CSS property
+ * - `trackHeight`: Sets the --track-height CSS property
+ * <p>
+ * Slots:
+ * - default: The default slot can be used to show the current value as text (e.g., "50%")
+ * - start: For an optional icon or element before the bar
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic progress bar
+ * WaProgressBar progressBar = new WaProgressBar();
+ * progressBar.setValue(50);
+ * progressBar.setLabel("Upload Progress");
+ *
+ * // Indeterminate progress bar
+ * WaProgressBar indeterminateBar = new WaProgressBar();
+ * indeterminateBar.setIndeterminate(true);
+ * indeterminateBar.setLabel("Loading...");
+ *
+ * // Progress bar with custom styling
+ * WaProgressBar customBar = new WaProgressBar();
+ * customBar.setValue(75);
+ * customBar.setIndicatorColor("green");
+ * customBar.setDisplay("block");
+ * customBar.add(new Text("75%"));
+ * </pre>
+ * <p>
+ * Note: This component supports two-way binding with ngModel for the value property.
  */
 @Getter
 @Setter
@@ -62,6 +101,11 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * Custom display value for the progress bar.
      */
     private String display;
+
+    /**
+     * Custom track height for the progress bar.
+     */
+    private String trackHeight;
 
     /**
      * Optional component to display before the progress bar.
@@ -124,11 +168,16 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
                 addStyle("--display", display);
             }
 
+            if (!Strings.isNullOrEmpty(trackHeight))
+            {
+                addStyle("--track-height", trackHeight);
+            }
+
             // Add prefix slot if provided
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
+                      .addAttribute("slot", "start");
                 add(prefix);
             }
         }
@@ -146,7 +195,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
         this.value = value;
         return (J) this;
     }
-    
+
     /**
      * Sets the maximum value of the progress bar.
      *
@@ -207,6 +256,18 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
     public J setDisplay(String display)
     {
         this.display = display;
+        return (J) this;
+    }
+
+    /**
+     * Sets the custom track height for the progress bar.
+     *
+     * @param trackHeight The track height value to set.
+     * @return The current instance of WaProgressBar for method chaining.
+     */
+    public J setTrackHeight(String trackHeight)
+    {
+        this.trackHeight = trackHeight;
         return (J) this;
     }
 

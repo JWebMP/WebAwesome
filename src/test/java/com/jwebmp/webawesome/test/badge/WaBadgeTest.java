@@ -41,7 +41,7 @@ public class WaBadgeTest
         var s = new WaBadge<>()
                 .setText("Pill Badge")
                 .setVariant(Variant.Brand)
-                .setAsPill(true)
+                .setPill(true)
                 .toString(true);
 
         System.out.println(s);
@@ -55,7 +55,7 @@ public class WaBadgeTest
         var s = new WaBadge<>()
                 .setText("Pulsating Badge")
                 .setVariant(Variant.Danger)
-                .setPulsating(true)
+                .setPulse(true)
                 .toString(true);
 
         System.out.println(s);
@@ -70,8 +70,8 @@ public class WaBadgeTest
                 .setText("Complex Badge")
                 .setVariant(Variant.Success)
                 .setAppearance(Appearance.Filled)
-                .setAsPill(true)
-                .setPulsating(true)
+                .setPill(true)
+                .setPulse(true)
                 .toString(true);
 
         System.out.println(s);

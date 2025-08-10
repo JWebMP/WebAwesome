@@ -30,7 +30,7 @@ module com.jwebmp.webawesome {
     //exports com.jwebmp.webawesome.components.imagecompare;
     exports com.jwebmp.webawesome.components.include;
     exports com.jwebmp.webawesome.components.input;
-    exports com.jwebmp.webawesome.components.menu;
+    //exports com.jwebmp.webawesome.components.menu;
     exports com.jwebmp.webawesome.components.progressbar;
     exports com.jwebmp.webawesome.components.progressring;
     exports com.jwebmp.webawesome.components.popup;
@@ -58,6 +58,9 @@ module com.jwebmp.webawesome {
 
     requires com.jwebmp.plugins.easingeffects;
     requires com.jwebmp.core.base.angular.client;
+
+    requires transitive com.google.common;
+
     requires static lombok;
 
     provides IGuiceScanModuleInclusions with WebAwesomeInclusionModule;
@@ -89,7 +92,7 @@ module com.jwebmp.webawesome {
     //opens com.jwebmp.webawesome.components.imagecompare to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.include to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.input to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
-    opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    //opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.popup to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.popover to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.progressbar to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;

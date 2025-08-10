@@ -4,6 +4,7 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,58 @@ import lombok.Setter;
 /**
  * Represents a Web Awesome radio component.
  * This class provides methods to configure the radio component's attributes.
+ * <p>
+ * Attributes:
+ * - `value`: The value of the radio component
+ * - `disabled`: Whether the radio component is disabled
+ * - `size`: The size of the radio component (small, medium, large)
+ * - `appearance`: Visual appearance style (default is standard radio, "button" for button-like appearance)
+ * - `asPill`: Whether to display the radio button with rounded pill-shaped edges (when appearance="button")
+ * <p>
+ * Slots:
+ * - default: The text content of the radio
+ * - start: Icon or element before the text (when appearance="button")
+ * - end: Icon or element after the text (when appearance="button")
+ * <p>
+ * Styling Properties for standard radio:
+ * - `styleBackgroundColor`: Sets the --background-color CSS property
+ * - `styleBackgroundColorChecked`: Sets the --background-color-checked CSS property
+ * - `styleBorderColor`: Sets the --border-color CSS property
+ * - `styleBorderColorChecked`: Sets the --border-color-checked CSS property
+ * - `styleBorderStyle`: Sets the --border-style CSS property
+ * - `styleBorderWidth`: Sets the --border-width CSS property
+ * - `styleBoxShadow`: Sets the --box-shadow CSS property
+ * - `styleCheckedIconColor`: Sets the --checked-icon-color CSS property
+ * - `styleCheckedIconScale`: Sets the --checked-icon-scale CSS property
+ * - `styleToggleSize`: Sets the --toggle-size CSS property
+ * <p>
+ * Additional styling properties when appearance="button":
+ * - `styleIndicatorColor`: Sets the --indicator-color CSS property
+ * - `styleIndicatorWidth`: Sets the --indicator-width CSS property
+ * - `styleDisplay`: Sets the --display CSS property
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic radio
+ * WaRadio radio = new WaRadio();
+ * radio.setValue("option1");
+ * radio.setText("Option 1");
+ *
+ * // Radio button (replaces deprecated WaRadioButton)
+ * WaRadio radioButton = new WaRadio();
+ * radioButton.setValue("option1");
+ * radioButton.setText("Option 1");
+ * radioButton.setAppearance("button");
+ * radioButton.setAsPill(true);
+ *
+ * // Radio button with icon
+ * WaRadio radioWithIcon = new WaRadio();
+ * radioWithIcon.setValue("happy");
+ * radioWithIcon.setText("Happy");
+ * radioWithIcon.setAppearance("button");
+ * radioWithIcon.setStart(new WaIcon("face-smile"));
+ * radioWithIcon.setWithStart(true); // For SSR
+ * </pre>
  */
 @Getter
 @Setter
@@ -41,6 +94,42 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
      * This can be null if not set.
      */
     private String formId;
+
+    /**
+     * The appearance of the radio component.
+     * Set to "button" to use as a replacement for WaRadioButton.
+     */
+    private String appearance;
+
+    /**
+     * Whether to display the radio button with rounded pill-shaped edges.
+     * Only applicable when appearance="button".
+     */
+    private Boolean asPill;
+
+    /**
+     * Icon or element before the text.
+     * Only applicable when appearance="button".
+     */
+    private IComponentHierarchyBase<?, ?> start;
+
+    /**
+     * Icon or element after the text.
+     * Only applicable when appearance="button".
+     */
+    private IComponentHierarchyBase<?, ?> end;
+
+    /**
+     * SSR-friendly flag for the start slot.
+     * Only applicable when appearance="button".
+     */
+    private Boolean withStart;
+
+    /**
+     * SSR-friendly flag for the end slot.
+     * Only applicable when appearance="button".
+     */
+    private Boolean withEnd;
 
     /**
      * Custom background color for the radio component.
@@ -103,12 +192,53 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
     private String styleToggleSize;
 
     /**
+     * Custom indicator color for the radio button.
+     * Only applicable when appearance="button".
+     */
+    private String styleIndicatorColor;
+
+    /**
+     * Custom indicator width for the radio button.
+     * Only applicable when appearance="button".
+     */
+    private String styleIndicatorWidth;
+
+    /**
+     * Custom display value for the radio button.
+     * Only applicable when appearance="button".
+     */
+    private String styleDisplay;
+
+    /**
      * Default constructor for the WaRadio class.
      * Initializes the component with a default tag of `wa-radio`.
      */
     public WaRadio()
     {
         setTag("wa-radio");
+    }
+
+    /**
+     * Constructor that initializes the radio with a value.
+     *
+     * @param value The value of the radio
+     */
+    public WaRadio(String value)
+    {
+        this();
+        this.value = value;
+    }
+
+    /**
+     * Constructor that initializes the radio with a value and text.
+     *
+     * @param value The value of the radio
+     * @param text  The text content of the radio
+     */
+    public WaRadio(String value, String text)
+    {
+        this(value);
+        setText(text);
     }
 
     /**
@@ -136,6 +266,34 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(formId))
             {
                 addAttribute("form", formId);
+            }
+            if (!Strings.isNullOrEmpty(appearance))
+            {
+                addAttribute("appearance", appearance);
+            }
+            if (asPill != null && asPill)
+            {
+                addAttribute("as-pill", "");
+            }
+            if (start != null)
+            {
+                start.asAttributeBase()
+                     .addAttribute("slot", "start");
+                add(start);
+            }
+            if (end != null)
+            {
+                end.asAttributeBase()
+                   .addAttribute("slot", "end");
+                add(end);
+            }
+            if (withStart != null && withStart)
+            {
+                addAttribute("with-start", "");
+            }
+            if (withEnd != null && withEnd)
+            {
+                addAttribute("with-end", "");
             }
 
             // Add CSS custom properties if specified
@@ -178,6 +336,18 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(styleToggleSize))
             {
                 addStyle("--toggle-size", styleToggleSize);
+            }
+            if (!Strings.isNullOrEmpty(styleIndicatorColor))
+            {
+                addStyle("--indicator-color", styleIndicatorColor);
+            }
+            if (!Strings.isNullOrEmpty(styleIndicatorWidth))
+            {
+                addStyle("--indicator-width", styleIndicatorWidth);
+            }
+            if (!Strings.isNullOrEmpty(styleDisplay))
+            {
+                addStyle("--display", styleDisplay);
             }
         }
         super.init();

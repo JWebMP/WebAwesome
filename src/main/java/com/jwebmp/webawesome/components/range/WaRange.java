@@ -47,6 +47,86 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
     private Boolean disabled;
 
     /**
+     * Whether the slider is read-only
+     */
+    private Boolean readonly;
+
+    /**
+     * Whether the slider is required
+     */
+    private Boolean required;
+
+    /**
+     * Form association (by id)
+     */
+    private String form;
+
+    /**
+     * SSR optimization for label slot
+     */
+    private Boolean withLabel;
+
+    /**
+     * SSR optimization for hint slot
+     */
+    private Boolean withHint;
+
+    /**
+     * Enables dual-thumb range selection
+     */
+    private Boolean range;
+
+    /**
+     * Min value for range selection
+     */
+    private Number minValue;
+
+    /**
+     * Max value for range selection
+     */
+    private Number maxValue;
+
+    /**
+     * Slider orientation (horizontal or vertical)
+     */
+    private String orientation;
+
+    /**
+     * Slider size (small, medium, large)
+     */
+    private String size;
+
+    /**
+     * Starting value for the filled indicator
+     */
+    private Number indicatorOffset;
+
+    /**
+     * Shows markers at each step
+     */
+    private Boolean withMarkers;
+
+    /**
+     * Shows tooltip with current value
+     */
+    private Boolean withTooltip;
+
+    /**
+     * Distance of tooltip from thumb
+     */
+    private Number tooltipDistance;
+
+    /**
+     * Tooltip placement
+     */
+    private RangeTooltipPosition tooltipPlacement;
+
+    /**
+     * Autofocus the slider when page loads
+     */
+    private Boolean autofocus;
+
+    /**
      * Minimum value allowed
      */
     private Number min;
@@ -63,7 +143,9 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
 
     /**
      * Position of the tooltip (Top, Bottom, None)
+     * @deprecated Use tooltipPlacement and withTooltip instead
      */
+    @Deprecated
     private RangeTooltipPosition tooltipPosition;
 
     /**
@@ -112,6 +194,31 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
     private String tooltipOffset;
 
     /**
+     * Width of the track
+     */
+    private String trackSize;
+
+    /**
+     * Width of the marker
+     */
+    private String markerWidth;
+
+    /**
+     * Height of the marker
+     */
+    private String markerHeight;
+
+    /**
+     * Width of the thumb
+     */
+    private String thumbWidth;
+
+    /**
+     * Height of the thumb
+     */
+    private String thumbHeight;
+
+    /**
      * Custom formatter for the tooltip value
      */
     private String tooltipFormatter;
@@ -138,6 +245,10 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
             {
                 addAttribute("name", getName());
             }
+            if (!Strings.isNullOrEmpty(form))
+            {
+                addAttribute("form", form);
+            }
             if (defaultValue != null)
             {
                 addAttribute("default-value", defaultValue.toString());
@@ -149,6 +260,66 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
             if (disabled != null && disabled)
             {
                 addAttribute("disabled", "");
+            }
+            if (readonly != null && readonly)
+            {
+                addAttribute("readonly", "");
+            }
+            if (required != null && required)
+            {
+                addAttribute("required", "");
+            }
+            if (withLabel != null && withLabel)
+            {
+                addAttribute("with-label", "");
+            }
+            if (withHint != null && withHint)
+            {
+                addAttribute("with-hint", "");
+            }
+            if (range != null && range)
+            {
+                addAttribute("range", "");
+            }
+            if (minValue != null)
+            {
+                addAttribute("min-value", minValue.toString());
+            }
+            if (maxValue != null)
+            {
+                addAttribute("max-value", maxValue.toString());
+            }
+            if (!Strings.isNullOrEmpty(orientation))
+            {
+                addAttribute("orientation", orientation);
+            }
+            if (!Strings.isNullOrEmpty(size))
+            {
+                addAttribute("size", size);
+            }
+            if (indicatorOffset != null)
+            {
+                addAttribute("indicator-offset", indicatorOffset.toString());
+            }
+            if (withMarkers != null && withMarkers)
+            {
+                addAttribute("with-markers", "");
+            }
+            if (withTooltip != null && withTooltip)
+            {
+                addAttribute("with-tooltip", "");
+            }
+            if (tooltipDistance != null)
+            {
+                addAttribute("tooltip-distance", tooltipDistance.toString());
+            }
+            if (tooltipPlacement != null)
+            {
+                addAttribute("tooltip-placement", tooltipPlacement.toString());
+            }
+            if (autofocus != null && autofocus)
+            {
+                addAttribute("autofocus", "");
             }
             if (min != null)
             {
@@ -162,8 +333,21 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
             {
                 addAttribute("step", step.toString());
             }
+            // Handle deprecated tooltipPosition for backward compatibility
             if (tooltipPosition != null)
             {
+                if (tooltipPosition != RangeTooltipPosition.None)
+                {
+                    if (withTooltip == null)
+                    {
+                        addAttribute("with-tooltip", "");
+                    }
+                    if (tooltipPlacement == null)
+                    {
+                        addAttribute("tooltip-placement", tooltipPosition.toString());
+                    }
+                }
+                // For backward compatibility
                 addAttribute("tooltip", tooltipPosition.toString());
             }
             if (!Strings.isNullOrEmpty(trackColourActive))
@@ -201,6 +385,26 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(tooltipOffset))
             {
                 addStyle("--tooltip-offset", tooltipOffset);
+            }
+            if (!Strings.isNullOrEmpty(trackSize))
+            {
+                addStyle("--track-size", trackSize);
+            }
+            if (!Strings.isNullOrEmpty(markerWidth))
+            {
+                addStyle("--marker-width", markerWidth);
+            }
+            if (!Strings.isNullOrEmpty(markerHeight))
+            {
+                addStyle("--marker-height", markerHeight);
+            }
+            if (!Strings.isNullOrEmpty(thumbWidth))
+            {
+                addStyle("--thumb-width", thumbWidth);
+            }
+            if (!Strings.isNullOrEmpty(thumbHeight))
+            {
+                addStyle("--thumb-height", thumbHeight);
             }
         }
         super.init();

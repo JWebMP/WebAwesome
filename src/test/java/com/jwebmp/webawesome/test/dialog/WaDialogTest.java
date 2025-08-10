@@ -3,7 +3,7 @@ package com.jwebmp.webawesome.test.dialog;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.button.WaButton;
 import com.jwebmp.webawesome.components.dialog.WaDialog;
-import com.jwebmp.webawesome.components.icon.WaIconButton;
+import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -94,22 +94,24 @@ public class WaDialogTest
     @Test
     public void testRenderDialogWithHeaderActionsHtml()
     {
-        var iconButton = new WaIconButton();
-        iconButton.setName("settings");
+        var button = new WaButton<>();
+        var icon = new WaIcon<>("settings");
+        button.setPrefix(icon);
 
-        List<WaIconButton> iconButtons = new ArrayList<>();
-        iconButtons.add(iconButton);
+        List<WaButton<?>> buttons = new ArrayList<>();
+        buttons.add(button);
 
         var s = new WaDialog<>()
                 .setLabel("With Header Actions Dialog")
-                .withHeaderActions(iconButtons)
+                .withHeaderActions(buttons)
                 .setText("This dialog has header actions.")
                 .toString(true);
 
         System.out.println(s);
 
         assertTrue(s.contains("<wa-dialog class=\"dialog-header-actions\" label=\"With Header Actions Dialog\" with-header>"));
-        assertTrue(s.contains("<wa-icon-button name=\"settings\" slot=\"header-actions\"></wa-icon-button>"));
+        assertTrue(s.contains("<wa-button slot=\"header-actions\">"));
+        assertTrue(s.contains("<wa-icon name=\"settings\" slot=\"prefix\"></wa-icon>"));
         assertTrue(s.contains("This dialog has header actions."));
     }
 
@@ -213,11 +215,12 @@ public class WaDialogTest
         var header = new DivSimple<>();
         header.setText("Complete Dialog");
 
-        var iconButton = new WaIconButton();
-        iconButton.setName("settings");
+        var actionButton = new WaButton<>();
+        var actionIcon = new WaIcon<>("settings");
+        actionButton.setPrefix(actionIcon);
 
-        List<WaIconButton> iconButtons = new ArrayList<>();
-        iconButtons.add(iconButton);
+        List<WaButton<?>> actionButtons = new ArrayList<>();
+        actionButtons.add(actionButton);
 
         var footer = new DivSimple<>();
         footer.setText("Dialog Actions");
@@ -229,7 +232,7 @@ public class WaDialogTest
                 .setOpen(true)
                 .setLightDismiss(true)
                 .withHeader(header)
-                .withHeaderActions(iconButtons)
+                .withHeaderActions(actionButtons)
                 .withFooter(footer)
                 .withInitialFocusOn(button)
                 .add(button)
@@ -254,7 +257,7 @@ public class WaDialogTest
         boolean containsWithFooter = s.contains("with-footer");
         boolean containsStyles = s.contains("style=\"") && s.contains("--background-color:#ffffff") && s.contains("--border-radius:8px") && s.contains("--width:600px");
         boolean containsHeaderSlot = s.contains("<div slot=\"header\"") && s.contains("Complete Dialog");
-        boolean containsIconButton = s.contains("<wa-icon-button") && s.contains("name=\"settings\"") && s.contains("slot=\"header-actions\"");
+        boolean containsIconButton = s.contains("<wa-button slot=\"header-actions\"") && s.contains("<wa-icon name=\"settings\" slot=\"prefix\"></wa-icon>");
         boolean containsFooterSlot = s.contains("<div slot=\"footer\"") && s.contains("Dialog Actions");
         boolean containsCloseButton = s.contains("<wa-button data-dialog=\"close\"") && s.contains("Close") && s.contains("</wa-button>");
         boolean containsSaveButton = s.contains("<wa-button autofocus") && s.contains("Save");

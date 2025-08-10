@@ -44,8 +44,15 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
     private Integer positionInPixels;
 
     /**
-     * Whether the split orientation is vertical
+     * Sets the orientation of the split panel
      */
+    private String orientation;
+
+    /**
+     * Whether the split orientation is vertical
+     * @deprecated Use orientation="vertical" instead
+     */
+    @Deprecated
     private Boolean vertical;
 
     /**
@@ -151,8 +158,18 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
             {
                 addAttribute("position", String.valueOf(position));
             }
+            if (!Strings.isNullOrEmpty(orientation))
+            {
+                addAttribute("orientation", orientation);
+            }
+            // Handle deprecated vertical attribute for backward compatibility
             if (vertical != null && vertical)
             {
+                if (Strings.isNullOrEmpty(orientation))
+                {
+                    addAttribute("orientation", "vertical");
+                }
+                // For backward compatibility
                 addAttribute("vertical", "");
             }
             if (!Strings.isNullOrEmpty(snap))
@@ -221,11 +238,25 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
     }
 
     /**
-     * Binds the vertical attribute to an Angular variable
+     * Binds the orientation attribute to an Angular variable
      *
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    public J bindOrientation(String variableName)
+    {
+        addAttribute("[orientation]", variableName);
+        return (J) this;
+    }
+
+    /**
+     * Binds the vertical attribute to an Angular variable
+     *
+     * @param variableName The name of the variable to bind to
+     * @return This component
+     * @deprecated Use bindOrientation instead
+     */
+    @Deprecated
     public J bindVertical(String variableName)
     {
         addAttribute("[vertical]", variableName);

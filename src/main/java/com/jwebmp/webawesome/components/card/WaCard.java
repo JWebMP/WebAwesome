@@ -11,8 +11,55 @@ import lombok.Setter;
 
 /**
  * The WaCard component represents a flexible container to group related content such as text, images, headers, and footers.
- * It supports various inputs like appearance, size, withHeader, withImage, withFooter, and styling properties.
- * It also supports slots for the main content, header, footer, and image.
+ * <p>
+ * Attributes:
+ * - `appearance`: Visual appearance style (accent, filled, outlined, plain)
+ * - `size`: Size of the card (small, medium, large, inherit)
+ * - `withHeader`: Indicates if the card has a header section
+ * - `withImage`: Indicates if the card has an image section
+ * - `withFooter`: Indicates if the card has a footer section
+ * <p>
+ * Styling Properties:
+ * - `color`: Text color
+ * - `backgroundColor`: Background color
+ * - `fontSize`: Font size
+ * - `borderRadius`: Corner radius (--border-radius)
+ * - `borderColor`: Border color (--border-color)
+ * - `innerBorderColor`: Divider line color (--inner-border-color)
+ * - `borderWidth`: Border thickness (--border-width)
+ * - `spacing`: Internal layout spacing (--spacing)
+ * <p>
+ * Slots:
+ * - default: The main content of the card
+ * - header: Optional content for the header area
+ * - footer: Optional content for the footer area
+ * - image: Optional image for the card top
+ * <p>
+ * CSS Parts:
+ * - `image`: Wrapper for image slot
+ * - `header`: Wrapper for header content
+ * - `body`: Wrapper for main content
+ * - `footer`: Wrapper for footer content
+ * <p>
+ * Usage examples:
+ * <pre>
+ * // Basic card with header and text
+ * WaCard card = new WaCard();
+ * card.setAppearance(Appearance.Outlined);
+ * card.setSize(Size.Medium);
+ * card.withHeader("Card Title");
+ * card.withText("This is the card content.");
+ * 
+ * // Card with image, header, text, and footer
+ * WaCard card = new WaCard();
+ * card.setAppearance(Appearance.Filled);
+ * card.withImage(new Image("cat.jpg"));
+ * card.withHeader("Cute Cat");
+ * card.withText("This is a very adorable kitten that likes being inside cards.");
+ * DivSimple<?> footer = new DivSimple<>();
+ * footer.add(new WaButton("Adopt", Variant.Brand));
+ * card.withFooter(footer);
+ * </pre>
  */
 @Getter
 @Setter

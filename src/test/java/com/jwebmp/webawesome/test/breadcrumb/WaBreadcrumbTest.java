@@ -75,15 +75,15 @@ public class WaBreadcrumbTest
         var starIcon = new WaIcon<>().setName("star");
 
         var s = new WaBreadcrumb()
-                .add(new WaBreadcrumbItem("Home").setHref("/home").setPrefix(homeIcon))
+                .add(new WaBreadcrumbItem("Home").setHref("/home").setStart(homeIcon))
                 .add(new WaBreadcrumbItem("Products").setHref("/home/products"))
-                .add(new WaBreadcrumbItem("Widgets").setSuffix(starIcon))
+                .add(new WaBreadcrumbItem("Widgets").setEnd(starIcon))
                 .toString(true);
 
         System.out.println(s);
 
-        assertTrue(s.contains("<wa-icon name=\"house\" slot=\"prefix\"></wa-icon>"));
-        assertTrue(s.contains("<wa-icon name=\"star\" slot=\"suffix\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"house\" slot=\"start\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"star\" slot=\"end\"></wa-icon>"));
         assertTrue(s.contains("<wa-breadcrumb-item href=\"/home\">"));
         assertTrue(s.contains("Home"));
         assertTrue(s.contains("<wa-breadcrumb-item href=\"/home/products\">"));
