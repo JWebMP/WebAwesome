@@ -42,7 +42,7 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
      * Valid values: 'horizontal', 'vertical'
      * This can be null if not set.
      */
-    private String orientation;
+    private RadioOrientation orientation;
 
     /**
      * The size of the radio buttons.
@@ -139,9 +139,9 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
             {
                 addAttribute("label", label);
             }
-            if (!Strings.isNullOrEmpty(orientation))
+            if (orientation != null)
             {
-                addAttribute("orientation", orientation);
+                addAttribute("orientation", orientation.toString());
             }
             if (size != null)
             {
@@ -209,6 +209,33 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
         addAttribute("[(ngModel)]", variableName);
         addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
         addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
+        return (J) this;
+    }
+    /**
+     * Backwards-compatible setter that accepts a String orientation and maps it to the enum.
+     * Accepts "horizontal" and "vertical" (case-insensitive). Any other non-empty value clears the orientation.
+     * @param orientation the orientation string
+     * @return this
+     */
+    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        if (Strings.isNullOrEmpty(orientation))
+        {
+            this.orientation = null;
+        }
+        else if ("horizontal".equalsIgnoreCase(orientation))
+        {
+            this.orientation = RadioOrientation.Horizontal;
+        }
+        else if ("vertical".equalsIgnoreCase(orientation))
+        {
+            this.orientation = RadioOrientation.Vertical;
+        }
+        else
+        {
+            this.orientation = null;
+        }
         return (J) this;
     }
 }

@@ -71,21 +71,27 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
 
     /**
      * Visual style for the component (filled, outlined, plain).
-     * Multiple values allowed space-separated.
      */
-    private String appearance;
+    @Getter
+    private DetailsAppearance appearance;
+
+    /**
+     * Raw appearance string to allow multiple or custom values (e.g., "filled outlined").
+     * If set via setAppearance(String), this value takes precedence when rendering.
+     */
+    private String appearanceRaw;
 
     /**
      * An icon displayed when the container is in a collapsed state.
      * Used to visually indicate that the container can be expanded.
      */
-    private WaIcon expandIcon;
+    private WaIcon<?> expandIcon;
 
     /**
      * An icon displayed when the container is in an expanded state.
      * Used to visually indicate that the container can be collapsed.
      */
-    private WaIcon collapseIcon;
+    private WaIcon<?> collapseIcon;
 
     /**
      * Color of the expand/collapse icon.
@@ -116,7 +122,8 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      * Position of the expand/collapse icon.
      * Options: 'start' or 'end'. Default is 'end'.
      */
-    private String iconPosition;
+    private IconPosition iconPosition;
+
     /**
      * Event handler for when the details starts to open.
      */
@@ -162,11 +169,11 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDetails show()
+    public J show()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -174,11 +181,38 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDetails hide()
+    public J hide()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
+    }
+
+    /**
+     * Convenience setter accepting a string value for appearance; preserves raw input (supports multiple values).
+     */
+    public J setAppearance(String appearance)
+    {
+        this.appearanceRaw = appearance;
+        return (J) this;
+    }
+
+    /**
+     * Convenience setter accepting a string value for icon position.
+     */
+    public J setIconPosition(String iconPosition)
+    {
+        if (iconPosition == null)
+        {
+            this.iconPosition = null;
+        }
+        else
+        {
+            var normalized = iconPosition.trim()
+                                         .toLowerCase();
+            this.iconPosition = "start".equals(normalized) ? IconPosition.Start : IconPosition.End;
+        }
+        return (J) this;
     }
 
     /**
@@ -209,9 +243,13 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
             {
                 addAttribute("open", "");
             }
-            if (!Strings.isNullOrEmpty(appearance))
+            if (!Strings.isNullOrEmpty(appearanceRaw))
             {
-                addAttribute("appearance", appearance);
+                addAttribute("appearance", appearanceRaw);
+            }
+            else if (appearance != null)
+            {
+                addAttribute("appearance", appearance.toString());
             }
             if (expandIcon != null)
             {
@@ -249,15 +287,10 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
             }
 
             // Apply new attributes
-            if (!Strings.isNullOrEmpty(iconPosition))
+            if (iconPosition != null)
             {
-                addAttribute("icon-position", iconPosition);
+                addAttribute("icon-position", iconPosition.toString());
             }
-/*            if (!Strings.isNullOrEmpty(name))
-            {
-                addAttribute("name", name);
-            }
-            */
             // Add event handlers
             if (!Strings.isNullOrEmpty(showEvent))
             {

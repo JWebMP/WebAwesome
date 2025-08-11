@@ -1,4 +1,5 @@
 import com.guicedee.guicedinjection.interfaces.IGuiceScanModuleInclusions;
+import com.jwebmp.core.base.angular.client.services.TypescriptIndexPageConfigurator;
 import com.jwebmp.core.services.IPageConfigurator;
 import com.jwebmp.webawesome.WebAwesomeInclusionModule;
 import com.jwebmp.webawesome.components.WebAwesomePageConfigurator;
@@ -65,6 +66,7 @@ module com.jwebmp.webawesome {
 
     provides IGuiceScanModuleInclusions with WebAwesomeInclusionModule;
     provides IPageConfigurator with WebAwesomePageConfigurator;
+    provides TypescriptIndexPageConfigurator with WebAwesomePageConfigurator;
 
     opens com.jwebmp.webawesome to web.awesome.test;
 

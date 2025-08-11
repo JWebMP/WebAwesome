@@ -99,7 +99,7 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
      * The appearance of the radio component.
      * Set to "button" to use as a replacement for WaRadioButton.
      */
-    private String appearance;
+    private RadioAppearance appearance;
 
     /**
      * Whether to display the radio button with rounded pill-shaped edges.
@@ -267,9 +267,9 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
             {
                 addAttribute("form", formId);
             }
-            if (!Strings.isNullOrEmpty(appearance))
+            if (appearance != null)
             {
-                addAttribute("appearance", appearance);
+                addAttribute("appearance", appearance.toString());
             }
             if (asPill != null && asPill)
             {
@@ -351,5 +351,28 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
             }
         }
         super.init();
+    }
+    /**
+     * Backwards-compatible setter that accepts a String appearance value and maps it to the enum.
+     * Accepts "button" (case-insensitive). Any other non-empty value clears the appearance (no attribute).
+     * @param appearance the appearance string
+     * @return this
+     */
+    @SuppressWarnings("unchecked")
+    public J setAppearance(String appearance)
+    {
+        if (Strings.isNullOrEmpty(appearance))
+        {
+            this.appearance = null;
+        }
+        else if ("button".equalsIgnoreCase(appearance))
+        {
+            this.appearance = RadioAppearance.Button;
+        }
+        else
+        {
+            this.appearance = null;
+        }
+        return (J) this;
     }
 }

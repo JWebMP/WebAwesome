@@ -1,6 +1,8 @@
 package com.jwebmp.webawesome.components;
 
+import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.typescript.TsDependency;
+import com.jwebmp.core.base.angular.client.services.TypescriptIndexPageConfigurator;
 import com.jwebmp.core.base.html.Script;
 import com.jwebmp.core.base.references.CSSReference;
 import com.jwebmp.core.base.references.JavascriptReference;
@@ -31,23 +33,63 @@ import lombok.Setter;
 )
 @TsDependency(value = "angular-awesome", version = "*")
 public class WebAwesomePageConfigurator
-        implements IPageConfigurator<WebAwesomePageConfigurator>
+        implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator>
 {
     @Setter
     private static String basePath = "https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/";
+    @Setter
+    private static String themePath = "https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/themes/default.css";
+    @Setter
+    private static String themeClassName = "wa-theme-default";
+    @Setter
+    private static String themePalletName = "wa-pallet-default";
+    @Setter
+    private static String themeBrandName = "wa-brand-blue";
+    @Setter
+    private static String faKitCode = "";
 
     @Override
     public IPage<?> configure(IPage<?> page)
     {
-        page.addCssReference(new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css")
+        CSSReference webAwesome = new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css");
+        page.addCssReference(webAwesome
                 .setPriority(RequirementsPriority.First));
-        page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, basePath + "styles/themes/default.css")
+
+        page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, themePath)
                 .setPriority(RequirementsPriority.First)
                 .addAttribute("id", "webawesome-theme"));
+
         page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, basePath + "webawesome.loader.js")
                 .setPriority(RequirementsPriority.Top_Shelf)
                 .setScriptType("module"));
 
+        if (!Strings.isNullOrEmpty(themeClassName))
+        {
+            page.getBody()
+                .addClass(themeClassName);
+        }
+        if (!Strings.isNullOrEmpty(themePalletName))
+        {
+            page.getBody()
+                .addClass(themePalletName);
+        }
+        if (!Strings.isNullOrEmpty(themeBrandName))
+        {
+            page.getBody()
+                .addClass(themeBrandName);
+        }
+        if (!Strings.isNullOrEmpty(faKitCode))
+        {
+            webAwesome
+                    .addAttribute("data-fa-kit-code", faKitCode);
+        }
+        if (!Strings.isNullOrEmpty(basePath))
+        {
+            webAwesome
+                    .addAttribute("data-webawesome", basePath);
+        }
+
+/*
 
         page.getHead()
             .add(new Script<>()
@@ -55,6 +97,7 @@ public class WebAwesomePageConfigurator
                     .setText("""
                             import { setBasePath } from '%swebawesome.js';
                                         setBasePath('%s');""".formatted(basePath, basePath)));
+*/
 
 
         return page;

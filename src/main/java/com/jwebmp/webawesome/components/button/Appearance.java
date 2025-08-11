@@ -9,11 +9,15 @@ public enum Appearance
     Text,
     Plain,
     Filled_Outlined,
-    Accent_Outlined;
+    Accent_Outlined,
+    Plain_Outlined,
+    Tinted_Outlined,
+    Text_Outlined;
 
     @Override
     public String toString()
     {
-        return name().toLowerCase().replace('_', ' ');
+        return name().toLowerCase()
+                     .replace('_', ' ');
     }
 }
