@@ -17,7 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaTag", reference = "angular-awesome")
+@NgImportReference(value = "WaTagDirective", reference = "angular-awesome")
 @NgImportModule("WaTagDirective")
 public class WaTag<J extends WaTag<J>> extends DivSimple<J>
 {

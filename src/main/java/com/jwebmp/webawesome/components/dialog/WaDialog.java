@@ -90,6 +90,8 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     public WaDialog()
     {
         setTag("wa-dialog");
+        setRenderIDAttribute(true);
+        
     }
 
     /**
@@ -214,7 +216,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
 
         return (J) this;
     }
-    
+
     /**
      * Creates a button with an icon and adds it to the header actions.
      * This is a replacement for the deprecated WaIconButton.
@@ -279,4 +281,10 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
         return (J) this;
     }
 
+    public J withOpener(IComponentHierarchyBase<?, ?> component)
+    {
+        component.asAttributeBase()
+                 .addAttribute("data-dialog", "open " + getID());
+        return (J) this;
+    }
 }

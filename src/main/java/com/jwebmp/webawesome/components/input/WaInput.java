@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.input;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,7 +11,6 @@ import lombok.Setter;
  * The WaInput component provides a way to capture user input with various types, validations, and styling options.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaInputDirective", reference = "angular-awesome")
 @NgImportModule("WaInputDirective")
 public class WaInput<J extends WaInput<J>> extends DivSimple<J>
@@ -24,6 +24,11 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
      * The input value
      */
     private String value;
+
+    /**
+     * The default value of the input (used primarily for form reset)
+     */
+    private String defaultValue;
 
     /**
      * The input size (small, medium, large, inherit)
@@ -49,6 +54,16 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
      * The hint text displayed below the input
      */
     private String hint;
+
+    /**
+     * SSR flag to indicate the label slot is present on initial paint
+     */
+    private Boolean withLabel;
+
+    /**
+     * SSR flag to indicate the hint slot is present on initial paint
+     */
+    private Boolean withHint;
 
     /**
      * Whether to show a clear button
@@ -180,6 +195,15 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
      */
     private String boxShadow;
 
+    // Slots: label, start, end, clear-icon, show-password-icon, hide-password-icon, hint
+    private IComponentHierarchyBase<?, ?> labelSlot;
+    private IComponentHierarchyBase<?, ?> start;
+    private IComponentHierarchyBase<?, ?> end;
+    private IComponentHierarchyBase<?, ?> clearIcon;
+    private IComponentHierarchyBase<?, ?> showPasswordIcon;
+    private IComponentHierarchyBase<?, ?> hidePasswordIcon;
+    private IComponentHierarchyBase<?, ?> hintSlot;
+
     /**
      * Creates a new WaInput component
      */
@@ -224,6 +248,11 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             {
                 addAttribute("value", value);
             }
+            else if (defaultValue != null)
+            {
+                // Use defaultValue when value is not explicitly set
+                addAttribute("value", defaultValue);
+            }
             if (size != null)
             {
                 addAttribute("size", size.toString());
@@ -246,11 +275,15 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             }
             if (clearable != null && clearable)
             {
-                addAttribute("clearable", "");
+                addAttribute("with-clear", "");
             }
             if (placeholder != null)
             {
                 addAttribute("placeholder", placeholder);
+            }
+            if (getName() != null && !getName().isEmpty())
+            {
+                addAttribute("name", getName());
             }
             if (readonly != null && readonly)
             {
@@ -270,7 +303,7 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             }
             if (noSpinButtons != null && noSpinButtons)
             {
-                addAttribute("no-spin-buttons", "");
+                addAttribute("without-spin-buttons", "");
             }
             if (form != null)
             {
@@ -332,6 +365,14 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             {
                 addAttribute("inputmode", inputmode);
             }
+            if (withLabel != null && withLabel)
+            {
+                addAttribute("with-label", "");
+            }
+            if (withHint != null && withHint)
+            {
+                addAttribute("with-hint", "");
+            }
             if (backgroundColor != null)
             {
                 addStyle("--background-color", backgroundColor);
@@ -348,7 +389,319 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             {
                 addStyle("--box-shadow", boxShadow);
             }
+
+            // Append slot components if provided
+            if (labelSlot != null)
+            {
+                labelSlot.asAttributeBase()
+                         .addAttribute("slot", "label");
+                add(labelSlot);
+            }
+            if (start != null)
+            {
+                start.asAttributeBase()
+                     .addAttribute("slot", "start");
+                add(start);
+            }
+            if (end != null)
+            {
+                end.asAttributeBase()
+                   .addAttribute("slot", "end");
+                add(end);
+            }
+            if (clearIcon != null)
+            {
+                clearIcon.asAttributeBase()
+                         .addAttribute("slot", "clear-icon");
+                add(clearIcon);
+            }
+            if (showPasswordIcon != null)
+            {
+                showPasswordIcon.asAttributeBase()
+                                .addAttribute("slot", "show-password-icon");
+                add(showPasswordIcon);
+            }
+            if (hidePasswordIcon != null)
+            {
+                hidePasswordIcon.asAttributeBase()
+                                .addAttribute("slot", "hide-password-icon");
+                add(hidePasswordIcon);
+            }
+            if (hintSlot != null)
+            {
+                hintSlot.asAttributeBase()
+                        .addAttribute("slot", "hint");
+                add(hintSlot);
+            }
         }
         super.init();
+    }
+
+    public J setType(String type)
+    {
+        this.type = type;
+        return (J) this;
+    }
+
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }
+
+    /**
+     * Sets the default value (used when value is not explicitly set)
+     */
+    public J setDefaultValue(String defaultValue)
+    {
+        this.defaultValue = defaultValue;
+        return (J) this;
+    }
+
+    public J setSize(InputSize size)
+    {
+        this.size = size;
+        return (J) this;
+    }
+
+    public J setAppearance(InputAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }
+
+    public J setPill(Boolean pill)
+    {
+        this.pill = pill;
+        return (J) this;
+    }
+
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }
+
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }
+
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }
+
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }
+
+    public J setClearable(Boolean clearable)
+    {
+        this.clearable = clearable;
+        return (J) this;
+    }
+
+    public J setPlaceholder(String placeholder)
+    {
+        this.placeholder = placeholder;
+        return (J) this;
+    }
+
+    public J setReadonly(Boolean readonly)
+    {
+        this.readonly = readonly;
+        return (J) this;
+    }
+
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }
+
+    public J setPasswordToggle(Boolean passwordToggle)
+    {
+        this.passwordToggle = passwordToggle;
+        return (J) this;
+    }
+
+    public J setPasswordVisible(Boolean passwordVisible)
+    {
+        this.passwordVisible = passwordVisible;
+        return (J) this;
+    }
+
+    public J setNoSpinButtons(Boolean noSpinButtons)
+    {
+        this.noSpinButtons = noSpinButtons;
+        return (J) this;
+    }
+
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }
+
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }
+
+    public J setPattern(String pattern)
+    {
+        this.pattern = pattern;
+        return (J) this;
+    }
+
+    public J setMinlength(String minlength)
+    {
+        this.minlength = minlength;
+        return (J) this;
+    }
+
+    public J setMaxlength(String maxlength)
+    {
+        this.maxlength = maxlength;
+        return (J) this;
+    }
+
+    public J setMin(String min)
+    {
+        this.min = min;
+        return (J) this;
+    }
+
+    public J setMax(String max)
+    {
+        this.max = max;
+        return (J) this;
+    }
+
+    public J setStep(String step)
+    {
+        this.step = step;
+        return (J) this;
+    }
+
+    public J setAutocapitalize(String autocapitalize)
+    {
+        this.autocapitalize = autocapitalize;
+        return (J) this;
+    }
+
+    public J setAutocorrect(String autocorrect)
+    {
+        this.autocorrect = autocorrect;
+        return (J) this;
+    }
+
+    public J setAutocomplete(String autocomplete)
+    {
+        this.autocomplete = autocomplete;
+        return (J) this;
+    }
+
+    public J setAutofocus(Boolean autofocus)
+    {
+        this.autofocus = autofocus;
+        return (J) this;
+    }
+
+    public J setEnterkeyhint(String enterkeyhint)
+    {
+        this.enterkeyhint = enterkeyhint;
+        return (J) this;
+    }
+
+    public J setSpellcheck(Boolean spellcheck)
+    {
+        this.spellcheck = spellcheck;
+        return (J) this;
+    }
+
+    public J setInputmode(String inputmode)
+    {
+        this.inputmode = inputmode;
+        return (J) this;
+    }
+
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }
+
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }
+
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }
+
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }
+
+    // Slot setters
+    public J setLabelSlot(IComponentHierarchyBase<?, ?> labelSlot)
+    {
+        this.labelSlot = labelSlot;
+        return (J) this;
+    }
+
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }
+
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }
+
+    public J setClearIcon(IComponentHierarchyBase<?, ?> clearIcon)
+    {
+        this.clearIcon = clearIcon;
+        return (J) this;
+    }
+
+    public J setShowPasswordIcon(IComponentHierarchyBase<?, ?> showPasswordIcon)
+    {
+        this.showPasswordIcon = showPasswordIcon;
+        return (J) this;
+    }
+
+    public J setHidePasswordIcon(IComponentHierarchyBase<?, ?> hidePasswordIcon)
+    {
+        this.hidePasswordIcon = hidePasswordIcon;
+        return (J) this;
+    }
+
+    public J setHintSlot(IComponentHierarchyBase<?, ?> hintSlot)
+    {
+        this.hintSlot = hintSlot;
+        return (J) this;
+    }
+
+    @Override
+    public J bind(String variableName)
+    {
+        return addAttribute("[(ngModel)]", variableName);
     }
 }

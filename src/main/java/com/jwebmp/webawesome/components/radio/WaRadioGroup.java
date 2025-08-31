@@ -206,14 +206,27 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[(ngModel)]", variableName);
-        addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
-        addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
+        addAttribute("[value]", variableName);
         return (J) this;
     }
+
+    /**
+     * Binds the value attribute to an Angular variable (one-way binding)
+     *
+     * @param variableName The name of the variable to bind to
+     * @return This component
+     */
+    @SuppressWarnings("unchecked")
+    public J bindValue(String variableName)
+    {
+        addAttribute("[value]", variableName);
+        return (J) this;
+    }
+
     /**
      * Backwards-compatible setter that accepts a String orientation and maps it to the enum.
      * Accepts "horizontal" and "vertical" (case-insensitive). Any other non-empty value clears the orientation.
+     *
      * @param orientation the orientation string
      * @return this
      */
