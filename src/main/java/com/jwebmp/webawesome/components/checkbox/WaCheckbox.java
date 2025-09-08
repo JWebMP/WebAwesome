@@ -266,4 +266,11 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
         }
         super.init();
     }
+
+    @Override
+    public J bind(String variableName)
+    {
+        addAttribute("[(ngModel)]", variableName);
+        return (J) this;
+    }
 }

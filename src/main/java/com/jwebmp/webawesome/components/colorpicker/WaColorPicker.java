@@ -301,4 +301,11 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
         }
         super.init();
     }
+
+    @Override
+    public J bind(String variableName)
+    {
+        addAttribute("[(ngModel)]", variableName);
+        return (J) this;
+    }
 }

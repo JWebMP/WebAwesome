@@ -34,13 +34,13 @@ import lombok.Setter;
  * WaSelectOption option = new WaSelectOption();
  * option.setValue("option1");
  * option.setText("Option 1");
- * 
+ *
  * // Disabled option
  * WaSelectOption disabledOption = new WaSelectOption();
  * disabledOption.setValue("option2");
  * disabledOption.setText("Option 2");
  * disabledOption.setDisabled(true);
- * 
+ *
  * // Option with custom styling
  * WaSelectOption styledOption = new WaSelectOption();
  * styledOption.setValue("option3");
@@ -51,8 +51,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaSelectOptionDirective", reference = "angular-awesome")
-@NgImportModule("WaSelectOptionDirective")
+@NgImportReference(value = "WaOptionComponent", reference = "angular-awesome")
+@NgImportModule("WaOptionComponent")
 public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
 {
     /**

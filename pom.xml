@@ -42,6 +42,13 @@
             <groupId>com.jwebmp.core</groupId>
             <artifactId>jwebmp-testlib</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <!-- requires shade -->
+                    <groupId>com.browserstack</groupId>
+                    <artifactId>browserstack-java-sdk</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
 
     </dependencies>

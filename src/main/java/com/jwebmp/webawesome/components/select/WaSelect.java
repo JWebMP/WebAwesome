@@ -60,7 +60,7 @@ import lombok.Setter;
  * select.setLabel("Choose an option");
  * select.add(new WaSelectOption().setValue("option1").setText("Option 1"));
  * select.add(new WaSelectOption().setValue("option2").setText("Option 2"));
- * 
+ *
  * // Select with multiple selection
  * WaSelect multiSelect = new WaSelect();
  * multiSelect.setLabel("Choose multiple options");
@@ -68,7 +68,7 @@ import lombok.Setter;
  * multiSelect.setMaxOptionsVisible(3);
  * multiSelect.add(new WaSelectOption().setValue("option1").setText("Option 1"));
  * multiSelect.add(new WaSelectOption().setValue("option2").setText("Option 2"));
- * 
+ *
  * // Select with custom styling
  * WaSelect styledSelect = new WaSelect();
  * styledSelect.setLabel("Custom styled select");
@@ -158,52 +158,52 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
      * Component to display after the select text
      */
     private IComponentHierarchyBase<?, ?> end;
-    
+
     /**
      * Event handler for when the user selects an option
      */
     private String inputEvent;
-    
+
     /**
      * Event handler for when the value changes
      */
     private String changeEvent;
-    
+
     /**
      * Event handler for when the select gains focus
      */
     private String focusEvent;
-    
+
     /**
      * Event handler for when the select loses focus
      */
     private String blurEvent;
-    
+
     /**
      * Event handler for when the clear button is clicked
      */
     private String clearEvent;
-    
+
     /**
      * Event handler for when the dropdown opens
      */
     private String showEvent;
-    
+
     /**
      * Event handler for after the dropdown is fully opened
      */
     private String afterShowEvent;
-    
+
     /**
      * Event handler for when the dropdown closes
      */
     private String hideEvent;
-    
+
     /**
      * Event handler for after the dropdown is fully closed
      */
     private String afterHideEvent;
-    
+
     /**
      * Event handler for when constraint validation fails
      */
@@ -259,7 +259,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
      */
     public WaSelect()
     {
-        setTag("wa-select-wrapper");
+        setTag("wa-select");
     }
 
     @Override
@@ -313,7 +313,8 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
             }
             if (size != null)
             {
-                addAttribute("size", size.toString().toLowerCase());
+                addAttribute("size", size.toString()
+                                         .toLowerCase());
             }
             if (placement != null)
             {
@@ -336,7 +337,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
                    .addAttribute("slot", "end");
                 add(end);
             }
-            
+
             // Add event handlers
             if (!Strings.isNullOrEmpty(inputEvent))
             {
