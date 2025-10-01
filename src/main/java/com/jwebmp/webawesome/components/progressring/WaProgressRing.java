@@ -352,8 +352,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[value]", variableName);
-        addAttribute("(valueChange)", variableName + " = $event");
+        addAttribute("[(ngModel)]", variableName);
         return (J) this;
     }
 }

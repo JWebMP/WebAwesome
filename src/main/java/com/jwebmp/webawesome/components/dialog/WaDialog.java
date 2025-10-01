@@ -91,7 +91,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     {
         setTag("wa-dialog");
         setRenderIDAttribute(true);
-        
+
     }
 
     /**
@@ -190,8 +190,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      */
     public J withHeader(DivSimple<?> header)
     {
-        header.addAttribute("slot", "header");
-        addAttribute("with-header", "");
+        header.addAttribute("slot", "label");
         addClass("dialog-header");
         add(header);
         return (J) this;
@@ -229,8 +228,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
         WaButton<?> button = new WaButton();
         WaIcon<?> icon = new WaIcon<>(iconName);
         button.setPrefix(icon);
-        button.addAttribute("slot", "header-actions");
-        addAttribute("with-header", "");
+        button.addAttribute("slot", "label-actions");
         addClass("dialog-header-actions");
         add(button);
         return button;
