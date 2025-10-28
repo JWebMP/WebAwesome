@@ -206,7 +206,7 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[value]", variableName);
+        addAttribute("[(ngModel)]", variableName);
         return (J) this;
     }
 
