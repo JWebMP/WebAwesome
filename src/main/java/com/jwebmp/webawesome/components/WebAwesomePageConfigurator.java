@@ -36,9 +36,9 @@ public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator>
 {
     @Setter
-    private static String basePath = "https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/";
+    private static String basePath = "/webawesome/";
     @Setter
-    private static String themePath = "https://early.webawesome.com/webawesome@3.0.0-beta.4/dist/styles/themes/default.css";
+    private static String themePath = "/webawesome/styles/themes/default.css";
     @Setter
     private static String themeClassName = "wa-theme-default";
     @Setter
@@ -56,7 +56,8 @@ public class WebAwesomePageConfigurator
                 .setPriority(RequirementsPriority.First));
 
         page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, themePath)
-                .setPriority(RequirementsPriority.First)
+                .setPriority(RequirementsPriority.StoneLast)
+                .setSortOrder(Integer.MAX_VALUE - 100)
                 .addAttribute("id", "webawesome-theme"));
 
         page.addJavaScriptReference(new JavascriptReference("WebAwesome", 0.1, basePath + "webawesome.loader.js")
