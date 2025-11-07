@@ -283,7 +283,11 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             }
             if (getName() != null && !getName().isEmpty())
             {
-                addAttribute("name", getName());
+                String defaultName = getClass().getName().replace('.', '_');
+                if (!getName().equals(defaultName))
+                {
+                    addAttribute("name", getName());
+                }
             }
             if (readonly != null && readonly)
             {

@@ -177,7 +177,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "start");
+                      .addAttribute("slot", "prefix");
                 add(prefix);
             }
         }
@@ -325,18 +325,17 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
 
 
     /**
-     * Overrides the bind method to support two-way binding with ngModel.
-     * This allows the radio group to be used with [(ngModel)] in Angular templates.
+     * Binds the value property to an Angular variable and wires two-way updates.
+     * Mirrors the pattern used across WebAwesome wrappers: [value] and (valueChange).
      *
      * @param variableName The name of the variable to bind to.
-     * @return The current instance of WaRadioGroup for method chaining.
+     * @return The current instance of WaProgressBar for method chaining.
      */
     @Override
     public J bind(String variableName)
     {
-        addAttribute("[(ngModel)]", variableName);
-        addConfiguration(AnnotationUtils.getNgImportReference("FormsModule", "@angular/forms"));
-        addConfiguration(AnnotationUtils.getNgImportModule("FormsModule"));
+        addAttribute("[value]", variableName);
+        addAttribute("(valueChange)", variableName + " = $event");
         return (J) this;
     }
 

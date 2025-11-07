@@ -113,14 +113,12 @@ public class WaPopoverTest
 
         System.out.println(popover.toString(true));
 
-        assertTrue(popover.toString(true)
-                          .contains("--arrow-size: 8px"));
-        assertTrue(popover.toString(true)
-                          .contains("--max-width: 200px"));
-        assertTrue(popover.toString(true)
-                          .contains("--show-duration: 150ms"));
-        assertTrue(popover.toString(true)
-                          .contains("--hide-duration: 150ms"));
+        String html = popover.toString(true);
+        // Be tolerant to renderer spacing around ':' in inline styles
+        assertTrue(html.contains("--arrow-size: 8px") || html.contains("--arrow-size:8px"));
+        assertTrue(html.contains("--max-width: 200px") || html.contains("--max-width:200px"));
+        assertTrue(html.contains("--show-duration: 150ms") || html.contains("--show-duration:150ms"));
+        assertTrue(html.contains("--hide-duration: 150ms") || html.contains("--hide-duration:150ms"));
     }
 
     @Test

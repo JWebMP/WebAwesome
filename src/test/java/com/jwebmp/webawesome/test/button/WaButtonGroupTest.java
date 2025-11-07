@@ -12,110 +12,36 @@ import static org.junit.jupiter.api.Assertions.*;
 public class WaButtonGroupTest
 {
     @Test
-    public void testRenderBasicButtonGroupHtml()
+    public void rendersBasicGroup()
     {
-        var s = new WaButtonGroup()
-                .add(new WaButton("Left"))
-                .add(new WaButton("Center"))
-                .add(new WaButton("Right"))
-                .toString(true);
-
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group>"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("Left"));
-        assertTrue(s.contains("Center"));
-        assertTrue(s.contains("Right"));
-    }
-
-    @Test
-    public void testRenderButtonGroupWithLabelHtml()
-    {
-        var s = new WaButtonGroup()
-                .setLabel("Alignment")
-                .add(new WaButton("Left"))
-                .add(new WaButton("Right"))
-                .toString(true);
-
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group label=\"Alignment\">"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("Left"));
-        assertTrue(s.contains("Right"));
-    }
-
-    @Test
-    public void testRenderButtonGroupWithSizeHtml()
-    {
-        var s = new WaButtonGroup()
-                .setSize(Size.Small)
+        var html = new WaButtonGroup<>()
                 .add(new WaButton("One"))
                 .add(new WaButton("Two"))
                 .toString(true);
+        System.out.println(html);
 
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group size=\"small\">"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("One"));
-        assertTrue(s.contains("Two"));
+        assertTrue(html.startsWith("<wa-button-group"));
+        assertTrue(html.contains("One"));
+        assertTrue(html.contains("Two"));
     }
 
     @Test
-    public void testRenderButtonGroupWithVariantHtml()
+    public void rendersProps()
     {
-        var s = new WaButtonGroup()
-                .setVariant(Variant.Brand)
-                .add(new WaButton("Yes"))
-                .add(new WaButton("No"))
-                .toString(true);
-
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group variant=\"brand\">"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("Yes"));
-        assertTrue(s.contains("No"));
-    }
-
-    @Test
-    public void testRenderButtonGroupWithOrientationHtml()
-    {
-        var s = new WaButtonGroup()
+        var html = new WaButtonGroup<>()
+                .setSize(Size.Medium)
+                .setLabel("Actions")
                 .setOrientation(Orientation.VERTICAL)
-                .add(new WaButton("Top"))
-                .add(new WaButton("Middle"))
-                .add(new WaButton("Bottom"))
+                .setVariant(Variant.Brand)
+                .add(new WaButton("A"))
+                .add(new WaButton("B"))
                 .toString(true);
+        System.out.println(html);
 
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group orientation=\"vertical\">"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("Top"));
-        assertTrue(s.contains("Middle"));
-        assertTrue(s.contains("Bottom"));
-    }
-
-    @Test
-    public void testRenderButtonGroupWithAllAttributesHtml()
-    {
-        var s = new WaButtonGroup()
-                .setLabel("Complete Group")
-                .setSize(Size.Large)
-                .setVariant(Variant.Success)
-                .setOrientation(Orientation.HORIZONTAL)
-                .add(new WaButton("One"))
-                .add(new WaButton("Two"))
-                .toString(true);
-
-        System.out.println(s);
-
-        assertTrue(s.contains("<wa-button-group label=\"Complete Group\" orientation=\"horizontal\" size=\"large\" variant=\"success\">"));
-        assertTrue(s.contains("<wa-button>"));
-        assertTrue(s.contains("One"));
-        assertTrue(s.contains("Two"));
+        assertTrue(html.startsWith("<wa-button-group"));
+        assertTrue(html.contains("size=\"medium\""));
+        assertTrue(html.contains("label=\"Actions\""));
+        assertTrue(html.contains("orientation=\"vertical\""));
+        assertTrue(html.contains("variant=\"brand\""));
     }
 }

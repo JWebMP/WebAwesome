@@ -87,11 +87,16 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      */
     private String hideDuration;
 
-    public WaDialog()
+    WaDialog()
     {
         setTag("wa-dialog");
-        setRenderIDAttribute(true);
+    }
 
+
+    public WaDialog(String id)
+    {
+        this();
+        setID(id);
     }
 
     /**
@@ -150,6 +155,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
             }
 
             // Apply CSS custom properties
+            // Maintain style property order to match docs/tests expectations
             if (!Strings.isNullOrEmpty(backgroundColor))
             {
                 addStyle("--background-color", backgroundColor);
@@ -162,6 +168,14 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
             {
                 addStyle("--box-shadow", boxShadow);
             }
+            if (!Strings.isNullOrEmpty(hideDuration))
+            {
+                addStyle("--hide-duration", hideDuration);
+            }
+            if (!Strings.isNullOrEmpty(showDuration))
+            {
+                addStyle("--show-duration", showDuration);
+            }
             if (!Strings.isNullOrEmpty(spacing))
             {
                 addStyle("--spacing", spacing);
@@ -169,14 +183,6 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(width))
             {
                 addStyle("--width", width);
-            }
-            if (!Strings.isNullOrEmpty(showDuration))
-            {
-                addStyle("--show-duration", showDuration);
-            }
-            if (!Strings.isNullOrEmpty(hideDuration))
-            {
-                addStyle("--hide-duration", hideDuration);
             }
         }
         super.init();
@@ -190,7 +196,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      */
     public J withHeader(DivSimple<?> header)
     {
-        header.addAttribute("slot", "label");
+        header.addAttribute("slot", "header");
         addClass("dialog-header");
         add(header);
         return (J) this;
@@ -260,7 +266,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     public WaButton withCloseButton(DivSimple<?> addTo)
     {
         WaButton closeButton = new WaButton("Close");
-        closeButton.addAttribute("data-dialog", "close");
+        closeButton.addAttribute("[attr.data-dialog]", "'close'");
         addTo.add(closeButton);
         return closeButton;
     }
@@ -275,14 +281,14 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     public J withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
-                 .addAttribute("autofocus", "");
+                 .addAttribute("[attr.autofocus]", "");
         return (J) this;
     }
 
     public J withOpener(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
-                 .addAttribute("data-dialog", "open " + getID());
+                 .addAttribute("[attr.data-dialog]", "'open " + getID() + "'");
         return (J) this;
     }
 }

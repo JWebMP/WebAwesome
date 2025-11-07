@@ -5,6 +5,7 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.servlets.enumarations.Orientation;
+import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import lombok.Getter;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaButtonGroupDirective", reference = "angular-awesome")
 @NgImportModule("WaButtonGroupDirective")
-public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J>
+public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J> implements VariantCapable<J>
 {
     /**
      * The size of the button group (small, medium, large)

@@ -56,7 +56,7 @@ public class WebAwesomePageConfigurator
                 .setPriority(RequirementsPriority.First));
 
         page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, themePath)
-                .setPriority(RequirementsPriority.StoneLast)
+                .setPriority(RequirementsPriority.First)
                 .setSortOrder(Integer.MAX_VALUE - 100)
                 .addAttribute("id", "webawesome-theme"));
 

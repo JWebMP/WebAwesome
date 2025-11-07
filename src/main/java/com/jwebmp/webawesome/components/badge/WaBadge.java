@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.badge;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Variant;
 import com.jwebmp.webawesome.components.button.Appearance;
 import lombok.Getter;
@@ -30,7 +31,7 @@ import lombok.Setter;
  * WaBadge badge = new WaBadge();
  * badge.add(new Text("4"));
  * badge.setVariant(Variant.Brand);
- * 
+ *
  * // Pill badge with custom styling
  * WaBadge pillBadge = new WaBadge();
  * pillBadge.add(new Text("New"));
@@ -44,14 +45,14 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaBadgeDirective", reference = "angular-awesome")
 @NgImportModule("WaBadgeDirective")
-public class WaBadge<J extends WaBadge<J>> extends DivSimple<J>
+public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements VariantCapable<J>
 {
     private Variant variant;
     private Appearance appearance;
 
     private Boolean pill;
     private Boolean pulse;
-    
+
     // Custom style properties
     private String backgroundColor;
     private String borderColor;
@@ -87,7 +88,7 @@ public class WaBadge<J extends WaBadge<J>> extends DivSimple<J>
                 addAttribute("appearance", appearance.toString()
                                                      .toLowerCase());
             }
-            
+
             // Apply custom style properties
             if (backgroundColor != null)
             {

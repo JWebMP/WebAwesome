@@ -215,7 +215,11 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
             }
             if (!Strings.isNullOrEmpty(getName()))
             {
-                addAttribute("name", getName());
+                String defaultName = getClass().getName().replace('.', '_');
+                if (!getName().equals(defaultName))
+                {
+                    addAttribute("name", getName());
+                }
             }
             if (!Strings.isNullOrEmpty(form))
             {

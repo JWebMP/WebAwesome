@@ -4,13 +4,10 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.html.inputs.InputButtonType;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
-import com.jwebmp.webawesome.components.Size;
-import com.jwebmp.webawesome.components.TooltipCapable;
-import com.jwebmp.webawesome.components.Variant;
+import com.jwebmp.webawesome.components.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -64,7 +61,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaButtonDirective", reference = "angular-awesome")
 @NgImportModule("WaButtonDirective")
-public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements TooltipCapable<J>
+public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements TooltipCapable<J>, VariantCapable<J>, GapCapable<J>
 {
     private Variant variant;
     private Appearance appearance;
@@ -155,13 +152,13 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "start");
+                      .addAttribute("slot", "prefix");
                 add(prefix);
             }
             if (suffix != null)
             {
                 suffix.asAttributeBase()
-                      .addAttribute("slot", "end");
+                      .addAttribute("slot", "suffix");
                 add(suffix);
             }
             if (caret != null && caret)

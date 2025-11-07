@@ -4,6 +4,7 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import com.jwebmp.webawesome.components.button.Appearance;
@@ -18,7 +19,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCalloutDirective", reference = "angular-awesome")
 @NgImportModule("WaCalloutDirective")
-public class WaCallout<J extends WaCallout<J>> extends DivSimple<J>
+public class WaCallout<J extends WaCallout<J>> extends DivSimple<J> implements VariantCapable<J>
 {
     /**
      * Optional icon slot

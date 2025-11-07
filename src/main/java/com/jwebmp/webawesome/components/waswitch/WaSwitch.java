@@ -112,7 +112,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
     public WaSwitch()
     {
         setTag("wa-switch");
-        addAttribute("waSwitch", "");
+        // Do not emit the waSwitch directive attribute; tag name is sufficient
     }
 
     @Override

@@ -109,7 +109,9 @@ public class WaTabGroupTest
                 .toString(true);
         System.out.println(s);
 
-        assertTrue(s.contains("<wa-tab panel=\"tab2\" disabled>Tab 2 (Disabled)</wa-tab>"));
+        boolean disabledAfterPanel = s.contains("<wa-tab panel=\"tab2\" disabled>Tab 2 (Disabled)</wa-tab>");
+        boolean disabledBeforePanel = s.contains("<wa-tab disabled panel=\"tab2\">Tab 2 (Disabled)</wa-tab>");
+        assertTrue(disabledAfterPanel || disabledBeforePanel, "Disabled tab should render regardless of attribute order");
     }
 
     @Test

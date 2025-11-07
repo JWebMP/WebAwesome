@@ -266,7 +266,11 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
             }
             if (!Strings.isNullOrEmpty(getName()))
             {
-                addAttribute("name", getName());
+                String defaultName = getClass().getName().replace('.', '_');
+                if (!getName().equals(defaultName))
+                {
+                    addAttribute("name", getName());
+                }
             }
             if (required != null && required)
             {
@@ -277,7 +281,19 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
                 addAttribute("uppercase", "");
             }
 
-            // Handle custom styling properties
+            // Handle custom styling properties (maintain order per docs/tests)
+            if (borderRadius != null)
+            {
+                addStyle("--border-radius", borderRadius);
+            }
+            if (dropdownHeight != null)
+            {
+                addStyle("--dropdown-height", dropdownHeight);
+            }
+            if (dropdownWidth != null)
+            {
+                addStyle("--dropdown-width", dropdownWidth);
+            }
             if (swatchSize != null)
             {
                 addStyle("--swatch-size", swatchSize);
@@ -285,18 +301,6 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
             if (swatchSpacing != null)
             {
                 addStyle("--swatch-spacing", swatchSpacing);
-            }
-            if (borderRadius != null)
-            {
-                addStyle("--border-radius", borderRadius);
-            }
-            if (dropdownWidth != null)
-            {
-                addStyle("--dropdown-width", dropdownWidth);
-            }
-            if (dropdownHeight != null)
-            {
-                addStyle("--dropdown-height", dropdownHeight);
             }
         }
         super.init();

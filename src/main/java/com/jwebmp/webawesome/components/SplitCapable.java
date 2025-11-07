@@ -1,15 +1,14 @@
 package com.jwebmp.webawesome.components;
 
-public interface SplitCapable<J> extends WaComponent<J>
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+
+public interface SplitCapable<J extends SplitCapable<J> & IComponentHierarchyBase<GlobalChildren, J>>
 {
-    default void setSplit(boolean split)
+    default J setSplit()
     {
-        if (split)
-        {
-            addClass("wa-split");
-        } else
-        {
-            removeClass("wa-split");
-        }
+        J me = (J) this;
+        me.addClass("wa-split");
+        return (J) this;
     }
 }

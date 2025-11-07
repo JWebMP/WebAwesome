@@ -35,7 +35,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaBreadcrumbItem<J extends WaBreadcrumb<J>> extends DivSimple<J>
+public class WaBreadcrumbItem<J extends WaBreadcrumbItem<J>> extends DivSimple<J>
 {
     /**
      * Icon or element before the label

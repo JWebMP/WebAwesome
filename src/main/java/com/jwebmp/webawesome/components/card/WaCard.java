@@ -4,6 +4,7 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.*;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
+import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.button.Appearance;
 import lombok.Getter;
@@ -49,7 +50,7 @@ import lombok.Setter;
  * card.setSize(Size.Medium);
  * card.withHeader("Card Title");
  * card.withText("This is the card content.");
- * 
+ *
  * // Card with image, header, text, and footer
  * WaCard card = new WaCard();
  * card.setAppearance(Appearance.Filled);
@@ -65,7 +66,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCardDirective", reference = "angular-awesome")
 @NgImportModule("WaCardDirective")
-public class WaCard<J extends WaCard<J>> extends DivSimple<J>
+public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements VariantCapable<J>
 {
     /**
      * The appearance of the card (accent, filled, outlined, plain)

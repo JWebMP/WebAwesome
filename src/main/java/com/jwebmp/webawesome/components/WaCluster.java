@@ -2,7 +2,7 @@ package com.jwebmp.webawesome.components;
 
 import com.jwebmp.core.base.html.DivSimple;
 
-public class WaCluster extends DivSimple<WaCluster> implements GapCapable<WaCluster>
+public class WaCluster<J extends WaCluster<J>> extends DivSimple<J> implements GapCapable<J>, AlignVerticalCapable<J>, SplitCapable<J>
 {
     public WaCluster()
     {
@@ -14,5 +14,5 @@ public class WaCluster extends DivSimple<WaCluster> implements GapCapable<WaClus
         addStyle("flex-wrap", "nowrap");
         return this;
     }
-    
+
 }

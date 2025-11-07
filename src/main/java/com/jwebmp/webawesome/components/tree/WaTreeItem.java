@@ -108,7 +108,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
             }
             if (expanded != null && expanded)
             {
-                addAttribute("[expanded]", "true");
+                addAttribute("expanded", "");
             }
             if (disabled != null && disabled)
             {

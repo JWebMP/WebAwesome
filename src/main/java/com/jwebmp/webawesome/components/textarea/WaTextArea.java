@@ -206,7 +206,11 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
             }
             if (!Strings.isNullOrEmpty(getName()))
             {
-                addAttribute("name", getName());
+                String defaultName = getClass().getName().replace('.', '_');
+                if (!getName().equals(defaultName))
+                {
+                    addAttribute("name", getName());
+                }
             }
             if (required != null && required)
             {

@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.components.tag;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import lombok.Getter;
@@ -19,7 +20,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTagDirective", reference = "angular-awesome")
 @NgImportModule("WaTagDirective")
-public class WaTag<J extends WaTag<J>> extends DivSimple<J>
+public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCapable<J>
 {
     /**
      * The theme of the tag (brand, neutral, success, warning, danger, inherit)
