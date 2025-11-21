@@ -25,7 +25,7 @@ public class WaGrid<J extends WaGrid<J>> extends DivSimple<J> implements GapCapa
      * @param size The size token or CSS length value
      * @return this
      */
-    public J setMinColumnSize(String size)
+    public @org.jspecify.annotations.NonNull J setMinColumnSize(String size)
     {
         addStyle("--min-column-size", size);
         return (J) this;

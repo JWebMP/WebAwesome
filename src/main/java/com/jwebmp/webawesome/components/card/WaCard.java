@@ -306,4 +306,11 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
         }
         super.init();
     }
+		
+		@Override
+		public @org.jspecify.annotations.NonNull J setDanger()
+		{
+				
+				return VariantCapable.super.setDanger();
+		}
 }

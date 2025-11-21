@@ -2,6 +2,7 @@ package com.jwebmp.webawesome.components.scroller;
 
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +13,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaScrollerComponent", reference = "angular-awesome")
-@NgImportModule("WaScrollerComponent")
+@NgImportReference(value = "WaScrollerDirective", reference = "angular-awesome")
+@NgImportModule("WaScrollerDirective")
 public class WaScroller<J extends WaScroller<J>> extends DivSimple<J>
 {
     /**

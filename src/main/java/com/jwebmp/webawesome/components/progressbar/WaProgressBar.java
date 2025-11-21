@@ -190,7 +190,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param value The value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setValue(int value)
+    public @org.jspecify.annotations.NonNull J setValue(int value)
     {
         this.value = value;
         return (J) this;
@@ -202,7 +202,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param max The maximum value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setMax(int max)
+    public @org.jspecify.annotations.NonNull J setMax(int max)
     {
         this.max = max;
         return (J) this;
@@ -214,7 +214,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param label The label to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setLabel(String label)
+    public @org.jspecify.annotations.NonNull J setLabel(String label)
     {
         if (!Strings.isNullOrEmpty(label))
         {
@@ -229,7 +229,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param indeterminate The indeterminate state to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setIndeterminate(boolean indeterminate)
+    public @org.jspecify.annotations.NonNull J setIndeterminate(boolean indeterminate)
     {
         this.indeterminate = indeterminate;
         return (J) this;
@@ -241,7 +241,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param indicatorColor The color to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setIndicatorColor(String indicatorColor)
+    public @org.jspecify.annotations.NonNull J setIndicatorColor(String indicatorColor)
     {
         this.indicatorColor = indicatorColor;
         return (J) this;
@@ -253,7 +253,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param display The display value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setDisplay(String display)
+    public @org.jspecify.annotations.NonNull J setDisplay(String display)
     {
         this.display = display;
         return (J) this;
@@ -265,7 +265,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param trackHeight The track height value to set.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setTrackHeight(String trackHeight)
+    public @org.jspecify.annotations.NonNull J setTrackHeight(String trackHeight)
     {
         this.trackHeight = trackHeight;
         return (J) this;
@@ -277,7 +277,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @param prefix The component to set as prefix.
      * @return The current instance of WaProgressBar for method chaining.
      */
-    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    public @org.jspecify.annotations.NonNull J setPrefix(IComponentHierarchyBase<?, ?> prefix)
     {
         this.prefix = prefix;
         return (J) this;

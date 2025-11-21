@@ -189,9 +189,38 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
     }
 
     /**
+     * Sets the summary text (renders as the <code>summary</code> attribute on the wa-details element).
+     * This is useful when you want a simple text summary instead of HTML content.
+     *
+     * @param summary The summary text value
+     * @return This component for chaining
+     */
+    public J summary(String summary)
+    {
+        this.summary = summary;
+        return (J) this;
+    }
+
+    /**
+     * Sets the summary slot content using any component. The component will be added to this details
+     * instance and a <code>slot="summary"</code> attribute will be applied to that component during initialization.
+     *
+     * <p>Note: You can also manually add any component to this instance yourself and set
+     * <code>addAttribute("slot", "summary")</code> on that component; this method is a convenience.</p>
+     *
+     * @param summarySlot The component to render inside the summary slot
+     * @return This component for chaining
+     */
+    public J summary(IComponentHierarchyBase<?, ?> summarySlot)
+    {
+        this.summarySlot = summarySlot;
+        return (J) this;
+    }
+
+    /**
      * Convenience setter accepting a string value for appearance; preserves raw input (supports multiple values).
      */
-    public J setAppearance(String appearance)
+    public @org.jspecify.annotations.NonNull J setAppearance(String appearance)
     {
         this.appearanceRaw = appearance;
         return (J) this;
@@ -200,7 +229,7 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
     /**
      * Convenience setter accepting a string value for icon position.
      */
-    public J setIconPosition(String iconPosition)
+    public @org.jspecify.annotations.NonNull J setIconPosition(String iconPosition)
     {
         if (iconPosition == null)
         {

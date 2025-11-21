@@ -92,7 +92,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param value The value to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setValue(String value)
+    public @org.jspecify.annotations.NonNull J setValue(String value)
     {
         this.value = value;
         return (J) this;
@@ -104,7 +104,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param fill The fill color to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setFill(String fill)
+    public @org.jspecify.annotations.NonNull J setFill(String fill)
     {
         this.fill = fill;
         return (J) this;
@@ -116,7 +116,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param background The background color to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setBackground(String background)
+    public @org.jspecify.annotations.NonNull J setBackground(String background)
     {
         this.background = background;
         return (J) this;
@@ -128,7 +128,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param size The size to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setSize(String size)
+    public @org.jspecify.annotations.NonNull J setSize(String size)
     {
         this.size = size;
         return (J) this;
@@ -140,7 +140,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param radius The radius to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setRadius(Double radius)
+    public @org.jspecify.annotations.NonNull J setRadius(Double radius)
     {
         this.radius = radius;
         return (J) this;
@@ -152,7 +152,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param errorCorrection The error correction level to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setErrorCorrection(String errorCorrection)
+    public @org.jspecify.annotations.NonNull J setErrorCorrection(String errorCorrection)
     {
         this.errorCorrection = errorCorrection;
         return (J) this;
@@ -164,7 +164,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param label The label to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setLabel(String label)
+    public @org.jspecify.annotations.NonNull J setLabel(String label)
     {
         this.label = label;
         return (J) this;
@@ -176,7 +176,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param focusEvent The focus event handler to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setFocusEvent(String focusEvent)
+    public @org.jspecify.annotations.NonNull J setFocusEvent(String focusEvent)
     {
         this.focusEvent = focusEvent;
         return (J) this;
@@ -188,7 +188,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param blurEvent The blur event handler to set.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setBlurEvent(String blurEvent)
+    public @org.jspecify.annotations.NonNull J setBlurEvent(String blurEvent)
     {
         this.blurEvent = blurEvent;
         return (J) this;
@@ -200,7 +200,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @param prefix The component to set as prefix.
      * @return The current instance of WaQRCode for method chaining.
      */
-    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    public @org.jspecify.annotations.NonNull J setPrefix(IComponentHierarchyBase<?, ?> prefix)
     {
         this.prefix = prefix;
         return (J) this;

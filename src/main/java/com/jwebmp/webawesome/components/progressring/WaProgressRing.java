@@ -136,7 +136,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param value The value to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setValue(int value)
+    public @org.jspecify.annotations.NonNull J setValue(int value)
     {
         this.value = value;
         return (J) this;
@@ -148,7 +148,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param trackWidth The track width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setTrackWidth(String trackWidth)
+    public @org.jspecify.annotations.NonNull J setTrackWidth(String trackWidth)
     {
         if (!Strings.isNullOrEmpty(trackWidth))
         {
@@ -163,7 +163,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param indicatorWidth The indicator width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setIndicatorWidth(String indicatorWidth)
+    public @org.jspecify.annotations.NonNull J setIndicatorWidth(String indicatorWidth)
     {
         if (!Strings.isNullOrEmpty(indicatorWidth))
         {
@@ -178,7 +178,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param trackColor The track color to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setTrackColor(String trackColor)
+    public @org.jspecify.annotations.NonNull J setTrackColor(String trackColor)
     {
         if (!Strings.isNullOrEmpty(trackColor))
         {
@@ -193,7 +193,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param indicatorColor The indicator color to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setIndicatorColor(String indicatorColor)
+    public @org.jspecify.annotations.NonNull J setIndicatorColor(String indicatorColor)
     {
         if (!Strings.isNullOrEmpty(indicatorColor))
         {
@@ -208,7 +208,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param label The label to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setLabel(String label)
+    public @org.jspecify.annotations.NonNull J setLabel(String label)
     {
         if (!Strings.isNullOrEmpty(label))
         {
@@ -223,7 +223,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param size The size to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setSize(String size)
+    public @org.jspecify.annotations.NonNull J setSize(String size)
     {
         if (!Strings.isNullOrEmpty(size))
         {
@@ -238,7 +238,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param indicatorTransitionDuration The transition duration to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setIndicatorTransitionDuration(String indicatorTransitionDuration)
+    public @org.jspecify.annotations.NonNull J setIndicatorTransitionDuration(String indicatorTransitionDuration)
     {
         if (!Strings.isNullOrEmpty(indicatorTransitionDuration))
         {
@@ -253,7 +253,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param focusEvent The focus event handler to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setFocusEvent(String focusEvent)
+    public @org.jspecify.annotations.NonNull J setFocusEvent(String focusEvent)
     {
         this.focusEvent = focusEvent;
         return (J) this;
@@ -265,7 +265,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param blurEvent The blur event handler to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setBlurEvent(String blurEvent)
+    public @org.jspecify.annotations.NonNull J setBlurEvent(String blurEvent)
     {
         this.blurEvent = blurEvent;
         return (J) this;
@@ -277,7 +277,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @param prefix The component to set as prefix.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    public @org.jspecify.annotations.NonNull J setPrefix(IComponentHierarchyBase<?, ?> prefix)
     {
         this.prefix = prefix;
         return (J) this;

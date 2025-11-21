@@ -158,9 +158,9 @@ public class WaText<J extends WaText<J>> extends DivSimple<J>
     }
 
     // Convenience boolean setters for fluent API
-    public J setWaBodyFlag(boolean flag) { this.waBodyFlag = flag; return (J) this; }
-    public J setWaHeadingFlag(boolean flag) { this.waHeadingFlag = flag; return (J) this; }
-    public J setWaCaptionFlag(boolean flag) { this.waCaptionFlag = flag; return (J) this; }
-    public J setWaLongformFlag(boolean flag) { this.waLongformFlag = flag; return (J) this; }
-    public J setWaLinkFlag(boolean flag) { this.waLinkFlag = flag; return (J) this; }
+    public @org.jspecify.annotations.NonNull J setWaBodyFlag(boolean flag) { this.waBodyFlag = flag; return (J) this; }
+    public @org.jspecify.annotations.NonNull J setWaHeadingFlag(boolean flag) { this.waHeadingFlag = flag; return (J) this; }
+    public @org.jspecify.annotations.NonNull J setWaCaptionFlag(boolean flag) { this.waCaptionFlag = flag; return (J) this; }
+    public @org.jspecify.annotations.NonNull J setWaLongformFlag(boolean flag) { this.waLongformFlag = flag; return (J) this; }
+    public @org.jspecify.annotations.NonNull J setWaLinkFlag(boolean flag) { this.waLinkFlag = flag; return (J) this; }
 }

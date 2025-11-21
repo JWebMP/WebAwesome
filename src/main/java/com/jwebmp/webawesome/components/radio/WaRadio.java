@@ -359,7 +359,7 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
      * @return this
      */
     @SuppressWarnings("unchecked")
-    public J setAppearance(String appearance)
+    public @org.jspecify.annotations.NonNull J setAppearance(String appearance)
     {
         if (Strings.isNullOrEmpty(appearance))
         {

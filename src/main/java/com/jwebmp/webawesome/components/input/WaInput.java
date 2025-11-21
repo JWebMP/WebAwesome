@@ -441,13 +441,13 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
         super.init();
     }
 
-    public J setType(String type)
+    public @org.jspecify.annotations.NonNull J setType(String type)
     {
         this.type = type;
         return (J) this;
     }
 
-    public J setValue(String value)
+    public @org.jspecify.annotations.NonNull J setValue(String value)
     {
         this.value = value;
         return (J) this;
@@ -456,248 +456,248 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
     /**
      * Sets the default value (used when value is not explicitly set)
      */
-    public J setDefaultValue(String defaultValue)
+    public @org.jspecify.annotations.NonNull J setDefaultValue(String defaultValue)
     {
         this.defaultValue = defaultValue;
         return (J) this;
     }
 
-    public J setSize(InputSize size)
+    public @org.jspecify.annotations.NonNull J setSize(InputSize size)
     {
         this.size = size;
         return (J) this;
     }
 
-    public J setAppearance(InputAppearance appearance)
+    public @org.jspecify.annotations.NonNull J setAppearance(InputAppearance appearance)
     {
         this.appearance = appearance;
         return (J) this;
     }
 
-    public J setPill(Boolean pill)
+    public @org.jspecify.annotations.NonNull J setPill(Boolean pill)
     {
         this.pill = pill;
         return (J) this;
     }
 
-    public J setLabel(String label)
+    public @org.jspecify.annotations.NonNull J setLabel(String label)
     {
         this.label = label;
         return (J) this;
     }
 
-    public J setHint(String hint)
+    public @org.jspecify.annotations.NonNull J setHint(String hint)
     {
         this.hint = hint;
         return (J) this;
     }
 
-    public J setWithLabel(Boolean withLabel)
+    public @org.jspecify.annotations.NonNull J setWithLabel(Boolean withLabel)
     {
         this.withLabel = withLabel;
         return (J) this;
     }
 
-    public J setWithHint(Boolean withHint)
+    public @org.jspecify.annotations.NonNull J setWithHint(Boolean withHint)
     {
         this.withHint = withHint;
         return (J) this;
     }
 
-    public J setClearable(Boolean clearable)
+    public @org.jspecify.annotations.NonNull J setClearable(Boolean clearable)
     {
         this.clearable = clearable;
         return (J) this;
     }
 
-    public J setPlaceholder(String placeholder)
+    public @org.jspecify.annotations.NonNull J setPlaceholder(String placeholder)
     {
         this.placeholder = placeholder;
         return (J) this;
     }
 
-    public J setReadonly(Boolean readonly)
+    public @org.jspecify.annotations.NonNull J setReadonly(Boolean readonly)
     {
         this.readonly = readonly;
         return (J) this;
     }
 
-    public J setDisabled(Boolean disabled)
+    public @org.jspecify.annotations.NonNull J setDisabled(Boolean disabled)
     {
         this.disabled = disabled;
         return (J) this;
     }
 
-    public J setPasswordToggle(Boolean passwordToggle)
+    public @org.jspecify.annotations.NonNull J setPasswordToggle(Boolean passwordToggle)
     {
         this.passwordToggle = passwordToggle;
         return (J) this;
     }
 
-    public J setPasswordVisible(Boolean passwordVisible)
+    public @org.jspecify.annotations.NonNull J setPasswordVisible(Boolean passwordVisible)
     {
         this.passwordVisible = passwordVisible;
         return (J) this;
     }
 
-    public J setNoSpinButtons(Boolean noSpinButtons)
+    public @org.jspecify.annotations.NonNull J setNoSpinButtons(Boolean noSpinButtons)
     {
         this.noSpinButtons = noSpinButtons;
         return (J) this;
     }
 
-    public J setForm(String form)
+    public @org.jspecify.annotations.NonNull J setForm(String form)
     {
         this.form = form;
         return (J) this;
     }
 
-    public J setRequired(Boolean required)
+    public @org.jspecify.annotations.NonNull J setRequired(Boolean required)
     {
         this.required = required;
         return (J) this;
     }
 
-    public J setPattern(String pattern)
+    public @org.jspecify.annotations.NonNull J setPattern(String pattern)
     {
         this.pattern = pattern;
         return (J) this;
     }
 
-    public J setMinlength(String minlength)
+    public @org.jspecify.annotations.NonNull J setMinlength(String minlength)
     {
         this.minlength = minlength;
         return (J) this;
     }
 
-    public J setMaxlength(String maxlength)
+    public @org.jspecify.annotations.NonNull J setMaxlength(String maxlength)
     {
         this.maxlength = maxlength;
         return (J) this;
     }
 
-    public J setMin(String min)
+    public @org.jspecify.annotations.NonNull J setMin(String min)
     {
         this.min = min;
         return (J) this;
     }
 
-    public J setMax(String max)
+    public @org.jspecify.annotations.NonNull J setMax(String max)
     {
         this.max = max;
         return (J) this;
     }
 
-    public J setStep(String step)
+    public @org.jspecify.annotations.NonNull J setStep(String step)
     {
         this.step = step;
         return (J) this;
     }
 
-    public J setAutocapitalize(String autocapitalize)
+    public @org.jspecify.annotations.NonNull J setAutocapitalize(String autocapitalize)
     {
         this.autocapitalize = autocapitalize;
         return (J) this;
     }
 
-    public J setAutocorrect(String autocorrect)
+    public @org.jspecify.annotations.NonNull J setAutocorrect(String autocorrect)
     {
         this.autocorrect = autocorrect;
         return (J) this;
     }
 
-    public J setAutocomplete(String autocomplete)
+    public @org.jspecify.annotations.NonNull J setAutocomplete(String autocomplete)
     {
         this.autocomplete = autocomplete;
         return (J) this;
     }
 
-    public J setAutofocus(Boolean autofocus)
+    public @org.jspecify.annotations.NonNull J setAutofocus(Boolean autofocus)
     {
         this.autofocus = autofocus;
         return (J) this;
     }
 
-    public J setEnterkeyhint(String enterkeyhint)
+    public @org.jspecify.annotations.NonNull J setEnterkeyhint(String enterkeyhint)
     {
         this.enterkeyhint = enterkeyhint;
         return (J) this;
     }
 
-    public J setSpellcheck(Boolean spellcheck)
+    public @org.jspecify.annotations.NonNull J setSpellcheck(Boolean spellcheck)
     {
         this.spellcheck = spellcheck;
         return (J) this;
     }
 
-    public J setInputmode(String inputmode)
+    public @org.jspecify.annotations.NonNull J setInputmode(String inputmode)
     {
         this.inputmode = inputmode;
         return (J) this;
     }
 
-    public J setBackgroundColor(String backgroundColor)
+    public @org.jspecify.annotations.NonNull J setBackgroundColor(String backgroundColor)
     {
         this.backgroundColor = backgroundColor;
         return (J) this;
     }
 
-    public J setBorderColor(String borderColor)
+    public @org.jspecify.annotations.NonNull J setBorderColor(String borderColor)
     {
         this.borderColor = borderColor;
         return (J) this;
     }
 
-    public J setBorderWidth(String borderWidth)
+    public @org.jspecify.annotations.NonNull J setBorderWidth(String borderWidth)
     {
         this.borderWidth = borderWidth;
         return (J) this;
     }
 
-    public J setBoxShadow(String boxShadow)
+    public @org.jspecify.annotations.NonNull J setBoxShadow(String boxShadow)
     {
         this.boxShadow = boxShadow;
         return (J) this;
     }
 
     // Slot setters
-    public J setLabelSlot(IComponentHierarchyBase<?, ?> labelSlot)
+    public @org.jspecify.annotations.NonNull J setLabelSlot(IComponentHierarchyBase<?, ?> labelSlot)
     {
         this.labelSlot = labelSlot;
         return (J) this;
     }
 
-    public J setStart(IComponentHierarchyBase<?, ?> start)
+    public @org.jspecify.annotations.NonNull J setStart(IComponentHierarchyBase<?, ?> start)
     {
         this.start = start;
         return (J) this;
     }
 
-    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    public @org.jspecify.annotations.NonNull J setEnd(IComponentHierarchyBase<?, ?> end)
     {
         this.end = end;
         return (J) this;
     }
 
-    public J setClearIcon(IComponentHierarchyBase<?, ?> clearIcon)
+    public @org.jspecify.annotations.NonNull J setClearIcon(IComponentHierarchyBase<?, ?> clearIcon)
     {
         this.clearIcon = clearIcon;
         return (J) this;
     }
 
-    public J setShowPasswordIcon(IComponentHierarchyBase<?, ?> showPasswordIcon)
+    public @org.jspecify.annotations.NonNull J setShowPasswordIcon(IComponentHierarchyBase<?, ?> showPasswordIcon)
     {
         this.showPasswordIcon = showPasswordIcon;
         return (J) this;
     }
 
-    public J setHidePasswordIcon(IComponentHierarchyBase<?, ?> hidePasswordIcon)
+    public @org.jspecify.annotations.NonNull J setHidePasswordIcon(IComponentHierarchyBase<?, ?> hidePasswordIcon)
     {
         this.hidePasswordIcon = hidePasswordIcon;
         return (J) this;
     }
 
-    public J setHintSlot(IComponentHierarchyBase<?, ?> hintSlot)
+    public @org.jspecify.annotations.NonNull J setHintSlot(IComponentHierarchyBase<?, ?> hintSlot)
     {
         this.hintSlot = hintSlot;
         return (J) this;

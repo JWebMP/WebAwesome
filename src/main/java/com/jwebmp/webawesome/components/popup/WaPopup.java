@@ -195,7 +195,7 @@ public class WaPopup<J extends WaPopup<J>> extends DivSimple<J> implements INgCo
         super.init();
     }
 
-    public J setAnchor(ComponentHierarchyBase anchor)
+    public @org.jspecify.annotations.NonNull J setAnchor(ComponentHierarchyBase anchor)
     {
         if (anchor != null)
         {

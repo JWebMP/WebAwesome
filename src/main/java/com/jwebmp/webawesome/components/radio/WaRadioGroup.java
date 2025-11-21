@@ -231,7 +231,7 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
      * @return this
      */
     @SuppressWarnings("unchecked")
-    public J setOrientation(String orientation)
+    public @org.jspecify.annotations.NonNull J setOrientation(String orientation)
     {
         if (Strings.isNullOrEmpty(orientation))
         {

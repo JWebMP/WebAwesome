@@ -140,7 +140,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param anchor The element to anchor the popover to
      * @return This object
      */
-    public J setForElement(ComponentHierarchyBase anchor)
+    public @org.jspecify.annotations.NonNull J setForElement(ComponentHierarchyBase anchor)
     {
         if (anchor != null)
         {
@@ -232,7 +232,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param size The size value (e.g., "8px" or "0")
      * @return This object
      */
-    public J setArrowSize(String size)
+    public @org.jspecify.annotations.NonNull J setArrowSize(String size)
     {
         addStyle("--arrow-size", size);
         return (J) this;
@@ -244,7 +244,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param width The width value (e.g., "160px")
      * @return This object
      */
-    public J setMaxWidth(String width)
+    public @org.jspecify.annotations.NonNull J setMaxWidth(String width)
     {
         addStyle("--max-width", width);
         return (J) this;
@@ -256,7 +256,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param duration The duration value (e.g., "200ms")
      * @return This object
      */
-    public J setShowDuration(String duration)
+    public @org.jspecify.annotations.NonNull J setShowDuration(String duration)
     {
         addStyle("--show-duration", duration);
         return (J) this;
@@ -268,7 +268,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param duration The duration value (e.g., "200ms")
      * @return This object
      */
-    public J setHideDuration(String duration)
+    public @org.jspecify.annotations.NonNull J setHideDuration(String duration)
     {
         addStyle("--hide-duration", duration);
         return (J) this;
@@ -280,7 +280,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param withoutArrow True to remove the arrow, false to show it
      * @return This object
      */
-    public J setWithoutArrow(Boolean withoutArrow)
+    public @org.jspecify.annotations.NonNull J setWithoutArrow(Boolean withoutArrow)
     {
         this.withoutArrow = withoutArrow;
         return (J) this;
