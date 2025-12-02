@@ -25,3 +25,4 @@ flatter.pom
 /log/automation.log
 /log/browserstack-javaagent.debug.log
 /log/browserstack-javaagent.log
+/.vscode/
