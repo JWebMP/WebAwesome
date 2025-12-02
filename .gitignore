@@ -21,7 +21,7 @@ persistence.xml
 **/dependency-reduced-pom.pom
 flatter.pom
 /logs/
-/docs/
+/docs/**/*.html
 /log/automation.log
 /log/browserstack-javaagent.debug.log
 /log/browserstack-javaagent.log
