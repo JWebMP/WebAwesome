@@ -152,13 +152,13 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
             if (prefix != null)
             {
                 prefix.asAttributeBase()
-                      .addAttribute("slot", "prefix");
+                      .addAttribute("slot", "start");
                 add(prefix);
             }
             if (suffix != null)
             {
                 suffix.asAttributeBase()
-                      .addAttribute("slot", "suffix");
+                      .addAttribute("slot", "end");
                 add(suffix);
             }
             if (caret != null && caret)
