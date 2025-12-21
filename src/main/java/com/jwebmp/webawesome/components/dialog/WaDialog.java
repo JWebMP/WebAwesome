@@ -142,7 +142,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
             }
             if (withoutHeader != null && withoutHeader)
             {
-                addAttribute("without-header", "");
+                addAttribute("[attr.without-header]", "''");
             }
             if (scrolling != null && scrolling)
             {
@@ -196,7 +196,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      */
     public J withHeader(DivSimple<?> header)
     {
-        header.addAttribute("slot", "header");
+        header.addAttribute("slot", "label");
         addClass("dialog-header");
         add(header);
         return (J) this;
@@ -215,7 +215,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
         {
             button.addAttribute("slot", "header-actions");
             addAttribute("with-header", "");
-            addClass("dialog-header-actions");
+            addClass("header-actions");
             add(button);
         }
 
@@ -234,8 +234,8 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
         WaButton<?> button = new WaButton();
         WaIcon<?> icon = new WaIcon<>(iconName);
         button.setPrefix(icon);
-        button.addAttribute("slot", "label-actions");
-        addClass("dialog-header-actions");
+        button.addAttribute("slot", "header-actions");
+        addClass("header-actions");
         add(button);
         return button;
     }
