@@ -17,8 +17,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaTabGroupDirective", reference = "angular-awesome")
-@NgImportModule("WaTabGroupDirective")
+@NgImportReference(value = "WaTabGroupComponent", reference = "angular-awesome")
+@NgImportModule("WaTabGroupComponent")
 public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
 {
     /**

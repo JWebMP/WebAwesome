@@ -17,8 +17,8 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaTextAreaDirective", reference = "angular-awesome")
-@NgImportModule("WaTextAreaDirective")
+@NgImportReference(value = "WaTextareaComponent", reference = "angular-awesome")
+@NgImportModule("WaTextareaComponent")
 public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
 {
     /**
@@ -182,7 +182,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
             }
             if (rows != null)
             {
-                addAttribute("rows", rows.toString());
+                addAttribute("[rows]", rows.toString());
             }
             if (resize != null)
             {
