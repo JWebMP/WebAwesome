@@ -3,7 +3,10 @@ package com.jwebmp.webawesome.components.tabgroup;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.html.interfaces.GlobalChildren;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,8 +19,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaTabPanelComponent", reference = "angular-awesome")
-@NgImportModule("WaTabPanelComponent")
 public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
 {
     /**
@@ -29,6 +30,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
      * Padding of the panel
      */
     private String padding;
+    private DivSimple<?> panelTemplate;
 
     /**
      * Creates a new WaTabPanel with the tag "wa-tab-panel"
@@ -36,6 +38,10 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     public WaTabPanel()
     {
         setTag("wa-tab-panel");
+        panelTemplate = new DivSimple<>()
+                .setTag("ng-template")
+                .addAttribute("waTabContent", "");
+        super.add(panelTemplate);
     }
 
     @Override
@@ -43,6 +49,15 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     {
         if (!isInitialized())
         {
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabGroupComponent"));
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabPanelComponent"));
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabContent"));
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabComponent"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabGroupComponent", "angular-awesome"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabPanelComponent", "angular-awesome"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabContent", "angular-awesome"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabComponent", "angular-awesome"));
+
             if (!Strings.isNullOrEmpty(getName()))
             {
                 addAttribute("name", getName());
@@ -57,6 +72,30 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
             }
         }
         super.init();
+    }
+
+    @Override
+    public J add(String textToAdd) {
+        this.panelTemplate.add(textToAdd);
+        return (J)this;
+    }
+
+    @Override
+    public J add(GlobalChildren newChild) {
+        this.panelTemplate.add(newChild);
+        return (J)this;
+    }
+
+    @Override
+    public J add(String textToAdd, boolean inline) {
+        this.panelTemplate.add(textToAdd, inline);
+        return (J)this;
+    }
+
+    @Override
+    public J add(Integer position, GlobalChildren newChild) {
+        panelTemplate.getChildren().add(position, newChild);
+        return (J)this;
     }
 
     /**

@@ -25,9 +25,10 @@ public class WaTabGroupTest
         assertTrue(s.contains("<wa-tab panel=\"tab1\">Tab 1</wa-tab>"));
         assertTrue(s.contains("<wa-tab panel=\"tab2\">Tab 2</wa-tab>"));
         assertTrue(s.contains("<wa-tab panel=\"tab3\">Tab 3</wa-tab>"));
-        assertTrue(s.contains("<wa-tab-panel name=\"tab1\"></wa-tab-panel>"));
-        assertTrue(s.contains("<wa-tab-panel name=\"tab2\"></wa-tab-panel>"));
-        assertTrue(s.contains("<wa-tab-panel name=\"tab3\"></wa-tab-panel>"));
+        // Panels now include an internal <ng-template waTabContent> wrapper for content
+        assertTrue(s.contains("<wa-tab-panel name=\"tab1\">"));
+        assertTrue(s.contains("<wa-tab-panel name=\"tab2\">"));
+        assertTrue(s.contains("<wa-tab-panel name=\"tab3\">"));
     }
 
     @Test
@@ -195,7 +196,8 @@ public class WaTabGroupTest
                 .toString(true);
         System.out.println(s);
 
-        assertTrue(s.contains("[active]=\"activeTab\""));
+        // WaTabGroup.bindActive now uses two-way binding via ngModel
+        assertTrue(s.contains("[(ngModel)]=\"activeTab\""));
         assertTrue(s.contains("[placement]=\"tabPlacement\""));
         assertTrue(s.contains("[activation]=\"tabActivation\""));
         assertTrue(s.contains("[no-scroll-controls]=\"disableScrollControls\""));

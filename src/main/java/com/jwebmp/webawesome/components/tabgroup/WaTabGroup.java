@@ -1,8 +1,7 @@
 package com.jwebmp.webawesome.components.tabgroup;
 
 import com.google.common.base.Strings;
-import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
-import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
+import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,8 +16,6 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-@NgImportReference(value = "WaTabGroupComponent", reference = "angular-awesome")
-@NgImportModule("WaTabGroupComponent")
 public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
 {
     /**
@@ -111,11 +108,20 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
         return (J) this;
     }
 
+
     @Override
     protected void init()
     {
         if (!isInitialized())
         {
+
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabGroupComponent"));
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabPanelComponent"));
+            addConfiguration(AnnotationUtils.getNgImportModule("WaTabComponent"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabGroupComponent", "angular-awesome"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabPanelComponent", "angular-awesome"));
+            addConfiguration(AnnotationUtils.getNgImportReference("WaTabComponent", "angular-awesome"));
+
             if (!Strings.isNullOrEmpty(active))
             {
                 addAttribute("active", active);
@@ -156,7 +162,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      */
     public J bindActive(String variableName)
     {
-        addAttribute("[active]", variableName);
+        addAttribute("[(ngModel)]", variableName);
         return (J) this;
     }
 
