@@ -266,7 +266,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     public WaButton withCloseButton(DivSimple<?> addTo)
     {
         WaButton closeButton = new WaButton("Close");
-        closeButton.addAttribute("[attr.data-dialog]", "'close'");
+        closeButton.addAttribute("data-dialog", "close");
         addTo.add(closeButton);
         return closeButton;
     }
@@ -288,7 +288,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     public J withOpener(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
-                 .addAttribute("[attr.data-dialog]", "'open " + getID() + "'");
+                 .addAttribute("data-dialog", "open " + getID() + "");
         return (J) this;
     }
 }

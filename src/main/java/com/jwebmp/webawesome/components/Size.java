@@ -18,7 +18,12 @@ public enum Size
     /**
      * Large size
      */
-    Large;
+    Large,
+
+    /**
+     * Inherit size from parent
+     */
+    Inherit;
 
     @Override
     public String toString()

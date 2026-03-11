@@ -17,29 +17,39 @@ import com.jwebmp.core.base.angular.client.services.interfaces.INgDataType;
 public class WaToastItem implements INgDataType<WaToastItem>
 {
     /**
-     * Unique identifier for the toast (uuid)
+     * Unique identifier for the toast (uuid).
      */
     private String id;
 
     /**
-     * Message/body to display in the toast
+     * Message/body to display in the toast.
      */
     private String message;
 
     /**
-     * Visual variant (brand, neutral, success, warning, danger)
+     * Visual variant (brand, neutral, success, warning, danger).
      */
     private String variant;
 
     /**
-     * Duration in ms before auto-dismiss. 0 or negative = sticky
+     * Size variant (small, medium, large).
+     */
+    private String size;
+
+    /**
+     * Optional title shown above the message.
+     */
+    private String title;
+
+    /**
+     * Duration in ms before auto-dismiss. 0 or negative = sticky.
      */
     private Integer duration;
 
     /**
-     * Whether a close button is shown and manual dismiss is allowed
+     * Creation timestamp (epoch millis).
      */
-    private Boolean closable;
+    private Long createdAt;
 
     public String getId()
     {
@@ -74,6 +84,28 @@ public class WaToastItem implements INgDataType<WaToastItem>
         return this;
     }
 
+    public String getSize()
+    {
+        return size;
+    }
+
+    public WaToastItem setSize(String size)
+    {
+        this.size = size;
+        return this;
+    }
+
+    public String getTitle()
+    {
+        return title;
+    }
+
+    public WaToastItem setTitle(String title)
+    {
+        this.title = title;
+        return this;
+    }
+
     public Integer getDuration()
     {
         return duration;
@@ -85,14 +117,14 @@ public class WaToastItem implements INgDataType<WaToastItem>
         return this;
     }
 
-    public Boolean getClosable()
+    public Long getCreatedAt()
     {
-        return closable;
+        return createdAt;
     }
 
-    public WaToastItem setClosable(Boolean closable)
+    public WaToastItem setCreatedAt(Long createdAt)
     {
-        this.closable = closable;
+        this.createdAt = createdAt;
         return this;
     }
 }

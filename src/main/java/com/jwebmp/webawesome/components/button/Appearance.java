@@ -18,6 +18,6 @@ public enum Appearance
     public String toString()
     {
         return name().toLowerCase()
-                     .replace('_', ' ');
+                     .replace('_', '-');
     }
 }

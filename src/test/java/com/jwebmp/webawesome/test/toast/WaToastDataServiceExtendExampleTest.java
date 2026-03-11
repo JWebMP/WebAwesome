@@ -26,7 +26,7 @@ public class WaToastDataServiceExtendExampleTest
      * inject it where needed.
      */
     @NgDataService(value = "MyToastService", listenerName = "MyToastService")
-    public static class MyToastService extends WaToastDataService<MyToastService> implements INgDataService<MyToastService>
+    public static class MyToastDataService extends WaToastDataService<MyToastDataService> implements INgDataService<MyToastDataService>
     {
         @Override
         public DynamicData getData(AjaxCall<?> call, AjaxResponse<?> response)
@@ -36,14 +36,13 @@ public class WaToastDataServiceExtendExampleTest
                     .setId("seed-example")
                     .setMessage("Welcome!")
                     .setVariant("brand")
-                    .setDuration(2000)
-                    .setClosable(true));
+                    .setDuration(2000));
         }
 
         @Override
         public List<String> methods()
         {
-            // Start with the built-in show/update/remove/clear + variant helpers
+            // Start with the built-in show/update/close/clearAll + variant helpers
             List<String> list = new ArrayList<>(super.methods());
 
             // Add a custom convenience helper. This gets emitted to the generated TS service.
@@ -61,15 +60,17 @@ public class WaToastDataServiceExtendExampleTest
     @Test
     public void showsHowToExtendServiceAndAddsCustomHelper()
     {
-        MyToastService svc = new MyToastService();
+        MyToastDataService svc = new MyToastDataService();
         List<String> methods = svc.methods();
         String ts = String.join("\n\n", methods);
 
-        // Base API should still be present
+        // Base API should still be present and delegate to waToastService
+        assertTrue(ts.contains("setConfig(partial: any"));
         assertTrue(ts.contains("show(message: string"));
         assertTrue(ts.contains("update(id: string"));
-        assertTrue(ts.contains("remove(id: string"));
-        assertTrue(ts.contains("clear(): void"));
+        assertTrue(ts.contains("close(id: string"));
+        assertTrue(ts.contains("clearAll(): void"));
+        assertTrue(ts.contains("this.waToastService.show("), "show() should delegate to waToastService");
 
         // Custom helper should be present
         assertTrue(ts.contains("info(message: string"));

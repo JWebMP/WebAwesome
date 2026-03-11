@@ -6,5 +6,12 @@ public enum Variant
     Success,
     Neutral,
     Warning,
-    Danger
+    Danger,
+    Inherit;
+
+    @Override
+    public String toString()
+    {
+        return name().toLowerCase();
+    }
 }

@@ -16,7 +16,7 @@ import lombok.Setter;
 @PluginInformation(pluginName = "Web Awesome",
         pluginDescription = "Make something awesome with open-source web components",
         pluginUniqueName = "WebAwesome",
-        pluginVersion = "0.0.1", // Note: Versions 1.0.0 to 1.0.3 match to web awesome 3.0.0-alpha.13
+        pluginVersion = "3.3.1", // Note: Versions 1.0.0 to 1.0.3 match to web awesome 3.0.0-alpha.13
         pluginCategories = "ui,web ui, framework,kit",
         pluginSubtitle = "Web Awesome is the biggest open-source library of meticulously designed, highly customizable, and framework-agnostic UI components.",
         pluginSourceUrl = "https://github.com/JWebMP/WebAwesome",
@@ -31,7 +31,7 @@ import lombok.Setter;
         pluginModuleName = "com.jwebmp.webawesome",
         pluginStatus = PluginStatus.DevelopmentStarted
 )
-@TsDependency(value = "angular-awesome", version = "*")
+@TsDependency(value = "angular-awesome", version = "^3.3.1")
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator> {
     @Setter
