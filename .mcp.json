@@ -1,8 +1,0 @@
-{
-  "servers": {
-    "mermaid": {
-      "type": "http",
-      "url": "https://mcp.mermaidchart.com/mcp"
-    }
-  }
-}
