@@ -6,7 +6,6 @@ public enum Appearance
     Filled,
     Tinted,
     Outlined,
-    Text,
     Plain,
     Filled_Outlined,
     Accent_Outlined,
