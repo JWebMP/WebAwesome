@@ -30,7 +30,6 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
      * Padding of the panel
      */
     private String padding;
-    private DivSimple<?> panelTemplate;
 
     /**
      * Creates a new WaTabPanel with the tag "wa-tab-panel"
@@ -38,10 +37,6 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     public WaTabPanel()
     {
         setTag("wa-tab-panel");
-        panelTemplate = new DivSimple<>()
-                .setTag("ng-template")
-                .addAttribute("waTabContent", "");
-        super.add(panelTemplate);
     }
 
     @Override
@@ -76,25 +71,25 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
 
     @Override
     public J add(String textToAdd) {
-        this.panelTemplate.add(textToAdd);
+        super.add(textToAdd);
         return (J)this;
     }
 
     @Override
     public J add(GlobalChildren newChild) {
-        this.panelTemplate.add(newChild);
+        super.add(newChild);
         return (J)this;
     }
 
     @Override
     public J add(String textToAdd, boolean inline) {
-        this.panelTemplate.add(textToAdd, inline);
+        super.add(textToAdd, inline);
         return (J)this;
     }
 
     @Override
     public J add(Integer position, GlobalChildren newChild) {
-        panelTemplate.getChildren().add(position, newChild);
+        super.getChildren().add(position, newChild);
         return (J)this;
     }
 

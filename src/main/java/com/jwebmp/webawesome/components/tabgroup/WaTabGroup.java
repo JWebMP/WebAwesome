@@ -100,7 +100,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
     {
         if (active)
         {
-            this.active = panel.getName();
+            this.active = !Strings.isNullOrEmpty(panel.getName()) ? panel.getName() : panel.getID();
         }
 
         add(tab);
