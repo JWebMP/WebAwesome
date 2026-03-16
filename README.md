@@ -19,26 +19,18 @@ Add the plugin dependency inherited from the main JWebMP BOM and ship the assets
 
 Configure the base and theme paths in your environment (see `.env.example`) to point at the WebAwesome static assets, then bind `WebAwesomePageConfigurator` to your page lifecycle. The configurator will add the necessary `<link>`/`<script>` tags and body classes so the wrapped components simply work.
 
-## Documentation & governance
-- Rules and policies: `RULES.md`, `PACT.md`
-- Guides and onboarding: `GUIDES.md`
-- Implementation plan and traces: `IMPLEMENTATION.md`
-- Terminology: `GLOSSARY.md`
-- Architecture diagrams (Mermaid sources): `docs/architecture/README.md`
-- Prompt seed for automations: `docs/PROMPT_REFERENCE.md`
-- Legacy static references: `docs/index.html`, `docs/rules.html`
-
-Follow the forward-only policy: update modular Markdown sources and regenerate diagrams via the Mermaid MCP server when necessary.
+## Documentation
+- Architecture diagrams: `docs/architecture/README.md`
 
 ## Building & testing
 - Requires JDK 25+ and Maven.
-- Run `mvn test` to execute the Java Micro Harness suite; Jacoco coverage rules are documented in `rules/generative/platform/testing/jacoco.rules.md`.
+- Run `mvn test` to execute the test suite with JUnit 5.
 - BrowserStack is excluded from the default test classpath—provide credentials via environment variables if you need cross-browser validation.
 - Flatten plugin keeps the published POM tidy; dependency versions come from the shared GuicedEE BOMs.
 
 ## Contribution notes
 - Use the shared GitHub Actions workflow (`.github/workflows/maven-package.yml`) for CI builds.
-- Keep new docs tied to the existing indexes (`RULES.md`, `GUIDES.md`, `IMPLEMENTATION.md`) and add glossary entries as needed.
+- Add tests for new components and features.
 - Respect the `.env.example` entry points when adjusting asset paths or theme metadata.
 
 ## Legacy materials
