@@ -64,23 +64,23 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
     /**
      * Adds a tab and panel to the tab group
      *
-     * @param panelName The name of the panel
-     * @param tabText   The text to display in the tab
-     * @param active    Whether this panel should be active
+     * @param panelId The id of the panel
+     * @param tabText The text to display in the tab
+     * @param active  Whether this panel should be active
      * @return This component
      */
-    public J addTab(String panelName, String tabText, boolean active)
+    public J addTab(String panelId, String tabText, boolean active)
     {
         WaTab<?> tab = new WaTab<>();
-        tab.setPanel(panelName);
+        tab.setPanel(panelId);
         tab.setText(tabText);
 
         WaTabPanel<?> panel = new WaTabPanel<>();
-        panel.setName(panelName);
+        panel.setName(panelId);
 
         if (active)
         {
-            this.active = panelName;
+            this.active = panelId;
         }
 
         add(tab);

@@ -61,6 +61,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(getName()))
             {
                 addAttribute("name", getName());
+                addAttribute("id", getName());
             }
             if (active != null && active)
             {
@@ -99,7 +100,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     }
 
     /**
-     * Binds the name attribute to an Angular variable
+     * Binds the name and id attributes to an Angular variable
      *
      * @param variableName The name of the variable to bind to
      * @return This component
@@ -107,6 +108,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     public J bindPanelName(String variableName)
     {
         addAttribute("[name]", variableName);
+        addAttribute("[id]", variableName);
         return (J) this;
     }
 

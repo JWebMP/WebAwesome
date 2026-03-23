@@ -54,7 +54,7 @@ public class WebAwesomePageConfigurator
     @Override
     public IPage<?> configure(IPage<?> page) {
 
-        if (Strings.isNullOrEmpty(waKitCode)) {
+        if (Strings.isNullOrEmpty(waKitCode) && !Strings.isNullOrEmpty(basePath)) {
             CSSReference webAwesome = new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css");
             page.addCssReference(webAwesome
                     .setPriority(RequirementsPriority.First));

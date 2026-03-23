@@ -26,9 +26,13 @@ public class WaTabGroupTest
         assertTrue(s.contains("<wa-tab panel=\"tab2\">Tab 2</wa-tab>"));
         assertTrue(s.contains("<wa-tab panel=\"tab3\">Tab 3</wa-tab>"));
         // Panels now include an internal <ng-template waTabContent> wrapper for content
-        assertTrue(s.contains("<wa-tab-panel name=\"tab1\">"));
-        assertTrue(s.contains("<wa-tab-panel name=\"tab2\">"));
-        assertTrue(s.contains("<wa-tab-panel name=\"tab3\">"));
+        assertTrue(s.contains("<wa-tab-panel name=\"tab1\""));
+        assertTrue(s.contains("<wa-tab-panel name=\"tab2\""));
+        assertTrue(s.contains("<wa-tab-panel name=\"tab3\""));
+        // id attribute must also be present for Web Awesome to match tab → panel
+        assertTrue(s.contains("id=\"tab1\""), "Panel should have id attribute for Web Awesome matching");
+        assertTrue(s.contains("id=\"tab2\""), "Panel should have id attribute for Web Awesome matching");
+        assertTrue(s.contains("id=\"tab3\""), "Panel should have id attribute for Web Awesome matching");
     }
 
     @Test
