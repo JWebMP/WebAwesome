@@ -35,11 +35,11 @@ import lombok.Setter;
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator> {
     @Setter
-    private static String basePath = "/webawesome/";
+    private static String basePath = "";
     @Setter
-    private static String themePath = "/webawesome/styles/themes/default.css";
+    private static String themePath = "/styles/themes/default.css";
     @Setter
-    private static String paletesPath = "/webawesome/styles/color/palletes/default.css";
+    private static String paletesPath = "/styles/color/palletes/default.css";
     @Setter
     private static String themeClassName = "wa-theme-default";
     @Setter
@@ -60,12 +60,12 @@ public class WebAwesomePageConfigurator
                     .setPriority(RequirementsPriority.First));
 
 
-            page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, themePath)
+            page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, basePath +themePath)
                     .setPriority(RequirementsPriority.First)
                     .setSortOrder(Integer.MAX_VALUE - 100)
                     .addAttribute("id", "webawesome-theme"));
 
-            page.addCssReference(new CSSReference("WebAwesomePalettesTheme", 0.1, paletesPath)
+            page.addCssReference(new CSSReference("WebAwesomePalettesTheme", 0.1, basePath +  paletesPath)
                     .setPriority(RequirementsPriority.First)
                     .setSortOrder(Integer.MAX_VALUE - 99)
                     .addAttribute("id", "wa-pallets-theme")
@@ -101,7 +101,7 @@ public class WebAwesomePageConfigurator
                 webAwesome
                         .addAttribute("data-webawesome", basePath);
             }
-        } else {
+        } else if(!Strings.isNullOrEmpty(waKitCode)) {
             page
                     .getHead()
                     .add(new Script<>("https://kit.webawesome.com/" + waKitCode + ".js").addAttribute("crossorigin", "anonymous"));
