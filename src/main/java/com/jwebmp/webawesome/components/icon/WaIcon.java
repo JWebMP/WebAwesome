@@ -138,11 +138,26 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
         setFamily(family);
     }
 
+    public WaIcon(String iconName, IconFamily family)
+    {
+        this();
+        setName(iconName);
+        setFamily(family.toString());
+    }
+
     public WaIcon(String iconName, String family, IconVariant variant)
     {
         this();
         setName(iconName);
         setFamily(family);
+        setVariant(variant);
+    }
+
+    public WaIcon(String iconName, IconFamily family, IconVariant variant)
+    {
+        this();
+        setName(iconName);
+        setFamily(family.toString());
         setVariant(variant);
     }
 

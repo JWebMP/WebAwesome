@@ -1,7 +1,9 @@
 package com.jwebmp.webawesome.components.icon;
 
 /**
- * Defines the possible variants for icons.
+ * Defines the possible style variants for icons.
+ * <p>
+ * These represent the weight/style of the icon within a given family.
  */
 public enum IconVariant
 {
@@ -26,18 +28,9 @@ public enum IconVariant
     Solid,
 
     /**
-     * Sharp variant
+     * Semibold variant
      */
-    Sharp,
-
-    /**
-     * DuoTone variant
-     */
-    DuoTone,
-    /**
-     * Sharp DuoTone variant
-     */
-    Sharp_DuoTone;
+    Semibold;
 
     @Override
     public String toString()

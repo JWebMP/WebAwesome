@@ -2,6 +2,7 @@ package com.jwebmp.webawesome.test.components;
 
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Shapes;
+import com.jwebmp.webawesome.components.icon.IconFamily;
 import com.jwebmp.webawesome.components.icon.IconVariant;
 import com.jwebmp.webawesome.components.input.InputAppearance;
 import com.jwebmp.webawesome.components.input.InputSize;
@@ -105,8 +106,35 @@ public class EnumToStringTest
         assertEquals("light", IconVariant.Light.toString());
         assertEquals("regular", IconVariant.Regular.toString());
         assertEquals("solid", IconVariant.Solid.toString());
-        assertEquals("sharp", IconVariant.Sharp.toString());
-        assertEquals("duotone", IconVariant.DuoTone.toString());
+        assertEquals("semibold", IconVariant.Semibold.toString());
+    }
+
+    @Test
+    public void testIconFamilyToString()
+    {
+        // Pro Styles
+        assertEquals("classic", IconFamily.Classic.toString());
+        assertEquals("duotone", IconFamily.Duotone.toString());
+        assertEquals("sharp", IconFamily.Sharp.toString());
+        assertEquals("sharp-duotone", IconFamily.Sharp_Duotone.toString());
+        assertEquals("brands", IconFamily.Brands.toString());
+
+        // Pro+ Styles
+        assertEquals("chisel", IconFamily.Chisel.toString());
+        assertEquals("etch", IconFamily.Etch.toString());
+        assertEquals("graphite", IconFamily.Graphite.toString());
+        assertEquals("jelly", IconFamily.Jelly.toString());
+        assertEquals("jelly-duo", IconFamily.Jelly_Duo.toString());
+        assertEquals("jelly-fill", IconFamily.Jelly_Fill.toString());
+        assertEquals("notdog", IconFamily.Notdog.toString());
+        assertEquals("notdog-duo", IconFamily.Notdog_Duo.toString());
+        assertEquals("slab", IconFamily.Slab.toString());
+        assertEquals("slab-press", IconFamily.Slab_Press.toString());
+        assertEquals("thumbprint", IconFamily.Thumbprint.toString());
+        assertEquals("utility", IconFamily.Utility.toString());
+        assertEquals("utility-duo", IconFamily.Utility_Duo.toString());
+        assertEquals("utility-fill", IconFamily.Utility_Fill.toString());
+        assertEquals("whiteboard", IconFamily.Whiteboard.toString());
     }
 
     @Test

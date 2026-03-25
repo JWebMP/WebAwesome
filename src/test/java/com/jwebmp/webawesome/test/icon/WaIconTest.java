@@ -1,5 +1,6 @@
 package com.jwebmp.webawesome.test.icon;
 
+import com.jwebmp.webawesome.components.icon.IconFamily;
 import com.jwebmp.webawesome.components.icon.IconVariant;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
@@ -131,7 +132,7 @@ public class WaIconTest
     {
         var s = new WaIcon<>()
                 .setName("circle")
-                .setVariant(IconVariant.DuoTone)
+                .setFamily(IconFamily.Duotone.toString())
                 .setPrimaryColor("#0066cc")
                 .setPrimaryOpacity(0.8)
                 .setSecondaryColor("#99ccff")
@@ -139,7 +140,7 @@ public class WaIconTest
                 .toString(true);
         System.out.println(s);
 
-        assertEquals("<wa-icon name=\"circle\" style=\"--primary-color:#0066cc;--primary-opacity:0.8;--secondary-color:#99ccff;--secondary-opacity:0.5;\" variant=\"duotone\"></wa-icon>", s);
+        assertEquals("<wa-icon family=\"duotone\" name=\"circle\" style=\"--primary-color:#0066cc;--primary-opacity:0.8;--secondary-color:#99ccff;--secondary-opacity:0.5;\"></wa-icon>", s);
     }
 
     @Test
