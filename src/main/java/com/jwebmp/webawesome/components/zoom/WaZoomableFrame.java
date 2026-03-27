@@ -36,6 +36,11 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
     private String panY;
     private Boolean disabled;
 
+    /**
+     * Whether to sync the frame's theme with the parent page.
+     */
+    private Boolean withThemeSync;
+
     // Optional inline size helpers
     private String width;
     private String height;
@@ -73,6 +78,10 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
             if (Boolean.TRUE.equals(disabled))
             {
                 addAttribute("disabled", "");
+            }
+            if (Boolean.TRUE.equals(withThemeSync))
+            {
+                addAttribute("with-theme-sync", "");
             }
             if (width != null)
             {

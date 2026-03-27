@@ -94,6 +94,16 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
     private Boolean withFooter;
 
     /**
+     * Whether the card has media content
+     */
+    private Boolean withMedia;
+
+    /**
+     * Card layout orientation (horizontal or vertical)
+     */
+    private CardOrientation orientation;
+
+    /**
      * The color of the card text
      */
     private String color;
@@ -270,6 +280,14 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
             if (withFooter != null && withFooter)
             {
                 addAttribute("with-footer", "");
+            }
+            if (withMedia != null && withMedia)
+            {
+                addAttribute("with-media", "");
+            }
+            if (orientation != null)
+            {
+                addAttribute("orientation", orientation.toString());
             }
             if (color != null)
             {

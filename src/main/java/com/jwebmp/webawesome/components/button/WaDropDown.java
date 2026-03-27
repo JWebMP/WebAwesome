@@ -9,6 +9,7 @@ import com.jwebmp.core.base.html.interfaces.GlobalFeatures;
 import com.jwebmp.core.base.html.interfaces.events.GlobalEvents;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.PlacementExtended;
+import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -139,6 +140,16 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
     private String value;
     
     /**
+     * Whether the dropdown is open.
+     */
+    private Boolean open;
+
+    /**
+     * Size of the dropdown (small, medium, large).
+     */
+    private Size size;
+
+    /**
      * Event handler for when the dropdown opens.
      */
     private String showEvent;
@@ -190,6 +201,14 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
                 {
                     add(item);
                 }
+            }
+            if (Boolean.TRUE.equals(open))
+            {
+                addAttribute("open", "");
+            }
+            if (size != null)
+            {
+                addAttribute("size", size.toString().toLowerCase());
             }
             if (placement != null)
             {

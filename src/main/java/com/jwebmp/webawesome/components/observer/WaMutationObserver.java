@@ -31,6 +31,16 @@ public class WaMutationObserver<J extends WaMutationObserver<J>> extends DivSimp
     private Boolean charData;
     private Boolean disabled;
 
+    /**
+     * Whether to record the previous value of observed attributes.
+     */
+    private Boolean attrOldValue;
+
+    /**
+     * Whether to record the previous value of character data changes.
+     */
+    private Boolean charDataOldValue;
+
     private String mutationEvent;
 
     public WaMutationObserver()
@@ -55,6 +65,14 @@ public class WaMutationObserver<J extends WaMutationObserver<J>> extends DivSimp
             {
                 addAttribute("char-data", "");
             }
+            if (attrOldValue != null && attrOldValue)
+            {
+                addAttribute("attr-old-value", "");
+            }
+            if (charDataOldValue != null && charDataOldValue)
+            {
+                addAttribute("char-data-old-value", "");
+            }
             if (disabled != null && disabled)
             {
                 addAttribute("disabled", "");
@@ -67,4 +85,3 @@ public class WaMutationObserver<J extends WaMutationObserver<J>> extends DivSimp
         super.init();
     }
 }
-

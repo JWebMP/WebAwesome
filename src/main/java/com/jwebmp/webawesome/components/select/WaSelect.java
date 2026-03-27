@@ -5,7 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
-import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
@@ -22,7 +21,7 @@ import lombok.Setter;
  * - `placeholder`: Placeholder when no option is selected
  * - `appearance`: Changes visual style (outlined, filled)
  * - `pill`: Applies pill-style rounded borders
- * - `withClear`: Shows a clear button when an option is selected
+ * - `clearable`: Shows a clear button when an option is selected
  * - `disabled`: Disables the select control
  * - `multiple`: Enables multiple selection
  * - `size`: Sets size variant (small, medium, large)
@@ -102,7 +101,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     /**
      * Whether to show a clear button when an option is selected
      */
-    private Boolean withClear;
+    private Boolean clearable;
 
     /**
      * Visual appearance style (outlined or filled)
@@ -255,6 +254,21 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     private String value;
 
     /**
+     * Whether the dropdown is open.
+     */
+    private Boolean open;
+
+    /**
+     * Whether to render the label slot.
+     */
+    private Boolean withLabel;
+
+    /**
+     * Whether to render the hint slot.
+     */
+    private Boolean withHint;
+
+    /**
      * Creates a new WaSelect with the tag "wa-select-wrapper"
      */
     public WaSelect()
@@ -279,9 +293,9 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
             {
                 addAttribute("placeholder", placeholder);
             }
-            if (withClear != null && withClear)
+            if (clearable != null && clearable)
             {
-                addAttribute("with-clear", "");
+                addAttribute("clearable", "");
             }
             if (appearance != null)
             {
@@ -323,6 +337,22 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(value))
             {
                 addAttribute("value", value);
+            }
+            if (!Strings.isNullOrEmpty(getName()))
+            {
+                addAttribute("name", getName());
+            }
+            if (open != null && open)
+            {
+                addAttribute("open", "");
+            }
+            if (withLabel != null && withLabel)
+            {
+                addAttribute("with-label", "");
+            }
+            if (withHint != null && withHint)
+            {
+                addAttribute("with-hint", "");
             }
 
             if (start != null)

@@ -119,6 +119,31 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
      */
     private IconVariant variant;
 
+    /**
+     * Whether to use auto-width sizing.
+     */
+    private Boolean autoWidth;
+
+    /**
+     * Whether to swap duotone icon opacity.
+     */
+    private Boolean swapOpacity;
+
+    /**
+     * Rotation in degrees.
+     */
+    private Integer rotate;
+
+    /**
+     * Flip direction (x, y, both).
+     */
+    private IconFlip flip;
+
+    /**
+     * Animation name to apply to the icon.
+     */
+    private String animation;
+
 
     public WaIcon()
     {
@@ -233,6 +258,26 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             if (variant != null)
             {
                 addAttribute("variant", variant.toString());
+            }
+            if (autoWidth != null && autoWidth)
+            {
+                addAttribute("auto-width", "");
+            }
+            if (swapOpacity != null && swapOpacity)
+            {
+                addAttribute("swap-opacity", "");
+            }
+            if (rotate != null)
+            {
+                addAttribute("rotate", rotate.toString());
+            }
+            if (flip != null)
+            {
+                addAttribute("flip", flip.toString());
+            }
+            if (!Strings.isNullOrEmpty(animation))
+            {
+                addAttribute("animation", animation);
             }
         }
         super.init();

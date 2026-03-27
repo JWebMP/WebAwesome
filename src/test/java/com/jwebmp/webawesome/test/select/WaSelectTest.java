@@ -118,13 +118,13 @@ public class WaSelectTest
     {
         var s = new WaSelect<>()
                 .setLabel("Clearable Select")
-                .setWithClear(true)
+                .setClearable(true)
                 .setPlaceholder("Select an option")
                 .add(new WaSelectOption<>().setValue("option1").setText("Option 1"))
                 .toString(true);
         System.out.println(s);
 
-        assertTrue(s.contains("with-clear"));
+        assertTrue(s.contains("clearable"));
     }
 
     @Test

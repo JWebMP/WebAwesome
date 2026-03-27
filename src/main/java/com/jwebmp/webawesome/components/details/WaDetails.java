@@ -121,8 +121,17 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
     /**
      * Position of the expand/collapse icon.
      * Options: 'start' or 'end'. Default is 'end'.
+     *
+     * @deprecated Use {@link #iconPlacement} instead.
      */
+    @Deprecated
     private IconPosition iconPosition;
+
+    /**
+     * Placement of the expand/collapse icon.
+     * Options: 'start' or 'end'. Default is 'end'.
+     */
+    private IconPlacement iconPlacement;
 
     /**
      * Event handler for when the details starts to open.
@@ -227,21 +236,30 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
     }
 
     /**
-     * Convenience setter accepting a string value for icon position.
+     * Convenience setter accepting a string value for icon placement.
      */
-    public @org.jspecify.annotations.NonNull J setIconPosition(String iconPosition)
+    public @org.jspecify.annotations.NonNull J setIconPlacement(String iconPlacement)
     {
-        if (iconPosition == null)
+        if (iconPlacement == null)
         {
-            this.iconPosition = null;
+            this.iconPlacement = null;
         }
         else
         {
-            var normalized = iconPosition.trim()
+            var normalized = iconPlacement.trim()
                                          .toLowerCase();
-            this.iconPosition = "start".equals(normalized) ? IconPosition.Start : IconPosition.End;
+            this.iconPlacement = "start".equals(normalized) ? IconPlacement.Start : IconPlacement.End;
         }
         return (J) this;
+    }
+
+    /**
+     * @deprecated Use {@link #setIconPlacement(String)} instead.
+     */
+    @Deprecated
+    public @org.jspecify.annotations.NonNull J setIconPosition(String iconPosition)
+    {
+        return setIconPlacement(iconPosition);
     }
 
     /**
@@ -316,9 +334,13 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
             }
 
             // Apply new attributes
-            if (iconPosition != null)
+            if (iconPlacement != null)
             {
-                addAttribute("icon-position", iconPosition.toString());
+                addAttribute("icon-placement", iconPlacement.toString());
+            }
+            else if (iconPosition != null)
+            {
+                addAttribute("icon-placement", iconPosition.toString());
             }
             // Add event handlers
             if (!Strings.isNullOrEmpty(showEvent))

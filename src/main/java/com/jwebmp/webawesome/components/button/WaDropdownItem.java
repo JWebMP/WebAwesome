@@ -75,6 +75,16 @@ public class WaDropdownItem<J extends WaDropdownItem<J>> extends DivSimple<J>
     private WaDropDown<?> submenu;
 
     /**
+     * Whether the submenu is open.
+     */
+    private Boolean submenuOpen;
+
+    /**
+     * Visual variant of the dropdown item (default, danger).
+     */
+    private DropdownItemVariant variant;
+
+    /**
      * Creates a new dropdown item with the given text.
      */
     public WaDropdownItem()
@@ -135,6 +145,14 @@ public class WaDropdownItem<J extends WaDropdownItem<J>> extends DivSimple<J>
             {
                 submenu.addAttribute("slot", "submenu");
                 add(submenu);
+            }
+            if (submenuOpen != null && submenuOpen)
+            {
+                addAttribute("submenu-open", "");
+            }
+            if (variant != null)
+            {
+                addAttribute("variant", variant.toString());
             }
         }
         super.init();

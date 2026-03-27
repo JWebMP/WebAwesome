@@ -42,6 +42,21 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
     private String hint;
 
     /**
+     * The value of the switch for form submission.
+     */
+    private String value;
+
+    /**
+     * Whether the switch is required for form validation.
+     */
+    private Boolean required;
+
+    /**
+     * Whether to render the hint slot.
+     */
+    private Boolean withHint;
+
+    /**
      * Width of the switch
      */
     private String width;
@@ -136,6 +151,22 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
             if (hint != null)
             {
                 addAttribute("hint", hint);
+            }
+            if (!com.google.common.base.Strings.isNullOrEmpty(getName()))
+            {
+                addAttribute("name", getName());
+            }
+            if (value != null)
+            {
+                addAttribute("value", value);
+            }
+            if (required != null && required)
+            {
+                addAttribute("required", "");
+            }
+            if (withHint != null && withHint)
+            {
+                addAttribute("with-hint", "");
             }
             if (width != null)
             {

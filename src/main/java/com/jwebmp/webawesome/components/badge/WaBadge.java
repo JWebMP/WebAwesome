@@ -53,6 +53,11 @@ public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements Varia
     private Boolean pill;
     private Boolean pulse;
 
+    /**
+     * Attention animation style (none, pulse, bounce).
+     */
+    private BadgeAttention attention;
+
     // Custom style properties
     private String backgroundColor;
     private String borderColor;
@@ -82,6 +87,10 @@ public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements Varia
             if (pulse != null && pulse)
             {
                 addAttribute("pulse", "");
+            }
+            if (attention != null)
+            {
+                addAttribute("attention", attention.toString());
             }
             if (appearance != null)
             {

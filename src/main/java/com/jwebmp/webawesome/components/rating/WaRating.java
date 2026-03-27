@@ -20,6 +20,10 @@ import java.util.Set;
  * <p>
  * This component renders as a wa-rating HTML element and supports various customization options
  * through properties and CSS custom properties.
+ * <p>
+ * Note: As of Web Awesome 3.4.1, the {@code getSymbol} callback signature has been updated to
+ * {@code (value: number, isSelected: boolean) => String}. The second parameter indicates whether
+ * the symbol at that position is currently selected/active.
  */
 @Getter
 @Setter
@@ -193,7 +197,7 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J>
                       await customElements.whenDefined("wa-rating")
                       await rating.updateComplete
                     
-                      rating.getSymbol = value => {
+                      rating.getSymbol = (value, isSelected) => {
                         const icons = [%s];
                         return `<wa-icon name="${icons[value - 1]}"></wa-icon>`;
                       };
@@ -210,7 +214,7 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J>
                       await customElements.whenDefined("wa-rating")
                       await rating.updateComplete
                     
-                      rating.getSymbol = () =>'%s'
+                      rating.getSymbol = (value, isSelected) =>'%s'
                     """.formatted(getID(true), symbol.setTiny(true)
                                                      .toString(0)));
             sb.append(script.toString(0));

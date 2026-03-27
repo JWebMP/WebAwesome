@@ -7,6 +7,9 @@ import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /**
  * The WaRelativeTime component displays a localized phrase indicating the relative time from a given date to now.
  * It supports automatic updates, multiple formatting styles, and localization.
@@ -53,6 +56,32 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
     public WaRelativeTime()
     {
         setTag("wa-relative-time");
+    }
+
+    /**
+     * Sets the date from an ISO 8601 string.
+     *
+     * @param date The date string (e.g., "2023-01-01T12:00:00Z")
+     * @return This component for chaining
+     */
+    @SuppressWarnings("unchecked")
+    public J setDate(String date)
+    {
+        this.date = date;
+        return (J) this;
+    }
+
+    /**
+     * Sets the date from a LocalDateTime, formatting it as ISO 8601.
+     *
+     * @param date The date to display relative to now
+     * @return This component for chaining
+     */
+    @SuppressWarnings("unchecked")
+    public J setDate(LocalDateTime date)
+    {
+        this.date = date.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        return (J) this;
     }
 
     @Override

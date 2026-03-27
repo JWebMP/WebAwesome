@@ -14,7 +14,7 @@ class WaSelectTest {
         WaSelect<?> select = new WaSelect<>()
                 .setLabel("Pick one")
                 .setPlaceholder("Choose...")
-                .setWithClear(true)
+                .setClearable(true)
                 .setMultiple(true)
                 .setDisabled(false)
                 .setRequired(true)
@@ -35,7 +35,7 @@ class WaSelectTest {
         Assertions.assertTrue(html.contains("placeholder=\"Choose...\""), "Placeholder expected");
         Assertions.assertTrue(html.contains("label=\"Pick one\""), "Label expected");
         // Boolean attributes may render as bare attributes or with empty value
-        Assertions.assertTrue(html.contains(" with-clear=\"\"") || html.contains(" with-clear "), "with-clear boolean should render");
+        Assertions.assertTrue(html.contains(" clearable=\"\"") || html.contains(" clearable "), "clearable boolean should render");
         Assertions.assertTrue(html.contains(" multiple=\"\"") || html.contains(" multiple "), "multiple boolean should render");
         Assertions.assertTrue(html.contains(" required=\"\"") || html.contains(" required "), "required boolean should render");
         Assertions.assertTrue(html.contains(" value=\"option2\""), "Selected value should be set");

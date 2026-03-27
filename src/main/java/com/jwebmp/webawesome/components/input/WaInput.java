@@ -275,7 +275,7 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
             }
             if (clearable != null && clearable)
             {
-                addAttribute("with-clear", "");
+                addAttribute("clearable", "");
             }
             if (placeholder != null)
             {
