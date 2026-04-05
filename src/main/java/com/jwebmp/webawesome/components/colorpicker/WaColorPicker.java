@@ -117,6 +117,21 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
     private String form;
 
     /**
+     * Popup positioning (e.g. top, bottom)
+     */
+    private String placement;
+
+    /**
+     * SSR boolean — renders with-label attribute when truthy
+     */
+    private Boolean withLabel;
+
+    /**
+     * SSR boolean — renders with-hint attribute when truthy
+     */
+    private Boolean withHint;
+
+    /**
      * Custom styling properties
      */
     private String swatchSize;
@@ -279,6 +294,18 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
             if (uppercase != null && uppercase)
             {
                 addAttribute("uppercase", "");
+            }
+            if (!Strings.isNullOrEmpty(placement))
+            {
+                addAttribute("placement", placement);
+            }
+            if (withLabel != null && withLabel)
+            {
+                addAttribute("with-label", "");
+            }
+            if (withHint != null && withHint)
+            {
+                addAttribute("with-hint", "");
             }
 
             // Handle custom styling properties (maintain order per docs/tests)

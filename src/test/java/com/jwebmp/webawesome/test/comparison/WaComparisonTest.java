@@ -3,7 +3,7 @@ package com.jwebmp.webawesome.test.comparison;
 import com.jwebmp.core.base.html.Image;
 import com.jwebmp.webawesome.components.comparison.WaComparison;
 import com.jwebmp.webawesome.components.icon.WaIcon;
-import com.jwebmp.webawesome.components.icon.IconVariant;
+import com.jwebmp.plugins.fontawesome5.options.IconVariant;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

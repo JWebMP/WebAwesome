@@ -51,6 +51,11 @@ public class WaToastItem implements INgDataType<WaToastItem>
      */
     private Long createdAt;
 
+    /**
+     * SSR boolean — renders with-icon attribute when truthy.
+     */
+    private Boolean withIcon;
+
     public String getId()
     {
         return id;
@@ -125,6 +130,17 @@ public class WaToastItem implements INgDataType<WaToastItem>
     public WaToastItem setCreatedAt(Long createdAt)
     {
         this.createdAt = createdAt;
+        return this;
+    }
+
+    public Boolean getWithIcon()
+    {
+        return withIcon;
+    }
+
+    public WaToastItem setWithIcon(Boolean withIcon)
+    {
+        this.withIcon = withIcon;
         return this;
     }
 }

@@ -106,6 +106,26 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J>
      */
     private String symbolSpacing;
 
+    /**
+     * Form control name
+     */
+    private String formName;
+
+    /**
+     * Initial value for form resets
+     */
+    private Number defaultValue;
+
+    /**
+     * Whether the rating is a required form field
+     */
+    private Boolean required;
+
+    /**
+     * Associates with a form element by id
+     */
+    private String form;
+
     public WaRating()
     {
         setTag("wa-rating");
@@ -139,6 +159,22 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J>
             if (disabled != null && disabled)
             {
                 addAttribute("disabled", "");
+            }
+            if (!Strings.isNullOrEmpty(formName))
+            {
+                addAttribute("name", formName);
+            }
+            if (defaultValue != null)
+            {
+                addAttribute("default-value", String.valueOf(defaultValue));
+            }
+            if (required != null && required)
+            {
+                addAttribute("required", "");
+            }
+            if (!Strings.isNullOrEmpty(form))
+            {
+                addAttribute("form", form);
             }
             if (size != null)
             {

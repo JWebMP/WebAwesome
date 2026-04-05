@@ -1,7 +1,7 @@
 package com.jwebmp.webawesome.test;
 
 import com.jwebmp.core.Page;
-import com.jwebmp.webawesome.components.icon.IconVariant;
+import com.jwebmp.plugins.fontawesome5.options.IconVariant;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

@@ -7,6 +7,8 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.core.base.interfaces.IIcon;
+import com.jwebmp.plugins.fontawesome5.options.IconFamily;
+import com.jwebmp.plugins.fontawesome5.options.IconVariant;
 import lombok.Getter;
 import lombok.Setter;
 

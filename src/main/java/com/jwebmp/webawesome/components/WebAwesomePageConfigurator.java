@@ -31,7 +31,7 @@ import lombok.Setter;
         pluginModuleName = "com.jwebmp.webawesome",
         pluginStatus = PluginStatus.DevelopmentStarted
 )
-@TsDependency(value = "angular-awesome", version = "^3.4.0")
+@TsDependency(value = "angular-awesome", version = "^3.5.0")
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator> {
     @Setter

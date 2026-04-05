@@ -57,6 +57,8 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.toast;
     exports com.jwebmp.webawesome.components.variant;
     exports com.jwebmp.webawesome.components.zoom;
+    exports com.jwebmp.webawesome.components.page;
+    exports com.jwebmp.webawesome.components.markdown;
 
     exports com.jwebmp.webawesome.components.text;
 
@@ -64,6 +66,7 @@ module com.jwebmp.webawesome {
 
     requires com.jwebmp.plugins.easingeffects;
     requires com.jwebmp.core.base.angular.client;
+    requires transitive com.jwebmp.plugins.fontawesome5;
 
     requires transitive com.google.common;
 
@@ -127,5 +130,7 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.zoom to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
 
     opens com.jwebmp.webawesome.components.text to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.page to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.markdown to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components to com.fasterxml.jackson.databind, com.google.guice, com.jwebmp.core, com.jwebmp.core.angular, web.awesome.test;
 }

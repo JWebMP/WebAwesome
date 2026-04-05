@@ -132,6 +132,11 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
     private Boolean withHint;
 
     /**
+     * SSR boolean — renders with-count attribute when truthy
+     */
+    private Boolean withCount;
+
+    /**
      * Background color custom property
      */
     private String backgroundColor;
@@ -259,6 +264,10 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
             if (withHint != null && withHint)
             {
                 addAttribute("with-hint", "");
+            }
+            if (withCount != null && withCount)
+            {
+                addAttribute("with-count", "");
             }
             if (!Strings.isNullOrEmpty(backgroundColor))
             {

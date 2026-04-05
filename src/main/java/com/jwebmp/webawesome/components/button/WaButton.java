@@ -70,6 +70,17 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
     private Boolean caret;
     private Boolean disabled;
     private Boolean loading;
+
+    /**
+     * SSR boolean — renders with-start attribute when truthy
+     */
+    private Boolean withStart;
+
+    /**
+     * SSR boolean — renders with-end attribute when truthy
+     */
+    private Boolean withEnd;
+
     private IComponentHierarchyBase<GlobalChildren, ?> prefix;
     private IComponentHierarchyBase<GlobalChildren, ?> suffix;
 
@@ -172,6 +183,14 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
             if (disabled != null && disabled)
             {
                 addAttribute("disabled", "");
+            }
+            if (withStart != null && withStart)
+            {
+                addAttribute("with-start", "");
+            }
+            if (withEnd != null && withEnd)
+            {
+                addAttribute("with-end", "");
             }
             if (type != null)
             {

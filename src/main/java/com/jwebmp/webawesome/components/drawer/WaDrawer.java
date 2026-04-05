@@ -45,6 +45,11 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
     private Boolean scrolling;
 
     /**
+     * SSR boolean — renders with-footer attribute when truthy.
+     */
+    private Boolean withFooterAttr;
+
+    /**
      * Slide direction. Default is 'end'.
      */
     private Placement placement;
@@ -118,6 +123,10 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
             if (dialogHeaderDenyClose != null && dialogHeaderDenyClose)
             {
                 addAttribute("drawer-deny-close", "");
+            }
+            if (withFooterAttr != null && withFooterAttr)
+            {
+                addAttribute("with-footer", "");
             }
             if (placement != null)
             {

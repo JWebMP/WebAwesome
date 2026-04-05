@@ -1,5 +1,6 @@
 module web.awesome.test {
     requires com.jwebmp.webawesome;
+    requires com.jwebmp.plugins.fontawesome5;
 
     requires org.junit.jupiter.api;
     requires com.jwebmp.core;
@@ -56,4 +57,5 @@ module web.awesome.test {
     opens com.jwebmp.webawesome.test.toast to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.scroller to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.zoom to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.page to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
 }

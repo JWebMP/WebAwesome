@@ -48,6 +48,11 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
     private Boolean scrolling;
 
     /**
+     * SSR boolean — renders with-footer attribute when truthy.
+     */
+    private Boolean withFooterAttr;
+
+    /**
      * If true, prevents the dialog from being closed by the header close button.
      */
     private Boolean dialogHeaderDenyClose;
@@ -152,6 +157,10 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
             if (dialogHeaderDenyClose != null && dialogHeaderDenyClose)
             {
                 addAttribute("dialog-deny-close", "");
+            }
+            if (withFooterAttr != null && withFooterAttr)
+            {
+                addAttribute("with-footer", "");
             }
 
             // Apply CSS custom properties
