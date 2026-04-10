@@ -39,7 +39,7 @@ public class WaPageContentsMain<J extends WaPageContentsMain<J>> extends DivSimp
                 it.remove();
             }
         }
-        addClass("wa-body-" + pageSize.getSize());
+       // addClass("wa-body-" + pageSize.getSize());
         super.preConfigure();
     }
 
