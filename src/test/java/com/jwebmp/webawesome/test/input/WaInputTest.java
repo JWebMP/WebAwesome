@@ -50,7 +50,7 @@ public class WaInputTest
     public void testInputWithSizeAndAppearance()
     {
         var input = new WaInput<>("Username");
-        input.setSize(InputSize.LARGE);
+        input.setSize(InputSize.Large);
         input.setAppearance(InputAppearance.OUTLINED);
         var html = input.toString(true);
         System.out.println(html);

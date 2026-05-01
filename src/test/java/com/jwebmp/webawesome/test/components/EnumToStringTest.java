@@ -46,10 +46,10 @@ public class EnumToStringTest
     @Test
     public void testInputSizeToString()
     {
-        assertEquals("small", InputSize.SMALL.toString());
-        assertEquals("medium", InputSize.MEDIUM.toString());
-        assertEquals("large", InputSize.LARGE.toString());
-        assertEquals("inherit", InputSize.INHERIT.toString());
+        assertEquals("small", InputSize.Small.toString());
+        assertEquals("medium", InputSize.Medium.toString());
+        assertEquals("large", InputSize.Large.toString());
+        assertEquals("inherit", InputSize.Inherit.toString());
     }
 
     @Test

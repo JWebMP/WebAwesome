@@ -8,22 +8,22 @@ public enum InputSize
     /**
      * Small input size
      */
-    SMALL,
+    Small,
     
     /**
      * Medium input size
      */
-    MEDIUM,
+    Medium,
     
     /**
      * Large input size
      */
-    LARGE,
+    Large,
     
     /**
      * Inherit input size
      */
-    INHERIT;
+    Inherit;
     
     @Override
     public String toString()
