@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.scroller;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
@@ -15,7 +18,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaScrollerDirective", reference = "angular-awesome")
 @NgImportModule("WaScrollerDirective")
-public class WaScroller<J extends WaScroller<J>> extends DivSimple<J>
+public class WaScroller<J extends WaScroller<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, BorderTokenCapable<J>
 {
     /**
      * Orientation of scrolling: "vertical" or "horizontal".
@@ -77,30 +80,35 @@ public class WaScroller<J extends WaScroller<J>> extends DivSimple<J>
     }
 
     // Binding helpers
+    @SuppressWarnings("unchecked")
     public J bindOrientation(String variable)
     {
         addAttribute("[orientation]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindWithoutScrollbar(String variable)
     {
         addAttribute("[withoutScrollbar]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindWithoutShadow(String variable)
     {
         addAttribute("[withoutShadow]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindHeight(String variable)
     {
         addAttribute("[style.height]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindWidth(String variable)
     {
         addAttribute("[style.width]", variable);

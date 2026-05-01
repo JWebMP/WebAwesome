@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.text;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -22,7 +25,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTextDirective", reference = "angular-awesome")
 @NgImportModule("WaTextDirective")
-public class WaText<J extends WaText<J>> extends DivSimple<J>
+public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     // Presence of the directive
     private boolean waText = true;

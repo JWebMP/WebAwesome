@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaFormatBytes", reference = "angular-awesome")
 @NgImportModule("WaFormatBytes")
-public class FormatBytes extends DivSimple<FormatBytes>
+public class FormatBytes<J extends FormatBytes<J>> extends DivSimple<J>
 {
     /**
      * The number to format.

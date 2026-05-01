@@ -1,9 +1,13 @@
 package com.jwebmp.webawesome.components.page;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.SplitCapable;
 
-public class WaPageHeader<J extends WaPageHeader<J>> extends DivSimple<J> implements SplitCapable<J>
+public class WaPageHeader<J extends WaPageHeader<J>> extends DivSimple<J> implements SplitCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>
 {
 
     public WaPageHeader()

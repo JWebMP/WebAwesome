@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.toast;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -21,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaToastDirective",reference = "angular-awesome")
 @NgImportModule(value = "WaToastDirective")
-public class WaToastContainer<J extends WaToastContainer<J>> extends DivSimple<J>
+public class WaToastContainer<J extends WaToastContainer<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
 {
     /**
      * Placement of the container on the screen. Supported values:
@@ -76,24 +78,28 @@ public class WaToastContainer<J extends WaToastContainer<J>> extends DivSimple<J
     }
 
     // Binding helpers
+    @SuppressWarnings("unchecked")
     public J bindPlacement(String variable)
     {
         addAttribute("[placement]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindMax(String variable)
     {
         addAttribute("[max]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindDuration(String variable)
     {
         addAttribute("[duration]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindNewestOnTop(String variable)
     {
         addAttribute("[newestOnTop]", variable);

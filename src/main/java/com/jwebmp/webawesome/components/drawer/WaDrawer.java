@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.drawer;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -17,7 +22,7 @@ import java.util.List;
 @Setter
 @NgImportReference(value = "WaDrawerDirective", reference = "angular-awesome")
 @NgImportModule("WaDrawerDirective")
-public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
+public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * Accessible label shown in the header.
@@ -163,6 +168,7 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
         super.init();
     }
 
+    @SuppressWarnings("unchecked")
     public J withHeader(DivSimple<?> header)
     {
         header.addAttribute("slot", "header");
@@ -179,6 +185,7 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
      * @param buttons The list of buttons to add
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J withHeaderActions(List<WaButton<?>> buttons)
     {
         for (WaButton<?> button : buttons)
@@ -211,6 +218,7 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
         return button;
     }
 
+    @SuppressWarnings("unchecked")
     public J withFooter(DivSimple<?> footer)
     {
         footer.addAttribute("slot", "footer");
@@ -243,11 +251,12 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
      * @param component The component to receive focus
      * @return This object for method chaining
      */
-    public WaDrawer withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
+    @SuppressWarnings("unchecked")
+    public J withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
                  .addAttribute("autofocus", "");
-        return this;
+        return (J) this;
     }
 
     /**
@@ -255,11 +264,12 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDrawer show()
+    @SuppressWarnings("unchecked")
+    public J show()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -267,10 +277,11 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDrawer hide()
+    @SuppressWarnings("unchecked")
+    public J hide()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 }

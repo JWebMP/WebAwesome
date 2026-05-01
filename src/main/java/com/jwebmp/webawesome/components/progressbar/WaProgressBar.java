@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.progressbar;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -56,7 +60,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaProgressBarDirective", reference = "angular-awesome")
 @NgImportModule("WaProgressBarDirective")
-public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
+public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * The current value of the progress bar.
@@ -332,6 +336,7 @@ public class WaProgressBar<J extends WaProgressBar<J>> extends DivSimple<J>
      * @return The current instance of WaProgressBar for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[value]", variableName);

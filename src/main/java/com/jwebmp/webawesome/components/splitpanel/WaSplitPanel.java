@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.splitpanel;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -21,7 +24,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSplitPanelDirective", reference = "angular-awesome")
 @NgImportModule("WaSplitPanelDirective")
-public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
+public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, BorderTokenCapable<J>
 {
     /**
      * Content of the start panel
@@ -219,6 +222,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPosition(String variableName)
     {
         addAttribute("[position]", variableName);
@@ -231,6 +235,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPositionInPixels(String variableName)
     {
         addAttribute("[position-in-pixels]", variableName);
@@ -243,6 +248,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindOrientation(String variableName)
     {
         addAttribute("[orientation]", variableName);
@@ -257,6 +263,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @deprecated Use bindOrientation instead
      */
     @Deprecated
+    @SuppressWarnings("unchecked")
     public J bindVertical(String variableName)
     {
         addAttribute("[vertical]", variableName);
@@ -269,6 +276,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSnap(String variableName)
     {
         addAttribute("[snap]", variableName);
@@ -281,6 +289,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSnapThreshold(String variableName)
     {
         addAttribute("[snap-threshold]", variableName);
@@ -293,6 +302,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -305,6 +315,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPrimary(String variableName)
     {
         addAttribute("[primary]", variableName);
@@ -317,6 +328,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindMin(String variableName)
     {
         addAttribute("[style.--min]", variableName);
@@ -329,6 +341,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindMax(String variableName)
     {
         addAttribute("[style.--max]", variableName);
@@ -341,6 +354,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDividerColor(String variableName)
     {
         addAttribute("[style.--divider-color]", variableName);
@@ -353,6 +367,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDividerWidth(String variableName)
     {
         addAttribute("[style.--divider-width]", variableName);
@@ -365,6 +380,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDividerHitArea(String variableName)
     {
         addAttribute("[style.--divider-hit-area]", variableName);

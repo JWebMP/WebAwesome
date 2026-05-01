@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.page;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -17,7 +20,7 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 @NgImportReference(value = "WaPageComponent", reference = "angular-awesome")
 @NgImportModule("WaPageComponent")
-public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements BreakpointCapable<J>
+public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements BreakpointCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * The banner component of the page.
@@ -674,6 +677,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindMobileBreakpoint(String variableName)
     {
         addAttribute("[mobile-breakpoint]", variableName);
@@ -686,6 +690,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindNavOpen(String variableName)
     {
         addAttribute("[nav-open]", variableName);
@@ -698,6 +703,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindDisableSticky(String variableName)
     {
         addAttribute("[disable-sticky]", variableName);
@@ -710,6 +716,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindNavigationPlacement(String variableName)
     {
         addAttribute("[navigation-placement]", variableName);
@@ -722,6 +729,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindMenuWidth(String variableName)
     {
         addAttribute("[style.--menu-width]", variableName);
@@ -734,6 +742,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindMainWidth(String variableName)
     {
         addAttribute("[style.--main-width]", variableName);
@@ -746,6 +755,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindAsideWidth(String variableName)
     {
         addAttribute("[style.--aside-width]", variableName);
@@ -758,6 +768,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindBannerHeight(String variableName)
     {
         addAttribute("[style.--banner-height]", variableName);
@@ -770,6 +781,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindHeaderHeight(String variableName)
     {
         addAttribute("[style.--header-height]", variableName);
@@ -782,6 +794,7 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param variableName The name of the variable to bind to.
      * @return This component for method chaining.
      */
+    @SuppressWarnings("unchecked")
     public J bindSubheaderHeight(String variableName)
     {
         addAttribute("[style.--subheader-height]", variableName);

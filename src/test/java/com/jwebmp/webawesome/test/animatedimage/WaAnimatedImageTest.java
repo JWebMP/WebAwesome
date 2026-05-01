@@ -13,8 +13,8 @@ public class WaAnimatedImageTest
     @Test
     public void testRenderAnimatedImageHtml()
     {
-        var playIcon = new WaAnimatedImagePlayIconSlot().add(new WaIcon<>().setName("play"));
-        var pauseIcon = new WaAnimatedImagePauseIconSlot().add(new WaIcon<>().setName("pause"));
+        var playIcon = new WaAnimatedImagePlayIconSlot<>().add(new WaIcon<>().setName("play"));
+        var pauseIcon = new WaAnimatedImagePauseIconSlot<>().add(new WaIcon<>().setName("pause"));
 
         var s = new WaAnimatedImage("test-image.gif")
                 .add(playIcon)

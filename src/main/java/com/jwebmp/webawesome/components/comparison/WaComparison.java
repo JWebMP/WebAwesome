@@ -16,7 +16,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaComparisonDirective", reference = "angular-awesome")
 @NgImportModule("WaComparisonDirective")
-public class WaComparison extends DivSimple<WaComparison>
+public class WaComparison<J extends WaComparison<J>> extends DivSimple<J>
 {
     /**
      * The image to display in the "before" slot (left or top side).

@@ -1,12 +1,14 @@
 package com.jwebmp.webawesome.components.page;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.PageSize;
 
 import java.util.Iterator;
 
-public class WaPageContentsMain<J extends WaPageContentsMain<J>> extends DivSimple<J>
+public class WaPageContentsMain<J extends WaPageContentsMain<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
 {
     private PageSize pageSize = PageSize.Large;
 
@@ -43,6 +45,7 @@ public class WaPageContentsMain<J extends WaPageContentsMain<J>> extends DivSimp
         super.preConfigure();
     }
 
+    @SuppressWarnings("unchecked")
     public J addContent(String id, IComponentHierarchyBase<?, ?> component)
     {
         WaPageContent content = new WaPageContent(id, component);

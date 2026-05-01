@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.tag;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
@@ -21,7 +25,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTagDirective", reference = "angular-awesome")
 @NgImportModule("WaTagDirective")
-public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCapable<J>
+public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * The theme of the tag (brand, neutral, success, warning, danger, inherit)
@@ -93,6 +97,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindVariant(String variableName)
     {
         addAttribute("[variant]", variableName);
@@ -105,6 +110,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindAppearance(String variableName)
     {
         addAttribute("[appearance]", variableName);
@@ -117,6 +123,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSize(String variableName)
     {
         addAttribute("[size]", variableName);
@@ -129,6 +136,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPill(String variableName)
     {
         addAttribute("[pill]", variableName);
@@ -141,6 +149,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindRemovable(String variableName)
     {
         addAttribute("[removable]", variableName);
@@ -153,6 +162,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
      * @param handlerScript The JavaScript to execute when the remove button is clicked
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onRemove(String handlerScript)
     {
         addAttribute("(waRemove)", handlerScript);

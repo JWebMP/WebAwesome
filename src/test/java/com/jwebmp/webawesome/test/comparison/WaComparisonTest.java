@@ -16,7 +16,7 @@ public class WaComparisonTest
         var image1 = new Image<>("/assets/image-before.jpg");
         var image2 = new Image<>("/assets/image-after.jpg");
 
-        var comparison = new WaComparison();
+        var comparison = new WaComparison<>();
         comparison.setImage1(image1);
         comparison.setImage2(image2);
 
@@ -36,7 +36,7 @@ public class WaComparisonTest
         var image1 = new Image<>("/assets/image-before.jpg");
         var image2 = new Image<>("/assets/image-after.jpg");
 
-        var comparison = new WaComparison();
+        var comparison = new WaComparison<>();
         comparison.setImage1(image1);
         comparison.setImage2(image2);
         comparison.setPosition(25);
@@ -56,7 +56,7 @@ public class WaComparisonTest
         icon.setName("arrows-left-right");
         icon.setVariant(IconVariant.Solid);
 
-        var comparison = new WaComparison();
+        var comparison = new WaComparison<>();
         comparison.setImage1(image1);
         comparison.setImage2(image2);
         comparison.setIcon(icon);
@@ -74,7 +74,7 @@ public class WaComparisonTest
         var image1 = new Image<>("/assets/image-before.jpg");
         var image2 = new Image<>("/assets/image-after.jpg");
 
-        var comparison = new WaComparison();
+        var comparison = new WaComparison<>();
         comparison.setImage1(image1);
         comparison.setImage2(image2);
         comparison.setDividerColor("#ff5722");

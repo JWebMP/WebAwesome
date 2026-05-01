@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.waswitch;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
@@ -19,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSwitchDirective", reference = "angular-awesome")
 @NgImportModule("WaSwitchDirective")
-public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
+public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * Whether the switch is checked (on)
@@ -232,6 +236,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @return The current instance of WaRadioGroup for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);
@@ -246,6 +251,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindChecked(String variableName)
     {
         addAttribute("[checked]", variableName);
@@ -258,6 +264,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -270,6 +277,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHint(String variableName)
     {
         addAttribute("[hint]", variableName);
@@ -282,6 +290,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSize(String variableName)
     {
         addAttribute("[size]", variableName);
@@ -294,6 +303,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBackgroundColor(String variableName)
     {
         addAttribute("[style.--background-color]", variableName);
@@ -306,6 +316,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBackgroundColorChecked(String variableName)
     {
         addAttribute("[style.--background-color-checked]", variableName);
@@ -318,6 +329,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderColor(String variableName)
     {
         addAttribute("[style.--border-color]", variableName);
@@ -330,6 +342,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderColorChecked(String variableName)
     {
         addAttribute("[style.--border-color-checked]", variableName);
@@ -342,6 +355,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderStyle(String variableName)
     {
         addAttribute("[style.--border-style]", variableName);
@@ -354,6 +368,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderWidth(String variableName)
     {
         addAttribute("[style.--border-width]", variableName);
@@ -366,6 +381,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBoxShadow(String variableName)
     {
         addAttribute("[style.--box-shadow]", variableName);
@@ -378,6 +394,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHeight(String variableName)
     {
         addAttribute("[style.--height]", variableName);
@@ -390,6 +407,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindThumbColor(String variableName)
     {
         addAttribute("[style.--thumb-color]", variableName);
@@ -402,6 +420,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindThumbColorChecked(String variableName)
     {
         addAttribute("[style.--thumb-color-checked]", variableName);
@@ -414,6 +433,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindThumbShadow(String variableName)
     {
         addAttribute("[style.--thumb-shadow]", variableName);
@@ -426,6 +446,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindThumbSize(String variableName)
     {
         addAttribute("[style.--thumb-size]", variableName);
@@ -438,6 +459,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindWidth(String variableName)
     {
         addAttribute("[style.--width]", variableName);
@@ -450,6 +472,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the checked state changes
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onChange(String handlerScript)
     {
         addAttribute("(changeEvent)", handlerScript);
@@ -462,6 +485,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the switch receives input
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onInput(String handlerScript)
     {
         addAttribute("(inputEvent)", handlerScript);
@@ -474,6 +498,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the control gains focus
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onFocus(String handlerScript)
     {
         addAttribute("(focusEvent)", handlerScript);
@@ -486,6 +511,7 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the control loses focus
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onBlur(String handlerScript)
     {
         addAttribute("(blurEvent)", handlerScript);

@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.tabgroup;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
@@ -16,7 +20,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
+public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * Name of the currently active tab panel
@@ -69,6 +73,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param active  Whether this panel should be active
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J addTab(String panelId, String tabText, boolean active)
     {
         WaTab<?> tab = new WaTab<>();
@@ -96,6 +101,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param active Whether this panel should be active
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J addTab(WaTab<?> tab, WaTabPanel<?> panel, boolean active)
     {
         if (active)
@@ -160,6 +166,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindActive(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);
@@ -172,6 +179,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPlacement(String variableName)
     {
         addAttribute("[placement]", variableName);
@@ -184,6 +192,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindActivation(String variableName)
     {
         addAttribute("[activation]", variableName);
@@ -196,6 +205,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindNoScrollControls(String variableName)
     {
         addAttribute("[no-scroll-controls]", variableName);
@@ -208,6 +218,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndicatorColor(String variableName)
     {
         addAttribute("[style.--indicator-color]", variableName);
@@ -220,6 +231,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindTrackColor(String variableName)
     {
         addAttribute("[style.--track-color]", variableName);
@@ -232,6 +244,7 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindTrackWidth(String variableName)
     {
         addAttribute("[style.--track-width]", variableName);

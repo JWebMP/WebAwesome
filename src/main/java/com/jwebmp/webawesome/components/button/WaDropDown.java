@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.button;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -70,7 +75,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaDropdownDirective", reference = "angular-awesome")
 @NgImportModule("WaDropdownDirective")
-public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
+public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * The button that triggers the dropdown.
@@ -284,6 +289,7 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      * @param item The dropdown item to add
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J addItem(WaDropdownItem<?> item)
     {
         items.add(item);
@@ -296,6 +302,7 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      * @param text The text for the dropdown item
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J addItem(String text)
     {
         return addItem(new WaDropdownItem<>(text));
@@ -308,6 +315,7 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      * @param value The value for the dropdown item
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J addItem(String text, String value)
     {
         return addItem(new WaDropdownItem<>(text).setValue(value));
@@ -318,11 +326,12 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDropDown show()
+    @SuppressWarnings("unchecked")
+    public J show()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -330,11 +339,12 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDropDown hide()
+    @SuppressWarnings("unchecked")
+    public J hide()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -343,11 +353,12 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaDropDown reposition()
+    @SuppressWarnings("unchecked")
+    public J reposition()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -373,6 +384,7 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J>
      * @return The current instance of WaDropDown for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

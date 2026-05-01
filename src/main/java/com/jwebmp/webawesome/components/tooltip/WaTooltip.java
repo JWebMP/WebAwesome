@@ -1,5 +1,11 @@
 package com.jwebmp.webawesome.components.tooltip;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +25,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTooltipDirective", reference = "angular-awesome")
 @NgImportModule("WaTooltipDirective")
-public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
+public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * The id of the target element this tooltip is attached to
@@ -192,6 +198,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindForId(String variableName)
     {
         addAttribute("[for]", variableName);
@@ -204,6 +211,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPlacement(String variableName)
     {
         addAttribute("[placement]", variableName);
@@ -216,6 +224,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDistance(String variableName)
     {
         addAttribute("[distance]", variableName);
@@ -228,6 +237,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSkidding(String variableName)
     {
         addAttribute("[skidding]", variableName);
@@ -240,6 +250,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindOpen(String variableName)
     {
         addAttribute("[open]", variableName);
@@ -252,6 +263,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindShowDelay(String variableName)
     {
         addAttribute("[show-delay]", variableName);
@@ -264,6 +276,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHideDelay(String variableName)
     {
         addAttribute("[hide-delay]", variableName);
@@ -276,6 +289,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -288,6 +302,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindTrigger(String variableName)
     {
         addAttribute("[trigger]", variableName);
@@ -300,6 +315,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHoist(String variableName)
     {
         addAttribute("[hoist]", variableName);
@@ -312,6 +328,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBackgroundColor(String variableName)
     {
         addAttribute("[style.--background-color]", variableName);
@@ -324,6 +341,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderRadius(String variableName)
     {
         addAttribute("[style.--border-radius]", variableName);
@@ -336,6 +354,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindMaxWidth(String variableName)
     {
         addAttribute("[style.--max-width]", variableName);
@@ -348,6 +367,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPadding(String variableName)
     {
         addAttribute("[style.--padding]", variableName);
@@ -360,6 +380,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the tooltip starts showing
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onShow(String handlerScript)
     {
         addAttribute("(waShow)", handlerScript);
@@ -372,6 +393,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute after the tooltip is fully shown
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onAfterShow(String handlerScript)
     {
         addAttribute("(waAfterShow)", handlerScript);
@@ -384,6 +406,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the tooltip starts hiding
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onHide(String handlerScript)
     {
         addAttribute("(waHide)", handlerScript);
@@ -396,6 +419,7 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute after the tooltip is fully hidden
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onAfterHide(String handlerScript)
     {
         addAttribute("(waAfterHide)", handlerScript);

@@ -8,7 +8,7 @@ import com.jwebmp.core.base.html.DivSimple;
  * Adds the "wa-grid" class and exposes helpers to configure common options in a
  * JWebMP-friendly way while keeping to the docs' guidance (CSS custom properties and utility classes).
  */
-public class WaGrid<J extends WaGrid<J>> extends DivSimple<J> implements GapCapable<J>, SplitCapable<J>
+public class WaGrid<J extends WaGrid<J>> extends DivSimple<J> implements GapCapable<J>, SplitCapable<J>, SpaceTokenCapable<J>
 {
     /**
      * Creates a grid container with the wa-grid class.
@@ -36,6 +36,7 @@ public class WaGrid<J extends WaGrid<J>> extends DivSimple<J> implements GapCapa
      *
      * @return this
      */
+    @SuppressWarnings("unchecked")
     public J spanFullRow()
     {
         addClass("wa-span-grid");

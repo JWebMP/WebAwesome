@@ -14,7 +14,7 @@ class WaSplitTest
     {
         Page<?> p = new Page<>();
 
-        WaSplit split = new WaSplit()
+        WaSplit<?> split = new WaSplit<>()
                 .row()
                 .setGap(PageSize.Small)
                 .alignItems("center");
@@ -35,7 +35,7 @@ class WaSplitTest
     void rendersWaSplitColumnDirection()
     {
         Page<?> p = new Page<>();
-        WaSplit split = new WaSplit().column();
+        WaSplit split = new WaSplit<>().column();
         p.getBody()
          .add(split);
         String html = p.toString(true);

@@ -96,48 +96,56 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
     }
 
     // Binding helpers
+    @SuppressWarnings("unchecked")
     public J bindZoom(String var)
     {
         addAttribute("[zoom]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindMinZoom(String var)
     {
         addAttribute("[minZoom]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindMaxZoom(String var)
     {
         addAttribute("[maxZoom]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindPanX(String var)
     {
         addAttribute("[panX]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindPanY(String var)
     {
         addAttribute("[panY]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String var)
     {
         addAttribute("[disabled]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindWidth(String var)
     {
         addAttribute("[style.width]", var);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindHeight(String var)
     {
         addAttribute("[style.height]", var);

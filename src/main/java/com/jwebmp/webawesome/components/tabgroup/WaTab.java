@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.tabgroup;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -18,7 +21,7 @@ import lombok.Setter;
 @Getter
 @Setter
 
-public class WaTab<J extends WaTab<J>> extends DivSimple<J>
+public class WaTab<J extends WaTab<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
 {
     /**
      * Links to the corresponding tab panel
@@ -79,6 +82,7 @@ public class WaTab<J extends WaTab<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPanel(String variableName)
     {
         addAttribute("[panel]", variableName);
@@ -91,6 +95,7 @@ public class WaTab<J extends WaTab<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -103,6 +108,7 @@ public class WaTab<J extends WaTab<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindActiveTabColor(String variableName)
     {
         addAttribute("[style.--active-tab-color]", variableName);

@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.progressring;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -56,7 +59,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaProgressRingDirective", reference = "angular-awesome")
 @NgImportModule("WaProgressRingDirective")
-public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
+public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * The current value of the progress ring.
@@ -350,6 +353,7 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J>
      * @return The current instance of WaProgressRing for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[value]", variableName);

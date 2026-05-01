@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.callout;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -19,7 +24,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCalloutDirective", reference = "angular-awesome")
 @NgImportModule("WaCalloutDirective")
-public class WaCallout<J extends WaCallout<J>> extends DivSimple<J> implements VariantCapable<J>
+public class WaCallout<J extends WaCallout<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * Optional icon slot

@@ -1,5 +1,12 @@
 package com.jwebmp.webawesome.components.button;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -61,7 +68,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaButtonDirective", reference = "angular-awesome")
 @NgImportModule("WaButtonDirective")
-public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements TooltipCapable<J>, VariantCapable<J>, GapCapable<J>
+public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements TooltipCapable<J>, VariantCapable<J>, GapCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TransitionTokenCapable<J>, TypographyTokenCapable<J>
 {
     private Variant variant;
     private Appearance appearance;
@@ -247,7 +254,8 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
      * @param download Specifies a filename for downloading content from the link.
      * @return The current instance of WaButton for method chaining.
      */
-    public WaButton setAsLink(String href, String target, String download)
+    @SuppressWarnings("unchecked")
+    public J setAsLink(String href, String target, String download)
     {
         if (!Strings.isNullOrEmpty(href))
         {
@@ -261,7 +269,7 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
         {
             addAttribute("download", download);
         }
-        return this;
+        return (J) this;
     }
 
 }

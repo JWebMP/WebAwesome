@@ -10,7 +10,7 @@ class WaFrameTest {
     @Test
     void rendersWaFrameWithAspectRatio() {
         Page<?> p = new Page<>();
-        WaFrame frame = new WaFrame().setAspectRatio("16 / 9");
+        WaFrame frame = new WaFrame<>().setAspectRatio("16 / 9");
         p.getBody().add(frame);
         String html = p.toString(true);
         System.out.println(html);

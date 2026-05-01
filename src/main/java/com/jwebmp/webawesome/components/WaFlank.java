@@ -2,7 +2,7 @@ package com.jwebmp.webawesome.components;
 
 import com.jwebmp.core.base.html.DivSimple;
 
-public class WaFlank extends DivSimple<WaFlank> implements GapCapable<WaFlank>, BorderRadiusCapable<WaFlank>, AlignVerticalCapable<WaFlank>
+public class WaFlank<J extends WaFlank<J>> extends DivSimple<J> implements GapCapable<J>, BorderRadiusCapable<J>, AlignVerticalCapable<J>, SpaceTokenCapable<J>
 {
     public WaFlank()
     {
@@ -14,12 +14,13 @@ public class WaFlank extends DivSimple<WaFlank> implements GapCapable<WaFlank>, 
         addClass("wa-flank:" + (start ? "start" : "end"));
     }
 
-    public WaFlank setDisplayAsLink()
+    @SuppressWarnings("unchecked")
+    public J setDisplayAsLink()
     {
         setTag("a");
         addAttribute("href", "#");
 
-        return this;
+        return (J) this;
     }
 
 }

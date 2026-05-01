@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.markdown;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -26,7 +29,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaMarkdownDirective", reference = "angular-awesome")
 @NgImportModule("WaMarkdownDirective")
-public class WaMarkdown<J extends WaMarkdown<J>> extends DivSimple<J>
+public class WaMarkdown<J extends WaMarkdown<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * Tab size for code blocks

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaFormatDate", reference = "angular-awesome")
 @NgImportModule("WaFormatDate")
-public class FormatDate extends DivSimple<FormatDate>
+public class FormatDate<J extends FormatDate<J>> extends DivSimple<J>
 {
     /**
      * Specifies the format for displaying the weekday (e.g., full name, short, or narrow format).

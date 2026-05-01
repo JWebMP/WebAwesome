@@ -7,7 +7,7 @@ import com.jwebmp.core.base.html.DivSimple;
  * <p>
  * Adds the base class "wa-frame" and exposes a helper to control aspect ratio via CSS.
  */
-public class WaFrame extends DivSimple<WaFrame> implements AlignVerticalCapable<WaFrame>
+public class WaFrame<J extends WaFrame<J>> extends DivSimple<J> implements AlignVerticalCapable<J>, SpaceTokenCapable<J>
 {
     public WaFrame()
     {
@@ -20,12 +20,13 @@ public class WaFrame extends DivSimple<WaFrame> implements AlignVerticalCapable<
      * @param ratio CSS aspect-ratio expression
      * @return this
      */
-    public WaFrame setAspectRatio(String ratio)
+    @SuppressWarnings("unchecked")
+    public J setAspectRatio(String ratio)
     {
         if (ratio != null && !ratio.isEmpty())
         {
             addStyle("aspect-ratio", ratio);
         }
-        return this;
+        return (J) this;
     }
 }

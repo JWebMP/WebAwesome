@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.popup;
 
+
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
@@ -57,7 +61,7 @@ import java.io.Serial;
 @Setter
 @NgImportReference(value = "WaPopupDirective", reference = "angular-awesome")
 @NgImportModule("WaPopupDirective")
-public class WaPopup<J extends WaPopup<J>> extends DivSimple<J> implements INgComponent<J>
+public class WaPopup<J extends WaPopup<J>> extends DivSimple<J> implements INgComponent<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     @Serial
     private static final long serialVersionUID = 1L;

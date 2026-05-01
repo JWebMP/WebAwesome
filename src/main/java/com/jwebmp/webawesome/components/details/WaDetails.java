@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.details;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -45,7 +50,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaDetailsDirective", reference = "angular-awesome")
 @NgImportModule("WaDetailsDirective")
-public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
+public class WaDetails<J extends WaDetails<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * The summary text displayed on the details container header.
@@ -178,6 +183,7 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J show()
     {
         // This would be implemented in JavaScript in the actual component
@@ -190,6 +196,7 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J hide()
     {
         // This would be implemented in JavaScript in the actual component
@@ -204,6 +211,7 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      * @param summary The summary text value
      * @return This component for chaining
      */
+    @SuppressWarnings("unchecked")
     public J summary(String summary)
     {
         this.summary = summary;
@@ -220,6 +228,7 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J>
      * @param summarySlot The component to render inside the summary slot
      * @return This component for chaining
      */
+    @SuppressWarnings("unchecked")
     public J summary(IComponentHierarchyBase<?, ?> summarySlot)
     {
         this.summarySlot = summarySlot;

@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.radio;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -17,7 +20,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaRadioGroupDirective", reference = "angular-awesome")
 @NgImportModule("WaRadioGroupDirective")
-public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
+public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The initial value of the radio group.
@@ -204,6 +207,7 @@ public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
      * @return The current instance of WaRadioGroup for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

@@ -41,9 +41,10 @@ public class WaCarouselItem<J extends WaCarouselItem<J>> extends DivSimple<J>
      * @param image The image to add
      * @return This object for method chaining
      */
-    public WaCarouselItem addImage(Image<?> image)
+    @SuppressWarnings("unchecked")
+    public J addImage(Image<?> image)
     {
         add(image);
-        return this;
+        return (J) this;
     }
 }

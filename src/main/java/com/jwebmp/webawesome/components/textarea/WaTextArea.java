@@ -1,5 +1,11 @@
 package com.jwebmp.webawesome.components.textarea;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +25,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTextareaComponent", reference = "angular-awesome")
 @NgImportModule("WaTextareaComponent")
-public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
+public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The current value of the textarea
@@ -295,6 +301,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindValue(String variableName)
     {
         addAttribute("[value]", variableName);
@@ -307,6 +314,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPlaceholder(String variableName)
     {
         addAttribute("[placeholder]", variableName);
@@ -319,6 +327,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindLabel(String variableName)
     {
         addAttribute("[label]", variableName);
@@ -331,6 +340,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHint(String variableName)
     {
         addAttribute("[hint]", variableName);
@@ -343,6 +353,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindRows(String variableName)
     {
         addAttribute("[rows]", variableName);
@@ -355,6 +366,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindResize(String variableName)
     {
         addAttribute("[resize]", variableName);
@@ -367,6 +379,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSize(String variableName)
     {
         addAttribute("[size]", variableName);
@@ -379,6 +392,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindAppearance(String variableName)
     {
         addAttribute("[appearance]", variableName);
@@ -391,6 +405,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -403,6 +418,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindReadonly(String variableName)
     {
         addAttribute("[readonly]", variableName);
@@ -415,6 +431,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindFormName(String variableName)
     {
         addAttribute("[name]", variableName);
@@ -427,6 +444,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindRequired(String variableName)
     {
         addAttribute("[required]", variableName);
@@ -439,6 +457,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the textarea gains focus
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onFocus(String handlerScript)
     {
         addAttribute("(focusEvent)", handlerScript);
@@ -451,6 +470,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the textarea loses focus
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onBlur(String handlerScript)
     {
         addAttribute("(blurEvent)", handlerScript);
@@ -463,6 +483,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute on every value change
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onInput(String handlerScript)
     {
         addAttribute("(inputEvent)", handlerScript);
@@ -475,6 +496,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when value is committed by user
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onChange(String handlerScript)
     {
         addAttribute("(changeEvent)", handlerScript);
@@ -487,6 +509,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the form control is invalid
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onInvalid(String handlerScript)
     {
         addAttribute("(invalid)", handlerScript);

@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.tree;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +22,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTreeItemDirective", reference = "angular-awesome")
 @NgImportModule("WaTreeItemDirective")
-public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
+public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
 {
     /**
      * Whether the item is initially selected
@@ -91,6 +94,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param child The child WaTreeItem to add
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J add(WaTreeItem<?> child)
     {
         super.add(child);
@@ -158,6 +162,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSelected(String variableName)
     {
         addAttribute("[selected]", variableName);
@@ -170,6 +175,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindExpanded(String variableName)
     {
         addAttribute("[expanded]", variableName);
@@ -182,6 +188,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variableName)
     {
         addAttribute("[disabled]", variableName);
@@ -194,6 +201,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindLazyLoading(String variableName)
     {
         addAttribute("[lazy]", variableName);
@@ -206,6 +214,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSelectionBackgroundColor(String variableName)
     {
         addAttribute("[style.--selection-background-color]", variableName);
@@ -218,6 +227,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSelectionIndicatorColor(String variableName)
     {
         addAttribute("[style.--selection-indicator-color]", variableName);
@@ -230,6 +240,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindExpandButtonColor(String variableName)
     {
         addAttribute("[style.--expand-button-color]", variableName);
@@ -242,6 +253,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindShowDuration(String variableName)
     {
         addAttribute("[style.--show-duration]", variableName);
@@ -254,6 +266,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindHideDuration(String variableName)
     {
         addAttribute("[style.--hide-duration]", variableName);
@@ -266,6 +279,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the item starts expanding
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onExpand(String handlerScript)
     {
         addAttribute("(expand)", handlerScript);
@@ -278,6 +292,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute after item has finished expanding
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onAfterExpand(String handlerScript)
     {
         addAttribute("(afterExpand)", handlerScript);
@@ -290,6 +305,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the item starts collapsing
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onCollapse(String handlerScript)
     {
         addAttribute("(collapse)", handlerScript);
@@ -302,6 +318,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute after item has finished collapsing
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onAfterCollapse(String handlerScript)
     {
         addAttribute("(afterCollapse)", handlerScript);
@@ -314,6 +331,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when the lazy state changes
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onLazyChange(String handlerScript)
     {
         addAttribute("(lazyChange)", handlerScript);
@@ -326,6 +344,7 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when a lazy item is triggered to expand and needs loading
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onLazyLoad(String handlerScript)
     {
         addAttribute("(lazyLoad)", handlerScript);

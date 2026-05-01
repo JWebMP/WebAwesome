@@ -10,7 +10,7 @@ public class FormatNumberTest
     @Test
     public void testRenderBasicFormatNumberHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .toString(true);
         System.out.println(s);
@@ -31,7 +31,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithTypeDecimalHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setType(FormatNumber.NumberType.DECIMAL)
                 .toString(true);
@@ -43,7 +43,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithTypeCurrencyHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setType(FormatNumber.NumberType.CURRENCY)
                 .setCurrency("USD")
@@ -56,7 +56,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithTypePercentHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(0.75)
                 .setType(FormatNumber.NumberType.PERCENT)
                 .toString(true);
@@ -68,7 +68,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithCurrencyDisplayHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setType(FormatNumber.NumberType.CURRENCY)
                 .setCurrency("USD")
@@ -82,7 +82,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithFractionDigitsHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setMinFractionDigits(2)
                 .setMaxFractionDigits(4)
@@ -95,7 +95,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithIntegerDigitsHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setMinIntegerDigits(5)
                 .toString(true);
@@ -107,7 +107,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithNoGroupingHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234567.89)
                 .setNoGrouping(true)
                 .toString(true);
@@ -119,7 +119,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithLangHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setType(FormatNumber.NumberType.CURRENCY)
                 .setCurrency("EUR")
@@ -133,7 +133,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithStylingHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setColor("#3f51b5")
                 .setFontSize("1.5rem")
@@ -150,7 +150,7 @@ public class FormatNumberTest
     @Test
     public void testRenderFormatNumberWithAllOptionsHtml()
     {
-        var s = new FormatNumber()
+        var s = new FormatNumber<>()
                 .setValue(1234.56)
                 .setType(FormatNumber.NumberType.CURRENCY)
                 .setCurrency("EUR")

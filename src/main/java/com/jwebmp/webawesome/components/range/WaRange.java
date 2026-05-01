@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.range;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSliderDirective", reference = "angular-awesome")
 @NgImportModule("WaSliderDirective")
-public class WaRange<J extends WaRange<J>> extends DivSimple<J>
+public class WaRange<J extends WaRange<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * Hint text to display below the slider

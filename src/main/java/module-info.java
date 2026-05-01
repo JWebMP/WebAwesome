@@ -62,6 +62,8 @@ module com.jwebmp.webawesome {
 
     exports com.jwebmp.webawesome.components.text;
 
+    exports com.jwebmp.webawesome.tokens;
+
     requires transitive com.jwebmp.core;
 
     requires com.jwebmp.plugins.easingeffects;

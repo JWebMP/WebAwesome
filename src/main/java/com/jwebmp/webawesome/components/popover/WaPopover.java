@@ -1,5 +1,14 @@
 package com.jwebmp.webawesome.components.popover;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ColourCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
+import com.jwebmp.webawesome.components.Variant;
+import com.jwebmp.webawesome.tokens.WaBorderToken;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
@@ -41,7 +50,7 @@ import java.io.Serial;
 @NgImportModule("WaPopoverDirective")
 
 
-public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements INgComponent<J>
+public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements INgComponent<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>, ColourCapable<J>, TypographyTokenCapable<J>
 {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -161,6 +170,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      *
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J show()
     {
         this.open = true;
@@ -172,6 +182,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      *
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J hide()
     {
         this.open = false;
@@ -184,6 +195,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param handlerScript The JavaScript to execute when the event occurs
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J onShow(String handlerScript)
     {
         addAttribute("(wa-show)", handlerScript);
@@ -196,6 +208,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param handlerScript The JavaScript to execute when the event occurs
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J onAfterShow(String handlerScript)
     {
         addAttribute("(wa-after-show)", handlerScript);
@@ -208,6 +221,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param handlerScript The JavaScript to execute when the event occurs
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J onHide(String handlerScript)
     {
         addAttribute("(wa-hide)", handlerScript);
@@ -220,9 +234,70 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
      * @param handlerScript The JavaScript to execute when the event occurs
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J onAfterHide(String handlerScript)
     {
         addAttribute("(wa-after-hide)", handlerScript);
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --border-color CSS custom property using a variant token.
+     */
+    @SuppressWarnings("unchecked")
+    public J setPopoverBorderColor(Variant variant)
+    {
+        addStyle("--border-color", "var(--wa-color-" + variant.name().toLowerCase() + "-normal)");
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --border-color CSS custom property.
+     */
+    @SuppressWarnings("unchecked")
+    public J setPopoverBorderColor(String color)
+    {
+        addStyle("--border-color", color);
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --border-width CSS custom property using a border token.
+     */
+    @SuppressWarnings("unchecked")
+    public J setPopoverBorderWidth(WaBorderToken token)
+    {
+        addStyle("--border-width", token.var());
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --border-radius CSS custom property using a border token.
+     */
+    @SuppressWarnings("unchecked")
+    public J setPopoverBorderRadius(WaBorderToken token)
+    {
+        addStyle("--border-radius", token.var());
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --arrow-color CSS custom property using a variant token.
+     */
+    @SuppressWarnings("unchecked")
+    public J setArrowColor(Variant variant)
+    {
+        addStyle("--arrow-color", "var(--wa-color-" + variant.name().toLowerCase() + "-normal)");
+        return (J) this;
+    }
+
+    /**
+     * Sets the popover's --arrow-color CSS custom property.
+     */
+    @SuppressWarnings("unchecked")
+    public J setArrowColor(String color)
+    {
+        addStyle("--arrow-color", color);
         return (J) this;
     }
 

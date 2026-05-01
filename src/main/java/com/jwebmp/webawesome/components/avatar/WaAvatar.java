@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.avatar;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -12,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaAvatarDirective", reference = "angular-awesome")
 @NgImportModule("WaAvatarDirective")
-public class WaAvatar<J extends WaAvatar<J>> extends DivSimple<J>
+public class WaAvatar<J extends WaAvatar<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * The label to show

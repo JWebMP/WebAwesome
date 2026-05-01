@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.avatar;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -14,7 +16,7 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
  */
 //@NgImportReference(value = "WaAvatarGroupDirective", reference = "angular-awesome")
 //@NgImportModule("WaAvatarGroupDirective")
-public class WaAvatarGroup<J extends WaAvatarGroup<J>> extends DivSimple<J>
+public class WaAvatarGroup<J extends WaAvatarGroup<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
 {
     /**
      * Creates a new WaAvatarGroup with the "wa-avatar-group" class

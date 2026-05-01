@@ -1,5 +1,11 @@
 package com.jwebmp.webawesome.components.numberinput;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -54,7 +60,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaNumberInputDirective", reference = "angular-awesome")
 @NgImportModule("WaNumberInputDirective")
-public class WaNumberInput<J extends WaNumberInput<J>> extends DivSimple<J>
+public class WaNumberInput<J extends WaNumberInput<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     private Number value;
     private Number min;

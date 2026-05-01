@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.tabgroup;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +21,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
+public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
 {
     /**
      * Whether this panel is visible
@@ -76,24 +78,28 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J add(String textToAdd) {
         this.panelTemplate.add(textToAdd);
         return (J)this;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J add(GlobalChildren newChild) {
         this.panelTemplate.add(newChild);
         return (J)this;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J add(String textToAdd, boolean inline) {
         this.panelTemplate.add(textToAdd, inline);
         return (J)this;
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J add(Integer position, GlobalChildren newChild) {
         panelTemplate.getChildren().add(position, newChild);
         return (J)this;
@@ -105,6 +111,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPanelName(String variableName)
     {
         addAttribute("[name]", variableName);
@@ -118,6 +125,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindActive(String variableName)
     {
         addAttribute("[active]", variableName);
@@ -130,6 +138,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindPadding(String variableName)
     {
         addAttribute("[style.--padding]", variableName);

@@ -1,5 +1,11 @@
 package com.jwebmp.webawesome.components.select;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -81,7 +87,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSelectWrapperComponent", reference = "angular-awesome")
 @NgImportModule("WaSelectWrapperComponent")
-public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
+public class WaSelect<J extends WaSelect<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * Hint text to display below the select
@@ -448,6 +454,7 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

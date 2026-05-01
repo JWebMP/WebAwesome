@@ -118,6 +118,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[attrs.date]", variableName);
@@ -130,6 +131,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindFormat(String variableName)
     {
         addAttribute("[attrs.format]", variableName);
@@ -142,6 +144,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindNumeric(String variableName)
     {
         addAttribute("[attrs.numeric]", variableName);
@@ -154,6 +157,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindLang(String variableName)
     {
         addAttribute("[attrs.lang]", variableName);
@@ -166,6 +170,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSync(String variableName)
     {
         addAttribute("[attrs.sync]", variableName);
@@ -178,6 +183,7 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindDisplay(String variableName)
     {
         addAttribute("[display]", variableName);

@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.divider;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -35,7 +38,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaDividerDirective", reference = "angular-awesome")
 @NgImportModule("WaDividerDirective")
-public class WaDivider<J extends WaDivider<J>> extends DivSimple<J>
+public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
 {
     /**
      * The color of the divider.

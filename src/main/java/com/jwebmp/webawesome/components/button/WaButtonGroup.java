@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.button;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -19,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaButtonGroupDirective", reference = "angular-awesome")
 @NgImportModule("WaButtonGroupDirective")
-public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J> implements VariantCapable<J>
+public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The size of the button group (small, medium, large)

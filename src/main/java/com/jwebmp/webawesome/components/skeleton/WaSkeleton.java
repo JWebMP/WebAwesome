@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.skeleton;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -18,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSkeletonDirective", reference = "angular-awesome")
 @NgImportModule("WaSkeletonDirective")
-public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J>
+public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
 {
     /**
      * Animation effect (none, sheen, pulse)
@@ -79,6 +82,7 @@ public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindEffect(String variableName)
     {
         addAttribute("[attrs.effect]", variableName);
@@ -91,6 +95,7 @@ public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindColour(String variableName)
     {
         addAttribute("[style.--color]", variableName);
@@ -103,6 +108,7 @@ public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSheenColour(String variableName)
     {
         addAttribute("[style.--sheen-color]", variableName);
@@ -115,6 +121,7 @@ public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindBorderRadius(String variableName)
     {
         addAttribute("[style.--border-radius]", variableName);

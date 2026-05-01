@@ -1,5 +1,9 @@
 package com.jwebmp.webawesome.components.checkbox;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -18,7 +22,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCheckboxDirective", reference = "angular-awesome")
 @NgImportModule("WaCheckboxDirective")
-public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
+public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * Determines if the checkbox is checked
@@ -135,11 +139,12 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaCheckbox focus()
+    @SuppressWarnings("unchecked")
+    public J focus()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -147,11 +152,12 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaCheckbox blur()
+    @SuppressWarnings("unchecked")
+    public J blur()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -159,11 +165,12 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaCheckbox click()
+    @SuppressWarnings("unchecked")
+    public J click()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -172,11 +179,12 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
      * @param message The custom validity message
      * @return This object for method chaining
      */
-    public WaCheckbox setCustomValidity(String message)
+    @SuppressWarnings("unchecked")
+    public J setCustomValidity(String message)
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     @Override
@@ -272,6 +280,7 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

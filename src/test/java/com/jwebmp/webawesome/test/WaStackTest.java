@@ -14,7 +14,7 @@ class WaStackTest
     {
         Page<?> p = new Page<>();
 
-        WaStack stack = new WaStack()
+        WaStack stack = new WaStack<>()
                 .setGap(PageSize.Small);
 
         p.getBody()

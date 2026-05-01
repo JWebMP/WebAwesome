@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.card;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.*;
@@ -66,7 +71,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCardDirective", reference = "angular-awesome")
 @NgImportModule("WaCardDirective")
-public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements VariantCapable<J>
+public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * The appearance of the card (accent, filled, outlined, plain)
@@ -157,6 +162,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param width The width of the card
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withWidth(String width)
     {
         addStyle("width", width);
@@ -169,6 +175,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param image The image to add
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withImage(Image<?> image)
     {
         image.addAttribute("slot", "image");
@@ -183,6 +190,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param header The header text
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withHeader(String header)
     {
         DivSimple<?> headerDiv = new DivSimple<>();
@@ -197,6 +205,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param text The text to add
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withText(String text)
     {
         add(new Paragraph<>(text).setTextOnly(true));
@@ -209,6 +218,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param body The component to add
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withBody(IComponentHierarchyBase<?, ?> body)
     {
         add(body);
@@ -221,6 +231,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param text The subtext to add
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withSubText(String text)
     {
         add(new SmallText<>(text));
@@ -233,6 +244,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param header The header component
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withHeader(DivSimple<?> header)
     {
         header.addAttribute("slot", "header");
@@ -247,6 +259,7 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param footer The footer component
      * @return This object
      */
+    @SuppressWarnings("unchecked")
     public J withFooter(DivSimple<?> footer)
     {
         footer.addAttribute("slot", "footer");

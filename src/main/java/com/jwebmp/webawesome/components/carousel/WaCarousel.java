@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.carousel;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -56,7 +59,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCarouselDirective", reference = "angular-awesome")
 @NgImportModule("WaCarouselDirective")
-public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J>
+public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * Displays slide indicator dots
@@ -126,11 +129,12 @@ public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaCarousel next()
+    @SuppressWarnings("unchecked")
+    public J next()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -138,11 +142,12 @@ public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaCarousel previous()
+    @SuppressWarnings("unchecked")
+    public J previous()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -151,11 +156,12 @@ public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J>
      * @param index The index of the slide to jump to
      * @return This object for method chaining
      */
-    public WaCarousel goToSlide(int index)
+    @SuppressWarnings("unchecked")
+    public J goToSlide(int index)
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**

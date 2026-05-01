@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.tree;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -18,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaTreeDirective", reference = "angular-awesome")
 @NgImportModule("WaTreeDirective")
-public class WaTree<J extends WaTree<J>> extends DivSimple<J>
+public class WaTree<J extends WaTree<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
 {
     /**
      * Controls selection mode: single, multiple, or only leaf nodes selectable
@@ -64,6 +67,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param item The WaTreeItem to add
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J add(WaTreeItem<?> item)
     {
         super.add(item);
@@ -110,6 +114,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSelection(String variableName)
     {
         addAttribute("[selection]", variableName);
@@ -122,6 +127,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndentSize(String variableName)
     {
         addAttribute("[style.--indent-size]", variableName);
@@ -134,6 +140,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndentGuideColor(String variableName)
     {
         addAttribute("[style.--indent-guide-color]", variableName);
@@ -146,6 +153,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndentGuideOffset(String variableName)
     {
         addAttribute("[style.--indent-guide-offset]", variableName);
@@ -158,6 +166,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndentGuideStyle(String variableName)
     {
         addAttribute("[style.--indent-guide-style]", variableName);
@@ -170,6 +179,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndentGuideWidth(String variableName)
     {
         addAttribute("[style.--indent-guide-width]", variableName);
@@ -182,6 +192,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @param handlerScript The JavaScript to execute when a tree item is selected or deselected
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J onSelectionChange(String handlerScript)
     {
         addAttribute("(selectionChange)", handlerScript);
@@ -196,6 +207,7 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J>
      * @return The current instance of WaRadioGroup for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

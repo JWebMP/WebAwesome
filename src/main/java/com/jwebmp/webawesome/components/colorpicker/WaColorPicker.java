@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.colorpicker;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -41,7 +46,7 @@ import java.util.stream.Collectors;
 @Setter
 @NgImportReference(value = "WaColorPickerDirective", reference = "angular-awesome")
 @NgImportModule("WaColorPickerDirective")
-public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
+public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The label displayed alongside the color picker.
@@ -154,11 +159,12 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaColorPicker focus()
+    @SuppressWarnings("unchecked")
+    public J focus()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -166,11 +172,12 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaColorPicker blur()
+    @SuppressWarnings("unchecked")
+    public J blur()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -191,11 +198,12 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
-    public WaColorPicker reportValidity()
+    @SuppressWarnings("unchecked")
+    public J reportValidity()
     {
         // This would be implemented in JavaScript in the actual component
         // Here we just provide the method signature for documentation
-        return this;
+        return (J) this;
     }
 
     /**
@@ -334,6 +342,7 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[(ngModel)]", variableName);

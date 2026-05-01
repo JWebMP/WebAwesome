@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.radio;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -69,7 +72,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaRadioDirective", reference = "angular-awesome")
 @NgImportModule("WaRadioDirective")
-public class WaRadio<J extends WaRadio<J>> extends DivSimple<J>
+public class WaRadio<J extends WaRadio<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
 {
     /**
      * The value of the radio component.

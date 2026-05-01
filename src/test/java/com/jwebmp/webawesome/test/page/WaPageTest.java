@@ -149,7 +149,7 @@ class WaPageTest
         waPage.getSubHeader()
               .add(new WaCluster().setNoWrap());
         waPage.getNavigationHeader()
-              .add(new WaFlank());
+              .add(new WaFlank<>());
         waPage.getNavigation()
               .addNavAnchor("identification", "Identification");
         waPage.getNavigation()
@@ -160,12 +160,12 @@ class WaPageTest
               .addNavAnchor("conservation", "Conservation");
 
         waPage.getNavigationFooter()
-              .add(new WaFlank().setDisplayAsLink());
+              .add(new WaFlank<>().setDisplayAsLink());
         waPage.getNavigationFooter()
-              .add(new WaFlank().setDisplayAsLink());
+              .add(new WaFlank<>().setDisplayAsLink());
 
         waPage.getMainHeader()
-              .add(new WaFlank(false).setBorderRadius(PageSize.Medium));
+              .add(new WaFlank<>(false).setBorderRadius(PageSize.Medium));
 
         waPage.getMain()
               .addContent("identification", new Paragraph<>("Identification Nav"));
@@ -185,11 +185,11 @@ class WaPageTest
         waPage.getFooter()
               .add(new WaCluster());
         waPage.getFooter()
-              .add(new WaStack());
+              .add(new WaStack<>());
         waPage.getFooter()
-              .add(new WaStack());
+              .add(new WaStack<>());
         waPage.getFooter()
-              .add(new WaStack());
+              .add(new WaStack<>());
 
         String html = waPage.toString(true);
         // Debug output removed for production

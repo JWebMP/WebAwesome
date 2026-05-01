@@ -15,7 +15,7 @@ import lombok.Setter;
  * <p>
  * Example usage:
  * <pre>{@code
- * FormatNumber formatNumber = new FormatNumber();
+ * FormatNumber formatNumber = new FormatNumber<>();
  * formatNumber.setValue(1234.567);
  * formatNumber.setType(FormatNumber.NumberType.DECIMAL);
  * formatNumber.setMinFractionDigits(2);
@@ -27,7 +27,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaFormatNumber", reference = "angular-awesome")
 @NgImportModule("WaFormatNumber")
-public class FormatNumber extends DivSimple<FormatNumber>
+public class FormatNumber<J extends FormatNumber<J>> extends DivSimple<J>
 {
     /**
      * Enum for number formatting types.

@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.rating;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -29,7 +32,7 @@ import java.util.Set;
 @Setter
 @NgImportReference(value = "WaRatingDirective", reference = "angular-awesome")
 @NgImportModule("WaRatingDirective")
-public class WaRating<J extends WaRating<J>> extends DivSimple<J>
+public class WaRating<J extends WaRating<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
 {
     /**
      * Label text to describe the component for accessibility
@@ -260,81 +263,94 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[attrs.value]", variableName);
         return (J) this;
     }
 
-    public WaRating bindMax(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindMax(String variableName)
     {
         addAttribute("[attrs.max]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindLabel(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindLabel(String variableName)
     {
         addAttribute("[attrs.label]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindPrecision(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindPrecision(String variableName)
     {
         addAttribute("[attrs.precision]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindReadonly(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindReadonly(String variableName)
     {
         addAttribute("[attrs.readonly]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindDisabled(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindDisabled(String variableName)
     {
         addAttribute("[attrs.disabled]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindSize(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindSize(String variableName)
     {
         addAttribute("[attrs.size]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindColor(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindColor(String variableName)
     {
         addAttribute("[attrs.color]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindBackgroundColor(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindBackgroundColor(String variableName)
     {
         addStyle("[style.background-color]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindFontSize(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindFontSize(String variableName)
     {
         addStyle("[style.font-size]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindSymbolColor(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindSymbolColor(String variableName)
     {
         addStyle("[style.--symbol-color]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindSymbolColorActive(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindSymbolColorActive(String variableName)
     {
         addStyle("[style.--symbol-color-active]", variableName);
-        return this;
+        return (J) this;
     }
 
-    public WaRating bindSymbolSpacing(String variableName)
+    @SuppressWarnings("unchecked")
+    public J bindSymbolSpacing(String variableName)
     {
         addStyle("[style.--symbol-spacing]", variableName);
-        return this;
+        return (J) this;
     }
 }

@@ -1,5 +1,11 @@
 package com.jwebmp.webawesome.components.input;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
@@ -13,7 +19,7 @@ import lombok.Setter;
 @Getter
 @NgImportReference(value = "WaInputDirective", reference = "angular-awesome")
 @NgImportModule("WaInputDirective")
-public class WaInput<J extends WaInput<J>> extends DivSimple<J>
+public class WaInput<J extends WaInput<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The input type (text, password, email, number, etc.)
@@ -704,6 +710,7 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J>
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         return addAttribute("[(ngModel)]", variableName);

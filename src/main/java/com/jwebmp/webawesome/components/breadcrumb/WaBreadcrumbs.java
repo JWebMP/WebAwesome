@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.breadcrumb;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
@@ -13,7 +16,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
-public class WaBreadcrumbs<J extends WaBreadcrumbs<J>> extends DivSimple<J>
+public class WaBreadcrumbs<J extends WaBreadcrumbs<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
      * Optional global separator projected before items

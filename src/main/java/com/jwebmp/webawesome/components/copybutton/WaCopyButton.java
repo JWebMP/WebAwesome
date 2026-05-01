@@ -1,6 +1,9 @@
 
 package com.jwebmp.webawesome.components.copybutton;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.FocusTokenCapable;
 /**
  * Represents a Web Awesome Copy Button component, extending a simple Div element.
  * This component is used to create a button that enables users to copy specified text.
@@ -19,7 +22,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaCopyButtonDirective", reference = "angular-awesome")
 @NgImportModule("WaCopyButtonDirective")
-public class WaCopyButton<J extends WaCopyButton<J>> extends DivSimple<J>
+public class WaCopyButton<J extends WaCopyButton<J>> extends DivSimple<J> implements FocusTokenCapable<J>, SpaceTokenCapable<J>
 {
     /**
      * The value (text) to be copied by the button. If set, this value will be copied directly.

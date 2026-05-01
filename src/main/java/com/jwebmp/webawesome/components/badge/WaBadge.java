@@ -1,13 +1,18 @@
 package com.jwebmp.webawesome.components.badge;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ColourCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Variant;
 import com.jwebmp.webawesome.components.button.Appearance;
+import com.jwebmp.webawesome.tokens.WaTypographyToken;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * A badge component for displaying small counts, labels, or status indicators.
@@ -42,10 +47,9 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaBadgeDirective", reference = "angular-awesome")
 @NgImportModule("WaBadgeDirective")
-public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements VariantCapable<J>
+public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>, ColourCapable<J>
 {
     private Variant variant;
     private Appearance appearance;
@@ -68,6 +72,87 @@ public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements Varia
     public WaBadge()
     {
         setTag("wa-badge");
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setVariant(Variant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setAppearance(Appearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setPill(Boolean pill)
+    {
+        this.pill = pill;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setPulse(Boolean pulse)
+    {
+        this.pulse = pulse;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setAttention(BadgeAttention attention)
+    {
+        this.attention = attention;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setTextColor(String textColor)
+    {
+        this.textColor = textColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setPulseColor(String pulseColor)
+    {
+        this.pulseColor = pulseColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }
+
+    /**
+     * Sets the font size using a Web Awesome typography design token.
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public J setFontSize(WaTypographyToken token)
+    {
+        this.fontSize = token.var();
+        return (J) this;
     }
 
     @Override
@@ -122,6 +207,4 @@ public class WaBadge<J extends WaBadge<J>> extends DivSimple<J> implements Varia
         }
         super.init();
     }
-
-
 }

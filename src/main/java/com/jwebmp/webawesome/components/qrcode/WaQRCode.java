@@ -269,6 +269,7 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * @return The current instance of WaQRCode for method chaining.
      */
     @Override
+    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         addAttribute("[value]", variableName);

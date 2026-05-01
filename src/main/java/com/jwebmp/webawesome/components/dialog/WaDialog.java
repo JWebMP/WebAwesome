@@ -1,5 +1,10 @@
 package com.jwebmp.webawesome.components.dialog;
 
+
+import com.jwebmp.webawesome.components.BorderTokenCapable;
+import com.jwebmp.webawesome.components.ShadowTokenCapable;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -20,7 +25,7 @@ import java.util.List;
 @Setter
 @NgImportReference(value = "WaDialogDirective", reference = "angular-awesome")
 @NgImportModule("WaDialogDirective")
-public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
+public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * ARIA-accessible label. Required for accessibility.
@@ -109,6 +114,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J show()
     {
         // This would be implemented in JavaScript in the actual component
@@ -121,6 +127,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      *
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J hide()
     {
         // This would be implemented in JavaScript in the actual component
@@ -203,6 +210,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      * @param header The header content
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J withHeader(DivSimple<?> header)
     {
         header.addAttribute("slot", "label");
@@ -218,6 +226,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      * @param buttons The list of buttons to add
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J withHeaderActions(List<WaButton<?>> buttons)
     {
         for (WaButton<?> button : buttons)
@@ -256,6 +265,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      * @param footer The footer content
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J withFooter(DivSimple<?> footer)
     {
         footer.addAttribute("slot", "footer");
@@ -287,6 +297,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
      * @param component The component to receive focus
      * @return This object for method chaining
      */
+    @SuppressWarnings("unchecked")
     public J withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
@@ -294,6 +305,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J>
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J withOpener(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()

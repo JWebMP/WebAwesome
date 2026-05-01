@@ -1,5 +1,8 @@
 package com.jwebmp.webawesome.components.spinner;
 
+
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -18,7 +21,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaSpinnerDirective", reference = "angular-awesome")
 @NgImportModule("WaSpinnerDirective")
-public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
+public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
     /**
      * Sets the font-size style directly on the host element, controlling the overall size
@@ -89,6 +92,7 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindFontSize(String variableName)
     {
         addAttribute("[style.font-size]", variableName);
@@ -101,6 +105,7 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindTrackWidth(String variableName)
     {
         addAttribute("[style.--track-width]", variableName);
@@ -113,6 +118,7 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindTrackColor(String variableName)
     {
         addAttribute("[style.--track-color]", variableName);
@@ -125,6 +131,7 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindIndicatorColor(String variableName)
     {
         addAttribute("[style.--indicator-color]", variableName);
@@ -137,6 +144,7 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J>
      * @param variableName The name of the variable to bind to
      * @return This component
      */
+    @SuppressWarnings("unchecked")
     public J bindSpeed(String variableName)
     {
         addAttribute("[style.--speed]", variableName);

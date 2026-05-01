@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.animation;
 
+
+import com.jwebmp.webawesome.components.TransitionTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
@@ -15,7 +17,7 @@ import lombok.Setter;
 @Setter
 @NgImportReference(value = "WaAnimationDirective", reference = "angular-awesome")
 @NgImportModule("WaAnimationDirective")
-public class WaAnimation<J extends WaAnimation<J>> extends DivSimple<J>
+public class WaAnimation<J extends WaAnimation<J>> extends DivSimple<J> implements TransitionTokenCapable<J>
 {
     /**
      * The easing effect to use for the animation.

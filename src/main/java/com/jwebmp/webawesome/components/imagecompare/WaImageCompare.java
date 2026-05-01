@@ -70,12 +70,14 @@ public class WaImageCompare<J extends WaImageCompare<J>> extends DivSimple<J>
     }
 
     // Binding helpers
+    @SuppressWarnings("unchecked")
     public J bindPosition(String variable)
     {
         addAttribute("[position]", variable);
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J bindDisabled(String variable)
     {
         addAttribute("[disabled]", variable);

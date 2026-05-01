@@ -31,6 +31,7 @@ public class WaPageMenu<J extends WaPageMenu<J>> extends DivSimple<J>
         return (J) this;
     }
 
+    @SuppressWarnings("unchecked")
     public J addRouterLink(String path, String text)
     {
         if (!path.startsWith("#") && !path.startsWith("/"))

@@ -11,7 +11,7 @@ class WaFlankTest {
     void rendersWaFlankAndCanBeLink() {
         Page<?> p = new Page<>();
 
-        WaFlank flank = new WaFlank()
+        WaFlank flank = new WaFlank<>()
                 .setDisplayAsLink();
 
         p.getBody().add(flank);
