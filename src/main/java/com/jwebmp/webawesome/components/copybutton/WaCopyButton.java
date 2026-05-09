@@ -16,10 +16,7 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 @Getter
-@Setter
 @NgImportReference(value = "WaCopyButtonDirective", reference = "angular-awesome")
 @NgImportModule("WaCopyButtonDirective")
 public class WaCopyButton<J extends WaCopyButton<J>> extends DivSimple<J> implements FocusTokenCapable<J>, SpaceTokenCapable<J>
@@ -86,7 +83,62 @@ public class WaCopyButton<J extends WaCopyButton<J>> extends DivSimple<J> implem
      * Default constructor for the WaCopyButton component.
      * Initializes the button element with the required tag name.
      */
-    public WaCopyButton()
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFrom(String from)
+    {
+        this.from = from;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCopyLabel(String copyLabel)
+    {
+        this.copyLabel = copyLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSuccessLabel(String successLabel)
+    {
+        this.successLabel = successLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setErrorLabel(String errorLabel)
+    {
+        this.errorLabel = errorLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIcon(WaIcon icon)
+    {
+        this.icon = icon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSuccessIcon(WaIcon successIcon)
+    {
+        this.successIcon = successIcon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setErrorIcon(WaIcon errorIcon)
+    {
+        this.errorIcon = errorIcon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFeedbackDuration(Integer feedbackDuration)
+    {
+        this.feedbackDuration = feedbackDuration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipPlacement(String tooltipPlacement)
+    {
+        this.tooltipPlacement = tooltipPlacement;
+        return (J) this;
+    }    public WaCopyButton()
     {
         setTag("wa-copy-button");
     }

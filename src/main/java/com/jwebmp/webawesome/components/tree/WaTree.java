@@ -9,7 +9,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * The WaTree component displays hierarchical data in a tree structure.
@@ -18,7 +17,6 @@ import lombok.Setter;
  * This component renders as a wa-tree HTML element and contains wa-tree-item elements.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTreeDirective", reference = "angular-awesome")
 @NgImportModule("WaTreeDirective")
 public class WaTree<J extends WaTree<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
@@ -59,6 +57,48 @@ public class WaTree<J extends WaTree<J>> extends DivSimple<J> implements BorderT
     public WaTree()
     {
         setTag("wa-tree");
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setSelection(TreeSelectionMode selection)
+    {
+        this.selection = selection;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setIndentGuideWidth(String indentGuideWidth)
+    {
+        this.indentGuideWidth = indentGuideWidth;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setIndentGuideColor(String indentGuideColor)
+    {
+        this.indentGuideColor = indentGuideColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setIndentGuideStyle(String indentGuideStyle)
+    {
+        this.indentGuideStyle = indentGuideStyle;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setIndentGuideOffset(String indentGuideOffset)
+    {
+        this.indentGuideOffset = indentGuideOffset;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setIndentSize(String indentSize)
+    {
+        this.indentSize = indentSize;
+        return (J) this;
     }
 
     /**

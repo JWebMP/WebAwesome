@@ -12,8 +12,6 @@ import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTag component represents a compact visual indicator typically used for labeling,
  * categorizing, or indicating selection status.
@@ -22,7 +20,6 @@ import lombok.Setter;
  * through properties like variant, appearance, size, pill, and removable.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTagDirective", reference = "angular-awesome")
 @NgImportModule("WaTagDirective")
 public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
@@ -55,7 +52,32 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
     /**
      * Creates a new WaTag with the tag "wa-tag"
      */
-    public WaTag()
+    @SuppressWarnings("unchecked")
+    public J setVariant(Variant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(TagAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPill(Boolean pill)
+    {
+        this.pill = pill;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRemovable(Boolean removable)
+    {
+        this.removable = removable;
+        return (J) this;
+    }    public WaTag()
     {
         setTag("wa-tag");
     }

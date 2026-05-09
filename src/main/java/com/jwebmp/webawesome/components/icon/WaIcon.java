@@ -10,8 +10,6 @@ import com.jwebmp.core.base.interfaces.IIcon;
 import com.jwebmp.plugins.fontawesome5.options.IconFamily;
 import com.jwebmp.plugins.fontawesome5.options.IconVariant;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaIcon component renders visual symbols from various libraries.
  * It supports different families, variants, custom sources, styling, and accessibility.
@@ -51,7 +49,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaIconDirective", reference = "angular-awesome")
 @NgImportModule("WaIconDirective")
 public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<GlobalChildren, J>
@@ -145,7 +142,97 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
      * Animation name to apply to the icon.
      */
     private String animation;
-
+    @SuppressWarnings("unchecked")
+    public J setFamily(String family)
+    {
+        this.family = family;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLibrary(String library)
+    {
+        this.library = library;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSrc(String src)
+    {
+        this.src = src;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPrimaryColor(String primaryColor)
+    {
+        this.primaryColor = primaryColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPrimaryOpacity(Double primaryOpacity)
+    {
+        this.primaryOpacity = primaryOpacity;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSecondaryColor(String secondaryColor)
+    {
+        this.secondaryColor = secondaryColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSecondaryOpacity(Double secondaryOpacity)
+    {
+        this.secondaryOpacity = secondaryOpacity;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFixedWidth(Boolean fixedWidth)
+    {
+        this.fixedWidth = fixedWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVariant(IconVariant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutoWidth(Boolean autoWidth)
+    {
+        this.autoWidth = autoWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSwapOpacity(Boolean swapOpacity)
+    {
+        this.swapOpacity = swapOpacity;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRotate(Integer rotate)
+    {
+        this.rotate = rotate;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFlip(IconFlip flip)
+    {
+        this.flip = flip;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAnimation(String animation)
+    {
+        this.animation = animation;
+        return (J) this;
+    }
 
     public WaIcon()
     {

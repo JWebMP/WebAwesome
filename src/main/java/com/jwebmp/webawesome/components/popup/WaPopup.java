@@ -13,8 +13,6 @@ import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serial;
 
 /**
@@ -58,7 +56,6 @@ import java.io.Serial;
  * - `--hide-duration`: The hide duration to use when applying built-in animation classes. Default is 100ms.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaPopupDirective", reference = "angular-awesome")
 @NgImportModule("WaPopupDirective")
 public class WaPopup<J extends WaPopup<J>> extends DivSimple<J> implements INgComponent<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -92,7 +89,112 @@ public class WaPopup<J extends WaPopup<J>> extends DivSimple<J> implements INgCo
     private WaPopupSync sync;
     
     private String repositionEvent;
-
+    @SuppressWarnings("unchecked")
+    public J setAnchor(String anchor)
+    {
+        this.anchor = anchor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(WaPopupPlacements placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFlip(Boolean flip)
+    {
+        this.flip = flip;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setActive(Boolean active)
+    {
+        this.active = active;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDistance(Integer distance)
+    {
+        this.distance = distance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSkidding(Integer skidding)
+    {
+        this.skidding = skidding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStrategy(String strategy)
+    {
+        this.strategy = strategy;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setArrow(Boolean arrow)
+    {
+        this.arrow = arrow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setArrowPlacement(WaPopupArrowPlacements arrowPlacement)
+    {
+        this.arrowPlacement = arrowPlacement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setArrowPadding(Integer arrowPadding)
+    {
+        this.arrowPadding = arrowPadding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShift(Boolean shift)
+    {
+        this.shift = shift;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHoverBridge(Boolean hoverBridge)
+    {
+        this.hoverBridge = hoverBridge;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShiftPadding(Integer shiftPadding)
+    {
+        this.shiftPadding = shiftPadding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoundary(String boundary)
+    {
+        this.boundary = boundary;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFlipFallbackPlacements(String flipFallbackPlacements)
+    {
+        this.flipFallbackPlacements = flipFallbackPlacements;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFlipFallbackStrategy(WaPopupFallbackStategy flipFallbackStrategy)
+    {
+        this.flipFallbackStrategy = flipFallbackStrategy;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFlipPadding(Integer flipPadding)
+    {
+        this.flipPadding = flipPadding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutoSize(WaPopupAutoSize autoSize)
+    {
+        this.autoSize = autoSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutoSizePadding(Integer autoSizePadding)
+    {
+        this.autoSizePadding = autoSizePadding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSync(WaPopupSync sync)
+    {
+        this.sync = sync;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRepositionEvent(String repositionEvent)
+    {
+        this.repositionEvent = repositionEvent;
+        return (J) this;
+    }
 
     public WaPopup()
     {

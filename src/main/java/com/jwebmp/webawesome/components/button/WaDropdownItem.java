@@ -5,7 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
@@ -38,7 +37,6 @@ import lombok.experimental.Accessors;
  * </pre>
  */
 @Getter
-@Setter
 @Accessors(chain = true)
 @NgImportReference(value = "WaDropdownItemDirective", reference = "angular-awesome")
 @NgImportModule("WaDropdownItemDirective")
@@ -87,7 +85,47 @@ public class WaDropdownItem<J extends WaDropdownItem<J>> extends DivSimple<J>
     /**
      * Creates a new dropdown item with the given text.
      */
-    public WaDropdownItem()
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setChecked(Boolean checked)
+    {
+        this.checked = checked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStartContent(IComponentHierarchyBase<?, ?> startContent)
+    {
+        this.startContent = startContent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEndContent(IComponentHierarchyBase<?, ?> endContent)
+    {
+        this.endContent = endContent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSubmenu(WaDropDown<?> submenu)
+    {
+        this.submenu = submenu;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSubmenuOpen(Boolean submenuOpen)
+    {
+        this.submenuOpen = submenuOpen;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVariant(DropdownItemVariant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }    public WaDropdownItem()
     {
         setTag("wa-dropdown-item");
     }

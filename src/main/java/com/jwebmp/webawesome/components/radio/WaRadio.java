@@ -10,8 +10,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Represents a Web Awesome radio component.
  * This class provides methods to configure the radio component's attributes.
@@ -69,7 +67,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaRadioDirective", reference = "angular-awesome")
 @NgImportModule("WaRadioDirective")
 public class WaRadio<J extends WaRadio<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
@@ -216,7 +213,122 @@ public class WaRadio<J extends WaRadio<J>> extends DivSimple<J> implements Space
      * Default constructor for the WaRadio class.
      * Initializes the component with a default tag of `wa-radio`.
      */
-    public WaRadio()
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFormId(String formId)
+    {
+        this.formId = formId;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(RadioAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAsPill(Boolean asPill)
+    {
+        this.asPill = asPill;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithStart(Boolean withStart)
+    {
+        this.withStart = withStart;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithEnd(Boolean withEnd)
+    {
+        this.withEnd = withEnd;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBackgroundColor(String styleBackgroundColor)
+    {
+        this.styleBackgroundColor = styleBackgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBackgroundColorChecked(String styleBackgroundColorChecked)
+    {
+        this.styleBackgroundColorChecked = styleBackgroundColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBorderColor(String styleBorderColor)
+    {
+        this.styleBorderColor = styleBorderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBorderColorChecked(String styleBorderColorChecked)
+    {
+        this.styleBorderColorChecked = styleBorderColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBorderStyle(String styleBorderStyle)
+    {
+        this.styleBorderStyle = styleBorderStyle;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBorderWidth(String styleBorderWidth)
+    {
+        this.styleBorderWidth = styleBorderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleBoxShadow(String styleBoxShadow)
+    {
+        this.styleBoxShadow = styleBoxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleCheckedIconColor(String styleCheckedIconColor)
+    {
+        this.styleCheckedIconColor = styleCheckedIconColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleCheckedIconScale(String styleCheckedIconScale)
+    {
+        this.styleCheckedIconScale = styleCheckedIconScale;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleToggleSize(String styleToggleSize)
+    {
+        this.styleToggleSize = styleToggleSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleIndicatorColor(String styleIndicatorColor)
+    {
+        this.styleIndicatorColor = styleIndicatorColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleIndicatorWidth(String styleIndicatorWidth)
+    {
+        this.styleIndicatorWidth = styleIndicatorWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStyleDisplay(String styleDisplay)
+    {
+        this.styleDisplay = styleDisplay;
+        return (J) this;
+    }    public WaRadio()
     {
         setTag("wa-radio");
     }

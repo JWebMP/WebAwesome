@@ -9,8 +9,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTab component represents a tab in a WaTabGroup.
  * It is linked to a WaTabPanel via the panel attribute, which should match the name attribute of the panel.
@@ -19,8 +17,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
-
 public class WaTab<J extends WaTab<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
 {
     /**
@@ -41,7 +37,22 @@ public class WaTab<J extends WaTab<J>> extends DivSimple<J> implements SpaceToke
     /**
      * Creates a new WaTab with the tag "wa-tab"
      */
-    public WaTab()
+    @SuppressWarnings("unchecked")
+    public J setPanel(String panel)
+    {
+        this.panel = panel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setActiveTabColor(String activeTabColor)
+    {
+        this.activeTabColor = activeTabColor;
+        return (J) this;
+    }    public WaTab()
     {
         setTag("wa-tab");
     }

@@ -6,8 +6,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Wrapper for the {@code <wa-toast>} element.
  * <p>
@@ -20,7 +18,6 @@ import lombok.Setter;
  * official component.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaToastDirective",reference = "angular-awesome")
 @NgImportModule(value = "WaToastDirective")
 public class WaToastContainer<J extends WaToastContainer<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
@@ -45,7 +42,27 @@ public class WaToastContainer<J extends WaToastContainer<J>> extends DivSimple<J
      * When true, newer toasts appear at the top of the stack.
      */
     private Boolean newestOnTop;
-
+    @SuppressWarnings("unchecked")
+    public J setPlacement(String placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMax(Integer max)
+    {
+        this.max = max;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDuration(Integer duration)
+    {
+        this.duration = duration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNewestOnTop(Boolean newestOnTop)
+    {
+        this.newestOnTop = newestOnTop;
+        return (J) this;
+    }
 
     public WaToastContainer()
     {

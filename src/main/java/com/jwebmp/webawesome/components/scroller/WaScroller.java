@@ -8,14 +8,11 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Minimal wrapper for the <wa-scroller-wrapper> element as referenced in docs.
  * It provides orientation and visual flags to control scrollbar and shadow visibility.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaScrollerDirective", reference = "angular-awesome")
 @NgImportModule("WaScrollerDirective")
 public class WaScroller<J extends WaScroller<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, BorderTokenCapable<J>
@@ -44,7 +41,32 @@ public class WaScroller<J extends WaScroller<J>> extends DivSimple<J> implements
      * Optional inline width style, e.g., "100%".
      */
     private String width;
-
+    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithoutScrollbar(Boolean withoutScrollbar)
+    {
+        this.withoutScrollbar = withoutScrollbar;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithoutShadow(Boolean withoutShadow)
+    {
+        this.withoutShadow = withoutShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHeight(String height)
+    {
+        this.height = height;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWidth(String width)
+    {
+        this.width = width;
+        return (J) this;
+    }
     public WaScroller()
     {
         setTag("wa-scroller");

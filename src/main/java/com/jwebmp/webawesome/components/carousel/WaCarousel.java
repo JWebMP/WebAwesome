@@ -8,8 +8,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The {@code WaCarousel} class represents a customizable carousel component
  * that can be added to a web application. This class provides features such as
@@ -56,7 +54,6 @@ import lombok.Setter;
  */
 
 @Getter
-@Setter
 @NgImportReference(value = "WaCarouselDirective", reference = "angular-awesome")
 @NgImportModule("WaCarouselDirective")
 public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -119,7 +116,62 @@ public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaCarousel component
      */
-    public WaCarousel()
+    @SuppressWarnings("unchecked")
+    public J setPagination(Boolean pagination)
+    {
+        this.pagination = pagination;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNavigation(Boolean navigation)
+    {
+        this.navigation = navigation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMouseDragging(Boolean mouseDragging)
+    {
+        this.mouseDragging = mouseDragging;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLoop(Boolean loop)
+    {
+        this.loop = loop;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutoplay(Boolean autoplay)
+    {
+        this.autoplay = autoplay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutoplayInterval(Integer autoplayInterval)
+    {
+        this.autoplayInterval = autoplayInterval;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSlidesPerPage(Integer slidesPerPage)
+    {
+        this.slidesPerPage = slidesPerPage;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSlidesPerMove(Integer slidesPerMove)
+    {
+        this.slidesPerMove = slidesPerMove;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNextIcon(IComponentHierarchyBase<?, ?> nextIcon)
+    {
+        this.nextIcon = nextIcon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPreviousIcon(IComponentHierarchyBase<?, ?> previousIcon)
+    {
+        this.previousIcon = previousIcon;
+        return (J) this;
+    }    public WaCarousel()
     {
         setTag("wa-carousel");
     }

@@ -14,12 +14,9 @@ import com.jwebmp.webawesome.components.Placement;
 import com.jwebmp.webawesome.components.button.WaButton;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
 @Getter
-@Setter
 @NgImportReference(value = "WaDrawerDirective", reference = "angular-awesome")
 @NgImportModule("WaDrawerDirective")
 public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -93,7 +90,77 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements Bor
      * Closing animation duration.
      */
     private String hideDuration;
-
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithoutHeader(Boolean withoutHeader)
+    {
+        this.withoutHeader = withoutHeader;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLightDismiss(Boolean lightDismiss)
+    {
+        this.lightDismiss = lightDismiss;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setScrolling(Boolean scrolling)
+    {
+        this.scrolling = scrolling;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithFooterAttr(Boolean withFooterAttr)
+    {
+        this.withFooterAttr = withFooterAttr;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(Placement placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDialogHeaderDenyClose(Boolean dialogHeaderDenyClose)
+    {
+        this.dialogHeaderDenyClose = dialogHeaderDenyClose;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpacing(String spacing)
+    {
+        this.spacing = spacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(String size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowDuration(String showDuration)
+    {
+        this.showDuration = showDuration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideDuration(String hideDuration)
+    {
+        this.hideDuration = hideDuration;
+        return (J) this;
+    }
     public WaDrawer()
     {
         setTag("wa-drawer");

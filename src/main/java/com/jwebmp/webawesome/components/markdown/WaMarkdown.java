@@ -7,8 +7,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaMarkdown component wraps the {@code <wa-markdown>} web component,
  * rendering Markdown content as HTML.
@@ -26,7 +24,6 @@ import lombok.Setter;
  * </ul>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaMarkdownDirective", reference = "angular-awesome")
 @NgImportModule("WaMarkdownDirective")
 public class WaMarkdown<J extends WaMarkdown<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
@@ -39,7 +36,12 @@ public class WaMarkdown<J extends WaMarkdown<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaMarkdown component.
      */
-    public WaMarkdown()
+    @SuppressWarnings("unchecked")
+    public J setTabSize(Integer tabSize)
+    {
+        this.tabSize = tabSize;
+        return (J) this;
+    }    public WaMarkdown()
     {
         setTag("wa-markdown");
     }

@@ -10,8 +10,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Script;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaRange component is a slider input that allows users to select a value from a range.
  * It supports features like labeling, hints, min/max values, tooltips, and custom styling.
@@ -20,7 +18,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSliderDirective", reference = "angular-awesome")
 @NgImportModule("WaSliderDirective")
 public class WaRange<J extends WaRange<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -226,7 +223,207 @@ public class WaRange<J extends WaRange<J>> extends DivSimple<J> implements Space
      * Custom formatter for the tooltip value
      */
     private String tooltipFormatter;
-
+    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDefaultValue(Number defaultValue)
+    {
+        this.defaultValue = defaultValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setReadonly(Boolean readonly)
+    {
+        this.readonly = readonly;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRange(Boolean range)
+    {
+        this.range = range;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinValue(Number minValue)
+    {
+        this.minValue = minValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxValue(Number maxValue)
+    {
+        this.maxValue = maxValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(String size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIndicatorOffset(Number indicatorOffset)
+    {
+        this.indicatorOffset = indicatorOffset;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithMarkers(Boolean withMarkers)
+    {
+        this.withMarkers = withMarkers;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithTooltip(Boolean withTooltip)
+    {
+        this.withTooltip = withTooltip;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipDistance(Number tooltipDistance)
+    {
+        this.tooltipDistance = tooltipDistance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipPlacement(RangeTooltipPosition tooltipPlacement)
+    {
+        this.tooltipPlacement = tooltipPlacement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutofocus(Boolean autofocus)
+    {
+        this.autofocus = autofocus;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMin(Number min)
+    {
+        this.min = min;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMax(Number max)
+    {
+        this.max = max;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStep(Number step)
+    {
+        this.step = step;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipPosition(RangeTooltipPosition tooltipPosition)
+    {
+        this.tooltipPosition = tooltipPosition;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackColourActive(String trackColourActive)
+    {
+        this.trackColourActive = trackColourActive;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackColourInactive(String trackColourInactive)
+    {
+        this.trackColourInactive = trackColourInactive;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackHeight(String trackHeight)
+    {
+        this.trackHeight = trackHeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackActiveOffset(Number trackActiveOffset)
+    {
+        this.trackActiveOffset = trackActiveOffset;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbColor(String thumbColor)
+    {
+        this.thumbColor = thumbColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbSize(String thumbSize)
+    {
+        this.thumbSize = thumbSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbShadow(String thumbShadow)
+    {
+        this.thumbShadow = thumbShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbGap(String thumbGap)
+    {
+        this.thumbGap = thumbGap;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipOffset(String tooltipOffset)
+    {
+        this.tooltipOffset = tooltipOffset;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackSize(String trackSize)
+    {
+        this.trackSize = trackSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMarkerWidth(String markerWidth)
+    {
+        this.markerWidth = markerWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMarkerHeight(String markerHeight)
+    {
+        this.markerHeight = markerHeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbWidth(String thumbWidth)
+    {
+        this.thumbWidth = thumbWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbHeight(String thumbHeight)
+    {
+        this.thumbHeight = thumbHeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTooltipFormatter(String tooltipFormatter)
+    {
+        this.tooltipFormatter = tooltipFormatter;
+        return (J) this;
+    }
     public WaRange()
     {
         setTag("wa-slider");

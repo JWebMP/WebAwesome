@@ -5,15 +5,12 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaInclude component allows embedding external HTML content into the page.
  * It supports different CORS modes and can optionally allow scripts to execute in the included content.
  * Content is fetched and inserted asynchronously via fetch().
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaIncludeDirective", reference = "angular-awesome")
 @NgImportModule("WaIncludeDirective")
 public class WaInclude<J extends WaInclude<J>> extends DivSimple<J>
@@ -40,7 +37,22 @@ public class WaInclude<J extends WaInclude<J>> extends DivSimple<J>
     /**
      * Creates a new WaInclude component.
      */
-    public WaInclude()
+    @SuppressWarnings("unchecked")
+    public J setSrc(String src)
+    {
+        this.src = src;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMode(CorsMode mode)
+    {
+        this.mode = mode;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAllowScripts(Boolean allowScripts)
+    {
+        this.allowScripts = allowScripts;
+        return (J) this;
+    }    public WaInclude()
     {
         setTag("wa-include");
     }

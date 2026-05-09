@@ -5,8 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Variant;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Web Awesome variant container component ({@code <wa-variant>}).
  * Applies a semantic colour variant to all child components.
@@ -20,13 +18,17 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaVariantDirective", reference = "angular-awesome")
 @NgImportModule("WaVariantDirective")
 public class WaVariantContainer<J extends WaVariantContainer<J>> extends DivSimple<J>
 {
     private Variant variant;
-
+    @SuppressWarnings("unchecked")
+    public J setVariant(Variant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }
     public WaVariantContainer()
     {
         setTag("wa-variant");

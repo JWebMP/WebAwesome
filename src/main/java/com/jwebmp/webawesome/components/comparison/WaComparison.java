@@ -6,14 +6,11 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Image;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaComparison component provides a slider to compare two images or content side by side.
  * It supports features like initial position setting and custom handle icons.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaComparisonDirective", reference = "angular-awesome")
 @NgImportModule("WaComparisonDirective")
 public class WaComparison<J extends WaComparison<J>> extends DivSimple<J>
@@ -57,7 +54,47 @@ public class WaComparison<J extends WaComparison<J>> extends DivSimple<J>
      * Size of the handle element.
      */
     private String handleSize;
-
+    @SuppressWarnings("unchecked")
+    public J setImage1(Image<?> image1)
+    {
+        this.image1 = image1;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setImage2(Image<?> image2)
+    {
+        this.image2 = image2;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIcon(WaIcon<?> icon)
+    {
+        this.icon = icon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPosition(Integer position)
+    {
+        this.position = position;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerColor(String dividerColor)
+    {
+        this.dividerColor = dividerColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerWidth(String dividerWidth)
+    {
+        this.dividerWidth = dividerWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHandleColor(String handleColor)
+    {
+        this.handleColor = handleColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHandleSize(String handleSize)
+    {
+        this.handleSize = handleSize;
+        return (J) this;
+    }
     public WaComparison()
     {
         setTag("wa-comparison");

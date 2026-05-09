@@ -4,8 +4,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Wrapper for a zoomable/pannable frame as referenced in docs.
  *
@@ -24,7 +22,6 @@ import lombok.Setter;
  * - [style.width], [style.height]
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaZoomableFrameComponent", reference = "angular-awesome")
 @NgImportModule("WaZoomableFrameComponent")
 public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
@@ -44,7 +41,52 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
     // Optional inline size helpers
     private String width;
     private String height;
-
+    @SuppressWarnings("unchecked")
+    public J setZoom(String zoom)
+    {
+        this.zoom = zoom;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinZoom(String minZoom)
+    {
+        this.minZoom = minZoom;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxZoom(String maxZoom)
+    {
+        this.maxZoom = maxZoom;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPanX(String panX)
+    {
+        this.panX = panX;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPanY(String panY)
+    {
+        this.panY = panY;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithThemeSync(Boolean withThemeSync)
+    {
+        this.withThemeSync = withThemeSync;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWidth(String width)
+    {
+        this.width = width;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHeight(String height)
+    {
+        this.height = height;
+        return (J) this;
+    }
     public WaZoomableFrame()
     {
         setTag("wa-zoomable-frame");

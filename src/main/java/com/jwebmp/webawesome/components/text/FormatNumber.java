@@ -7,8 +7,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * A component for formatting and displaying numeric values in a web application.
  * The component supports various options for grouping, currency, language, and digit constraints.
@@ -24,7 +22,6 @@ import lombok.Setter;
  * </p>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaFormatNumber", reference = "angular-awesome")
 @NgImportModule("WaFormatNumber")
 public class FormatNumber<J extends FormatNumber<J>> extends DivSimple<J>
@@ -159,7 +156,87 @@ public class FormatNumber<J extends FormatNumber<J>> extends DivSimple<J>
     /**
      * Constructs a new {@link FormatNumber} instance and sets the HTML tag to "wa-format-number".
      */
-    public FormatNumber()
+    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setType(NumberType type)
+    {
+        this.type = type;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoGrouping(Boolean noGrouping)
+    {
+        this.noGrouping = noGrouping;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrency(String currency)
+    {
+        this.currency = currency;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrencyDisplay(CurrencyDisplay currencyDisplay)
+    {
+        this.currencyDisplay = currencyDisplay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLanguage(String language)
+    {
+        this.language = language;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinFractionDigits(Integer minFractionDigits)
+    {
+        this.minFractionDigits = minFractionDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxFractionDigits(Integer maxFractionDigits)
+    {
+        this.maxFractionDigits = maxFractionDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinIntegerDigits(Integer minIntegerDigits)
+    {
+        this.minIntegerDigits = minIntegerDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxIntegerDigits(Integer maxIntegerDigits)
+    {
+        this.maxIntegerDigits = maxIntegerDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontWeight(String fontWeight)
+    {
+        this.fontWeight = fontWeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextAlign(String textAlign)
+    {
+        this.textAlign = textAlign;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPadding(String padding)
+    {
+        this.padding = padding;
+        return (J) this;
+    }    public FormatNumber()
     {
         setTag("wa-format-number");
     }

@@ -14,14 +14,11 @@ import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import com.jwebmp.webawesome.components.button.Appearance;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaCallout component displays inline messages or alerts.
  * It supports color variants, size and appearance options, and an optional icon via slot.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaCalloutDirective", reference = "angular-awesome")
 @NgImportModule("WaCalloutDirective")
 public class WaCallout<J extends WaCallout<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
@@ -45,7 +42,27 @@ public class WaCallout<J extends WaCallout<J>> extends DivSimple<J> implements V
      * The size of the callout
      */
     private Size size;
-
+    @SuppressWarnings("unchecked")
+    public J setIcon(IComponentHierarchyBase<?, ?> icon)
+    {
+        this.icon = icon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVariant(Variant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(Appearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }
     public WaCallout()
     {
         setTag("wa-callout");

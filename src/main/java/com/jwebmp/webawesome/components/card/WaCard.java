@@ -13,8 +13,6 @@ import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.button.Appearance;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaCard component represents a flexible container to group related content such as text, images, headers, and footers.
  * <p>
@@ -68,7 +66,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaCardDirective", reference = "angular-awesome")
 @NgImportModule("WaCardDirective")
 public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TypographyTokenCapable<J>
@@ -151,7 +148,82 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
     /**
      * Creates a new WaCard component
      */
-    public WaCard()
+    @SuppressWarnings("unchecked")
+    public J setAppearance(Appearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHeader(Boolean withHeader)
+    {
+        this.withHeader = withHeader;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithImage(Boolean withImage)
+    {
+        this.withImage = withImage;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithFooter(Boolean withFooter)
+    {
+        this.withFooter = withFooter;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithMedia(Boolean withMedia)
+    {
+        this.withMedia = withMedia;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(CardOrientation orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setInnerBorderColor(String innerBorderColor)
+    {
+        this.innerBorderColor = innerBorderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpacing(String spacing)
+    {
+        this.spacing = spacing;
+        return (J) this;
+    }    public WaCard()
     {
         setTag("wa-card");
     }

@@ -11,8 +11,6 @@ import com.jwebmp.core.base.html.Script;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
@@ -29,7 +27,6 @@ import java.util.Set;
  * the symbol at that position is currently selected/active.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaRatingDirective", reference = "angular-awesome")
 @NgImportModule("WaRatingDirective")
 public class WaRating<J extends WaRating<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
@@ -128,7 +125,102 @@ public class WaRating<J extends WaRating<J>> extends DivSimple<J> implements Spa
      * Associates with a form element by id
      */
     private String form;
-
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMax(Number max)
+    {
+        this.max = max;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPrecision(Number precision)
+    {
+        this.precision = precision;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setReadonly(Boolean readonly)
+    {
+        this.readonly = readonly;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIcons(List<WaIcon<?>> icons)
+    {
+        this.icons = icons;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSymbol(WaIcon<?> symbol)
+    {
+        this.symbol = symbol;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSymbolColour(String symbolColour)
+    {
+        this.symbolColour = symbolColour;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSymbolColourActive(String symbolColourActive)
+    {
+        this.symbolColourActive = symbolColourActive;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSymbolSpacing(String symbolSpacing)
+    {
+        this.symbolSpacing = symbolSpacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFormName(String formName)
+    {
+        this.formName = formName;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDefaultValue(Number defaultValue)
+    {
+        this.defaultValue = defaultValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }
     public WaRating()
     {
         setTag("wa-rating");

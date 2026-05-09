@@ -8,8 +8,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSpinner component is used to show the progress of an indeterminate operation.
  * It is a purely visual and stateless component.
@@ -18,7 +16,6 @@ import lombok.Setter;
  * through CSS custom properties.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSpinnerDirective", reference = "angular-awesome")
 @NgImportModule("WaSpinnerDirective")
 public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -51,7 +48,32 @@ public class WaSpinner<J extends WaSpinner<J>> extends DivSimple<J> implements S
     /**
      * Creates a new WaSpinner with the tag "wa-spinner"
      */
-    public WaSpinner()
+    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackWidth(String trackWidth)
+    {
+        this.trackWidth = trackWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackColor(String trackColor)
+    {
+        this.trackColor = trackColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIndicatorColor(String indicatorColor)
+    {
+        this.indicatorColor = indicatorColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpeed(String speed)
+    {
+        this.speed = speed;
+        return (J) this;
+    }    public WaSpinner()
     {
         setTag("wa-spinner");
     }

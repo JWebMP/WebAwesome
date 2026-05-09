@@ -8,8 +8,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSkeleton component is used to create loading placeholders or "skeletons" for content that is still loading.
  * It supports different animation effects and custom styling options.
@@ -18,7 +16,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSkeletonDirective", reference = "angular-awesome")
 @NgImportModule("WaSkeletonDirective")
 public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
@@ -46,7 +43,27 @@ public class WaSkeleton<J extends WaSkeleton<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaSkeleton with the tag "wa-skeleton"
      */
-    public WaSkeleton()
+    @SuppressWarnings("unchecked")
+    public J setEffect(SkeletonEffect effect)
+    {
+        this.effect = effect;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColour(String colour)
+    {
+        this.colour = colour;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSheenColour(String sheenColour)
+    {
+        this.sheenColour = sheenColour;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    public WaSkeleton()
     {
         setTag("wa-skeleton");
     }

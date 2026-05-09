@@ -12,8 +12,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -43,7 +41,6 @@ import java.util.stream.Collectors;
  * <p>The WaColorPicker enhances user interactivity while ensuring flexibility and simplicity.</p>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaColorPickerDirective", reference = "angular-awesome")
 @NgImportModule("WaColorPickerDirective")
 public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -149,7 +146,117 @@ public class WaColorPicker<J extends WaColorPicker<J>> extends DivSimple<J> impl
      * Default constructor for WaColorPicker.
      * Sets up the component with the required tag for integration.
      */
-    public WaColorPicker()
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabelSlot(IComponentHierarchyBase<?, ?> labelSlot)
+    {
+        this.labelSlot = labelSlot;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFormat(String format)
+    {
+        this.format = format;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoFormatToggle(Boolean noFormatToggle)
+    {
+        this.noFormatToggle = noFormatToggle;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSwatches(List<String> swatches)
+    {
+        this.swatches = swatches;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpacity(Boolean opacity)
+    {
+        this.opacity = opacity;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setUppercase(Boolean uppercase)
+    {
+        this.uppercase = uppercase;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHintSlot(IComponentHierarchyBase<?, ?> hintSlot)
+    {
+        this.hintSlot = hintSlot;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(String placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSwatchSize(String swatchSize)
+    {
+        this.swatchSize = swatchSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSwatchSpacing(String swatchSpacing)
+    {
+        this.swatchSpacing = swatchSpacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDropdownWidth(String dropdownWidth)
+    {
+        this.dropdownWidth = dropdownWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDropdownHeight(String dropdownHeight)
+    {
+        this.dropdownHeight = dropdownHeight;
+        return (J) this;
+    }    public WaColorPicker()
     {
         setTag("wa-color-picker");
     }

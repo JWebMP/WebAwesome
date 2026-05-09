@@ -6,14 +6,11 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Represents a Web Awesome QR code component.
  * This class provides methods to configure the QR code's attributes.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaQRCodeDirective", reference = "angular-awesome")
 @NgImportModule("WaQRCodeDirective")
 public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
@@ -81,135 +78,76 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * Default constructor for the WaQRCode class.
      * Initializes the component with a default tag of `wa-qr-code`.
      */
-    public WaQRCode()
-    {
-        setTag("wa-qr-code");
-    }
-
-    /**
-     * Sets the value to encode in the QR code.
-     *
-     * @param value The value to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setValue(String value)
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
     {
         this.value = value;
         return (J) this;
     }
 
-    /**
-     * Sets the fill color of the QR code.
-     *
-     * @param fill The fill color to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setFill(String fill)
+    @SuppressWarnings("unchecked")
+    public J setFill(String fill)
     {
         this.fill = fill;
         return (J) this;
     }
 
-    /**
-     * Sets the background color of the QR code.
-     *
-     * @param background The background color to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setBackground(String background)
+    @SuppressWarnings("unchecked")
+    public J setBackground(String background)
     {
         this.background = background;
         return (J) this;
     }
 
-    /**
-     * Sets the size of the QR code.
-     *
-     * @param size The size to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setSize(String size)
+    @SuppressWarnings("unchecked")
+    public J setSize(String size)
     {
         this.size = size;
         return (J) this;
     }
 
-    /**
-     * Sets the radius of the QR code's corners.
-     *
-     * @param radius The radius to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setRadius(Double radius)
+    @SuppressWarnings("unchecked")
+    public J setRadius(Double radius)
     {
         this.radius = radius;
         return (J) this;
     }
 
-    /**
-     * Sets the error correction level of the QR code.
-     *
-     * @param errorCorrection The error correction level to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setErrorCorrection(String errorCorrection)
+    @SuppressWarnings("unchecked")
+    public J setErrorCorrection(String errorCorrection)
     {
         this.errorCorrection = errorCorrection;
         return (J) this;
     }
 
-    /**
-     * Sets the accessible label for the QR code.
-     *
-     * @param label The label to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setLabel(String label)
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
     {
         this.label = label;
         return (J) this;
     }
 
-    /**
-     * Sets the event handler for when the QR code gains focus.
-     *
-     * @param focusEvent The focus event handler to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setFocusEvent(String focusEvent)
+    @SuppressWarnings("unchecked")
+    public J setFocusEvent(String focusEvent)
     {
         this.focusEvent = focusEvent;
         return (J) this;
     }
 
-    /**
-     * Sets the event handler for when the QR code loses focus.
-     *
-     * @param blurEvent The blur event handler to set.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setBlurEvent(String blurEvent)
+    @SuppressWarnings("unchecked")
+    public J setBlurEvent(String blurEvent)
     {
         this.blurEvent = blurEvent;
         return (J) this;
     }
 
-    /**
-     * Sets the prefix component to display inside the QR code.
-     *
-     * @param prefix The component to set as prefix.
-     * @return The current instance of WaQRCode for method chaining.
-     */
-    public @org.jspecify.annotations.NonNull J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    @SuppressWarnings("unchecked")
+    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
     {
         this.prefix = prefix;
         return (J) this;
     }
 
-    /**
-     * Initializes the component.
-     * Adds the attributes and styles to the component.
-     */
     @Override
     protected void init()
     {
@@ -261,13 +199,6 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
         super.init();
     }
 
-    /**
-     * Overrides the bind method to support two-way binding with ngModel.
-     * This allows the QR code to be used with [(ngModel)] in Angular templates.
-     *
-     * @param variableName The name of the variable to bind to.
-     * @return The current instance of WaQRCode for method chaining.
-     */
     @Override
     @SuppressWarnings("unchecked")
     public J bind(String variableName)

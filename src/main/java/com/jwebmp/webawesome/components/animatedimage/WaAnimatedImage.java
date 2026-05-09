@@ -4,14 +4,11 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaAnimatedImage component provides a way to display animated images (GIF or WEBP)
  * with play/pause controls.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaAnimatedImageDirective", reference = "angular-awesome")
 @NgImportModule("WaAnimatedImageDirective")
 public class WaAnimatedImage<J extends WaAnimatedImage<J>> extends DivSimple<J>
@@ -44,7 +41,32 @@ public class WaAnimatedImage<J extends WaAnimatedImage<J>> extends DivSimple<J>
     /**
      * Creates a new WaAnimatedImage component
      */
-    public WaAnimatedImage()
+    @SuppressWarnings("unchecked")
+    public J setPlay(boolean play)
+    {
+        this.play = play;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSrc(String src)
+    {
+        this.src = src;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAlt(String alt)
+    {
+        this.alt = alt;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIconSize(String iconSize)
+    {
+        this.iconSize = iconSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setControlBoxSize(String controlBoxSize)
+    {
+        this.controlBoxSize = controlBoxSize;
+        return (J) this;
+    }    public WaAnimatedImage()
     {
         setTag("wa-animated-image");
     }

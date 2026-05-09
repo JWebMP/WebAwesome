@@ -12,8 +12,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * A Web Awesome-specific extension of {@link DivSimple}, representing a Web Awesome details container.
  * This class is used to manage collapsible/expandable details sections, including optional icons
@@ -47,7 +45,6 @@ import lombok.Setter;
  * - `display`: Sets the --display CSS property.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaDetailsDirective", reference = "angular-awesome")
 @NgImportModule("WaDetailsDirective")
 public class WaDetails<J extends WaDetails<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TransitionTokenCapable<J>
@@ -162,7 +159,102 @@ public class WaDetails<J extends WaDetails<J>> extends DivSimple<J> implements B
      * Default constructor for the WaDetails component.
      * Initializes this component with a default HTML tag name of 'wa-details'.
      */
-    public WaDetails()
+    @SuppressWarnings("unchecked")
+    public J setSummary(String summary)
+    {
+        this.summary = summary;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSummarySlot(IComponentHierarchyBase<?, ?> summarySlot)
+    {
+        this.summarySlot = summarySlot;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(DetailsAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearanceRaw(String appearanceRaw)
+    {
+        this.appearanceRaw = appearanceRaw;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setExpandIcon(WaIcon<?> expandIcon)
+    {
+        this.expandIcon = expandIcon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCollapseIcon(WaIcon<?> collapseIcon)
+    {
+        this.collapseIcon = collapseIcon;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIconColor(String iconColor)
+    {
+        this.iconColor = iconColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpacing(String spacing)
+    {
+        this.spacing = spacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowDuration(String showDuration)
+    {
+        this.showDuration = showDuration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideDuration(String hideDuration)
+    {
+        this.hideDuration = hideDuration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIconPosition(IconPosition iconPosition)
+    {
+        this.iconPosition = iconPosition;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIconPlacement(IconPlacement iconPlacement)
+    {
+        this.iconPlacement = iconPlacement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowEvent(String showEvent)
+    {
+        this.showEvent = showEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterShowEvent(String afterShowEvent)
+    {
+        this.afterShowEvent = afterShowEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideEvent(String hideEvent)
+    {
+        this.hideEvent = hideEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterHideEvent(String afterHideEvent)
+    {
+        this.afterHideEvent = afterHideEvent;
+        return (J) this;
+    }    public WaDetails()
     {
         setTag("wa-details");
     }

@@ -13,13 +13,10 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.ComponentHierarchyBase;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
-import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.angular.client.services.interfaces.INgComponent;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.io.Serial;
 
 /**
@@ -45,7 +42,6 @@ import java.io.Serial;
  * </ul>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaPopoverDirective", reference = "angular-awesome")
 @NgImportModule("WaPopoverDirective")
 
@@ -105,6 +101,107 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
         setForElement((ComponentHierarchyBase) anchor);
     }
 
+    /**
+     * Sets the ID of the popover's anchor element.
+     *
+     * @param forElement The anchor element ID
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setForElement(String forElement)
+    {
+        this.forElement = forElement;
+        return (J) this;
+    }
+
+    /**
+     * Sets the anchor element for this popover
+     *
+     * @param anchor The element to anchor the popover to
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setForElement(ComponentHierarchyBase anchor)
+    {
+        if (anchor != null)
+        {
+            this.forElement = anchor.asBase()
+                                    .getID();
+            anchor.setRenderIDAttribute(true);
+            setRenderIDAttribute(true);
+        }
+        else
+        {
+            this.forElement = null;
+        }
+        return (J) this;
+    }
+
+    /**
+     * Shows or hides the popover.
+     *
+     * @param open True to show, false to hide
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }
+
+    /**
+     * Sets the preferred placement of the popover.
+     *
+     * @param placement The placement value
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setPlacement(WaPopoverPlacements placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }
+
+    /**
+     * Sets the distance in pixels from which to offset the popover away from its target.
+     *
+     * @param distance The distance value
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setDistance(Integer distance)
+    {
+        this.distance = distance;
+        return (J) this;
+    }
+
+    /**
+     * Sets the distance in pixels from which to offset the popover along its target.
+     *
+     * @param skidding The skidding value
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setSkidding(Integer skidding)
+    {
+        this.skidding = skidding;
+        return (J) this;
+    }
+
+    /**
+     * Removes the arrow from the popover
+     *
+     * @param withoutArrow True to remove the arrow, false to show it
+     * @return This object
+     */
+    @SuppressWarnings("unchecked")
+    public J setWithoutArrow(Boolean withoutArrow)
+    {
+        this.withoutArrow = withoutArrow;
+        return (J) this;
+    }
+
     @Override
     protected void init()
     {
@@ -143,27 +240,6 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
         super.init();
     }
 
-    /**
-     * Sets the anchor element for this popover
-     *
-     * @param anchor The element to anchor the popover to
-     * @return This object
-     */
-    public @org.jspecify.annotations.NonNull J setForElement(ComponentHierarchyBase anchor)
-    {
-        if (anchor != null)
-        {
-            this.forElement = anchor.asBase()
-                                    .getID();
-            anchor.setRenderIDAttribute(true);
-            setRenderIDAttribute(true);
-        }
-        else
-        {
-            this.forElement = null;
-        }
-        return (J) this;
-    }
 
     /**
      * Shows the popover
@@ -350,19 +426,7 @@ public class WaPopover<J extends WaPopover<J>> extends DivSimple<J> implements I
     }
 
     /**
-     * Removes the arrow from the popover
-     *
-     * @param withoutArrow True to remove the arrow, false to show it
-     * @return This object
-     */
-    public @org.jspecify.annotations.NonNull J setWithoutArrow(Boolean withoutArrow)
-    {
-        this.withoutArrow = withoutArrow;
-        return (J) this;
-    }
-
-    /**
-     * Adds the data-popover="close" attribute to a component inside the popover
+     * Sets the arrow size CSS custom property
      * to make it automatically close the popover when clicked
      *
      * @param component The component to add the close attribute to

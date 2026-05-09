@@ -11,15 +11,12 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaCheckbox component represents a checkbox input element.
  * It supports various states like checked, disabled, required, and indeterminate.
  * It also supports form integration, custom styling, and programmatic control.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaCheckboxDirective", reference = "angular-awesome")
 @NgImportModule("WaCheckboxDirective")
 public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -118,7 +115,97 @@ public class WaCheckbox<J extends WaCheckbox<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaCheckbox component
      */
-    public WaCheckbox()
+    @SuppressWarnings("unchecked")
+    public J setChecked(Boolean checked)
+    {
+        this.checked = checked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIndeterminate(Boolean indeterminate)
+    {
+        this.indeterminate = indeterminate;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorChecked(String backgroundColorChecked)
+    {
+        this.backgroundColorChecked = backgroundColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColorChecked(String borderColorChecked)
+    {
+        this.borderColorChecked = borderColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderStyle(String borderStyle)
+    {
+        this.borderStyle = borderStyle;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCheckedIconColor(String checkedIconColor)
+    {
+        this.checkedIconColor = checkedIconColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setToggleSize(String toggleSize)
+    {
+        this.toggleSize = toggleSize;
+        return (J) this;
+    }    public WaCheckbox()
     {
         setTag("wa-checkbox");
     }

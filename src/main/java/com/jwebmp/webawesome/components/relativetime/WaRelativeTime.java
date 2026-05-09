@@ -5,8 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -18,7 +16,6 @@ import java.time.format.DateTimeFormatter;
  * through properties and attributes.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaRelativeTimeDirective", reference = "angular-awesome")
 @NgImportModule("WaRelativeTimeDirective")
 public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
@@ -52,7 +49,32 @@ public class WaRelativeTime<J extends WaRelativeTime<J>> extends DivSimple<J>
      * Display style for layout control
      */
     private String display;
-
+    @SuppressWarnings("unchecked")
+    public J setSync(Boolean sync)
+    {
+        this.sync = sync;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFormat(String format)
+    {
+        this.format = format;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNumeric(String numeric)
+    {
+        this.numeric = numeric;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLang(String lang)
+    {
+        this.lang = lang;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }
     public WaRelativeTime()
     {
         setTag("wa-relative-time");

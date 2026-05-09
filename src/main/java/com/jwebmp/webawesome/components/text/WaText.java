@@ -8,8 +8,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Wrapper for the WebAwesome text directive (waText) and related attributes.
  * This is a lightweight helper that renders the waText attribute and exposes
@@ -22,7 +20,6 @@ import lombok.Setter;
  * - new WaText().setTag("a").setWaLink(true).addAttribute("href","#").setText("Link");
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTextDirective", reference = "angular-awesome")
 @NgImportModule("WaTextDirective")
 public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
@@ -58,7 +55,87 @@ public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTo
 
     // Truncation helper (boolean)
     private Boolean waTextTruncate;
-
+    @SuppressWarnings("unchecked")
+    public J setWaBody(String waBody)
+    {
+        this.waBody = waBody;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaBodyFlag(Boolean waBodyFlag)
+    {
+        this.waBodyFlag = waBodyFlag;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaHeading(String waHeading)
+    {
+        this.waHeading = waHeading;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaHeadingFlag(Boolean waHeadingFlag)
+    {
+        this.waHeadingFlag = waHeadingFlag;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaCaption(String waCaption)
+    {
+        this.waCaption = waCaption;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaCaptionFlag(Boolean waCaptionFlag)
+    {
+        this.waCaptionFlag = waCaptionFlag;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaLongform(String waLongform)
+    {
+        this.waLongform = waLongform;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaLongformFlag(Boolean waLongformFlag)
+    {
+        this.waLongformFlag = waLongformFlag;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaLink(String waLink)
+    {
+        this.waLink = waLink;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaLinkFlag(Boolean waLinkFlag)
+    {
+        this.waLinkFlag = waLinkFlag;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaListPlain(Boolean waListPlain)
+    {
+        this.waListPlain = waListPlain;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaFormControlText(String waFormControlText)
+    {
+        this.waFormControlText = waFormControlText;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaFontSize(String waFontSize)
+    {
+        this.waFontSize = waFontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaFontWeight(String waFontWeight)
+    {
+        this.waFontWeight = waFontWeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaColorText(String waColorText)
+    {
+        this.waColorText = waColorText;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWaTextTruncate(Boolean waTextTruncate)
+    {
+        this.waTextTruncate = waTextTruncate;
+        return (J) this;
+    }
     public WaText()
     {
         // Default tag is <div>. Tests can change the tag with setTag("p"), etc.

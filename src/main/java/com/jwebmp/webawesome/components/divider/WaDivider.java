@@ -8,8 +8,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Dividers visually separate or group elements.
  * <p>
@@ -35,7 +33,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaDividerDirective", reference = "angular-awesome")
 @NgImportModule("WaDividerDirective")
 public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>
@@ -70,7 +67,32 @@ public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements B
      */
     @Deprecated(since = "2025-08-09", forRemoval = true)
     private Boolean vertical;
-
+    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWidth(String width)
+    {
+        this.width = width;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpacing(String spacing)
+    {
+        this.spacing = spacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVertical(Boolean vertical)
+    {
+        this.vertical = vertical;
+        return (J) this;
+    }
     public WaDivider()
     {
         setTag("wa-divider");

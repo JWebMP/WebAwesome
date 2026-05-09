@@ -13,8 +13,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaNumberInput component provides a specialized numeric input with increment/decrement controls.
  * It supports min/max bounds, step values, and integrates with Angular forms via ControlValueAccessor.
@@ -57,7 +55,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaNumberInputDirective", reference = "angular-awesome")
 @NgImportModule("WaNumberInputDirective")
 public class WaNumberInput<J extends WaNumberInput<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -89,7 +86,102 @@ public class WaNumberInput<J extends WaNumberInput<J>> extends DivSimple<J> impl
     /**
      * Creates a new WaNumberInput component
      */
-    public WaNumberInput()
+    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMin(Number min)
+    {
+        this.min = min;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMax(Number max)
+    {
+        this.max = max;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStep(Number step)
+    {
+        this.step = step;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setReadonly(Boolean readonly)
+    {
+        this.readonly = readonly;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlaceholder(String placeholder)
+    {
+        this.placeholder = placeholder;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoSpinButtons(Boolean noSpinButtons)
+    {
+        this.noSpinButtons = noSpinButtons;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setInputEvent(String inputEvent)
+    {
+        this.inputEvent = inputEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setChangeEvent(String changeEvent)
+    {
+        this.changeEvent = changeEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFocusEvent(String focusEvent)
+    {
+        this.focusEvent = focusEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBlurEvent(String blurEvent)
+    {
+        this.blurEvent = blurEvent;
+        return (J) this;
+    }    public WaNumberInput()
     {
         setTag("wa-number-input");
     }

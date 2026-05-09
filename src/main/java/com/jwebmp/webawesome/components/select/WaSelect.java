@@ -14,8 +14,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSelect component is a dropdown select control that allows users to choose from a list of options.
  * It supports features like labeling, hints, placeholder, multiple selection, and custom styling.
@@ -84,7 +82,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSelectWrapperComponent", reference = "angular-awesome")
 @NgImportModule("WaSelectWrapperComponent")
 public class WaSelect<J extends WaSelect<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -277,7 +274,192 @@ public class WaSelect<J extends WaSelect<J>> extends DivSimple<J> implements Bor
     /**
      * Creates a new WaSelect with the tag "wa-select-wrapper"
      */
-    public WaSelect()
+    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlaceholder(String placeholder)
+    {
+        this.placeholder = placeholder;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setClearable(Boolean clearable)
+    {
+        this.clearable = clearable;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(SelectAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPill(Boolean pill)
+    {
+        this.pill = pill;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMultiple(Boolean multiple)
+    {
+        this.multiple = multiple;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setForm(String form)
+    {
+        this.form = form;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxOptionsVisible(Integer maxOptionsVisible)
+    {
+        this.maxOptionsVisible = maxOptionsVisible;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(SelectPlacement placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setInputEvent(String inputEvent)
+    {
+        this.inputEvent = inputEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setChangeEvent(String changeEvent)
+    {
+        this.changeEvent = changeEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFocusEvent(String focusEvent)
+    {
+        this.focusEvent = focusEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBlurEvent(String blurEvent)
+    {
+        this.blurEvent = blurEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setClearEvent(String clearEvent)
+    {
+        this.clearEvent = clearEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowEvent(String showEvent)
+    {
+        this.showEvent = showEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterShowEvent(String afterShowEvent)
+    {
+        this.afterShowEvent = afterShowEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideEvent(String hideEvent)
+    {
+        this.hideEvent = hideEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterHideEvent(String afterHideEvent)
+    {
+        this.afterHideEvent = afterHideEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setInvalidEvent(String invalidEvent)
+    {
+        this.invalidEvent = invalidEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorCurrent(String backgroundColorCurrent)
+    {
+        this.backgroundColorCurrent = backgroundColorCurrent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorHover(String backgroundColorHover)
+    {
+        this.backgroundColorHover = backgroundColorHover;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextColorCurrent(String textColorCurrent)
+    {
+        this.textColorCurrent = textColorCurrent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextColorHover(String textColorHover)
+    {
+        this.textColorHover = textColorHover;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }    public WaSelect()
     {
         setTag("wa-select");
     }

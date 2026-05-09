@@ -8,13 +8,10 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.plugins.easingeffects.JQEasingEffects;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaAnimation component provides a way to animate elements with predefined or custom animations.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaAnimationDirective", reference = "angular-awesome")
 @NgImportModule("WaAnimationDirective")
 public class WaAnimation<J extends WaAnimation<J>> extends DivSimple<J> implements TransitionTokenCapable<J>
@@ -92,7 +89,77 @@ public class WaAnimation<J extends WaAnimation<J>> extends DivSimple<J> implemen
     /**
      * Creates a new WaAnimation component.
      */
-    public WaAnimation()
+    @SuppressWarnings("unchecked")
+    public J setEasingEffect(JQEasingEffects easingEffect)
+    {
+        this.easingEffect = easingEffect;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlay(boolean play)
+    {
+        this.play = play;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDelay(int delay)
+    {
+        this.delay = delay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDirection(PlaybackDirection direction)
+    {
+        this.direction = direction;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDuration(int duration)
+    {
+        this.duration = duration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEndDelay(int endDelay)
+    {
+        this.endDelay = endDelay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFill(FillMode fill)
+    {
+        this.fill = fill;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIterations(String iterations)
+    {
+        this.iterations = iterations;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIterationStart(double iterationStart)
+    {
+        this.iterationStart = iterationStart;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setKeyframes(Object keyframes)
+    {
+        this.keyframes = keyframes;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlaybackRate(double playbackRate)
+    {
+        this.playbackRate = playbackRate;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrentTime(Object currentTime)
+    {
+        this.currentTime = currentTime;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIconSize(String iconSize)
+    {
+        this.iconSize = iconSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setControlBoxSize(String controlBoxSize)
+    {
+        this.controlBoxSize = controlBoxSize;
+        return (J) this;
+    }    public WaAnimation()
     {
         setTag("wa-animation");
     }

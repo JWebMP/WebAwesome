@@ -5,8 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Date;
 
 /**
@@ -14,7 +12,6 @@ import java.util.Date;
  * It supports localization, time zones, and different formats for date/time components.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaFormatDateDirective", reference = "angular-awesome")
 @NgImportModule("WaFormatDateDirective")
 public class WaFormatDate<J extends WaFormatDate<J>> extends DivSimple<J>
@@ -119,7 +116,107 @@ public class WaFormatDate<J extends WaFormatDate<J>> extends DivSimple<J>
      * Display property of the formatted date.
      */
     private String display;
-
+    @SuppressWarnings("unchecked")
+    public J setDate(Object date)
+    {
+        this.date = date;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWeekday(String weekday)
+    {
+        this.weekday = weekday;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEra(String era)
+    {
+        this.era = era;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setYear(String year)
+    {
+        this.year = year;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMonth(String month)
+    {
+        this.month = month;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDay(String day)
+    {
+        this.day = day;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHour(String hour)
+    {
+        this.hour = hour;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinute(String minute)
+    {
+        this.minute = minute;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSecond(String second)
+    {
+        this.second = second;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTimeZoneName(String timeZoneName)
+    {
+        this.timeZoneName = timeZoneName;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTimeZone(String timeZone)
+    {
+        this.timeZone = timeZone;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHourFormat(String hourFormat)
+    {
+        this.hourFormat = hourFormat;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLang(String lang)
+    {
+        this.lang = lang;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontWeight(String fontWeight)
+    {
+        this.fontWeight = fontWeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPadding(String padding)
+    {
+        this.padding = padding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMargin(String margin)
+    {
+        this.margin = margin;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }
     public WaFormatDate()
     {
         setTag("wa-format-date");

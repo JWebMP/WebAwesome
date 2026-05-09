@@ -12,8 +12,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTextArea component collects multiline user input with optional labels, hints,
  * resize behaviors, and appearance customization.
@@ -22,7 +20,6 @@ import lombok.Setter;
  * through properties like label, hint, rows, resize, size, appearance, and more.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTextareaComponent", reference = "angular-awesome")
 @NgImportModule("WaTextareaComponent")
 public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, FocusTokenCapable<J>, TypographyTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -165,7 +162,142 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaTextArea with the tag "wa-textarea"
      */
-    public WaTextArea()
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlaceholder(String placeholder)
+    {
+        this.placeholder = placeholder;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRows(Integer rows)
+    {
+        this.rows = rows;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setResize(TextAreaResize resize)
+    {
+        this.resize = resize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAppearance(TextAreaAppearance appearance)
+    {
+        this.appearance = appearance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setReadonly(Boolean readonly)
+    {
+        this.readonly = readonly;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinlength(Integer minlength)
+    {
+        this.minlength = minlength;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxlength(Integer maxlength)
+    {
+        this.maxlength = maxlength;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutocapitalize(String autocapitalize)
+    {
+        this.autocapitalize = autocapitalize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutocorrect(String autocorrect)
+    {
+        this.autocorrect = autocorrect;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutocomplete(String autocomplete)
+    {
+        this.autocomplete = autocomplete;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAutofocus(Boolean autofocus)
+    {
+        this.autofocus = autofocus;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnterkeyhint(String enterkeyhint)
+    {
+        this.enterkeyhint = enterkeyhint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpellcheck(Boolean spellcheck)
+    {
+        this.spellcheck = spellcheck;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setInputmode(String inputmode)
+    {
+        this.inputmode = inputmode;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithCount(Boolean withCount)
+    {
+        this.withCount = withCount;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    public WaTextArea()
     {
         setTag("wa-textarea");
     }

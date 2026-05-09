@@ -5,14 +5,11 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The FormatBytes component formats a number into a human-readable byte or bit representation.
  * It supports different units, display formats, and localization.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaFormatBytes", reference = "angular-awesome")
 @NgImportModule("WaFormatBytes")
 public class FormatBytes<J extends FormatBytes<J>> extends DivSimple<J>
@@ -42,7 +39,27 @@ public class FormatBytes<J extends FormatBytes<J>> extends DivSimple<J>
     /**
      * Creates a new FormatBytes component with default settings.
      */
-    public FormatBytes()
+    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setUnit(FormatTypes unit)
+    {
+        this.unit = unit;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLang(String lang)
+    {
+        this.lang = lang;
+        return (J) this;
+    }    public FormatBytes()
     {
         setTag("wa-format-bytes");
     }

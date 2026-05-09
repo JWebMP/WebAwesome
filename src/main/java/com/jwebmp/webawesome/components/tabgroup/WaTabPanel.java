@@ -10,8 +10,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.interfaces.GlobalChildren;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTabPanel component represents a panel of content associated with a tab in a WaTabGroup.
  * It is linked to a WaTab via the name attribute, which should match the panel attribute of the tab.
@@ -20,7 +18,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
 public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>
 {
     /**
@@ -37,7 +34,22 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaTabPanel with the tag "wa-tab-panel"
      */
-    public WaTabPanel()
+    @SuppressWarnings("unchecked")
+    public J setActive(Boolean active)
+    {
+        this.active = active;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPadding(String padding)
+    {
+        this.padding = padding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPanelTemplate(DivSimple<?> panelTemplate)
+    {
+        this.panelTemplate = panelTemplate;
+        return (J) this;
+    }    public WaTabPanel()
     {
         setTag("wa-tab-panel");
         panelTemplate = new DivSimple<>()

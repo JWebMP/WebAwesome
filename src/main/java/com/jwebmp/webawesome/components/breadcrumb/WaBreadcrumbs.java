@@ -6,8 +6,6 @@ import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Wrapper for the <wa-breadcrumbs> component as referenced in the 3.0.0 docs.
  * This class mirrors WaBreadcrumb but uses the plural tag name expected by the docs
@@ -15,7 +13,6 @@ import lombok.Setter;
  * use WaBreadcrumb + WaBreadcrumbItem directly.
  */
 @Getter
-@Setter
 public class WaBreadcrumbs<J extends WaBreadcrumbs<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
 {
     /**
@@ -27,7 +24,17 @@ public class WaBreadcrumbs<J extends WaBreadcrumbs<J>> extends DivSimple<J> impl
      * Screen-reader label for accessibility
      */
     private String label;
-
+    @SuppressWarnings("unchecked")
+    public J setSeparator(IComponentHierarchyBase<?, ?> separator)
+    {
+        this.separator = separator;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }
     public WaBreadcrumbs()
     {
         setTag("wa-breadcrumbs");

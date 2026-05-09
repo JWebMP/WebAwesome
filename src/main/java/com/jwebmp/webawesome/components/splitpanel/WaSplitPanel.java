@@ -10,8 +10,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSplitPanel component displays two adjacent panels (start/end) separated by a resizable divider.
  * It supports features like custom initial position, vertical orientation, primary panel designation,
@@ -21,7 +19,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSplitPanelDirective", reference = "angular-awesome")
 @NgImportModule("WaSplitPanelDirective")
 public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, BorderTokenCapable<J>
@@ -112,7 +109,87 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J> implem
     /**
      * Creates a new WaSplitPanel with the tag "wa-split-panel"
      */
-    public WaSplitPanel()
+    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPosition(Integer position)
+    {
+        this.position = position;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPositionInPixels(Integer positionInPixels)
+    {
+        this.positionInPixels = positionInPixels;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(String orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVertical(Boolean vertical)
+    {
+        this.vertical = vertical;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSnap(String snap)
+    {
+        this.snap = snap;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSnapThreshold(Integer snapThreshold)
+    {
+        this.snapThreshold = snapThreshold;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPrimary(SplitPanelPrimary primary)
+    {
+        this.primary = primary;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMin(String min)
+    {
+        this.min = min;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMax(String max)
+    {
+        this.max = max;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerColor(String dividerColor)
+    {
+        this.dividerColor = dividerColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerWidth(String dividerWidth)
+    {
+        this.dividerWidth = dividerWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerHitArea(String dividerHitArea)
+    {
+        this.dividerHitArea = dividerHitArea;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDividerIcon(WaIcon<?> dividerIcon)
+    {
+        this.dividerIcon = dividerIcon;
+        return (J) this;
+    }    public WaSplitPanel()
     {
         setTag("wa-split-panel");
     }

@@ -13,8 +13,6 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.button.WaButton;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
-
 import java.util.List;
 
 /**
@@ -22,7 +20,6 @@ import java.util.List;
  * It supports features like light dismissal, accessibility labels, autofocus management, and lifecycle events.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaDialogDirective", reference = "angular-awesome")
 @NgImportModule("WaDialogDirective")
 public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -101,7 +98,77 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
     {
         setTag("wa-dialog");
     }
-
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLightDismiss(Boolean lightDismiss)
+    {
+        this.lightDismiss = lightDismiss;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithoutHeader(Boolean withoutHeader)
+    {
+        this.withoutHeader = withoutHeader;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setScrolling(Boolean scrolling)
+    {
+        this.scrolling = scrolling;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithFooterAttr(Boolean withFooterAttr)
+    {
+        this.withFooterAttr = withFooterAttr;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDialogHeaderDenyClose(Boolean dialogHeaderDenyClose)
+    {
+        this.dialogHeaderDenyClose = dialogHeaderDenyClose;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSpacing(String spacing)
+    {
+        this.spacing = spacing;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWidth(String width)
+    {
+        this.width = width;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowDuration(String showDuration)
+    {
+        this.showDuration = showDuration;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideDuration(String hideDuration)
+    {
+        this.hideDuration = hideDuration;
+        return (J) this;
+    }
 
     public WaDialog(String id)
     {

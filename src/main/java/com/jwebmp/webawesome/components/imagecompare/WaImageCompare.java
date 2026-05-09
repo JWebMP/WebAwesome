@@ -5,8 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Minimal wrapper for the <wa-image-compare> component referenced in docs.
  * This mirrors wa-comparison semantics but uses the legacy/pluralized tag where applicable.
@@ -20,7 +18,6 @@ import lombok.Setter;
  * - disabled: boolean flag to disable interaction
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaImageCompareComponent", reference = "angular-awesome")
 @NgImportModule("WaImageCompareComponent")
 public class WaImageCompare<J extends WaImageCompare<J>> extends DivSimple<J>
@@ -31,7 +28,32 @@ public class WaImageCompare<J extends WaImageCompare<J>> extends DivSimple<J>
     private IComponentHierarchyBase<?, ?> before;
     private IComponentHierarchyBase<?, ?> after;
     private IComponentHierarchyBase<?, ?> handle;
-
+    @SuppressWarnings("unchecked")
+    public J setPosition(String position)
+    {
+        this.position = position;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBefore(IComponentHierarchyBase<?, ?> before)
+    {
+        this.before = before;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfter(IComponentHierarchyBase<?, ?> after)
+    {
+        this.after = after;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHandle(IComponentHierarchyBase<?, ?> handle)
+    {
+        this.handle = handle;
+        return (J) this;
+    }
     public WaImageCompare()
     {
         setTag("wa-image-compare");

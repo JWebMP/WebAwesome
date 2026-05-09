@@ -16,8 +16,6 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import com.jwebmp.webawesome.components.PlacementExtended;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaDropDown component provides a dropdown menu triggered by a button.
  * It exposes additional content in a popover panel, often triggered by a button.
@@ -72,7 +70,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaDropdownDirective", reference = "angular-awesome")
 @NgImportModule("WaDropdownDirective")
 public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>
@@ -178,7 +175,102 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J> implements
      * Event handler for when a dropdown item is selected.
      */
     private String selectEvent;
-
+    @SuppressWarnings("unchecked")
+    public J setButton(WaButton<?> button)
+    {
+        this.button = button;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setContent(IComponentHierarchyBase<?, ?> content)
+    {
+        this.content = content;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(PlacementExtended placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDistance(Integer distance)
+    {
+        this.distance = distance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSkidding(Integer skidding)
+    {
+        this.skidding = skidding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHoist(Boolean hoist)
+    {
+        this.hoist = hoist;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStayOpenOnSelect(Boolean stayOpenOnSelect)
+    {
+        this.stayOpenOnSelect = stayOpenOnSelect;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setContainingElement(IComponentHierarchyBase<?, ?> containingElement)
+    {
+        this.containingElement = containingElement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSync(String sync)
+    {
+        this.sync = sync;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowEvent(String showEvent)
+    {
+        this.showEvent = showEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterShowEvent(String afterShowEvent)
+    {
+        this.afterShowEvent = afterShowEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideEvent(String hideEvent)
+    {
+        this.hideEvent = hideEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAfterHideEvent(String afterHideEvent)
+    {
+        this.afterHideEvent = afterHideEvent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSelectEvent(String selectEvent)
+    {
+        this.selectEvent = selectEvent;
+        return (J) this;
+    }
     public WaDropDown()
     {
         setTag("wa-dropdown");

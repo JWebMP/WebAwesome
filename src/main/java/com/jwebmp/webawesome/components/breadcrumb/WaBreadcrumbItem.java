@@ -5,8 +5,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaBreadcrumbItem component represents a link or step in the navigation path.
  * <p>
@@ -34,7 +32,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 public class WaBreadcrumbItem<J extends WaBreadcrumbItem<J>> extends DivSimple<J>
 {
     /**
@@ -70,7 +67,37 @@ public class WaBreadcrumbItem<J extends WaBreadcrumbItem<J>> extends DivSimple<J
     /**
      * Creates a new WaBreadcrumbItem component
      */
-    public WaBreadcrumbItem()
+    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHref(String href)
+    {
+        this.href = href;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTarget(String target)
+    {
+        this.target = target;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRel(String rel)
+    {
+        this.rel = rel;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSeparator(IComponentHierarchyBase<?, ?> separator)
+    {
+        this.separator = separator;
+        return (J) this;
+    }    public WaBreadcrumbItem()
     {
         setTag("wa-breadcrumb-item");
     }

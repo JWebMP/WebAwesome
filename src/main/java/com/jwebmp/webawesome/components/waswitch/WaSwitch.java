@@ -10,8 +10,6 @@ import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.Size;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSwitch component is a toggle switch that can be used in forms.
  * It provides a visual way for users to toggle between two states (on/off).
@@ -20,7 +18,6 @@ import lombok.Setter;
  * through properties like checked, disabled, size, and hint.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaSwitchDirective", reference = "angular-awesome")
 @NgImportModule("WaSwitchDirective")
 public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -128,7 +125,107 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J> implements Spa
     /**
      * Creates a new WaSwitch with the tag "wa-switch"
      */
-    public WaSwitch()
+    @SuppressWarnings("unchecked")
+    public J setChecked(Boolean checked)
+    {
+        this.checked = checked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHint(String hint)
+    {
+        this.hint = hint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setRequired(Boolean required)
+    {
+        this.required = required;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWithHint(Boolean withHint)
+    {
+        this.withHint = withHint;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setWidth(String width)
+    {
+        this.width = width;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHeight(String height)
+    {
+        this.height = height;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbSize(String thumbSize)
+    {
+        this.thumbSize = thumbSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbColor(String thumbColor)
+    {
+        this.thumbColor = thumbColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbColorChecked(String thumbColorChecked)
+    {
+        this.thumbColorChecked = thumbColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setThumbShadow(String thumbShadow)
+    {
+        this.thumbShadow = thumbShadow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorChecked(String backgroundColorChecked)
+    {
+        this.backgroundColorChecked = backgroundColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColor(String borderColor)
+    {
+        this.borderColor = borderColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderColorChecked(String borderColorChecked)
+    {
+        this.borderColorChecked = borderColorChecked;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderStyle(String borderStyle)
+    {
+        this.borderStyle = borderStyle;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderWidth(String borderWidth)
+    {
+        this.borderWidth = borderWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBoxShadow(String boxShadow)
+    {
+        this.boxShadow = boxShadow;
+        return (J) this;
+    }    public WaSwitch()
     {
         setTag("wa-switch");
         // Do not emit the waSwitch directive attribute; tag name is sufficient

@@ -12,8 +12,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTooltip component displays contextual information when hovering, focusing, clicking,
  * or programmatically toggling visibility on a target element.
@@ -22,7 +20,6 @@ import lombok.Setter;
  * to the id of another element.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTooltipDirective", reference = "angular-awesome")
 @NgImportModule("WaTooltipDirective")
 public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J> implements BorderTokenCapable<J>, ShadowTokenCapable<J>, SpaceTokenCapable<J>, TransitionTokenCapable<J>, TypographyTokenCapable<J>
@@ -105,7 +102,82 @@ public class WaTooltip<J extends WaTooltip<J>> extends DivSimple<J> implements B
     /**
      * Creates a new WaTooltip with the tag "wa-tooltip"
      */
-    public WaTooltip()
+    @SuppressWarnings("unchecked")
+    public J setForId(String forId)
+    {
+        this.forId = forId;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(TooltipPlacement placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoArrow(Boolean noArrow)
+    {
+        this.noArrow = noArrow;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaxWidth(String maxWidth)
+    {
+        this.maxWidth = maxWidth;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHoist(Boolean hoist)
+    {
+        this.hoist = hoist;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDistance(Integer distance)
+    {
+        this.distance = distance;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOpen(Boolean open)
+    {
+        this.open = open;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setSkidding(Integer skidding)
+    {
+        this.skidding = skidding;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setShowDelay(Integer showDelay)
+    {
+        this.showDelay = showDelay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setHideDelay(Integer hideDelay)
+    {
+        this.hideDelay = hideDelay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrigger(String trigger)
+    {
+        this.trigger = trigger;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColor(String backgroundColor)
+    {
+        this.backgroundColor = backgroundColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBorderRadius(String borderRadius)
+    {
+        this.borderRadius = borderRadius;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPadding(String padding)
+    {
+        this.padding = padding;
+        return (J) this;
+    }    public WaTooltip()
     {
         setTag("wa-tooltip");
     }

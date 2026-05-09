@@ -8,8 +8,6 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaTabGroup component organizes content into panels, showing one at a time.
  * Tabs are linked to panels via the panel and name attributes.
@@ -19,7 +17,6 @@ import lombok.Setter;
  * through properties and CSS custom properties.
  */
 @Getter
-@Setter
 public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J> implements BorderTokenCapable<J>, SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
@@ -60,7 +57,42 @@ public class WaTabGroup<J extends WaTabGroup<J>> extends DivSimple<J> implements
     /**
      * Creates a new WaTabGroup with the tag "wa-tab-group"
      */
-    public WaTabGroup()
+    @SuppressWarnings("unchecked")
+    public J setActive(String active)
+    {
+        this.active = active;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPlacement(TabPlacement placement)
+    {
+        this.placement = placement;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setActivation(TabActivation activation)
+    {
+        this.activation = activation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoScrollControls(Boolean noScrollControls)
+    {
+        this.noScrollControls = noScrollControls;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setIndicatorColor(String indicatorColor)
+    {
+        this.indicatorColor = indicatorColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackColor(String trackColor)
+    {
+        this.trackColor = trackColor;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTrackWidth(String trackWidth)
+    {
+        this.trackWidth = trackWidth;
+        return (J) this;
+    }    public WaTabGroup()
     {
         setTag("wa-tab-group");
     }

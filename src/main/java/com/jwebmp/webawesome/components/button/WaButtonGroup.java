@@ -13,14 +13,11 @@ import com.jwebmp.webawesome.components.VariantCapable;
 import com.jwebmp.webawesome.components.Size;
 import com.jwebmp.webawesome.components.Variant;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaButtonGroup component provides a way to group related buttons with shared attributes.
  * It supports size, variant, orientation, and accessibility features.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaButtonGroupDirective", reference = "angular-awesome")
 @NgImportModule("WaButtonGroupDirective")
 public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J> implements VariantCapable<J>, BorderTokenCapable<J>, SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
@@ -44,7 +41,27 @@ public class WaButtonGroup<J extends WaButtonGroup<J>> extends DivSimple<J> impl
      * The visual style variant of the button group
      */
     private Variant variant;
-
+    @SuppressWarnings("unchecked")
+    public J setSize(Size size)
+    {
+        this.size = size;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setOrientation(Orientation orientation)
+    {
+        this.orientation = orientation;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setVariant(Variant variant)
+    {
+        this.variant = variant;
+        return (J) this;
+    }
     public WaButtonGroup()
     {
         setTag("wa-button-group");

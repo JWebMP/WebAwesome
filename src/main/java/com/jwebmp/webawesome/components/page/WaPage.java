@@ -8,14 +8,12 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.BreakpointCapable;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.experimental.Accessors;
 
 /**
  * Represents a Web Awesome page component.
  * This class provides methods to configure the page's attributes and child components.
  */
-@Setter
 @Getter
 @Accessors(chain = true)
 @NgImportReference(value = "WaPageComponent", reference = "angular-awesome")
@@ -182,6 +180,227 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
     public WaPage()
     {
         setTag("wa-page");
+    }
+
+    /**
+     * Sets the banner component of the page.
+     *
+     * @param banner The banner component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setBanner(WaPageBanner<?> banner)
+    {
+        this.banner = banner;
+        return (J) this;
+    }
+
+    /**
+     * Sets the header component of the page.
+     *
+     * @param header The header component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setHeader(WaPageHeader<?> header)
+    {
+        this.header = header;
+        return (J) this;
+    }
+
+    /**
+     * Sets the sub-header component of the page.
+     *
+     * @param subHeader The sub-header component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setSubHeader(WaPageSubHeader<?> subHeader)
+    {
+        this.subHeader = subHeader;
+        return (J) this;
+    }
+
+    /**
+     * Sets the navigation header component of the page.
+     *
+     * @param navigationHeader The navigation header component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setNavigationHeader(WaPageContentsNavigationHeader<?> navigationHeader)
+    {
+        this.navigationHeader = navigationHeader;
+        return (J) this;
+    }
+
+    /**
+     * Sets the navigation component of the page.
+     *
+     * @param navigation The navigation component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setNavigation(WaPageContentsNavigation<?> navigation)
+    {
+        this.navigation = navigation;
+        return (J) this;
+    }
+
+    /**
+     * Sets the navigation footer component of the page.
+     *
+     * @param navigationFooter The navigation footer component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setNavigationFooter(WaPageContentsNavigationFooter<?> navigationFooter)
+    {
+        this.navigationFooter = navigationFooter;
+        return (J) this;
+    }
+
+    /**
+     * Sets the main header component of the page.
+     *
+     * @param mainHeader The main header component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setMainHeader(WaPageContentsMainHeader<?> mainHeader)
+    {
+        this.mainHeader = mainHeader;
+        return (J) this;
+    }
+
+    /**
+     * Sets the main content component of the page.
+     *
+     * @param main The main content component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setMain(WaPageContentsMain<?> main)
+    {
+        this.main = main;
+        return (J) this;
+    }
+
+    /**
+     * Sets the main footer component of the page.
+     *
+     * @param mainFooter The main footer component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setMainFooter(WaPageContentsMainFooter<?> mainFooter)
+    {
+        this.mainFooter = mainFooter;
+        return (J) this;
+    }
+
+    /**
+     * Sets the aside component of the page.
+     *
+     * @param aside The aside component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setAside(WaPageContentsAside<?> aside)
+    {
+        this.aside = aside;
+        return (J) this;
+    }
+
+    /**
+     * Sets the footer component of the page.
+     *
+     * @param footer The footer component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setFooter(WaPageFooter<?> footer)
+    {
+        this.footer = footer;
+        return (J) this;
+    }
+
+    /**
+     * Sets the skip to content component of the page.
+     *
+     * @param skipToContent The skip to content component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setSkipToContent(WaPageSkipToContent<?> skipToContent)
+    {
+        this.skipToContent = skipToContent;
+        return (J) this;
+    }
+
+    /**
+     * Sets the menu component of the page.
+     *
+     * @param menu The menu component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setMenu(WaPageMenu<?> menu)
+    {
+        this.menu = menu;
+        return (J) this;
+    }
+
+    /**
+     * Sets the navigation toggle component of the page.
+     *
+     * @param navigationToggle The navigation toggle component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setNavigationToggle(WaPageNavigationToggle<?> navigationToggle)
+    {
+        this.navigationToggle = navigationToggle;
+        return (J) this;
+    }
+
+    /**
+     * Sets the navigation toggle icon component of the page.
+     *
+     * @param navigationToggleIcon The navigation toggle icon component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setNavigationToggleIcon(WaPageNavigationToggleIcon<?> navigationToggleIcon)
+    {
+        this.navigationToggleIcon = navigationToggleIcon;
+        return (J) this;
+    }
+
+    /**
+     * Sets the dialog wrapper component of the page.
+     *
+     * @param dialogWrapper The dialog wrapper component.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setDialogWrapper(WaPageDialogWrapper<?> dialogWrapper)
+    {
+        this.dialogWrapper = dialogWrapper;
+        return (J) this;
+    }
+
+    /**
+     * Sets whether to disable the navigation toggle button.
+     *
+     * @param disableNavigationToggle True to disable.
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setDisableNavigationToggle(Boolean disableNavigationToggle)
+    {
+        this.disableNavigationToggle = disableNavigationToggle;
+        return (J) this;
     }
 
     /**
@@ -528,10 +747,24 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param navOpen The new value for the navOpen property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setNavOpen(boolean navOpen)
+    @SuppressWarnings("unchecked")
+    public J setNavOpen(boolean navOpen)
     {
         this.navOpen = navOpen;
         addAttribute("nav-open", Boolean.toString(navOpen));
+        return (J) this;
+    }
+
+    /**
+     * Sets the read-only view mode.
+     *
+     * @param view The view mode ('mobile' or 'desktop').
+     * @return This component for method chaining.
+     */
+    @SuppressWarnings("unchecked")
+    public J setView(String view)
+    {
+        this.view = view;
         return (J) this;
     }
 
@@ -542,7 +775,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param disableSticky The new value for the disableSticky property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setDisableSticky(String disableSticky)
+    @SuppressWarnings("unchecked")
+    public J setDisableSticky(String disableSticky)
     {
         this.disableSticky = disableSticky;
         addAttribute("disable-sticky", disableSticky);
@@ -556,7 +790,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param navigationPlacement The new value for the navigationPlacement property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setNavigationPlacement(String navigationPlacement)
+    @SuppressWarnings("unchecked")
+    public J setNavigationPlacement(String navigationPlacement)
     {
         this.navigationPlacement = navigationPlacement;
         addAttribute("navigation-placement", navigationPlacement);
@@ -570,7 +805,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param menuWidth The new value for the menuWidth property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setMenuWidth(String menuWidth)
+    @SuppressWarnings("unchecked")
+    public J setMenuWidth(String menuWidth)
     {
         this.menuWidth = menuWidth;
         addStyle("--menu-width", menuWidth);
@@ -584,7 +820,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param mainWidth The new value for the mainWidth property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setMainWidth(String mainWidth)
+    @SuppressWarnings("unchecked")
+    public J setMainWidth(String mainWidth)
     {
         this.mainWidth = mainWidth;
         addStyle("--main-width", mainWidth);
@@ -598,7 +835,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param asideWidth The new value for the asideWidth property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setAsideWidth(String asideWidth)
+    @SuppressWarnings("unchecked")
+    public J setAsideWidth(String asideWidth)
     {
         this.asideWidth = asideWidth;
         addStyle("--aside-width", asideWidth);
@@ -612,7 +850,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param bannerHeight The new value for the bannerHeight property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setBannerHeight(String bannerHeight)
+    @SuppressWarnings("unchecked")
+    public J setBannerHeight(String bannerHeight)
     {
         this.bannerHeight = bannerHeight;
         addStyle("--banner-height", bannerHeight);
@@ -626,7 +865,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param headerHeight The new value for the headerHeight property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setHeaderHeight(String headerHeight)
+    @SuppressWarnings("unchecked")
+    public J setHeaderHeight(String headerHeight)
     {
         this.headerHeight = headerHeight;
         addStyle("--header-height", headerHeight);
@@ -640,7 +880,8 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      * @param subheaderHeight The new value for the subheaderHeight property.
      * @return This component for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setSubheaderHeight(String subheaderHeight)
+    @SuppressWarnings("unchecked")
+    public J setSubheaderHeight(String subheaderHeight)
     {
         this.subheaderHeight = subheaderHeight;
         addStyle("--subheader-height", subheaderHeight);

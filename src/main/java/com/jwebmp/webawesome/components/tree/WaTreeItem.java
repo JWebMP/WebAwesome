@@ -9,7 +9,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * The WaTreeItem component represents an item in a tree structure.
@@ -19,7 +18,6 @@ import lombok.Setter;
  * through properties like expanded, selected, disabled, and lazy.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaTreeItemDirective", reference = "angular-awesome")
 @NgImportModule("WaTreeItemDirective")
 public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, FocusTokenCapable<J>
@@ -86,6 +84,83 @@ public class WaTreeItem<J extends WaTreeItem<J>> extends DivSimple<J> implements
     {
         setTag("wa-tree-item");
         setRenderTextBeforeChildren(true);
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setSelected(Boolean selected)
+    {
+        this.selected = selected;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setExpanded(Boolean expanded)
+    {
+        this.expanded = expanded;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setLazyLoading(Boolean lazyLoading)
+    {
+        this.lazyLoading = lazyLoading;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setExpandIcon(WaIcon<?> expandIcon)
+    {
+        this.expandIcon = expandIcon;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setCollapseIcon(WaIcon<?> collapseIcon)
+    {
+        this.collapseIcon = collapseIcon;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setSelectionBackgroundColor(String selectionBackgroundColor)
+    {
+        this.selectionBackgroundColor = selectionBackgroundColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setSelectionIndicatorColor(String selectionIndicatorColor)
+    {
+        this.selectionIndicatorColor = selectionIndicatorColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setExpandButtonColor(String expandButtonColor)
+    {
+        this.expandButtonColor = expandButtonColor;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setShowDuration(String showDuration)
+    {
+        this.showDuration = showDuration;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setHideDuration(String hideDuration)
+    {
+        this.hideDuration = hideDuration;
+        return (J) this;
     }
 
     /**

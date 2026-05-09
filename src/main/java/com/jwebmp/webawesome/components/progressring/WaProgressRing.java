@@ -9,8 +9,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Represents a Web Awesome progress ring component used to visualize the progression of a task in a circular format.
  * <p>
@@ -56,72 +54,20 @@ import lombok.Setter;
  * Note: This component supports two-way binding for the value property.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaProgressRingDirective", reference = "angular-awesome")
 @NgImportModule("WaProgressRingDirective")
 public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TransitionTokenCapable<J>
 {
-    /**
-     * The current value of the progress ring.
-     * This can be null if not set.
-     */
     private Number value;
-
-    /**
-     * The track width of the progress ring.
-     * This can be null if not set.
-     */
     private String trackWidth;
-
-    /**
-     * The indicator width of the progress ring.
-     * This can be null if not set.
-     */
     private String indicatorWidth;
-
-    /**
-     * The track color of the progress ring.
-     * This can be null if not set.
-     */
     private String trackColor;
-
-    /**
-     * The indicator color of the progress ring.
-     * This can be null if not set.
-     */
     private String indicatorColor;
-
-    /**
-     * The label to display on the progress ring.
-     * This can be null if not set.
-     */
     private String label;
-
-    /**
-     * The size of the progress ring.
-     * This can be null if not set.
-     */
     private String size;
-
-    /**
-     * The transition duration for the indicator.
-     * This can be null if not set.
-     */
     private String indicatorTransitionDuration;
-
-    /**
-     * Event handler for when the progress ring gains focus.
-     */
     private String focusEvent;
-
-    /**
-     * Event handler for when the progress ring loses focus.
-     */
     private String blurEvent;
-
-    /**
-     * Optional component to display before the content.
-     */
     private IComponentHierarchyBase<?, ?> prefix;
 
     /**
@@ -139,7 +85,8 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param value The value to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setValue(int value)
+    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
     {
         this.value = value;
         return (J) this;
@@ -151,12 +98,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param trackWidth The track width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setTrackWidth(String trackWidth)
+    @SuppressWarnings("unchecked")
+    public J setTrackWidth(String trackWidth)
     {
-        if (!Strings.isNullOrEmpty(trackWidth))
-        {
-            this.trackWidth = trackWidth;
-        }
+        this.trackWidth = trackWidth;
         return (J) this;
     }
 
@@ -166,12 +111,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param indicatorWidth The indicator width to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setIndicatorWidth(String indicatorWidth)
+    @SuppressWarnings("unchecked")
+    public J setIndicatorWidth(String indicatorWidth)
     {
-        if (!Strings.isNullOrEmpty(indicatorWidth))
-        {
-            this.indicatorWidth = indicatorWidth;
-        }
+        this.indicatorWidth = indicatorWidth;
         return (J) this;
     }
 
@@ -181,12 +124,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param trackColor The track color to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setTrackColor(String trackColor)
+    @SuppressWarnings("unchecked")
+    public J setTrackColor(String trackColor)
     {
-        if (!Strings.isNullOrEmpty(trackColor))
-        {
-            this.trackColor = trackColor;
-        }
+        this.trackColor = trackColor;
         return (J) this;
     }
 
@@ -196,12 +137,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param indicatorColor The indicator color to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setIndicatorColor(String indicatorColor)
+    @SuppressWarnings("unchecked")
+    public J setIndicatorColor(String indicatorColor)
     {
-        if (!Strings.isNullOrEmpty(indicatorColor))
-        {
-            this.indicatorColor = indicatorColor;
-        }
+        this.indicatorColor = indicatorColor;
         return (J) this;
     }
 
@@ -211,12 +150,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param label The label to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setLabel(String label)
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
     {
-        if (!Strings.isNullOrEmpty(label))
-        {
-            this.label = label;
-        }
+        this.label = label;
         return (J) this;
     }
 
@@ -226,12 +163,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param size The size to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setSize(String size)
+    @SuppressWarnings("unchecked")
+    public J setSize(String size)
     {
-        if (!Strings.isNullOrEmpty(size))
-        {
-            this.size = size;
-        }
+        this.size = size;
         return (J) this;
     }
 
@@ -241,12 +176,10 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param indicatorTransitionDuration The transition duration to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setIndicatorTransitionDuration(String indicatorTransitionDuration)
+    @SuppressWarnings("unchecked")
+    public J setIndicatorTransitionDuration(String indicatorTransitionDuration)
     {
-        if (!Strings.isNullOrEmpty(indicatorTransitionDuration))
-        {
-            this.indicatorTransitionDuration = indicatorTransitionDuration;
-        }
+        this.indicatorTransitionDuration = indicatorTransitionDuration;
         return (J) this;
     }
 
@@ -256,7 +189,8 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param focusEvent The focus event handler to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setFocusEvent(String focusEvent)
+    @SuppressWarnings("unchecked")
+    public J setFocusEvent(String focusEvent)
     {
         this.focusEvent = focusEvent;
         return (J) this;
@@ -268,7 +202,8 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param blurEvent The blur event handler to set.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setBlurEvent(String blurEvent)
+    @SuppressWarnings("unchecked")
+    public J setBlurEvent(String blurEvent)
     {
         this.blurEvent = blurEvent;
         return (J) this;
@@ -280,7 +215,8 @@ public class WaProgressRing<J extends WaProgressRing<J>> extends DivSimple<J> im
      * @param prefix The component to set as prefix.
      * @return The current instance of WaProgressRing for method chaining.
      */
-    public @org.jspecify.annotations.NonNull J setPrefix(IComponentHierarchyBase<?, ?> prefix)
+    @SuppressWarnings("unchecked")
+    public J setPrefix(IComponentHierarchyBase<?, ?> prefix)
     {
         this.prefix = prefix;
         return (J) this;

@@ -7,8 +7,6 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Paragraph;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaSelectOption component represents an option within a WaSelect dropdown.
  * It allows for setting a value, disabled state, and custom styling.
@@ -50,7 +48,6 @@ import lombok.Setter;
  * </pre>
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaOptionComponent", reference = "angular-awesome")
 @NgImportModule("WaOptionComponent")
 public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
@@ -98,7 +95,47 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
     /**
      * Creates a new WaSelectOption with the tag "wa-option"
      */
-    public WaSelectOption()
+    @SuppressWarnings("unchecked")
+    public J setValue(String value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setStart(IComponentHierarchyBase<?, ?> start)
+    {
+        this.start = start;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setEnd(IComponentHierarchyBase<?, ?> end)
+    {
+        this.end = end;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorCurrent(String backgroundColorCurrent)
+    {
+        this.backgroundColorCurrent = backgroundColorCurrent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setBackgroundColorHover(String backgroundColorHover)
+    {
+        this.backgroundColorHover = backgroundColorHover;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextColorCurrent(String textColorCurrent)
+    {
+        this.textColorCurrent = textColorCurrent;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextColorHover(String textColorHover)
+    {
+        this.textColorHover = textColorHover;
+        return (J) this;
+    }    public WaSelectOption()
     {
         setTag("wa-option");
     }

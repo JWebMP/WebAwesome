@@ -5,14 +5,11 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * The WaFormatNumber component formats a number according to various formatting options.
  * It supports different types (decimal, currency, percent), currency options, and localization.
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaFormatNumberDirective", reference = "angular-awesome")
 @NgImportModule("WaFormatNumberDirective")
 public class WaFormatNumber<J extends WaFormatNumber<J>> extends DivSimple<J>
@@ -102,7 +99,92 @@ public class WaFormatNumber<J extends WaFormatNumber<J>> extends DivSimple<J>
      * Padding around the formatted number.
      */
     private String padding;
-
+    @SuppressWarnings("unchecked")
+    public J setValue(Number value)
+    {
+        this.value = value;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setType(String type)
+    {
+        this.type = type;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrency(String currency)
+    {
+        this.currency = currency;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrencyDisplay(String currencyDisplay)
+    {
+        this.currencyDisplay = currencyDisplay;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setLang(String lang)
+    {
+        this.lang = lang;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setNoGrouping(Boolean noGrouping)
+    {
+        this.noGrouping = noGrouping;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinimumIntegerDigits(Integer minimumIntegerDigits)
+    {
+        this.minimumIntegerDigits = minimumIntegerDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinimumFractionDigits(Integer minimumFractionDigits)
+    {
+        this.minimumFractionDigits = minimumFractionDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaximumFractionDigits(Integer maximumFractionDigits)
+    {
+        this.maximumFractionDigits = maximumFractionDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMinimumSignificantDigits(Integer minimumSignificantDigits)
+    {
+        this.minimumSignificantDigits = minimumSignificantDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMaximumSignificantDigits(Integer maximumSignificantDigits)
+    {
+        this.maximumSignificantDigits = maximumSignificantDigits;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setColor(String color)
+    {
+        this.color = color;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontSize(String fontSize)
+    {
+        this.fontSize = fontSize;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setFontWeight(String fontWeight)
+    {
+        this.fontWeight = fontWeight;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisplay(String display)
+    {
+        this.display = display;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setTextAlign(String textAlign)
+    {
+        this.textAlign = textAlign;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setPadding(String padding)
+    {
+        this.padding = padding;
+        return (J) this;
+    }
     public WaFormatNumber()
     {
         setTag("wa-format-number");

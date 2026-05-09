@@ -5,8 +5,6 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
-import lombok.Setter;
-
 /**
  * Web Awesome mutation observer component ({@code <wa-mutation-observer>}).
  * Wraps the MutationObserver API to detect changes in the DOM subtree of child elements.
@@ -21,7 +19,6 @@ import lombok.Setter;
  * - {@code wa-mutation}: Fires when a watched mutation occurs
  */
 @Getter
-@Setter
 @NgImportReference(value = "WaMutationObserverDirective", reference = "angular-awesome")
 @NgImportModule("WaMutationObserverDirective")
 public class WaMutationObserver<J extends WaMutationObserver<J>> extends DivSimple<J>
@@ -42,7 +39,42 @@ public class WaMutationObserver<J extends WaMutationObserver<J>> extends DivSimp
     private Boolean charDataOldValue;
 
     private String mutationEvent;
-
+    @SuppressWarnings("unchecked")
+    public J setAttr(String attr)
+    {
+        this.attr = attr;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setChildList(Boolean childList)
+    {
+        this.childList = childList;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCharData(Boolean charData)
+    {
+        this.charData = charData;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setDisabled(Boolean disabled)
+    {
+        this.disabled = disabled;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setAttrOldValue(Boolean attrOldValue)
+    {
+        this.attrOldValue = attrOldValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCharDataOldValue(Boolean charDataOldValue)
+    {
+        this.charDataOldValue = charDataOldValue;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setMutationEvent(String mutationEvent)
+    {
+        this.mutationEvent = mutationEvent;
+        return (J) this;
+    }
     public WaMutationObserver()
     {
         setTag("wa-mutation-observer");
