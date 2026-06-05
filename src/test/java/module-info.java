@@ -8,6 +8,9 @@ module web.awesome.test {
 
 
     opens com.jwebmp.webawesome.test to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.accordion to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.knowndate to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.timeinput to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.components to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.avatar to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.animatedimage to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
@@ -54,7 +57,6 @@ module web.awesome.test {
     opens com.jwebmp.webawesome.test.tree to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.waswitch to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.text to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
-    opens com.jwebmp.webawesome.test.toast to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.scroller to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.zoom to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.page to com.fasterxml.jackson.databind, com.jwebmp.core, org.junit.platform.commons;

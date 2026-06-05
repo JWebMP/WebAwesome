@@ -7,6 +7,9 @@ import com.jwebmp.webawesome.components.WebAwesomePageConfigurator;
 module com.jwebmp.webawesome {
 
     exports com.jwebmp.webawesome.components;
+    exports com.jwebmp.webawesome.components.accordion;
+    exports com.jwebmp.webawesome.components.knowndate;
+    exports com.jwebmp.webawesome.components.timeinput;
     exports com.jwebmp.webawesome.components.animatedimage;
     exports com.jwebmp.webawesome.components.animation;
     exports com.jwebmp.webawesome.components.avatar;
@@ -54,7 +57,6 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.tooltip;
     exports com.jwebmp.webawesome.components.tree;
     exports com.jwebmp.webawesome.components.scroller;
-    exports com.jwebmp.webawesome.components.toast;
     exports com.jwebmp.webawesome.components.variant;
     exports com.jwebmp.webawesome.components.zoom;
     exports com.jwebmp.webawesome.components.page;
@@ -80,6 +82,9 @@ module com.jwebmp.webawesome {
 
     opens com.jwebmp.webawesome to web.awesome.test;
 
+    opens com.jwebmp.webawesome.components.accordion to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.knowndate to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.timeinput to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.animatedimage to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.animation to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.avatar to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
@@ -127,7 +132,6 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.tooltip to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.tree to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.scroller to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
-    opens com.jwebmp.webawesome.components.toast to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.variant to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.zoom to com.google.guice, com.jwebmp.core, com.fasterxml.jackson.databind, com.jwebmp.core.angular;
 
