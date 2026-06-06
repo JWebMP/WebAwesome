@@ -262,7 +262,6 @@ public class WaCard<J extends WaCard<J>> extends DivSimple<J> implements Variant
      * @param header The header text
      * @return This object
      */
-    @SuppressWarnings("unchecked")
     public J withHeader(String header)
     {
         DivSimple<?> headerDiv = new DivSimple<>();

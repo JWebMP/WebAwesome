@@ -542,7 +542,6 @@ public class WaTimeInput<J extends WaTimeInput<J>> extends DivSimple<J>
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         return addAttribute("[(ngModel)]", variableName);

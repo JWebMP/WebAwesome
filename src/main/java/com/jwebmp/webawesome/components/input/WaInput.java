@@ -710,7 +710,6 @@ public class WaInput<J extends WaInput<J>> extends DivSimple<J> implements Borde
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public J bind(String variableName)
     {
         return addAttribute("[(ngModel)]", variableName);

@@ -394,7 +394,6 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J> implements
      * @param text The text for the dropdown item
      * @return This object for method chaining
      */
-    @SuppressWarnings("unchecked")
     public J addItem(String text)
     {
         return addItem(new WaDropdownItem<>(text));
@@ -407,7 +406,6 @@ public class WaDropDown<J extends WaDropDown<J>> extends DivSimple<J> implements
      * @param value The value for the dropdown item
      * @return This object for method chaining
      */
-    @SuppressWarnings("unchecked")
     public J addItem(String text, String value)
     {
         return addItem(new WaDropdownItem<>(text).setValue(value));
