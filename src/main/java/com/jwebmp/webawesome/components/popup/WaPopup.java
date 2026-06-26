@@ -52,8 +52,8 @@ import java.io.Serial;
  * - `--arrow-color`: The color of the arrow. Default is black.
  * - `--auto-size-available-width`: A read-only custom property that determines the amount of width the popup can be before overflowing.
  * - `--auto-size-available-height`: A read-only custom property that determines the amount of height the popup can be before overflowing.
- * - `--show-duration`: The show duration to use when applying built-in animation classes. Default is 100ms.
- * - `--hide-duration`: The hide duration to use when applying built-in animation classes. Default is 100ms.
+ * - `--show-duration`: The show duration to use when applying built-in animation classes. Default is var(--wa-transition-fast).
+ * - `--hide-duration`: The hide duration to use when applying built-in animation classes. Default is var(--wa-transition-fast).
  */
 @Getter
 @NgImportReference(value = "WaPopupDirective", reference = "angular-awesome")

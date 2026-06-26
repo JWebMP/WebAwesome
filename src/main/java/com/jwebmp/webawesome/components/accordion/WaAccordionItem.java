@@ -70,22 +70,24 @@ public class WaAccordionItem<J extends WaAccordionItem<J>> extends DivSimple<J>
     private String showDuration;
 
     /**
-     * The {@code --hide-duration} CSS custom property.
+     * The {@code --show-duration} CSS custom property. Default {@code var(--wa-transition-normal)}.
      */
     private String hideDuration;
 
     /**
-     * The {@code --easing} CSS custom property.
+     * The {@code --hide-duration} CSS custom property. Default {@code var(--wa-transition-normal)}.
      */
     private String easing;
 
     /**
-     * The {@code --wa-accordion-divider-color} CSS custom property.
+     * The {@code --easing} CSS custom property. Default {@code var(--wa-transition-easing)}.
      */
     private String dividerColor;
 
     /**
      * Creates a new WaAccordionItem component.
+     * <p>
+     * No longer documented upstream as of Web Awesome 3.9.0; retained for backward compatibility.
      */
     public WaAccordionItem()
     {

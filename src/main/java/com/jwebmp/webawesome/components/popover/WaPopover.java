@@ -37,8 +37,8 @@ import java.io.Serial;
  * <ul>
  *   <li>--arrow-size: The size of the tiny arrow that points to the popover (set to zero to remove). Default: 0.375rem</li>
  *   <li>--max-width: The maximum width of the popover's body content. Default: 25rem</li>
- *   <li>--show-duration: The speed of the show animation. Default: 100ms</li>
- *   <li>--hide-duration: The speed of the hide animation. Default: 100ms</li>
+ *   <li>--show-duration: The speed of the show animation. Default: var(--wa-transition-fast)</li>
+ *   <li>--hide-duration: The speed of the hide animation. Default: var(--wa-transition-fast)</li>
  * </ul>
  */
 @Getter

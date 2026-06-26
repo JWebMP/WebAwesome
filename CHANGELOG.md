@@ -6,6 +6,38 @@
 
 ---
 
+## [3.9.0]
+
+### Added
+- `wa-checkbox-group` (`WaCheckboxGroup`) – labelling/grouping container for related `wa-checkbox` /
+  `wa-switch` elements. Provides `label`, `hint`, `orientation` (`horizontal`/`vertical`, default
+  `vertical`), `size`, `required`, `with-label`, `with-hint`, plus the `--gap` custom property
+  (`setStyleGap`). Slots: `(default)`, `label`, `hint`. CSS parts: `form-control`,
+  `form-control-label`, `form-control-input`, `hint`. The group is a **container only** – it owns no
+  value, no two-way binding, and no events; values live on the child checkboxes/switches.
+
+### Changed
+- `wa-tree` (`WaTree`/`TreeSelectionMode`) – the `selection` attribute now accepts a fourth value,
+  `leaf-multiple`, alongside `single | multiple | leaf`. `leaf-multiple` allows multiple leaf nodes to
+  be selected while parent nodes only expand/collapse, and is treated like `multiple` for multi-select
+  cardinality.
+- Bumped the underlying `angular-awesome` / Web Awesome dependency pin to `^3.9.0`.
+- Updated the `WebAwesome` plugin version reference to `3.9.0`.
+
+### Documentation
+- `wa-accordion-item`: `--show-duration` / `--hide-duration` defaults documented as
+  `var(--wa-transition-normal)`; `--easing` default documented as `var(--wa-transition-easing)`.
+- `wa-accordion`: `--wa-accordion-divider-color` is no longer advertised as an official property
+  (upstream removed it from the docs). The `setDividerColor` setter is retained for backward
+  compatibility.
+- `wa-popover` / `wa-popup`: `--show-duration` / `--hide-duration` defaults documented as
+  `var(--wa-transition-fast)`.
+
+### Notes
+- Additive release. No breaking changes to the Java API.
+
+---
+
 ## [3.8.0]
 
 ### Added

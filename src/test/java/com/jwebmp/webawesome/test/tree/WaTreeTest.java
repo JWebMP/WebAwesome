@@ -64,6 +64,15 @@ public class WaTreeTest
         System.out.println(s3);
 
         assertTrue(s3.contains("selection=\"leaf\""));
+
+        // Leaf-multiple selection mode (Web Awesome 3.9.0)
+        var s4 = new WaTree<>()
+                .setSelection(TreeSelectionMode.LeafMultiple)
+                .add(new WaTreeItem<>().setText("Root Item"))
+                .toString(true);
+        System.out.println(s4);
+
+        assertTrue(s4.contains("selection=\"leaf-multiple\""));
     }
 
     @Test
