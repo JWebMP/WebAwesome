@@ -199,6 +199,6 @@ public class WaRatingTest
 
         assertTrue(s.contains("id=\"heartRating\""));
         assertTrue(s.contains("const rating = document.querySelector('#heartRating');"));
-        assertTrue(s.contains("rating.getSymbol = () =>'<wa-icon name=\"heart\""));
+        assertTrue(s.contains("rating.getSymbol = (value, isSelected) =>'<wa-icon name=\"heart\""));
     }
 }

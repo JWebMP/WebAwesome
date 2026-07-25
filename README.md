@@ -21,7 +21,7 @@ Configure the base and theme paths in your environment (see `.env.example`) to p
 
 ## Documentation
 - Architecture diagrams: `docs/architecture/README.md`
-- Change log: `CHANGELOG.md` (tracks Web Awesome **3.9.0**)
+- Change log: `CHANGELOG.md` (tracks Web Awesome **3.10.0**)
 
 ## Building & testing
 - Requires JDK 25+ and Maven.

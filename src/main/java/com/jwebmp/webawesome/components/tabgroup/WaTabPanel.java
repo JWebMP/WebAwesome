@@ -75,7 +75,7 @@ public class WaTabPanel<J extends WaTabPanel<J>> extends DivSimple<J> implements
             if (!Strings.isNullOrEmpty(getName()))
             {
                 addAttribute("name", getName());
-                addAttribute("id", getName());
+                setID(getName());
             }
             if (active != null && active)
             {

@@ -23,8 +23,8 @@ class WaIconTest {
         Assertions.assertTrue(html.contains("name=\"star\""), "Should include name attribute");
         Assertions.assertTrue(html.contains("family=\"classic\""), "Should include family attribute");
         Assertions.assertTrue(html.toLowerCase().contains("variant=\"solid\""), "Should include variant attribute");
-        // boolean attributes may serialize as bare or empty-string
-        Assertions.assertTrue(html.contains(" withFixedWidth"), "withFixedWidth boolean attribute should be present");
+        // legacy fixed-width maps to Web Awesome 3.10 canvas="fixed"
+        Assertions.assertTrue(html.contains("canvas=\"fixed\""), "fixed-width should map to canvas=\"fixed\"");
         Assertions.assertTrue(html.contains("color: #222") || html.contains("color:#222"), "Inline color style should be applied");
         Assertions.assertTrue(html.contains("label=\"Favorite\""), "Accessible label should be present");
     }
@@ -35,6 +35,6 @@ class WaIconTest {
         WaIcon<?> icon = new WaIcon<>("star").setFixedWidth(false);
         p.getBody().add(icon);
         String html = p.toString(true);
-        Assertions.assertFalse(html.contains(" withFixedWidth=\"\""), "withFixedWidth should not render when false");
+        Assertions.assertFalse(html.contains("canvas"), "canvas should not render when fixed-width is false");
     }
 }

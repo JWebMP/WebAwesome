@@ -325,7 +325,7 @@ public class WaTextArea<J extends WaTextArea<J>> extends DivSimple<J> implements
             }
             if (rows != null)
             {
-                addAttribute("[rows]", rows.toString());
+                addAttribute("rows", rows.toString());
             }
             if (resize != null)
             {

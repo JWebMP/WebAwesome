@@ -32,6 +32,22 @@ import lombok.Getter;
  * - `secondaryColor`: Sets a duotone icon's secondary color.
  * - `secondaryOpacity`: Sets a duotone icon's secondary opacity.
  * <p>
+ * Layout (Web Awesome 3.10):
+ * - `canvas`: The rendering canvas around the glyph ({@link IconCanvas}). When unset the icon renders
+ *   as {@code fixed} (1.25em &times; 1em). {@code auto} hugs the icon width, {@code square} is
+ *   1.25em &times; 1.25em, and {@code roomy} is 1.5em &times; 1.5em. Mirrors Font Awesome's
+ *   {@code fa-fixed-width}, {@code fa-width-auto}, {@code fa-canvas-square}, {@code fa-canvas-roomy}.
+ * <p>
+ * Animation CSS custom properties (Web Awesome 3.10) — set via {@code addStyle(name, value)}:
+ * {@code --flip-angle}, {@code --flip-x}, {@code --flip-y}, {@code --flip-z},
+ * {@code --flip-anticipation-scale}, {@code --flip-overshoot}, {@code --beat-scale}
+ * (multiplies the animation's 1.25&times; base pulse), {@code --bounce-anticipation},
+ * {@code --buzz-distance}, {@code --wag-angle}, {@code --swing-angle}, {@code --jello-scale-x},
+ * {@code --jello-scale-y}, {@code --float-height}, {@code --float-drift}, {@code --float-tilt},
+ * {@code --float-squash-x}, {@code --float-squash-y}, {@code --float-stretch-x},
+ * {@code --float-stretch-y}. The {@code flip} animation additionally supports a {@code flip-360}
+ * variant (pass {@code "flip-360"} to {@link #setAnimation(String)}).
+ * <p>
  * Usage examples:
  * <pre>
  * // Basic icon
@@ -142,6 +158,12 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
      * Animation name to apply to the icon.
      */
     private String animation;
+
+    /**
+     * The rendering canvas around the glyph (Web Awesome 3.10).
+     */
+    private IconCanvas canvas;
+
     @SuppressWarnings("unchecked")
     public J setFamily(String family)
     {
@@ -231,6 +253,13 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
     public J setAnimation(String animation)
     {
         this.animation = animation;
+        return (J) this;
+    }
+
+    @SuppressWarnings("unchecked")
+    public J setCanvas(IconCanvas canvas)
+    {
+        this.canvas = canvas;
         return (J) this;
     }
 
@@ -336,10 +365,6 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             {
                 addStyle("font-size", fontSize);
             }
-            if (fixedWidth != null && fixedWidth)
-            {
-                addAttribute("withFixedWidth", "");
-            }
             if (!Strings.isNullOrEmpty(label))
             {
                 addAttribute("label", label);
@@ -367,6 +392,16 @@ public class WaIcon<J extends WaIcon<J>> extends DivSimple<J> implements IIcon<G
             if (!Strings.isNullOrEmpty(animation))
             {
                 addAttribute("animation", animation);
+            }
+            if (canvas != null)
+            {
+                addAttribute("canvas", canvas.toString());
+            }
+            else if (fixedWidth != null && fixedWidth)
+            {
+                // Web Awesome 3.10 replaced the `fixed-width` attribute with the `canvas`
+                // property; the legacy fixed-width behaviour maps to the default `fixed` canvas.
+                addAttribute("canvas", "fixed");
             }
         }
         super.init();

@@ -184,7 +184,7 @@ public class WaDetailsTest
 
         System.out.println(s);
 
-        assertTrue(s.contains("<wa-details icon-position=\"start\" summary=\"Summary Text\">"));
+        assertTrue(s.contains("<wa-details icon-placement=\"start\" summary=\"Summary Text\">"));
         assertTrue(s.contains("This is the content of the details element."));
     }
     
@@ -260,7 +260,7 @@ public class WaDetailsTest
         assertTrue(s.contains("<wa-details"));
         assertTrue(s.contains("appearance=\"filled\""));
         assertTrue(s.contains("open"));
-        assertTrue(s.contains("icon-position=\"start\""));
+        assertTrue(s.contains("icon-placement=\"start\""));
         assertTrue(s.contains("name=\"group-1\""));
         assertTrue(s.contains("wa-show=\"onShow()\""));
         assertTrue(s.contains("wa-after-show=\"onAfterShow()\""));

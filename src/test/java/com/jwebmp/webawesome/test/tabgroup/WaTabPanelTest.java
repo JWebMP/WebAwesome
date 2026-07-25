@@ -21,7 +21,7 @@ public class WaTabPanelTest {
         System.out.println(html);
 
         // Root element and name
-        assertTrue(html.contains("<wa-tab-panel name=\"a\""), "Panel root with name attribute should render");
+        assertTrue(html.contains("<wa-tab-panel id=\"a\" name=\"a\""), "Panel root with name attribute should render");
 
         // Ensure ng-template uses waTabContent (not waTabPanel) and contains our children
         assertTrue(html.contains("<ng-template waTabContent>"), "Panel template should use waTabContent attribute");
@@ -30,7 +30,7 @@ public class WaTabPanelTest {
 
         // Ensure no direct children are added to the root other than the template
         // Basic sanity: there should be exactly one ng-template and no direct panel-child under root
-        assertFalse(html.contains("<wa-tab-panel name=\"a\"><panel-child>"), "Children must not be direct children of the root panel");
+        assertFalse(html.contains("<wa-tab-panel id=\"a\" name=\"a\"><panel-child>"), "Children must not be direct children of the root panel");
     }
 
     @Test

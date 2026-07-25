@@ -78,6 +78,11 @@ public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
      * Default constructor for the WaQRCode class.
      * Initializes the component with a default tag of `wa-qr-code`.
      */
+    public WaQRCode()
+    {
+        setTag("wa-qr-code");
+    }
+
     @SuppressWarnings("unchecked")
     public J setValue(String value)
     {

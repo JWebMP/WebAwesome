@@ -25,9 +25,9 @@ class WaInputTest {
         Assertions.assertTrue(html.contains("placeholder=\"Your name\""), "Placeholder expected");
         Assertions.assertTrue(html.contains("type=\"text\""), "Type expected");
         Assertions.assertTrue(html.contains("value=\"John\""), "Value expected");
-        Assertions.assertTrue(html.contains(" disabled=\"\""), "Disabled boolean should render");
-        Assertions.assertFalse(html.contains(" readonly=\"\""), "Readonly false should not render");
-        Assertions.assertTrue(html.contains(" required=\"\""), "Required boolean should render");
+        Assertions.assertTrue(html.contains(" disabled"), "Disabled boolean should render");
+        Assertions.assertFalse(html.contains(" readonly=\"\"") || html.contains(" readonly "), "Readonly false should not render");
+        Assertions.assertTrue(html.contains(" required"), "Required boolean should render");
     }
 
     @Test

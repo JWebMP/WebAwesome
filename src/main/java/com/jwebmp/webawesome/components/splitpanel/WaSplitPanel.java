@@ -232,11 +232,11 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J> implem
 
             if (positionInPixels != null)
             {
-                addAttribute("[position-in-pixels]", String.valueOf(positionInPixels));
+                addAttribute("position-in-pixels", String.valueOf(positionInPixels));
             }
             if (position != null)
             {
-                addAttribute("[position]", String.valueOf(position));
+                addAttribute("position", String.valueOf(position));
             }
             if (!Strings.isNullOrEmpty(orientation))
             {
@@ -258,7 +258,7 @@ public class WaSplitPanel<J extends WaSplitPanel<J>> extends DivSimple<J> implem
             }
             if (snapThreshold != null)
             {
-                addAttribute("[snap-threshold]", String.valueOf(snapThreshold));
+                addAttribute("snap-threshold", String.valueOf(snapThreshold));
             }
             if (disabled != null && disabled)
             {

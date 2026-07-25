@@ -93,6 +93,12 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
     private String textColorHover;
 
     /**
+     * Text color of the current/highlighted option (the {@code --current-text-color} CSS custom
+     * property, Web Awesome 3.10). Paired with {@code --wa-form-control-activated-color}.
+     */
+    private String currentTextColor;
+
+    /**
      * Creates a new WaSelectOption with the tag "wa-option"
      */
     @SuppressWarnings("unchecked")
@@ -134,6 +140,11 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
     public J setTextColorHover(String textColorHover)
     {
         this.textColorHover = textColorHover;
+        return (J) this;
+    }    @SuppressWarnings("unchecked")
+    public J setCurrentTextColor(String currentTextColor)
+    {
+        this.currentTextColor = currentTextColor;
         return (J) this;
     }    public WaSelectOption()
     {
@@ -181,6 +192,10 @@ public class WaSelectOption<J extends WaSelectOption<J>> extends DivSimple<J>
             if (!Strings.isNullOrEmpty(textColorHover))
             {
                 addStyle("--text-color-hover", textColorHover);
+            }
+            if (!Strings.isNullOrEmpty(currentTextColor))
+            {
+                addStyle("--current-text-color", currentTextColor);
             }
         }
         super.init();

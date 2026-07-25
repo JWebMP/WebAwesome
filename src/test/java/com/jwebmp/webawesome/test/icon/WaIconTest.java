@@ -2,6 +2,7 @@ package com.jwebmp.webawesome.test.icon;
 
 import com.jwebmp.plugins.fontawesome5.options.IconFamily;
 import com.jwebmp.plugins.fontawesome5.options.IconVariant;
+import com.jwebmp.webawesome.components.icon.IconCanvas;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
 
@@ -88,7 +89,7 @@ public class WaIconTest
                 .toString(true);
         System.out.println(s);
 
-        assertEquals("<wa-icon fixed-width name=\"home\"></wa-icon>", s);
+        assertEquals("<wa-icon canvas=\"fixed\" name=\"home\"></wa-icon>", s);
     }
 
     @Test
@@ -156,6 +157,65 @@ public class WaIconTest
                 .toString(true);
         System.out.println(s);
 
-        assertEquals("<wa-icon fixed-width label=\"Gold Star\" name=\"star\" style=\"color:#ffd700;font-size:3rem;\" variant=\"solid\"></wa-icon>", s);
+        assertEquals("<wa-icon canvas=\"fixed\" label=\"Gold Star\" name=\"star\" style=\"color:#ffd700;font-size:3rem;\" variant=\"solid\"></wa-icon>", s);
+    }
+
+    @Test
+    public void testRenderIconWithCanvasFixedHtml()
+    {
+        var s = new WaIcon<>()
+                .setName("star")
+                .setCanvas(IconCanvas.FIXED)
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-icon canvas=\"fixed\" name=\"star\"></wa-icon>", s);
+    }
+
+    @Test
+    public void testRenderIconWithCanvasAutoHtml()
+    {
+        var s = new WaIcon<>()
+                .setName("star")
+                .setCanvas(IconCanvas.AUTO)
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-icon canvas=\"auto\" name=\"star\"></wa-icon>", s);
+    }
+
+    @Test
+    public void testRenderIconWithCanvasSquareHtml()
+    {
+        var s = new WaIcon<>()
+                .setName("star")
+                .setCanvas(IconCanvas.SQUARE)
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-icon canvas=\"square\" name=\"star\"></wa-icon>", s);
+    }
+
+    @Test
+    public void testRenderIconWithCanvasRoomyHtml()
+    {
+        var s = new WaIcon<>()
+                .setName("star")
+                .setCanvas(IconCanvas.ROOMY)
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-icon canvas=\"roomy\" name=\"star\"></wa-icon>", s);
+    }
+
+    @Test
+    public void testRenderIconWithoutCanvasOmitsAttribute()
+    {
+        var s = new WaIcon<>()
+                .setName("star")
+                .toString(true);
+        System.out.println(s);
+
+        assertFalse(s.contains("canvas"));
     }
 }

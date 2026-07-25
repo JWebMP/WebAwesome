@@ -45,6 +45,7 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.radio;
     exports com.jwebmp.webawesome.components.range;
     exports com.jwebmp.webawesome.components.rating;
+    exports com.jwebmp.webawesome.components.randomcontent;
     exports com.jwebmp.webawesome.components.relativetime;
     exports com.jwebmp.webawesome.components.select;
     exports com.jwebmp.webawesome.components.skeleton;
@@ -120,6 +121,7 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.radio to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.range to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.rating to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.randomcontent to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.relativetime to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.select to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.skeleton to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;

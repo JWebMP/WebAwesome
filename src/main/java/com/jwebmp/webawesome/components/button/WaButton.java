@@ -283,7 +283,7 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
             }
             if (caret != null && caret)
             {
-                addAttribute("withCaret", "");
+                addAttribute("with-caret", "");
             }
             if (loading != null && loading)
             {
@@ -312,23 +312,23 @@ public class WaButton<J extends WaButton<J>> extends DivSimple<J> implements Too
             }
             if (formAction != null)
             {
-                addAttribute("formAction", formAction);
+                addAttribute("formaction", formAction);
             }
             if (formEnctype != null)
             {
-                addAttribute("formEnctype", formEnctype);
+                addAttribute("formenctype", formEnctype);
             }
             if (formMethod != null)
             {
-                addAttribute("formMethod", formMethod);
+                addAttribute("formmethod", formMethod);
             }
             if (formNoValidate != null && formNoValidate)
             {
-                addAttribute("formNoValidate", "");
+                addAttribute("formnovalidate", "");
             }
             if (formTarget != null)
             {
-                addAttribute("formTarget", formTarget);
+                addAttribute("formtarget", formTarget);
             }
 
             // Add event handlers if specified

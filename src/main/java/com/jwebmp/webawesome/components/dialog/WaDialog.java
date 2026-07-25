@@ -221,7 +221,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
             }
             if (withoutHeader != null && withoutHeader)
             {
-                addAttribute("[attr.without-header]", "''");
+                addAttribute("without-header", "");
             }
             if (scrolling != null && scrolling)
             {
@@ -300,7 +300,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
         {
             button.addAttribute("slot", "header-actions");
             addAttribute("with-header", "");
-            addClass("header-actions");
+            addClass("dialog-header-actions");
             add(button);
         }
 
@@ -320,7 +320,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
         WaIcon<?> icon = new WaIcon<>(iconName);
         button.setPrefix(icon);
         button.addAttribute("slot", "header-actions");
-        addClass("header-actions");
+        addClass("dialog-header-actions");
         add(button);
         return button;
     }
@@ -368,7 +368,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
     public J withInitialFocusOn(IComponentHierarchyBase<?, ?> component)
     {
         component.asAttributeBase()
-                 .addAttribute("[attr.autofocus]", "");
+                 .addAttribute("autofocus", "");
         return (J) this;
     }
 

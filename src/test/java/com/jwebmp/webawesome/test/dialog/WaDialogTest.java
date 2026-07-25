@@ -288,8 +288,8 @@ public class WaDialogTest
         boolean containsWithHeader = s.contains("with-header");
         boolean containsWithFooter = s.contains("with-footer");
         boolean containsStyles = s.contains("style=\"") && s.contains("--background-color:#ffffff") && s.contains("--border-radius:8px") && s.contains("--width:600px");
-        boolean containsHeaderSlot = s.contains("<div slot=\"header\"") && s.contains("Complete Dialog");
-        boolean containsIconButton = s.contains("<wa-button slot=\"header-actions\"") && s.contains("<wa-icon name=\"settings\" slot=\"prefix\"></wa-icon>");
+        boolean containsHeaderSlot = s.contains("<div slot=\"label\"") && s.contains("Complete Dialog");
+        boolean containsIconButton = s.contains("<wa-button slot=\"header-actions\"") && s.contains("<wa-icon name=\"settings\" slot=\"start\"></wa-icon>");
         boolean containsFooterSlot = s.contains("<div slot=\"footer\"") && s.contains("Dialog Actions");
         boolean containsCloseButton = s.contains("<wa-button data-dialog=\"close\"") && s.contains("Close") && s.contains("</wa-button>");
         boolean containsSaveButton = s.contains("<wa-button autofocus") && s.contains("Save");

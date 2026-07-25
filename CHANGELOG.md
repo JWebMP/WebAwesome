@@ -6,6 +6,43 @@
 
 ---
 
+## [3.10.0]
+
+### Added
+- `wa-random-content` (`WaRandomContent`) – selects one or more direct element children at random and
+  displays them, hiding the rest (unselected children receive the `hidden` attribute). Provides
+  `items` (default `1`, clamped to `[1, childCount]`), `mode` (`RandomContentMode`:
+  `random | unique | sequence`, default `unique`), `autoplay`, `autoplay-interval` (default `3000`ms),
+  and `animation` (`RandomContentAnimation`: `none | fade | fade-up | fade-down | fade-left |
+  fade-right`, default `none`). CSS custom properties: `--animation-duration` (default `300ms`),
+  `--animation-easing` (default `ease`), `--animation-translate` (default `0.5em`). Exposes the
+  `randomize()` method and the `wa-content-change` event (`WaRandomContent.EVENT_CONTENT_CHANGE`).
+  Slot: `(default)` – the pool of children to choose from.
+
+### Changed
+- `wa-icon` (`WaIcon`/`IconCanvas`) – new `canvas` attribute (`fixed | auto | square | roomy`).
+  When unset the icon renders as `fixed` (1.25em × 1em); `auto` hugs the icon width, `square` is
+  1.25em × 1.25em, and `roomy` is 1.5em × 1.5em. Mirrors Font Awesome's `fa-fixed-width`,
+  `fa-width-auto`, `fa-canvas-square`, `fa-canvas-roomy`.
+- `wa-option` (`WaSelectOption`) – new `--current-text-color` CSS custom property
+  (`setCurrentTextColor`), the text color of the current/highlighted option, paired with
+  `--wa-form-control-activated-color`.
+- Bumped the underlying `angular-awesome` / Web Awesome dependency pin to `^3.10.0`.
+- Updated the `WebAwesome` plugin version reference to `3.10.0`.
+
+### Documentation
+- `wa-icon`: documented the 3.10 animation CSS custom properties (`--flip-angle`, `--flip-x`,
+  `--flip-y`, `--flip-z`, `--flip-anticipation-scale`, `--flip-overshoot`, `--beat-scale`,
+  `--bounce-anticipation`, `--buzz-distance`, `--wag-angle`, `--swing-angle`, `--jello-scale-x`,
+  `--jello-scale-y`, `--float-height`, `--float-drift`, `--float-tilt`, `--float-squash-x`,
+  `--float-squash-y`, `--float-stretch-x`, `--float-stretch-y`) and the new `flip-360` animation
+  variant. `--beat-scale` now multiplies the animation's 1.25× base pulse.
+
+### Notes
+- Additive release. No breaking changes to the Java API.
+
+---
+
 ## [3.9.0]
 
 ### Added

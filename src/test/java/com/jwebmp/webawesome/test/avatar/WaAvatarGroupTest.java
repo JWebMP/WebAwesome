@@ -19,7 +19,7 @@ public class WaAvatarGroupTest
         assertEquals("""
                 <div class="wa-avatar-group">
                 	<wa-avatar label="Avatar 1"></wa-avatar>
-                </div><style type="text/css">.wa-avatar-group wa-avatar:not(:first-of-type) {
+                </div><style>.wa-avatar-group wa-avatar:not(:first-of-type) {
                     margin-left: calc(-1 * var(--wa-space-m));
                   }
 

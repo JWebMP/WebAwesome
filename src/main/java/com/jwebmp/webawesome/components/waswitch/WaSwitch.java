@@ -255,7 +255,11 @@ public class WaSwitch<J extends WaSwitch<J>> extends DivSimple<J> implements Spa
             }
             if (!com.google.common.base.Strings.isNullOrEmpty(getName()))
             {
-                addAttribute("name", getName());
+                String defaultName = getClass().getName().replace('.', '_');
+                if (!getName().equals(defaultName))
+                {
+                    addAttribute("name", getName());
+                }
             }
             if (value != null)
             {

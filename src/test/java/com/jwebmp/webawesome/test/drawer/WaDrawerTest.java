@@ -127,7 +127,7 @@ public class WaDrawerTest
 
         assertTrue(s.contains("<wa-drawer class=\"drawer-header-actions\" label=\"With Header Actions Drawer\" with-header>"));
         assertTrue(s.contains("<wa-button slot=\"header-actions\">"));
-        assertTrue(s.contains("<wa-icon name=\"settings\" slot=\"prefix\"></wa-icon>"));
+        assertTrue(s.contains("<wa-icon name=\"settings\" slot=\"start\"></wa-icon>"));
         assertTrue(s.contains("This drawer has header actions."));
     }
 
