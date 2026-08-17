@@ -1,5 +1,7 @@
 package com.jwebmp.webawesome.components.page;
 
+import com.jwebmp.core.base.angular.client.annotations.references.NgComponentReference;
+import com.jwebmp.core.base.angular.components.modules.RouterModuleConfig;
 import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.html.Link;
 import com.jwebmp.webawesome.components.PageSize;
@@ -8,6 +10,7 @@ import com.jwebmp.webawesome.components.PageSize;
  * Represents a menu component for the WaPage.
  * This component provides a menu area for navigation or other controls.
  */
+@NgComponentReference(RouterModuleConfig.class)
 public class WaPageMenu<J extends WaPageMenu<J>> extends DivSimple<J>
 {
     /**

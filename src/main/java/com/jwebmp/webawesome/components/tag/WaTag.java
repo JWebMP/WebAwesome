@@ -77,7 +77,23 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
     {
         this.removable = removable;
         return (J) this;
-    }    public WaTag()
+    }
+
+    /**
+     * Alias for {@link #setRemovable(Boolean)}.
+     * <p>
+     * Web Awesome 3.11.0 accepts both {@code removable} and {@code with-remove}; both map onto the
+     * {@code with-remove} attribute rendered by this component.
+     *
+     * @param withRemove Whether the tag renders a remove button
+     * @return This component
+     */
+    public J setWithRemove(Boolean withRemove)
+    {
+        return setRemovable(withRemove);
+    }
+
+    public WaTag()
     {
         setTag("wa-tag");
     }
@@ -107,7 +123,7 @@ public class WaTag<J extends WaTag<J>> extends DivSimple<J> implements VariantCa
             }
             if (removable != null && removable)
             {
-                addAttribute("removable", "");
+                addAttribute("with-remove", "");
             }
         }
         super.init();

@@ -78,7 +78,19 @@ public class WaTagTest
                 .toString(true);
         System.out.println(s);
 
-        assertEquals("<wa-tag removable>Removable Tag</wa-tag>", s);
+        assertEquals("<wa-tag with-remove>Removable Tag</wa-tag>", s);
+    }
+
+    @Test
+    public void testRenderWithRemoveAliasHtml()
+    {
+        var s = new WaTag<>()
+                .setText("Removable Tag")
+                .setWithRemove(true)
+                .toString(true);
+        System.out.println(s);
+
+        assertEquals("<wa-tag with-remove>Removable Tag</wa-tag>", s);
     }
 
     @Test
@@ -94,7 +106,7 @@ public class WaTagTest
                 .toString(true);
         System.out.println(s);
 
-        assertEquals("<wa-tag appearance=\"outlined accent\" pill removable size=\"medium\" variant=\"warning\">Complete Tag</wa-tag>", s);
+        assertEquals("<wa-tag appearance=\"outlined accent\" pill size=\"medium\" variant=\"warning\" with-remove>Complete Tag</wa-tag>", s);
     }
 
     @Test

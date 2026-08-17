@@ -38,6 +38,8 @@ module web.awesome.test {
     opens com.jwebmp.webawesome.test.include to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.input to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     //opens com.jwebmp.webawesome.test.menu to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.otpinput to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.pagination to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.popover to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.progressbar to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.progressring to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;

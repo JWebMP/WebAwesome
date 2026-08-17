@@ -36,6 +36,8 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.input;
     exports com.jwebmp.webawesome.components.numberinput;
     exports com.jwebmp.webawesome.components.observer;
+    exports com.jwebmp.webawesome.components.otpinput;
+    exports com.jwebmp.webawesome.components.pagination;
     //exports com.jwebmp.webawesome.components.menu;
     exports com.jwebmp.webawesome.components.progressbar;
     exports com.jwebmp.webawesome.components.progressring;
@@ -76,6 +78,7 @@ module com.jwebmp.webawesome {
     requires transitive com.google.common;
 
     requires static lombok;
+    requires com.jwebmp.core.angular;
 
     provides IGuiceScanModuleInclusions with WebAwesomeInclusionModule;
     provides IPageConfigurator with WebAwesomePageConfigurator;
@@ -112,6 +115,8 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.input to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.numberinput to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.observer to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.otpinput to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.pagination to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     //opens com.jwebmp.webawesome.components.menu to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.popup to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.popover to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;

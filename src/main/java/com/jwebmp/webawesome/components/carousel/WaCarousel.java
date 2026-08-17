@@ -217,6 +217,42 @@ public class WaCarousel<J extends WaCarousel<J>> extends DivSimple<J> implements
     }
 
     /**
+     * Documentation placeholder for the client side {@code addSlide(el)} method introduced by
+     * Web Awesome 3.11.0 / {@code angular-awesome@3.11.0}.
+     * <p>
+     * {@code addSlide} and {@link #removeSlide(int)} are <strong>runtime</strong> methods on the
+     * native {@code <wa-carousel>} element - there is no authoring time attribute for them, so
+     * nothing is emitted into the server rendered markup. To drive the carousel imperatively,
+     * capture a template reference in the generated Angular component and call
+     * {@code carouselRef.addSlide(element)} from an {@code @NgMethod}.
+     *
+     * @return This object for method chaining
+     */
+    @SuppressWarnings("unchecked")
+    public J addSlide()
+    {
+        // Client side only - see javadoc
+        return (J) this;
+    }
+
+    /**
+     * Documentation placeholder for the client side {@code removeSlide(index)} method introduced by
+     * Web Awesome 3.11.0 / {@code angular-awesome@3.11.0}.
+     * <p>
+     * See {@link #addSlide()} - this is a runtime element method and produces no server rendered
+     * markup. Call {@code carouselRef.removeSlide(index)} from an {@code @NgMethod} instead.
+     *
+     * @param index The index of the slide to remove
+     * @return This object for method chaining
+     */
+    @SuppressWarnings("unchecked")
+    public J removeSlide(int index)
+    {
+        // Client side only - see javadoc
+        return (J) this;
+    }
+
+    /**
      * Initializes the {@code WaCarousel} component by setting its attributes
      * based on the configurations provided. This method ensures that attributes
      * like pagination, navigation, mouse dragging, and looping are applied to

@@ -28,46 +28,4 @@ public class WaPageContentsNavigation<J extends WaPageContentsNavigation<J>> ext
         return (J) this;
     }
 
-    @SuppressWarnings("unchecked")
-    public J addNavAnchor(String id, IComponentHierarchyBase<?, ?> componentHierarchyBase)
-    {
-        Link<?> aLink = new Link<>();
-        aLink.setTag("a");
-        aLink.addAttribute("href", (Strings.nullToEmpty(id).startsWith("#") ? "" : "#") + id);
-        aLink.add(componentHierarchyBase);
-        add(aLink);
-        return (J) this;
-    }
-
-    @SuppressWarnings("unchecked")
-    public J addNavLink(String path, String text)
-    {
-        if (!path.startsWith("#") && !path.startsWith("/"))
-        {
-            path = "/" + path;
-        }
-        Link<?> aLink = new Link<>();
-        aLink.setTag("a");
-        aLink.addAttribute("href", path);
-        aLink.setText(text);
-        add(aLink);
-        return (J) this;
-    }
-
-    @SuppressWarnings("unchecked")
-    public J addRouterLink(String path, String text)
-    {
-        if (!path.startsWith("#") && !path.startsWith("/"))
-        {
-            path = "/" + path;
-        }
-        Link<?> aLink = new Link<>();
-        aLink.setTag("a");
-        aLink.addAttribute("routerLink", path);
-        aLink.setText(text);
-        add(aLink);
-        return (J) this;
-    }
-
-
 }
