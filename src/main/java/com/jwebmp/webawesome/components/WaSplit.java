@@ -9,7 +9,8 @@ import com.jwebmp.core.base.html.DivSimple;
  * alignment/gap utilities as described in the docs (wa-split:row, wa-split:column,
  * wa-align-items-*, wa-gap-*).
  */
-public class WaSplit<J extends WaSplit<J>> extends DivSimple<J> implements GapCapable<J>, SpaceTokenCapable<J>
+public class WaSplit<J extends WaSplit<J>> extends DivSimple<J>
+        implements GapCapable<J>, SpaceTokenCapable<J>,AlignVerticalCapable<J>,JustifyContentCapable<J>
 {
     public WaSplit()
     {
@@ -38,19 +39,4 @@ public class WaSplit<J extends WaSplit<J>> extends DivSimple<J> implements GapCa
         return (J)this;
     }
 
-    /**
-     * Applies an alignment utility class to control cross-axis alignment.
-     * Accepts values such as start, end, center, stretch, baseline.
-     * @param value alignment value without prefix (e.g., "center")
-     * @return this
-     */
-    @SuppressWarnings("unchecked")
-    public J alignItems(String value)
-    {
-        if (value != null && !value.isEmpty())
-        {
-            addClass("wa-align-items-" + value);
-        }
-        return (J) this;
-    }
 }

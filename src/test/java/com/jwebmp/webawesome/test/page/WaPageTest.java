@@ -141,7 +141,7 @@ class WaPageTest
               .setShowWhenPageSize(PageSize.Small);
 
         waPage.getHeader()
-              .setSplit();
+              .split();
         waPage.getHeader()
               .add(new WaCluster());
         waPage.getHeader()

@@ -3,6 +3,7 @@ package com.jwebmp.webawesome.test.button;
 import com.jwebmp.webawesome.components.button.WaButton;
 import com.jwebmp.webawesome.components.button.WaDropDown;
 import com.jwebmp.webawesome.components.button.WaDropdownItem;
+import com.jwebmp.webawesome.components.button.DropdownItemTarget;
 import com.jwebmp.webawesome.components.icon.WaIcon;
 import org.junit.jupiter.api.Test;
 
@@ -140,5 +141,53 @@ public class WaDropdownItemTest
         assertTrue(s.contains("slot=\"submenu\""));
         assertTrue(s.contains("Submenu Item 1"));
         assertTrue(s.contains("Submenu Item 2"));
+    }
+
+    @Test
+    public void testRenderDropdownItemLinkAttributes()
+    {
+        var html = new WaDropdownItem<>("Web Awesome docs")
+                .setHref("https://webawesome.com/docs")
+                .setTarget(DropdownItemTarget.Blank)
+                .setRel("noreferrer noopener")
+                .toString(true);
+
+        assertTrue(html.contains("href=\"https://webawesome.com/docs\""));
+        assertTrue(html.contains("target=\"_blank\""));
+        assertTrue(html.contains("rel=\"noreferrer noopener\""));
+    }
+
+    @Test
+    public void testRenderDropdownItemDownload()
+    {
+        var html = new WaDropdownItem<>("Report")
+                .setHref("/exports/report.pdf")
+                .setDownload("annual-report.pdf")
+                .toString(true);
+
+        assertTrue(html.contains("download=\"annual-report.pdf\""));
+    }
+
+    @Test
+    public void testDropdownItemOnlyEmitsLinkAttributesWithHref()
+    {
+        var item = new WaDropdownItem<>("No link")
+                .setTarget(DropdownItemTarget.Blank)
+                .setRel("noreferrer")
+                .setDownload("report.pdf");
+
+        var html = item.toString(true);
+
+        assertFalse(html.contains("target="));
+        assertFalse(html.contains("rel="));
+        assertFalse(html.contains("download="));
+
+        item.setHref("/report.pdf").setHref(null);
+        html = item.toString(true);
+
+        assertFalse(html.contains("href="));
+        assertFalse(html.contains("target="));
+        assertFalse(html.contains("rel="));
+        assertFalse(html.contains("download="));
     }
 }

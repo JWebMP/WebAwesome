@@ -7,7 +7,7 @@ import com.jwebmp.core.base.html.DivSimple;
  * <p>
  * Adds the base class "wa-frame" and exposes a helper to control aspect ratio via CSS.
  */
-public class WaFrame<J extends WaFrame<J>> extends DivSimple<J> implements AlignVerticalCapable<J>, SpaceTokenCapable<J>
+public class WaFrame<J extends WaFrame<J>> extends DivSimple<J> implements AlignVerticalCapable<J>, JustifyContentCapable<J>, SpaceTokenCapable<J>
 {
     public WaFrame()
     {

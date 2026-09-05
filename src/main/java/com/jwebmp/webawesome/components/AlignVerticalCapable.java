@@ -10,35 +10,35 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
  */
 public interface AlignVerticalCapable<J extends IComponentHierarchyBase<GlobalChildren, J> & AlignVerticalCapable<J>>
 {
-    default J setAlignVerticalBaseline()
+    default J alignVerticalBaseline()
     {
         J me = (J) this;
         me.addClass("wa-align-items-baseline");
         return me;
     }
 
-    default J setAlignVerticalCenter()
+    default J alignVerticalCenter()
     {
         J me = (J) this;
         me.addClass("wa-align-items-center");
         return me;
     }
 
-    default J setAlignVerticalEnd()
+    default J alignVerticalEnd()
     {
         J me = (J) this;
         me.addClass("wa-align-items-end");
         return me;
     }
 
-    default J setAlignVerticalStart()
+    default J alignVerticalStart()
     {
         J me = (J) this;
         me.addClass("wa-align-items-start");
         return me;
     }
 
-    default J setAlignVerticalStretch()
+    default J alignVerticalStretch()
     {
         J me = (J) this;
         me.addClass("wa-align-items-stretch");

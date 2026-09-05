@@ -5,10 +5,11 @@ import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 
 public interface SplitCapable<J extends SplitCapable<J> & IComponentHierarchyBase<GlobalChildren, J>>
 {
-    default J setSplit()
+    default J split()
     {
         J me = (J) this;
         me.addClass("wa-split");
         return (J) this;
     }
+
 }

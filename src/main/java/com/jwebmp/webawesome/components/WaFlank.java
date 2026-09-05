@@ -2,7 +2,9 @@ package com.jwebmp.webawesome.components;
 
 import com.jwebmp.core.base.html.DivSimple;
 
-public class WaFlank<J extends WaFlank<J>> extends DivSimple<J> implements GapCapable<J>, BorderRadiusCapable<J>, AlignVerticalCapable<J>, SpaceTokenCapable<J>
+public class WaFlank<J extends WaFlank<J>> extends DivSimple<J>
+        implements GapCapable<J>, BorderRadiusCapable<J>, AlignVerticalCapable<J>,
+        JustifyContentCapable<J>, SpaceTokenCapable<J>
 {
     public WaFlank()
     {

@@ -1,15 +1,14 @@
 package com.jwebmp.webawesome.components.radio;
 
-
-import com.jwebmp.webawesome.components.SpaceTokenCapable;
-import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
-import com.jwebmp.core.base.angular.client.services.interfaces.AnnotationUtils;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.webawesome.components.ComponentGroupTokenCapable;
 import com.jwebmp.webawesome.components.Size;
+import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import lombok.Getter;
+
 /**
  * Represents a Web Awesome radio group component.
  * This class provides methods to configure the radio group component's attributes.
@@ -17,7 +16,8 @@ import lombok.Getter;
 @Getter
 @NgImportReference(value = "WaRadioGroupDirective", reference = "angular-awesome")
 @NgImportModule("WaRadioGroupDirective")
-public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
+public class WaRadioGroup<J extends WaRadioGroup<J>> extends DivSimple<J>
+        implements SpaceTokenCapable<J>, ComponentGroupTokenCapable<J>
 {
     /**
      * The initial value of the radio group.

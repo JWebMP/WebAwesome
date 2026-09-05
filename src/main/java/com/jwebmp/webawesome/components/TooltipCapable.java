@@ -7,7 +7,7 @@ public interface TooltipCapable<J extends TooltipCapable<J>> extends WaComponent
 {
     default J withTooltip(String text)
     {
-        WaTooltip tooltip = new WaTooltip((IComponentHierarchyBase<?, ?>) this);
+        var tooltip = new WaTooltip<>((IComponentHierarchyBase<?, ?>) this);
         tooltip.setText(text);
         add(tooltip);
         return (J) this;

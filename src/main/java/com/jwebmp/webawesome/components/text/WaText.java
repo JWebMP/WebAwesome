@@ -1,6 +1,9 @@
 package com.jwebmp.webawesome.components.text;
 
 
+import com.jwebmp.core.base.servlets.enumarations.ComponentTypes;
+import com.jwebmp.webawesome.components.AlignVerticalCapable;
+import com.jwebmp.webawesome.components.JustifyContentCapable;
 import com.jwebmp.webawesome.components.SpaceTokenCapable;
 import com.jwebmp.webawesome.components.TypographyTokenCapable;
 import com.google.common.base.Strings;
@@ -22,7 +25,8 @@ import lombok.Getter;
 @Getter
 @NgImportReference(value = "WaTextDirective", reference = "angular-awesome")
 @NgImportModule("WaTextDirective")
-public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTokenCapable<J>, TypographyTokenCapable<J>
+public class WaText<J extends WaText<J>> extends DivSimple<J>
+        implements SpaceTokenCapable<J>, TypographyTokenCapable<J>, AlignVerticalCapable<J>, JustifyContentCapable<J>
 {
     // Presence of the directive
     private boolean waText = true;
@@ -55,6 +59,7 @@ public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTo
 
     // Truncation helper (boolean)
     private Boolean waTextTruncate;
+
     @SuppressWarnings("unchecked")
     public J setWaBody(String waBody)
     {
@@ -140,6 +145,14 @@ public class WaText<J extends WaText<J>> extends DivSimple<J> implements SpaceTo
     {
         // Default tag is <div>. Tests can change the tag with setTag("p"), etc.
         // No extra initialization required.
+    }
+
+    public WaText(String text) {
+        super(text);
+    }
+
+    public WaText(ComponentTypes myComponent) {
+        super(myComponent);
     }
 
     @Override

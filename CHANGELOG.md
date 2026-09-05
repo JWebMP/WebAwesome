@@ -6,6 +6,30 @@
 
 ---
 
+## [3.12.0]
+
+### Added
+- `wa-dropdown-item` (`WaDropdownItem`) now supports linked menu items through `setHref`,
+  `setTarget`, `setRel`, and `setDownload`. Link-only attributes are omitted when no destination
+  is configured.
+
+### Changed
+- Bumped the generated Angular dependency pin to `angular-awesome@^3.12.0`.
+
+---
+
+## [3.11.0]
+
+### Added
+- `wa-pagination` (`WaPagination`) and `wa-otp-input` (`WaOtpInput`) with their typed enums,
+  properties, events, and generated Angular imports.
+
+### Changed
+- `wa-tag` now exposes `setRemovable` as the `with-remove` alias, and carousel runtime methods
+  are documented for generated Angular code.
+
+---
+
 ## [3.10.0]
 
 ### Added

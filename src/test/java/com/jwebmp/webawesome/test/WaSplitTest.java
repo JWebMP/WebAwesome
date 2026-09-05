@@ -17,7 +17,7 @@ class WaSplitTest
         WaSplit<?> split = new WaSplit<>()
                 .row()
                 .setGap(PageSize.Small)
-                .alignItems("center");
+                .alignVerticalCenter();
 
         p.getBody()
          .add(split);
