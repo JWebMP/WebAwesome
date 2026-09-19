@@ -16,7 +16,7 @@ import lombok.Setter;
 @PluginInformation(pluginName = "Web Awesome",
         pluginDescription = "Make something awesome with open-source web components",
         pluginUniqueName = "WebAwesome",
-        pluginVersion = "3.12.0",
+        pluginVersion = "3.13.0",
         pluginCategories = "ui,web ui, framework,kit",
         pluginSubtitle = "Web Awesome is the biggest open-source library of meticulously designed, highly customizable, and framework-agnostic UI components.",
         pluginSourceUrl = "https://github.com/JWebMP/WebAwesome",
@@ -31,7 +31,7 @@ import lombok.Setter;
         pluginModuleName = "com.jwebmp.webawesome",
         pluginStatus = PluginStatus.DevelopmentStarted
 )
-@TsDependency(value = "angular-awesome", version = "^3.12.0")
+@TsDependency(value = "angular-awesome", version = "^3.13.0")
 public class WebAwesomePageConfigurator
         implements IPageConfigurator<WebAwesomePageConfigurator>, TypescriptIndexPageConfigurator<WebAwesomePageConfigurator> {
     @Setter
@@ -53,55 +53,53 @@ public class WebAwesomePageConfigurator
 
     @Override
     public IPage<?> configure(IPage<?> page) {
-
-        JavascriptReference javascriptReference;
-        page.addJavaScriptReference(javascriptReference = new JavascriptReference("WebAwesome", 0.1, basePath + "webawesome.loader.js")
-                .setPriority(RequirementsPriority.Top_Shelf)
-                .setScriptType("module"));
-
-        if (!Strings.isNullOrEmpty(faKitCode)) {
-            javascriptReference
-                    .addAttribute("data-fa-kit-code", faKitCode);
-        }
-        if (!Strings.isNullOrEmpty(basePath)) {
-            javascriptReference
-                    .addAttribute("data-webawesome", basePath);
-        }
-
-        if (Strings.isNullOrEmpty(waKitCode) && !Strings.isNullOrEmpty(basePath) && !Strings.isNullOrEmpty(themePath) && !Strings.isNullOrEmpty(paletesPath)) {
-            CSSReference webAwesome = new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css");
-            page.addCssReference(webAwesome
-                    .setPriority(RequirementsPriority.First));
-
-
-            page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, basePath + themePath)
-                    .setPriority(RequirementsPriority.First)
-                    .setSortOrder(Integer.MAX_VALUE - 100)
-                    .addAttribute("id", "webawesome-theme"));
-
-            page.addCssReference(new CSSReference("WebAwesomePalettesTheme", 0.1, basePath + paletesPath)
-                    .setPriority(RequirementsPriority.First)
-                    .setSortOrder(Integer.MAX_VALUE - 99)
-                    .addAttribute("id", "wa-pallets-theme")
-                    .addAttribute("data-wa-pallets-theme", "true"));
-
-
-            if (!Strings.isNullOrEmpty(themeClassName)) {
-                page
-                        .getBody()
-                        .addClass(themeClassName);
+        if (Strings.isNullOrEmpty(waKitCode)) {
+            JavascriptReference javascriptReference;
+            page.addJavaScriptReference(javascriptReference = new JavascriptReference("WebAwesome", 0.1, basePath + "webawesome.loader.js")
+                    .setPriority(RequirementsPriority.Top_Shelf)
+                    .setScriptType("module"));
+            if (!Strings.isNullOrEmpty(faKitCode)) {
+                javascriptReference.addAttribute("data-fa-kit-code", faKitCode);
             }
-            if (!Strings.isNullOrEmpty(themePalletName)) {
-                page
-                        .getBody()
-                        .addClass(themePalletName);
+            if (!Strings.isNullOrEmpty(basePath)) {
+                javascriptReference.addAttribute("data-webawesome", basePath);
             }
-            if (!Strings.isNullOrEmpty(themeBrandName)) {
-                page
-                        .getBody()
-                        .addClass(themeBrandName);
+
+            if (!Strings.isNullOrEmpty(basePath) && !Strings.isNullOrEmpty(themePath) && !Strings.isNullOrEmpty(paletesPath)) {
+                CSSReference webAwesome = new CSSReference("WebAwesome", 0.1, basePath + "styles/webawesome.css");
+                page.addCssReference(webAwesome
+                        .setPriority(RequirementsPriority.First));
+
+
+                page.addCssReference(new CSSReference("WebAwesomeTheme", 0.1, basePath + themePath)
+                        .setPriority(RequirementsPriority.First)
+                        .setSortOrder(Integer.MAX_VALUE - 100)
+                        .addAttribute("id", "webawesome-theme"));
+
+                page.addCssReference(new CSSReference("WebAwesomePalettesTheme", 0.1, basePath + paletesPath)
+                        .setPriority(RequirementsPriority.First)
+                        .setSortOrder(Integer.MAX_VALUE - 99)
+                        .addAttribute("id", "wa-pallets-theme")
+                        .addAttribute("data-wa-pallets-theme", "true"));
+
+
+                if (!Strings.isNullOrEmpty(themeClassName)) {
+                    page
+                            .getBody()
+                            .addClass(themeClassName);
+                }
+                if (!Strings.isNullOrEmpty(themePalletName)) {
+                    page
+                            .getBody()
+                            .addClass(themePalletName);
+                }
+                if (!Strings.isNullOrEmpty(themeBrandName)) {
+                    page
+                            .getBody()
+                            .addClass(themeBrandName);
+                }
             }
-        } else if (!Strings.isNullOrEmpty(waKitCode)) {
+        } else {
             page
                     .getHead()
                     .add(new Script<>("https://kit.webawesome.com/" + waKitCode + ".js").addAttribute("crossorigin", "anonymous"));

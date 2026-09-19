@@ -54,5 +54,20 @@ class WebAwesomePageConfiguratorTest {
         }
     }
 
+    @Test
+    void cloudKitDoesNotEmitTheLocalLoader() {
+        WebAwesomePageConfigurator.setWaKitCode("webawesome-kit");
+        WebAwesomePageConfigurator.setFaKitCode("fontawesome-kit");
+        try {
+            var page = new com.jwebmp.core.Page<>();
+            new WebAwesomePageConfigurator().configure(page);
+            var html = page.toString(true);
+            Assertions.assertTrue(html.contains("https://kit.webawesome.com/webawesome-kit.js"));
+            Assertions.assertFalse(html.contains("webawesome.loader.js"));
+        } finally {
+            WebAwesomePageConfigurator.setWaKitCode("");
+            WebAwesomePageConfigurator.setFaKitCode("");
+        }
+    }
 
 }
