@@ -69,13 +69,10 @@ module com.jwebmp.webawesome {
 
     exports com.jwebmp.webawesome.tokens;
 
-    requires transitive com.jwebmp.core;
 
     requires com.jwebmp.plugins.easingeffects;
-    requires com.jwebmp.core.base.angular.client;
     requires transitive com.jwebmp.plugins.fontawesome5;
 
-    requires transitive com.google.common;
 
     requires static lombok;
     requires com.jwebmp.core.angular;

@@ -17,20 +17,8 @@
     <url>https://github.com/JWebMP/WebAwesome</url>
 
     <dependencies>
-        <dependency>
-            <groupId>com.jwebmp</groupId>
-            <artifactId>jwebmp-client</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>com.jwebmp</groupId>
-            <artifactId>jwebmp-core</artifactId>
-        </dependency>
 
-        <dependency>
-            <groupId>com.guicedee</groupId>
-            <artifactId>inject</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>com.jwebmp.plugins</groupId>
