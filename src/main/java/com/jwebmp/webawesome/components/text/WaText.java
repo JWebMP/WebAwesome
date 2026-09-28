@@ -13,9 +13,10 @@ import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 /**
  * Wrapper for the WebAwesome text directive (waText) and related attributes.
- * This is a lightweight helper that renders the waText attribute and exposes
- * convenience setters for the directive's options, allowing it to be applied
- * to any tag by changing this component's tag (e.g., p, h1..h6, a, div, ul).
+ * Use it for visible page copy in WebAwesome pages. Select a semantic tag and
+ * matching typography preset explicitly: the no-argument constructor uses a
+ * div and applies waText, but does not select waBody or waHeading. It can be
+ * applied to other tags (e.g., p, h1..h6, a, div, ul) with setTag.
  *
  * Examples:
  * - new WaText().setTag("p").setWaBody("s").setText("Five boxing wizards");

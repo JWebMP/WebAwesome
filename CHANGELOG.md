@@ -6,6 +6,24 @@
 
 ---
 
+## [3.14.0]
+
+### Added
+- `wa-tag-input` with its complete 3.13 attributes, slots, events, live array binding, validation
+  bindings, and runtime method surface.
+- `wa-step` and `wa-stepper` with typed status/orientation values, SSR inputs, cancelable
+  `wa-before-step-change`, `wa-step-change`, styling properties, and navigation methods.
+- `wa-page` CSP nonce; divider labels and label styling; dialog/drawer SSR labels; and
+  zoomable-frame `allow`, `name`, and accessible `label` inputs.
+
+### Changed
+- Bumped the generated Angular dependency pin and plugin metadata to `3.14.0`.
+- Corrected Angular public import names, including `WaZoomableFrameDirective` and
+  `WaQrCodeDirective`; the legacy Java `WaImageCompare` name now renders and imports the supported
+  `wa-comparison` / `WaComparisonDirective` API.
+
+---
+
 ## [3.12.0]
 
 ### Added

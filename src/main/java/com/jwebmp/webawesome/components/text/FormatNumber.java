@@ -22,8 +22,8 @@ import lombok.Getter;
  * </p>
  */
 @Getter
-@NgImportReference(value = "WaFormatNumber", reference = "angular-awesome")
-@NgImportModule("WaFormatNumber")
+@NgImportReference(value = "WaFormatNumberDirective", reference = "angular-awesome")
+@NgImportModule("WaFormatNumberDirective")
 public class FormatNumber<J extends FormatNumber<J>> extends DivSimple<J>
 {
     /**

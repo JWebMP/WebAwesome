@@ -31,6 +31,7 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.formatdate;
     exports com.jwebmp.webawesome.components.formatnumber;
     exports com.jwebmp.webawesome.components.icon;
+    exports com.jwebmp.webawesome.components.image;
     exports com.jwebmp.webawesome.components.imagecompare;
     exports com.jwebmp.webawesome.components.include;
     exports com.jwebmp.webawesome.components.input;
@@ -56,6 +57,9 @@ module com.jwebmp.webawesome {
     exports com.jwebmp.webawesome.components.waswitch;
     exports com.jwebmp.webawesome.components.tabgroup;
     exports com.jwebmp.webawesome.components.tag;
+    exports com.jwebmp.webawesome.components.taginput;
+    exports com.jwebmp.webawesome.components.step;
+    exports com.jwebmp.webawesome.components.stepper;
     exports com.jwebmp.webawesome.components.textarea;
     exports com.jwebmp.webawesome.components.tooltip;
     exports com.jwebmp.webawesome.components.tree;
@@ -107,6 +111,7 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.formatdate to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.formatnumber to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.icon to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.image to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.imagecompare to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.include to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.input to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
@@ -132,6 +137,9 @@ module com.jwebmp.webawesome {
     opens com.jwebmp.webawesome.components.waswitch to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.tabgroup to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.tag to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.taginput to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.step to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
+    opens com.jwebmp.webawesome.components.stepper to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.textarea to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.tooltip to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;
     opens com.jwebmp.webawesome.components.tree to com.google.guice, com.jwebmp.core, tools.jackson.databind, com.jwebmp.core.angular;

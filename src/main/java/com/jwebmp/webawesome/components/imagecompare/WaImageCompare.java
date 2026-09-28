@@ -6,8 +6,7 @@ import com.jwebmp.core.base.html.DivSimple;
 import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
 /**
- * Minimal wrapper for the <wa-image-compare> component referenced in docs.
- * This mirrors wa-comparison semantics but uses the legacy/pluralized tag where applicable.
+ * Backward-compatible Java name for Web Awesome's {@code <wa-comparison>} component.
  *
  * Slots:
  * - default before/after content via explicit setters (projected with slot attributes)
@@ -18,8 +17,8 @@ import lombok.Getter;
  * - disabled: boolean flag to disable interaction
  */
 @Getter
-@NgImportReference(value = "WaImageCompareComponent", reference = "angular-awesome")
-@NgImportModule("WaImageCompareComponent")
+@NgImportReference(value = "WaComparisonDirective", reference = "angular-awesome")
+@NgImportModule("WaComparisonDirective")
 public class WaImageCompare<J extends WaImageCompare<J>> extends DivSimple<J>
 {
     private String position;
@@ -56,7 +55,7 @@ public class WaImageCompare<J extends WaImageCompare<J>> extends DivSimple<J>
     }
     public WaImageCompare()
     {
-        setTag("wa-image-compare");
+        setTag("wa-comparison");
     }
 
     @Override

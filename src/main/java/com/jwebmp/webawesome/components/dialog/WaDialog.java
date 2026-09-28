@@ -53,6 +53,7 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
      * SSR boolean — renders with-footer attribute when truthy.
      */
     private Boolean withFooterAttr;
+    private Boolean withLabelAttr;
 
     /**
      * If true, prevents the dialog from being closed by the header close button.
@@ -128,7 +129,14 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
     {
         this.withFooterAttr = withFooterAttr;
         return (J) this;
-    }    @SuppressWarnings("unchecked")
+    }
+    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabelAttr = withLabel;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
     public J setDialogHeaderDenyClose(Boolean dialogHeaderDenyClose)
     {
         this.dialogHeaderDenyClose = dialogHeaderDenyClose;
@@ -235,6 +243,10 @@ public class WaDialog<J extends WaDialog<J>> extends DivSimple<J> implements Bor
             if (withFooterAttr != null && withFooterAttr)
             {
                 addAttribute("with-footer", "");
+            }
+            if (Boolean.TRUE.equals(withLabelAttr))
+            {
+                addAttribute("with-label", "");
             }
 
             // Apply CSS custom properties

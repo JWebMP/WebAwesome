@@ -20,7 +20,7 @@ public class WaImageCompareTest
                 .toString(true);
         System.out.println(html);
 
-        assertTrue(html.startsWith("<wa-image-compare"));
+        assertTrue(html.startsWith("<wa-comparison"));
         assertTrue(html.contains("slot=\"before\""));
         assertTrue(html.contains("slot=\"after\""));
     }

@@ -5,8 +5,8 @@ import com.jwebmp.core.base.angular.client.annotations.references.NgImportRefere
 import com.jwebmp.core.base.html.DivSimple;
 import lombok.Getter;
 @Getter
-@NgImportReference(value = "WaFormatDate", reference = "angular-awesome")
-@NgImportModule("WaFormatDate")
+@NgImportReference(value = "WaFormatDateDirective", reference = "angular-awesome")
+@NgImportModule("WaFormatDateDirective")
 public class FormatDate<J extends FormatDate<J>> extends DivSimple<J>
 {
     /**

@@ -22,8 +22,8 @@ import lombok.Getter;
  * - [style.width], [style.height]
  */
 @Getter
-@NgImportReference(value = "WaZoomableFrameComponent", reference = "angular-awesome")
-@NgImportModule("WaZoomableFrameComponent")
+@NgImportReference(value = "WaZoomableFrameDirective", reference = "angular-awesome")
+@NgImportModule("WaZoomableFrameDirective")
 public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
 {
     private String zoom;
@@ -37,6 +37,9 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
      * Whether to sync the frame's theme with the parent page.
      */
     private Boolean withThemeSync;
+    private String allow;
+    private String name;
+    private String label;
 
     // Optional inline size helpers
     private String width;
@@ -76,7 +79,26 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
     {
         this.withThemeSync = withThemeSync;
         return (J) this;
-    }    @SuppressWarnings("unchecked")
+    }
+    @SuppressWarnings("unchecked")
+    public J setAllow(String allow)
+    {
+        this.allow = allow;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setName(String name)
+    {
+        this.name = name;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setLabel(String label)
+    {
+        this.label = label;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
     public J setWidth(String width)
     {
         this.width = width;
@@ -124,6 +146,18 @@ public class WaZoomableFrame<J extends WaZoomableFrame<J>> extends DivSimple<J>
             if (Boolean.TRUE.equals(withThemeSync))
             {
                 addAttribute("with-theme-sync", "");
+            }
+            if (allow != null)
+            {
+                addAttribute("allow", allow);
+            }
+            if (name != null)
+            {
+                addAttribute("name", name);
+            }
+            if (label != null)
+            {
+                addAttribute("label", label);
             }
             if (width != null)
             {

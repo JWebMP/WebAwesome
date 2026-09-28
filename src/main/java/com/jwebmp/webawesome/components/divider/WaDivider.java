@@ -7,6 +7,7 @@ import com.google.common.base.Strings;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportModule;
 import com.jwebmp.core.base.angular.client.annotations.references.NgImportReference;
 import com.jwebmp.core.base.html.DivSimple;
+import com.jwebmp.core.base.interfaces.IComponentHierarchyBase;
 import lombok.Getter;
 /**
  * Dividers visually separate or group elements.
@@ -67,6 +68,11 @@ public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements B
      */
     @Deprecated(since = "2025-08-09", forRemoval = true)
     private Boolean vertical;
+    private Boolean withLabel;
+    private String labelPlacement;
+    private String labelSpacing;
+    private String labelOffset;
+    private IComponentHierarchyBase<?, ?> label;
     @SuppressWarnings("unchecked")
     public J setColor(String color)
     {
@@ -93,6 +99,36 @@ public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements B
         this.vertical = vertical;
         return (J) this;
     }
+    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabel = withLabel;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setLabelPlacement(String labelPlacement)
+    {
+        this.labelPlacement = labelPlacement;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setLabelSpacing(String labelSpacing)
+    {
+        this.labelSpacing = labelSpacing;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setLabelOffset(String labelOffset)
+    {
+        this.labelOffset = labelOffset;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
+    public J setLabel(IComponentHierarchyBase<?, ?> label)
+    {
+        this.label = label;
+        return (J) this;
+    }
     public WaDivider()
     {
         setTag("wa-divider");
@@ -115,6 +151,14 @@ public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements B
             {
                 addStyle("--spacing", spacing);
             }
+            if (!Strings.isNullOrEmpty(labelSpacing))
+            {
+                addStyle("--label-spacing", labelSpacing);
+            }
+            if (!Strings.isNullOrEmpty(labelOffset))
+            {
+                addStyle("--label-offset", labelOffset);
+            }
             
             // Apply orientation attribute if specified
             if (!Strings.isNullOrEmpty(orientation))
@@ -125,6 +169,18 @@ public class WaDivider<J extends WaDivider<J>> extends DivSimple<J> implements B
             else if (vertical != null && vertical)
             {
                 addAttribute("vertical", "");
+            }
+            if (Boolean.TRUE.equals(withLabel))
+            {
+                addAttribute("with-label", "");
+            }
+            if (!Strings.isNullOrEmpty(labelPlacement))
+            {
+                addAttribute("label-placement", labelPlacement);
+            }
+            if (label != null)
+            {
+                add(label);
             }
         }
         super.init();

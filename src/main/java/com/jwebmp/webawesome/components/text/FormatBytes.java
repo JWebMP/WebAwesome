@@ -10,8 +10,8 @@ import lombok.Getter;
  * It supports different units, display formats, and localization.
  */
 @Getter
-@NgImportReference(value = "WaFormatBytes", reference = "angular-awesome")
-@NgImportModule("WaFormatBytes")
+@NgImportReference(value = "WaFormatBytesDirective", reference = "angular-awesome")
+@NgImportModule("WaFormatBytesDirective")
 public class FormatBytes<J extends FormatBytes<J>> extends DivSimple<J>
 {
     /**

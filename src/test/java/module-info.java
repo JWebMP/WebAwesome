@@ -34,6 +34,7 @@ module web.awesome.test {
     opens com.jwebmp.webawesome.test.formatnumber to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.icon to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.imagecompare to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.image to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.comparison to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.include to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.input to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
@@ -55,6 +56,9 @@ module web.awesome.test {
     opens com.jwebmp.webawesome.test.splitpanel to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.tabgroup to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.tag to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.taginput to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.step to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
+    opens com.jwebmp.webawesome.test.stepper to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.textarea to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.tooltip to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;
     opens com.jwebmp.webawesome.test.tree to tools.jackson.databind, com.jwebmp.core, org.junit.platform.commons;

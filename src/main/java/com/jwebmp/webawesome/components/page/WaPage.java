@@ -173,6 +173,16 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
      */
     private Boolean disableNavigationToggle;
 
+    /** CSP nonce applied to the media-query style injected by {@code <wa-page>}. */
+    private String nonce;
+
+    @SuppressWarnings("unchecked")
+    public J setNonce(String nonce)
+    {
+        this.nonce = nonce;
+        return (J) this;
+    }
+
     /**
      * Default constructor for the WaPage class.
      * Initializes the component with a default tag of `wa-page`.
@@ -479,6 +489,10 @@ public class WaPage<J extends WaPage<J>> extends DivSimple<J> implements Breakpo
             if (disableNavigationToggle != null && disableNavigationToggle)
             {
                 addAttribute("disable-navigation-toggle", "");
+            }
+            if (nonce != null)
+            {
+                addAttribute("nonce", nonce);
             }
         }
         super.init();

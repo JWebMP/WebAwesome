@@ -50,6 +50,7 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements Bor
      * SSR boolean — renders with-footer attribute when truthy.
      */
     private Boolean withFooterAttr;
+    private Boolean withLabelAttr;
 
     /**
      * Slide direction. Default is 'end'.
@@ -120,7 +121,14 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements Bor
     {
         this.withFooterAttr = withFooterAttr;
         return (J) this;
-    }    @SuppressWarnings("unchecked")
+    }
+    @SuppressWarnings("unchecked")
+    public J setWithLabel(Boolean withLabel)
+    {
+        this.withLabelAttr = withLabel;
+        return (J) this;
+    }
+    @SuppressWarnings("unchecked")
     public J setPlacement(Placement placement)
     {
         this.placement = placement;
@@ -199,6 +207,10 @@ public class WaDrawer<J extends WaDrawer<J>> extends DivSimple<J> implements Bor
             if (withFooterAttr != null && withFooterAttr)
             {
                 addAttribute("with-footer", "");
+            }
+            if (Boolean.TRUE.equals(withLabelAttr))
+            {
+                addAttribute("with-label", "");
             }
             if (placement != null)
             {

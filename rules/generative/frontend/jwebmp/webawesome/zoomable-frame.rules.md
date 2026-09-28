@@ -1,21 +1,16 @@
-# WaZoomableFrame Rules — Web Awesome 3.4.1
+# WaZoomableFrame Rules — Web Awesome 3.14
 
-## Component
-- **Tag:** `wa-zoomable-frame`
-- **Java Class:** `com.jwebmp.webawesome.components.zoom.WaZoomableFrame`
+`WaZoomableFrame` renders `<wa-zoomable-frame>` and imports the public Angular Awesome
+`WaZoomableFrameDirective` export.
 
-## Attributes
+The 3.14 iframe and accessibility inputs are `allow` (`setAllow`), `name` (`setName`), and `label`
+(`setLabel`). Existing zoom, pan, disabled, theme-sync, width, and height setters and binding helpers
+remain available.
 
-| Attribute        | Java Field / Setter                | Type    | Notes                  |
-|------------------|------------------------------------|---------|------------------------|
-| `zoom`           | `setZoom(String)`                  | String  |                        |
-| `min-zoom`       | `setMinZoom(String)`               | String  |                        |
-| `max-zoom`       | `setMaxZoom(String)`               | String  |                        |
-| `pan-x`          | `setPanX(String)`                  | String  |                        |
-| `pan-y`          | `setPanY(String)`                  | String  |                        |
-| `disabled`       | `setDisabled(Boolean)`             | Boolean | Boolean attribute      |
-| `with-theme-sync`| `setWithThemeSync(Boolean)`        | Boolean | **New in 3.4.1** — boolean attribute |
-
-## Binding Helpers
-- `bindZoom`, `bindMinZoom`, `bindMaxZoom`, `bindPanX`, `bindPanY`, `bindDisabled`, `bindWidth`, `bindHeight`
-
+```java
+new WaZoomableFrame<>()
+        .setAllow("clipboard-write; fullscreen")
+        .setName("preview")
+        .setLabel("Document preview")
+        .setWithThemeSync(true);
+```

@@ -11,8 +11,8 @@ import lombok.Getter;
  * This class provides methods to configure the QR code's attributes.
  */
 @Getter
-@NgImportReference(value = "WaQRCodeDirective", reference = "angular-awesome")
-@NgImportModule("WaQRCodeDirective")
+@NgImportReference(value = "WaQrCodeDirective", reference = "angular-awesome")
+@NgImportModule("WaQrCodeDirective")
 public class WaQRCode<J extends WaQRCode<J>> extends DivSimple<J>
 {
     /**
